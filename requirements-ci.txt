@@ -1,0 +1,9 @@
+# Minimal set for CI + quickstart + offline tests.
+# pymatgen is required: src/ modules import Composition at module level.
+# matminer deliberately excluded (heavy; only the notebook uses it, and CI never runs the notebook).
+numpy
+pandas
+scikit-learn
+xgboost
+pymatgen
+pytest

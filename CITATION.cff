@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+title: "Lead-free double perovskite screening: XGBoost property prediction with composition-aware derating and Monte Carlo technico-economic analysis"
+message: "If you use this code or data, please cite as follows."
+type: software
+authors:
+  - family-names: "Khoiruddin"
+    given-names: "Havid Aqoma"
+    orcid: "https://orcid.org/0000-0003-1264-1916"
+    affiliation: "Xiamen University Malaysia"
+repository-code: "https://github.com/havidaqoma/perovskite-screening-ml-tea"
+license: MIT
+version: "1.0.0"
+date-released: "2026-09-02"

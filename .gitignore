@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Secrets: never commit real keys. Use .env + python-dotenv or your shell.
+.env
+
+# Regenerable caches / run outputs (keep directory skeleton tracked)
+.pytest_cache/
+data/*
+!data/.gitkeep
+outputs/*
+!outputs/.gitkeep
+
+# Large artifacts intentionally not redistributed (see REPRODUCIBILITY.md)
+*.pt
+*.joblib
+
+# OS
+.DS_Store
+Thumbs.db
+
+# User's local upload guide: references the private repo and key rotation — never ships public
+UPLOAD_CHECKLIST.md
