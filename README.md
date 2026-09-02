@@ -1,5 +1,7 @@
 # Lead-Free Double Perovskite Screening: ML + Monte Carlo TEA
 
+[![CI](https://github.com/havidaqoma/perovskite-screening-ml-tea/actions/workflows/ci.yml/badge.svg)](https://github.com/havidaqoma/perovskite-screening-ml-tea/actions/workflows/ci.yml)
+
 A screening study that chains XGBoost property prediction with a 50,000-iteration
 Monte Carlo techno-economic analysis (TEA) to find economically viable, lead-free
 double perovskites for solar cells. 3,280 candidates screened, scored on levelized
