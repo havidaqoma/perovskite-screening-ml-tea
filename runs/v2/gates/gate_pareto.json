@@ -1,0 +1,28 @@
+{
+  "checks": {
+    "F-G1_pareto_valid": {
+      "pass": true,
+      "n_front1": 5,
+      "n_nondominated_bruteforce": 5
+    },
+    "F-G2_front_consistency": {
+      "pass": true,
+      "offending": []
+    },
+    "F-G3_figures_fresh": {
+      "pass": true,
+      "fig1_funnel": true,
+      "fig2_ml_audit": true,
+      "fig3_stability": true,
+      "fig4_tea": true,
+      "fig5_candidates": true
+    },
+    "F-G4_values_trace": {
+      "pass": true,
+      "fig5_optimistic_recomputed": 3.80403,
+      "tolerance": 0.006280000000000001,
+      "fig5_optimistic_metric": 3.8039870099999993
+    }
+  },
+  "pass": true
+}

@@ -1,0 +1,77 @@
+{
+  "stage": "s11_ml_eval",
+  "fingerprint": "18d04bdbd28a71bed6f2db4b3cb34c812b1e168157a3b5e60c6cd79a76b73766",
+  "inputs": {
+    "train_v2": {
+      "path": "runs\\v2\\data\\train_v2.csv",
+      "sha256": "aa490bbe75449e0fc91dc381f57ba0d1f72058d94f6479d507e35515e11f102c"
+    }
+  },
+  "params": {
+    "device": "cuda",
+    "folds": 5,
+    "alpha": 0.1,
+    "seed": 42,
+    "xgb": {
+      "n_estimators": 1239,
+      "max_depth": 9,
+      "learning_rate": 0.041692845270894896,
+      "subsample": 0.9270593186624888,
+      "colsample_bytree": 0.6766397361548855,
+      "min_child_weight": 2
+    }
+  },
+  "outputs": {
+    "data/featurize_failed.csv": "ae51271db150772b3ae2f0b3a77c57d2606caff9566083f4ea7e87710aac82e9",
+    "splits/v2_splits.json": "0f7253b5f674e1304d1f55b313355cd5dfe5ac49a91575cf76eb198c8aa29c53",
+    "predictions/oof_v2.csv": "bdfd7afee51d73276a17998f5d914ba6c10e9d390f501a8f329a4181f91cc037",
+    "metrics/ml_eval_v2.json": "5069f6d5706cd203b08e51665f4c5df4502016aa8b3e3d5026b86ff63af685f9"
+  },
+  "metrics": {
+    "n_rows": 188035,
+    "conformal": {
+      "random": {
+        "alpha": 0.1,
+        "coverage_pooled": 0.8997156335782501,
+        "coverage_folds": [
+          0.8989675516224189,
+          0.9016232169208067,
+          0.9016977225672878,
+          0.8948870586316562,
+          0.9014631726874431
+        ],
+        "width_median": 1.9667076087859758,
+        "width_p90": 3.549823733509642
+      },
+      "chemsys": {
+        "alpha": 0.1,
+        "coverage_pooled": 0.8947351118562716,
+        "coverage_folds": [
+          0.8967710371819961,
+          0.8961260456428165,
+          0.894484412470024,
+          0.8896210873146623,
+          0.8966492059532718
+        ],
+        "width_median": 1.984901896771536,
+        "width_p90": 3.5261907660585994
+      }
+    }
+  },
+  "env": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "pymatgen": "2026.3.23",
+    "matminer": "0.10.1",
+    "xgboost": "3.2.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "optuna": "4.8.0"
+  },
+  "git": "9df09b0-dirty",
+  "seconds": 2250.03,
+  "finished_utc": "2026-09-28T18:35:38Z"
+}

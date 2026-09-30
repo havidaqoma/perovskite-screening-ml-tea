@@ -1,0 +1,9 @@
+{
+  "n": 3276,
+  "mae_sigma_used": 0.3489078651419837,
+  "top10_median_lcoe": 0.03671585401358774,
+  "top1": "K2WFeS3Br3",
+  "lifetime_unique_values": [
+    30.0
+  ]
+}

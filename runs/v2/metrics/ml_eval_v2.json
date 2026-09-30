@@ -1,0 +1,1537 @@
+{
+  "results": [
+    {
+      "split": "random",
+      "task": "gap_semi",
+      "model": "mean",
+      "mae_pooled": 1.2559058005477006,
+      "mae_fold_mean": 1.2559150028166635,
+      "mae_fold_sd": 0.0047963025575461,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 12204,
+          "mae": 1.2624607148105862
+        },
+        {
+          "fold": 1,
+          "n_test": 12198,
+          "mae": 1.2524796689799087
+        },
+        {
+          "fold": 2,
+          "n_test": 12075,
+          "mae": 1.2538265445061663
+        },
+        {
+          "fold": 3,
+          "n_test": 12263,
+          "mae": 1.250136647481975
+        },
+        {
+          "fold": 4,
+          "n_test": 12097,
+          "mae": 1.260671438304681
+        }
+      ]
+    },
+    {
+      "split": "random",
+      "task": "gap_semi",
+      "model": "ridge",
+      "mae_pooled": 0.9441190156631016,
+      "mae_fold_mean": 0.9441257667379925,
+      "mae_fold_sd": 0.0037453952748025374,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 12204,
+          "mae": 0.9432042270796372
+        },
+        {
+          "fold": 1,
+          "n_test": 12198,
+          "mae": 0.9395994206774064
+        },
+        {
+          "fold": 2,
+          "n_test": 12075,
+          "mae": 0.9422487058901159
+        },
+        {
+          "fold": 3,
+          "n_test": 12263,
+          "mae": 0.9447507981461997
+        },
+        {
+          "fold": 4,
+          "n_test": 12097,
+          "mae": 0.9508256818966034
+        }
+      ]
+    },
+    {
+      "split": "random",
+      "task": "gap_semi",
+      "model": "rf",
+      "mae_pooled": 0.6017544390717916,
+      "mae_fold_mean": 0.60177104035906,
+      "mae_fold_sd": 0.005211878787061697,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 12204,
+          "mae": 0.5999926245227587
+        },
+        {
+          "fold": 1,
+          "n_test": 12198,
+          "mae": 0.5961101937733252
+        },
+        {
+          "fold": 2,
+          "n_test": 12075,
+          "mae": 0.600946083712239
+        },
+        {
+          "fold": 3,
+          "n_test": 12263,
+          "mae": 0.6001681152979993
+        },
+        {
+          "fold": 4,
+          "n_test": 12097,
+          "mae": 0.611638184488978
+        }
+      ]
+    },
+    {
+      "split": "random",
+      "task": "gap_semi",
+      "model": "xgb",
+      "mae_pooled": 0.47948678886289314,
+      "mae_fold_mean": 0.4794969447867531,
+      "mae_fold_sd": 0.0059142157689756865,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 12204,
+          "mae": 0.4769595952740347
+        },
+        {
+          "fold": 1,
+          "n_test": 12198,
+          "mae": 0.4722109949320517
+        },
+        {
+          "fold": 2,
+          "n_test": 12075,
+          "mae": 0.47704030064928515
+        },
+        {
+          "fold": 3,
+          "n_test": 12263,
+          "mae": 0.4815178798608389
+        },
+        {
+          "fold": 4,
+          "n_test": 12097,
+          "mae": 0.4897559532175549
+        }
+      ]
+    },
+    {
+      "split": "random",
+      "task": "gap_all",
+      "model": "mean",
+      "mae_pooled": 0.9731322737982323,
+      "mae_fold_mean": 0.9731322737982323,
+      "mae_fold_sd": 0.0020753997393072768,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 37607,
+          "mae": 0.9767114020351199
+        },
+        {
+          "fold": 1,
+          "n_test": 37607,
+          "mae": 0.9734313332100061
+        },
+        {
+          "fold": 2,
+          "n_test": 37607,
+          "mae": 0.972623153051394
+        },
+        {
+          "fold": 3,
+          "n_test": 37607,
+          "mae": 0.970285347321622
+        },
+        {
+          "fold": 4,
+          "n_test": 37607,
+          "mae": 0.9726101333730197
+        }
+      ]
+    },
+    {
+      "split": "random",
+      "task": "gap_all",
+      "model": "ridge",
+      "mae_pooled": 0.6266336045619121,
+      "mae_fold_mean": 0.6266336045619121,
+      "mae_fold_sd": 0.0026939910581240314,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 37607,
+          "mae": 0.6287384487201791
+        },
+        {
+          "fold": 1,
+          "n_test": 37607,
+          "mae": 0.6233027945503479
+        },
+        {
+          "fold": 2,
+          "n_test": 37607,
+          "mae": 0.6244255581475466
+        },
+        {
+          "fold": 3,
+          "n_test": 37607,
+          "mae": 0.6261154836582674
+        },
+        {
+          "fold": 4,
+          "n_test": 37607,
+          "mae": 0.6305857377332195
+        }
+      ]
+    },
+    {
+      "split": "random",
+      "task": "gap_all",
+      "model": "rf",
+      "mae_pooled": 0.325074240002171,
+      "mae_fold_mean": 0.32507424000217106,
+      "mae_fold_sd": 0.0018183991487519197,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 37607,
+          "mae": 0.3250274833587224
+        },
+        {
+          "fold": 1,
+          "n_test": 37607,
+          "mae": 0.3242076363790308
+        },
+        {
+          "fold": 2,
+          "n_test": 37607,
+          "mae": 0.32364564123421974
+        },
+        {
+          "fold": 3,
+          "n_test": 37607,
+          "mae": 0.32390039449419533
+        },
+        {
+          "fold": 4,
+          "n_test": 37607,
+          "mae": 0.32859004454468693
+        }
+      ]
+    },
+    {
+      "split": "random",
+      "task": "gap_all",
+      "model": "xgb",
+      "mae_pooled": 0.2567923571365203,
+      "mae_fold_mean": 0.2567923571365204,
+      "mae_fold_sd": 0.0023267657204177816,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 37607,
+          "mae": 0.25608167081122823
+        },
+        {
+          "fold": 1,
+          "n_test": 37607,
+          "mae": 0.25479393418894086
+        },
+        {
+          "fold": 2,
+          "n_test": 37607,
+          "mae": 0.25467745826617033
+        },
+        {
+          "fold": 3,
+          "n_test": 37607,
+          "mae": 0.2574068490741744
+        },
+        {
+          "fold": 4,
+          "n_test": 37607,
+          "mae": 0.2610018733420881
+        }
+      ]
+    },
+    {
+      "split": "random",
+      "task": "ef",
+      "model": "mean",
+      "mae_pooled": 0.7698489658367137,
+      "mae_fold_mean": 0.7698489658367137,
+      "mae_fold_sd": 0.0015742501271575047,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 37607,
+          "mae": 0.7687320658826005
+        },
+        {
+          "fold": 1,
+          "n_test": 37607,
+          "mae": 0.7690592341356018
+        },
+        {
+          "fold": 2,
+          "n_test": 37607,
+          "mae": 0.768490899511016
+        },
+        {
+          "fold": 3,
+          "n_test": 37607,
+          "mae": 0.7727748961057818
+        },
+        {
+          "fold": 4,
+          "n_test": 37607,
+          "mae": 0.7701877335485683
+        }
+      ]
+    },
+    {
+      "split": "random",
+      "task": "ef",
+      "model": "ridge",
+      "mae_pooled": 0.2595617244805643,
+      "mae_fold_mean": 0.25956172448056425,
+      "mae_fold_sd": 0.002598405543501986,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 37607,
+          "mae": 0.2560565069118394
+        },
+        {
+          "fold": 1,
+          "n_test": 37607,
+          "mae": 0.25742599630270885
+        },
+        {
+          "fold": 2,
+          "n_test": 37607,
+          "mae": 0.2618189103551355
+        },
+        {
+          "fold": 3,
+          "n_test": 37607,
+          "mae": 0.26299872164481636
+        },
+        {
+          "fold": 4,
+          "n_test": 37607,
+          "mae": 0.25950848718832126
+        }
+      ]
+    },
+    {
+      "split": "random",
+      "task": "ef",
+      "model": "rf",
+      "mae_pooled": 0.11012349592731568,
+      "mae_fold_mean": 0.1101234959273157,
+      "mae_fold_sd": 0.001216381143869358,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 37607,
+          "mae": 0.10825639989900016
+        },
+        {
+          "fold": 1,
+          "n_test": 37607,
+          "mae": 0.10955940701841126
+        },
+        {
+          "fold": 2,
+          "n_test": 37607,
+          "mae": 0.11082336749107372
+        },
+        {
+          "fold": 3,
+          "n_test": 37607,
+          "mae": 0.11188501207718327
+        },
+        {
+          "fold": 4,
+          "n_test": 37607,
+          "mae": 0.11009329315091006
+        }
+      ]
+    },
+    {
+      "split": "random",
+      "task": "ef",
+      "model": "xgb",
+      "mae_pooled": 0.08960527089616445,
+      "mae_fold_mean": 0.08960527089616444,
+      "mae_fold_sd": 0.0010850255498848424,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 37607,
+          "mae": 0.08767126713083234
+        },
+        {
+          "fold": 1,
+          "n_test": 37607,
+          "mae": 0.09025084337030916
+        },
+        {
+          "fold": 2,
+          "n_test": 37607,
+          "mae": 0.09088029445624843
+        },
+        {
+          "fold": 3,
+          "n_test": 37607,
+          "mae": 0.08983945319303056
+        },
+        {
+          "fold": 4,
+          "n_test": 37607,
+          "mae": 0.08938449633040171
+        }
+      ]
+    },
+    {
+      "split": "random",
+      "task": "metal_cls",
+      "model": "xgb_cls",
+      "roc_auc": 0.9680598636721939,
+      "balanced_acc": 0.9074439187758666,
+      "frac_semi": 0.323540830164597
+    },
+    {
+      "split": "random",
+      "task": "gap_all",
+      "model": "cascade_xgb",
+      "mae_pooled": 0.25922880696660056
+    },
+    {
+      "split": "chemsys",
+      "task": "gap_semi",
+      "model": "mean",
+      "mae_pooled": 1.2559290606984868,
+      "mae_fold_mean": 1.2559170438495346,
+      "mae_fold_sd": 0.003115739888100869,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 12264,
+          "mae": 1.2524052940090415
+        },
+        {
+          "fold": 1,
+          "n_test": 12313,
+          "mae": 1.260688905081682
+        },
+        {
+          "fold": 2,
+          "n_test": 12093,
+          "mae": 1.2566838947091328
+        },
+        {
+          "fold": 3,
+          "n_test": 12140,
+          "mae": 1.2572266835199044
+        },
+        {
+          "fold": 4,
+          "n_test": 12027,
+          "mae": 1.2525804419279134
+        }
+      ]
+    },
+    {
+      "split": "chemsys",
+      "task": "gap_semi",
+      "model": "ridge",
+      "mae_pooled": 0.9455024111731462,
+      "mae_fold_mean": 0.9455002434349936,
+      "mae_fold_sd": 0.003255609744694823,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 12264,
+          "mae": 0.9492175396154013
+        },
+        {
+          "fold": 1,
+          "n_test": 12313,
+          "mae": 0.9452298408875958
+        },
+        {
+          "fold": 2,
+          "n_test": 12093,
+          "mae": 0.9448651275382957
+        },
+        {
+          "fold": 3,
+          "n_test": 12140,
+          "mae": 0.9399261927179647
+        },
+        {
+          "fold": 4,
+          "n_test": 12027,
+          "mae": 0.9482625164157104
+        }
+      ]
+    },
+    {
+      "split": "chemsys",
+      "task": "gap_semi",
+      "model": "rf",
+      "mae_pooled": 0.6155421606245228,
+      "mae_fold_mean": 0.6155480342993094,
+      "mae_fold_sd": 0.004353054971099087,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 12264,
+          "mae": 0.6136269671393829
+        },
+        {
+          "fold": 1,
+          "n_test": 12313,
+          "mae": 0.6124444404551349
+        },
+        {
+          "fold": 2,
+          "n_test": 12093,
+          "mae": 0.6180442538423366
+        },
+        {
+          "fold": 3,
+          "n_test": 12140,
+          "mae": 0.6228120476932003
+        },
+        {
+          "fold": 4,
+          "n_test": 12027,
+          "mae": 0.6108124623664919
+        }
+      ]
+    },
+    {
+      "split": "chemsys",
+      "task": "gap_semi",
+      "model": "xgb",
+      "mae_pooled": 0.4905005501040566,
+      "mae_fold_mean": 0.4904951495745712,
+      "mae_fold_sd": 0.0020344854989148226,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 12264,
+          "mae": 0.49116010281415373
+        },
+        {
+          "fold": 1,
+          "n_test": 12313,
+          "mae": 0.4899758983380236
+        },
+        {
+          "fold": 2,
+          "n_test": 12093,
+          "mae": 0.49223803028511914
+        },
+        {
+          "fold": 3,
+          "n_test": 12140,
+          "mae": 0.4923042984354676
+        },
+        {
+          "fold": 4,
+          "n_test": 12027,
+          "mae": 0.48679741800009163
+        }
+      ]
+    },
+    {
+      "split": "chemsys",
+      "task": "gap_all",
+      "model": "mean",
+      "mae_pooled": 0.973140262875569,
+      "mae_fold_mean": 0.9731402628755689,
+      "mae_fold_sd": 0.004995112966457325,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 37607,
+          "mae": 0.9746979401825577
+        },
+        {
+          "fold": 1,
+          "n_test": 37607,
+          "mae": 0.98049586189763
+        },
+        {
+          "fold": 2,
+          "n_test": 37607,
+          "mae": 0.9719099339691514
+        },
+        {
+          "fold": 3,
+          "n_test": 37607,
+          "mae": 0.9736113882880334
+        },
+        {
+          "fold": 4,
+          "n_test": 37607,
+          "mae": 0.9649861900404724
+        }
+      ]
+    },
+    {
+      "split": "chemsys",
+      "task": "gap_all",
+      "model": "ridge",
+      "mae_pooled": 0.6271774296307332,
+      "mae_fold_mean": 0.6271774296307332,
+      "mae_fold_sd": 0.006996326693363295,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 37607,
+          "mae": 0.6313582922910748
+        },
+        {
+          "fold": 1,
+          "n_test": 37607,
+          "mae": 0.6384089747945808
+        },
+        {
+          "fold": 2,
+          "n_test": 37607,
+          "mae": 0.6257441882086497
+        },
+        {
+          "fold": 3,
+          "n_test": 37607,
+          "mae": 0.6210103392947842
+        },
+        {
+          "fold": 4,
+          "n_test": 37607,
+          "mae": 0.6193653535645763
+        }
+      ]
+    },
+    {
+      "split": "chemsys",
+      "task": "gap_all",
+      "model": "rf",
+      "mae_pooled": 0.33265682886351366,
+      "mae_fold_mean": 0.3326568288635136,
+      "mae_fold_sd": 0.006092400212830114,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 37607,
+          "mae": 0.33462892509291586
+        },
+        {
+          "fold": 1,
+          "n_test": 37607,
+          "mae": 0.3430820994749613
+        },
+        {
+          "fold": 2,
+          "n_test": 37607,
+          "mae": 0.33093911916975993
+        },
+        {
+          "fold": 3,
+          "n_test": 37607,
+          "mae": 0.3298697640789544
+        },
+        {
+          "fold": 4,
+          "n_test": 37607,
+          "mae": 0.3247642365009765
+        }
+      ]
+    },
+    {
+      "split": "chemsys",
+      "task": "gap_all",
+      "model": "xgb",
+      "mae_pooled": 0.2637737846420114,
+      "mae_fold_mean": 0.2637737846420114,
+      "mae_fold_sd": 0.0042997590016291545,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 37607,
+          "mae": 0.26411369743380064
+        },
+        {
+          "fold": 1,
+          "n_test": 37607,
+          "mae": 0.27171529054023696
+        },
+        {
+          "fold": 2,
+          "n_test": 37607,
+          "mae": 0.26210612514300674
+        },
+        {
+          "fold": 3,
+          "n_test": 37607,
+          "mae": 0.2619842361244068
+        },
+        {
+          "fold": 4,
+          "n_test": 37607,
+          "mae": 0.25894957396860585
+        }
+      ]
+    },
+    {
+      "split": "chemsys",
+      "task": "ef",
+      "model": "mean",
+      "mae_pooled": 0.7698560963174743,
+      "mae_fold_mean": 0.7698560963174742,
+      "mae_fold_sd": 0.0022609743759801266,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 37607,
+          "mae": 0.7735208469652477
+        },
+        {
+          "fold": 1,
+          "n_test": 37607,
+          "mae": 0.7695084552708434
+        },
+        {
+          "fold": 2,
+          "n_test": 37607,
+          "mae": 0.7664982313133414
+        },
+        {
+          "fold": 3,
+          "n_test": 37607,
+          "mae": 0.7692712112045166
+        },
+        {
+          "fold": 4,
+          "n_test": 37607,
+          "mae": 0.770481736833422
+        }
+      ]
+    },
+    {
+      "split": "chemsys",
+      "task": "ef",
+      "model": "ridge",
+      "mae_pooled": 0.25983584864398496,
+      "mae_fold_mean": 0.259835848643985,
+      "mae_fold_sd": 0.0006248420109848653,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 37607,
+          "mae": 0.25932077570471135
+        },
+        {
+          "fold": 1,
+          "n_test": 37607,
+          "mae": 0.25908891752436064
+        },
+        {
+          "fold": 2,
+          "n_test": 37607,
+          "mae": 0.25983190506151804
+        },
+        {
+          "fold": 3,
+          "n_test": 37607,
+          "mae": 0.2608735471834835
+        },
+        {
+          "fold": 4,
+          "n_test": 37607,
+          "mae": 0.2600640977458513
+        }
+      ]
+    },
+    {
+      "split": "chemsys",
+      "task": "ef",
+      "model": "rf",
+      "mae_pooled": 0.11393137339658366,
+      "mae_fold_mean": 0.11393137339658366,
+      "mae_fold_sd": 0.001418771267160189,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 37607,
+          "mae": 0.11572122245162934
+        },
+        {
+          "fold": 1,
+          "n_test": 37607,
+          "mae": 0.11229487258000684
+        },
+        {
+          "fold": 2,
+          "n_test": 37607,
+          "mae": 0.11408568497351156
+        },
+        {
+          "fold": 3,
+          "n_test": 37607,
+          "mae": 0.1152113715183772
+        },
+        {
+          "fold": 4,
+          "n_test": 37607,
+          "mae": 0.11234371545939342
+        }
+      ]
+    },
+    {
+      "split": "chemsys",
+      "task": "ef",
+      "model": "xgb",
+      "mae_pooled": 0.09299650339627462,
+      "mae_fold_mean": 0.0929965033962746,
+      "mae_fold_sd": 0.0008696366339686902,
+      "folds": [
+        {
+          "fold": 0,
+          "n_test": 37607,
+          "mae": 0.09447516689778128
+        },
+        {
+          "fold": 1,
+          "n_test": 37607,
+          "mae": 0.09185692552569319
+        },
+        {
+          "fold": 2,
+          "n_test": 37607,
+          "mae": 0.09294309430207688
+        },
+        {
+          "fold": 3,
+          "n_test": 37607,
+          "mae": 0.09320905071339075
+        },
+        {
+          "fold": 4,
+          "n_test": 37607,
+          "mae": 0.09249827954243095
+        }
+      ]
+    },
+    {
+      "split": "chemsys",
+      "task": "metal_cls",
+      "model": "xgb_cls",
+      "roc_auc": 0.9672953781511336,
+      "balanced_acc": 0.906529461000908,
+      "frac_semi": 0.323540830164597
+    },
+    {
+      "split": "chemsys",
+      "task": "gap_all",
+      "model": "cascade_xgb",
+      "mae_pooled": 0.265882683287147
+    },
+    {
+      "split": "lofo_anion",
+      "task": "gap_semi",
+      "model": "mean",
+      "mae_pooled": 1.2712686372519926,
+      "mae_fold_mean": 1.3800274539992332,
+      "mae_fold_sd": 0.30875651542185445,
+      "folds": [
+        {
+          "fold": "O",
+          "n_test": 25588,
+          "mae": 1.222501933208224
+        },
+        {
+          "fold": "chalcogen",
+          "n_test": 7514,
+          "mae": 0.9995520768191911
+        },
+        {
+          "fold": "F",
+          "n_test": 3803,
+          "mae": 2.0051298618747198
+        },
+        {
+          "fold": "Cl",
+          "n_test": 2208,
+          "mae": 1.427050568951745
+        },
+        {
+          "fold": "Br",
+          "n_test": 1986,
+          "mae": 1.2979849649392174
+        },
+        {
+          "fold": "I",
+          "n_test": 1793,
+          "mae": 1.3279453182023027
+        }
+      ]
+    },
+    {
+      "split": "lofo_anion",
+      "task": "gap_semi",
+      "model": "ridge",
+      "mae_pooled": 9.355266671579404,
+      "mae_fold_mean": 8.907304613772382,
+      "mae_fold_sd": 17.399918490563053,
+      "folds": [
+        {
+          "fold": "O",
+          "n_test": 25588,
+          "mae": 1.1786683734512957
+        },
+        {
+          "fold": "chalcogen",
+          "n_test": 7514,
+          "mae": 47.81071717953704
+        },
+        {
+          "fold": "F",
+          "n_test": 3803,
+          "mae": 1.6138972282409205
+        },
+        {
+          "fold": "Cl",
+          "n_test": 2208,
+          "mae": 1.0999533792271807
+        },
+        {
+          "fold": "Br",
+          "n_test": 1986,
+          "mae": 0.8775856521862366
+        },
+        {
+          "fold": "I",
+          "n_test": 1793,
+          "mae": 0.8630058699916158
+        }
+      ]
+    },
+    {
+      "split": "lofo_anion",
+      "task": "gap_semi",
+      "model": "rf",
+      "mae_pooled": 0.9971900939551369,
+      "mae_fold_mean": 0.9232340095922007,
+      "mae_fold_sd": 0.3840085352625902,
+      "folds": [
+        {
+          "fold": "O",
+          "n_test": 25588,
+          "mae": 1.072017185362832
+        },
+        {
+          "fold": "chalcogen",
+          "n_test": 7514,
+          "mae": 0.6005584128242345
+        },
+        {
+          "fold": "F",
+          "n_test": 3803,
+          "mae": 1.6748482734125878
+        },
+        {
+          "fold": "Cl",
+          "n_test": 2208,
+          "mae": 0.9426181958300444
+        },
+        {
+          "fold": "Br",
+          "n_test": 1986,
+          "mae": 0.7111442923628615
+        },
+        {
+          "fold": "I",
+          "n_test": 1793,
+          "mae": 0.5382176977606432
+        }
+      ]
+    },
+    {
+      "split": "lofo_anion",
+      "task": "gap_semi",
+      "model": "xgb",
+      "mae_pooled": 1.0130795326353117,
+      "mae_fold_mean": 0.8990678022680206,
+      "mae_fold_sd": 0.5698626924252589,
+      "folds": [
+        {
+          "fold": "O",
+          "n_test": 25588,
+          "mae": 1.0953273867364046
+        },
+        {
+          "fold": "chalcogen",
+          "n_test": 7514,
+          "mae": 0.5485051121358233
+        },
+        {
+          "fold": "F",
+          "n_test": 3803,
+          "mae": 2.0693803813166434
+        },
+        {
+          "fold": "Cl",
+          "n_test": 2208,
+          "mae": 0.7626474142826261
+        },
+        {
+          "fold": "Br",
+          "n_test": 1986,
+          "mae": 0.5366307756418994
+        },
+        {
+          "fold": "I",
+          "n_test": 1793,
+          "mae": 0.3819157434947263
+        }
+      ]
+    },
+    {
+      "split": "lofo_anion",
+      "task": "gap_all",
+      "model": "mean",
+      "mae_pooled": 1.3183201417844914,
+      "mae_fold_mean": 1.3965440498202686,
+      "mae_fold_sd": 0.35041603606318494,
+      "folds": [
+        {
+          "fold": "O",
+          "n_test": 40806,
+          "mae": 1.3247416470571705
+        },
+        {
+          "fold": "chalcogen",
+          "n_test": 14424,
+          "mae": 1.0461562131115036
+        },
+        {
+          "fold": "F",
+          "n_test": 4850,
+          "mae": 2.11801464988195
+        },
+        {
+          "fold": "Cl",
+          "n_test": 3413,
+          "mae": 1.4920572164005355
+        },
+        {
+          "fold": "Br",
+          "n_test": 3477,
+          "mae": 1.224123400165926
+        },
+        {
+          "fold": "I",
+          "n_test": 3332,
+          "mae": 1.1741711723045258
+        }
+      ]
+    },
+    {
+      "split": "lofo_anion",
+      "task": "gap_all",
+      "model": "ridge",
+      "mae_pooled": 1.162393277338739,
+      "mae_fold_mean": 1.1157558654599133,
+      "mae_fold_sd": 0.35703613013993474,
+      "folds": [
+        {
+          "fold": "O",
+          "n_test": 40806,
+          "mae": 1.259520810374258
+        },
+        {
+          "fold": "chalcogen",
+          "n_test": 14424,
+          "mae": 0.8345318142517936
+        },
+        {
+          "fold": "F",
+          "n_test": 4850,
+          "mae": 1.8078353074386841
+        },
+        {
+          "fold": "Cl",
+          "n_test": 3413,
+          "mae": 1.1669343840843778
+        },
+        {
+          "fold": "Br",
+          "n_test": 3477,
+          "mae": 0.8114172947921148
+        },
+        {
+          "fold": "I",
+          "n_test": 3332,
+          "mae": 0.814295581818252
+        }
+      ]
+    },
+    {
+      "split": "lofo_anion",
+      "task": "gap_all",
+      "model": "rf",
+      "mae_pooled": 1.0514956631980523,
+      "mae_fold_mean": 0.9313581415267057,
+      "mae_fold_sd": 0.4555555039437488,
+      "folds": [
+        {
+          "fold": "O",
+          "n_test": 40806,
+          "mae": 1.2334693848296474
+        },
+        {
+          "fold": "chalcogen",
+          "n_test": 14424,
+          "mae": 0.5644523871830729
+        },
+        {
+          "fold": "F",
+          "n_test": 4850,
+          "mae": 1.7480098747396762
+        },
+        {
+          "fold": "Cl",
+          "n_test": 3413,
+          "mae": 1.0042976267844377
+        },
+        {
+          "fold": "Br",
+          "n_test": 3477,
+          "mae": 0.5777341060852131
+        },
+        {
+          "fold": "I",
+          "n_test": 3332,
+          "mae": 0.4601854695381867
+        }
+      ]
+    },
+    {
+      "split": "lofo_anion",
+      "task": "gap_all",
+      "model": "xgb",
+      "mae_pooled": 0.99304969311884,
+      "mae_fold_mean": 0.8669025334953336,
+      "mae_fold_sd": 0.5238436488294312,
+      "folds": [
+        {
+          "fold": "O",
+          "n_test": 40806,
+          "mae": 1.1702680123959392
+        },
+        {
+          "fold": "chalcogen",
+          "n_test": 14424,
+          "mae": 0.5125339719218233
+        },
+        {
+          "fold": "F",
+          "n_test": 4850,
+          "mae": 1.8477200614894191
+        },
+        {
+          "fold": "Cl",
+          "n_test": 3413,
+          "mae": 0.8945224387408686
+        },
+        {
+          "fold": "Br",
+          "n_test": 3477,
+          "mae": 0.45047166924644977
+        },
+        {
+          "fold": "I",
+          "n_test": 3332,
+          "mae": 0.3258990471775014
+        }
+      ]
+    },
+    {
+      "split": "lofo_anion",
+      "task": "ef",
+      "model": "mean",
+      "mae_pooled": 0.9480179692642684,
+      "mae_fold_mean": 0.8577938034291245,
+      "mae_fold_sd": 0.17843629141444683,
+      "folds": [
+        {
+          "fold": "O",
+          "n_test": 40806,
+          "mae": 0.9583645299184763
+        },
+        {
+          "fold": "chalcogen",
+          "n_test": 14424,
+          "mae": 1.0693817440250521
+        },
+        {
+          "fold": "F",
+          "n_test": 4850,
+          "mae": 1.0417282915926616
+        },
+        {
+          "fold": "Cl",
+          "n_test": 3413,
+          "mae": 0.6897755247526395
+        },
+        {
+          "fold": "Br",
+          "n_test": 3477,
+          "mae": 0.5930723726072535
+        },
+        {
+          "fold": "I",
+          "n_test": 3332,
+          "mae": 0.7944403576786633
+        }
+      ]
+    },
+    {
+      "split": "lofo_anion",
+      "task": "ef",
+      "model": "ridge",
+      "mae_pooled": 0.6196173882829354,
+      "mae_fold_mean": 0.5407979134943983,
+      "mae_fold_sd": 0.1934072912228436,
+      "folds": [
+        {
+          "fold": "O",
+          "n_test": 40806,
+          "mae": 0.6087485428670812
+        },
+        {
+          "fold": "chalcogen",
+          "n_test": 14424,
+          "mae": 0.7865845270826873
+        },
+        {
+          "fold": "F",
+          "n_test": 4850,
+          "mae": 0.7533003096659784
+        },
+        {
+          "fold": "Cl",
+          "n_test": 3413,
+          "mae": 0.3188730711188155
+        },
+        {
+          "fold": "Br",
+          "n_test": 3477,
+          "mae": 0.2919495575942917
+        },
+        {
+          "fold": "I",
+          "n_test": 3332,
+          "mae": 0.48533147263753523
+        }
+      ]
+    },
+    {
+      "split": "lofo_anion",
+      "task": "ef",
+      "model": "rf",
+      "mae_pooled": 0.5357377233845327,
+      "mae_fold_mean": 0.43872074941410183,
+      "mae_fold_sd": 0.3147304799196988,
+      "folds": [
+        {
+          "fold": "O",
+          "n_test": 40806,
+          "mae": 0.6447647227654546
+        },
+        {
+          "fold": "chalcogen",
+          "n_test": 14424,
+          "mae": 0.27826990516783123
+        },
+        {
+          "fold": "F",
+          "n_test": 4850,
+          "mae": 1.0536481810504406
+        },
+        {
+          "fold": "Cl",
+          "n_test": 3413,
+          "mae": 0.23228564585131078
+        },
+        {
+          "fold": "Br",
+          "n_test": 3477,
+          "mae": 0.17787670282723778
+        },
+        {
+          "fold": "I",
+          "n_test": 3332,
+          "mae": 0.245479338822336
+        }
+      ]
+    },
+    {
+      "split": "lofo_anion",
+      "task": "ef",
+      "model": "xgb",
+      "mae_pooled": 0.5490322488719249,
+      "mae_fold_mean": 0.4988247542471255,
+      "mae_fold_sd": 0.5015819499982552,
+      "folds": [
+        {
+          "fold": "O",
+          "n_test": 40806,
+          "mae": 0.6203671077183907
+        },
+        {
+          "fold": "chalcogen",
+          "n_test": 14424,
+          "mae": 0.26724913529203204
+        },
+        {
+          "fold": "F",
+          "n_test": 4850,
+          "mae": 1.5642716545721225
+        },
+        {
+          "fold": "Cl",
+          "n_test": 3413,
+          "mae": 0.20963725016679605
+        },
+        {
+          "fold": "Br",
+          "n_test": 3477,
+          "mae": 0.15207780057482956
+        },
+        {
+          "fold": "I",
+          "n_test": 3332,
+          "mae": 0.17934557715858218
+        }
+      ]
+    },
+    {
+      "split": "lofo_anion",
+      "task": "metal_cls",
+      "model": "xgb_cls",
+      "roc_auc": 0.7550486955639207,
+      "balanced_acc": 0.6685839004172022,
+      "frac_semi": 0.6101106654149242
+    },
+    {
+      "split": "lofo_anion",
+      "task": "gap_all",
+      "model": "cascade_xgb",
+      "mae_pooled": 1.0378176822049283
+    }
+  ],
+  "conformal": {
+    "random": {
+      "alpha": 0.1,
+      "coverage_pooled": 0.8997156335782501,
+      "coverage_folds": [
+        0.8989675516224189,
+        0.9016232169208067,
+        0.9016977225672878,
+        0.8948870586316562,
+        0.9014631726874431
+      ],
+      "width_median": 1.9667076087859758,
+      "width_p90": 3.549823733509642
+    },
+    "chemsys": {
+      "alpha": 0.1,
+      "coverage_pooled": 0.8947351118562716,
+      "coverage_folds": [
+        0.8967710371819961,
+        0.8961260456428165,
+        0.894484412470024,
+        0.8896210873146623,
+        0.8966492059532718
+      ],
+      "width_median": 1.984901896771536,
+      "width_p90": 3.5261907660585994
+    }
+  },
+  "n_rows": 188035,
+  "n_featurize_failed": 2,
+  "feature_names": [
+    "MagpieData minimum Number",
+    "MagpieData maximum Number",
+    "MagpieData range Number",
+    "MagpieData mean Number",
+    "MagpieData avg_dev Number",
+    "MagpieData mode Number",
+    "MagpieData minimum MendeleevNumber",
+    "MagpieData maximum MendeleevNumber",
+    "MagpieData range MendeleevNumber",
+    "MagpieData mean MendeleevNumber",
+    "MagpieData avg_dev MendeleevNumber",
+    "MagpieData mode MendeleevNumber",
+    "MagpieData minimum AtomicWeight",
+    "MagpieData maximum AtomicWeight",
+    "MagpieData range AtomicWeight",
+    "MagpieData mean AtomicWeight",
+    "MagpieData avg_dev AtomicWeight",
+    "MagpieData mode AtomicWeight",
+    "MagpieData minimum MeltingT",
+    "MagpieData maximum MeltingT",
+    "MagpieData range MeltingT",
+    "MagpieData mean MeltingT",
+    "MagpieData avg_dev MeltingT",
+    "MagpieData mode MeltingT",
+    "MagpieData minimum Column",
+    "MagpieData maximum Column",
+    "MagpieData range Column",
+    "MagpieData mean Column",
+    "MagpieData avg_dev Column",
+    "MagpieData mode Column",
+    "MagpieData minimum Row",
+    "MagpieData maximum Row",
+    "MagpieData range Row",
+    "MagpieData mean Row",
+    "MagpieData avg_dev Row",
+    "MagpieData mode Row",
+    "MagpieData minimum CovalentRadius",
+    "MagpieData maximum CovalentRadius",
+    "MagpieData range CovalentRadius",
+    "MagpieData mean CovalentRadius",
+    "MagpieData avg_dev CovalentRadius",
+    "MagpieData mode CovalentRadius",
+    "MagpieData minimum Electronegativity",
+    "MagpieData maximum Electronegativity",
+    "MagpieData range Electronegativity",
+    "MagpieData mean Electronegativity",
+    "MagpieData avg_dev Electronegativity",
+    "MagpieData mode Electronegativity",
+    "MagpieData minimum NsValence",
+    "MagpieData maximum NsValence",
+    "MagpieData range NsValence",
+    "MagpieData mean NsValence",
+    "MagpieData avg_dev NsValence",
+    "MagpieData mode NsValence",
+    "MagpieData minimum NpValence",
+    "MagpieData maximum NpValence",
+    "MagpieData range NpValence",
+    "MagpieData mean NpValence",
+    "MagpieData avg_dev NpValence",
+    "MagpieData mode NpValence",
+    "MagpieData minimum NdValence",
+    "MagpieData maximum NdValence",
+    "MagpieData range NdValence",
+    "MagpieData mean NdValence",
+    "MagpieData avg_dev NdValence",
+    "MagpieData mode NdValence",
+    "MagpieData minimum NfValence",
+    "MagpieData maximum NfValence",
+    "MagpieData range NfValence",
+    "MagpieData mean NfValence",
+    "MagpieData avg_dev NfValence",
+    "MagpieData mode NfValence",
+    "MagpieData minimum NValence",
+    "MagpieData maximum NValence",
+    "MagpieData range NValence",
+    "MagpieData mean NValence",
+    "MagpieData avg_dev NValence",
+    "MagpieData mode NValence",
+    "MagpieData minimum NsUnfilled",
+    "MagpieData maximum NsUnfilled",
+    "MagpieData range NsUnfilled",
+    "MagpieData mean NsUnfilled",
+    "MagpieData avg_dev NsUnfilled",
+    "MagpieData mode NsUnfilled",
+    "MagpieData minimum NpUnfilled",
+    "MagpieData maximum NpUnfilled",
+    "MagpieData range NpUnfilled",
+    "MagpieData mean NpUnfilled",
+    "MagpieData avg_dev NpUnfilled",
+    "MagpieData mode NpUnfilled",
+    "MagpieData minimum NdUnfilled",
+    "MagpieData maximum NdUnfilled",
+    "MagpieData range NdUnfilled",
+    "MagpieData mean NdUnfilled",
+    "MagpieData avg_dev NdUnfilled",
+    "MagpieData mode NdUnfilled",
+    "MagpieData minimum NfUnfilled",
+    "MagpieData maximum NfUnfilled",
+    "MagpieData range NfUnfilled",
+    "MagpieData mean NfUnfilled",
+    "MagpieData avg_dev NfUnfilled",
+    "MagpieData mode NfUnfilled",
+    "MagpieData minimum NUnfilled",
+    "MagpieData maximum NUnfilled",
+    "MagpieData range NUnfilled",
+    "MagpieData mean NUnfilled",
+    "MagpieData avg_dev NUnfilled",
+    "MagpieData mode NUnfilled",
+    "MagpieData minimum GSvolume_pa",
+    "MagpieData maximum GSvolume_pa",
+    "MagpieData range GSvolume_pa",
+    "MagpieData mean GSvolume_pa",
+    "MagpieData avg_dev GSvolume_pa",
+    "MagpieData mode GSvolume_pa",
+    "MagpieData minimum GSbandgap",
+    "MagpieData maximum GSbandgap",
+    "MagpieData range GSbandgap",
+    "MagpieData mean GSbandgap",
+    "MagpieData avg_dev GSbandgap",
+    "MagpieData mode GSbandgap",
+    "MagpieData minimum GSmagmom",
+    "MagpieData maximum GSmagmom",
+    "MagpieData range GSmagmom",
+    "MagpieData mean GSmagmom",
+    "MagpieData avg_dev GSmagmom",
+    "MagpieData mode GSmagmom",
+    "MagpieData minimum SpaceGroupNumber",
+    "MagpieData maximum SpaceGroupNumber",
+    "MagpieData range SpaceGroupNumber",
+    "MagpieData mean SpaceGroupNumber",
+    "MagpieData avg_dev SpaceGroupNumber",
+    "MagpieData mode SpaceGroupNumber",
+    "Mendeleev_Mean",
+    "Mendeleev_Max",
+    "Mendeleev_Min",
+    "Mendeleev_Var",
+    "Delta_Electronegativity",
+    "Goldschmidt_Tolerance",
+    "Octahedral_Factor"
+  ]
+}

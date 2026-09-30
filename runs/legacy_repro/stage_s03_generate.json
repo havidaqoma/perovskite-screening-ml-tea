@@ -1,0 +1,79 @@
+{
+  "stage": "s03_generate",
+  "fingerprint": "eb0d1d9845582eabd49da4ac2f34e3dae074087318d5b255eb19c9bd9f0464c0",
+  "inputs": {},
+  "params": {
+    "A": [
+      "K",
+      "Rb",
+      "Cs",
+      "Na",
+      "Li"
+    ],
+    "B": [
+      "Sn",
+      "Ge",
+      "Ti",
+      "Zr",
+      "V",
+      "Nb",
+      "Ta",
+      "Cr",
+      "Mo",
+      "W",
+      "Fe",
+      "Mn",
+      "Bi",
+      "Sb",
+      "Cu",
+      "Ag",
+      "Zn",
+      "In",
+      "Ga"
+    ],
+    "X": [
+      "O",
+      "S",
+      "Se",
+      "F",
+      "Cl",
+      "Br",
+      "I"
+    ],
+    "t": [
+      0.75,
+      1.15
+    ],
+    "mu": [
+      0.35,
+      0.95
+    ]
+  },
+  "outputs": {
+    "screen/charge_balanced.csv": "599fcc272879087d8be17941348b08e33c44309e12349be6f93bf9c789483d0b",
+    "screen/steric_survivors.csv": "a8b26d1d6a13cd63397058712df23b2c0bc59df0c9ae6614659640728bce4356",
+    "metrics/funnel_generate.json": "94621bbcb1df69af2d644ecd6cf86d739b70a947f688232a69389d069c9db904"
+  },
+  "metrics": {
+    "n_generated": 23940,
+    "n_unique_generated": 23940,
+    "n_charge_balanced": 6080,
+    "n_steric": 3284
+  },
+  "env": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "pymatgen": "2026.3.23",
+    "matminer": "0.10.1",
+    "xgboost": "3.2.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "optuna": "4.8.0"
+  },
+  "git": "5ff7457-dirty",
+  "seconds": 10.41,
+  "finished_utc": "2026-09-28T16:59:20Z"
+}

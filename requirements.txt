@@ -1,6 +1,7 @@
 pymatgen>=2023.0
-numpy>=1.24
+numpy>=2.0
 pandas>=2.0
+scipy>=1.11
 scikit-learn>=1.3
 xgboost>=2.0
 optuna>=3.3
@@ -15,3 +16,10 @@ joblib>=1.3
 tqdm>=4.66
 shap>=0.45
 adjustText>=1.1
+# v2 audit pipeline (pipeline/): Materials Project client, SQ spectrum, Sobol sensitivity
+mp-api>=0.41
+pvlib>=0.11
+SALib>=1.4
+pytest>=8.0
+# Optional, not installed by default (GPU stages s12 Roost and s21 MACE; see REPRODUCIBILITY.md):
+#   torch, mace-torch, ase, aviary (roost)

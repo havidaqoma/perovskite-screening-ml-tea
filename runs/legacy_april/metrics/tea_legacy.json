@@ -1,0 +1,9 @@
+{
+  "n": 3280,
+  "mae_sigma_used": 0.3498204957238204,
+  "top10_median_lcoe": 0.03672911881657056,
+  "top1": "Na2WSbS3Br3",
+  "lifetime_unique_values": [
+    30.0
+  ]
+}

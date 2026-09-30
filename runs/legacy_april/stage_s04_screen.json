@@ -1,0 +1,62 @@
+{
+  "stage": "s04_screen",
+  "fingerprint": "6305d34f8b06575bad27a209c6ee303b0954403345145e34e3171593fbeb3d25",
+  "inputs": {
+    "steric_survivors": {
+      "path": "runs\\legacy_april\\screen\\steric_survivors.csv",
+      "sha256": "a8b26d1d6a13cd63397058712df23b2c0bc59df0c9ae6614659640728bce4356"
+    },
+    "model": {
+      "path": "xgboost_cascade_pipeline_2.joblib",
+      "sha256": "1a1f5ebb1137f15fdbd7c7ee74f3a73eb6de89a77d893880bd36c6d23fa59b55"
+    }
+  },
+  "params": {
+    "model_source": "april_joblib",
+    "eg": [
+      0.5,
+      2.5
+    ],
+    "ef_max": 1.0,
+    "toxic": [
+      "Cd",
+      "Hg",
+      "As",
+      "Tl",
+      "Pb",
+      "U",
+      "Th"
+    ]
+  },
+  "outputs": {
+    "screen/ml_predictions.csv": "e0d92aabf91e1b18ad0564b0ee6255c0337b1e122795729ce75c7e458badab53",
+    "screen/candidates.csv": "c2c9f1f9da2b0e32468e27bb4462eec147c931f23657abfe34769e89ed581d9a",
+    "metrics/funnel_screen.json": "73fa5f5cad6d6bf9a8f229aef55ca877a93ce59d354e716c3b3fb92ba998a467"
+  },
+  "metrics": {
+    "model_source": "april_joblib",
+    "n_in": 3284,
+    "n_candidates": 3280,
+    "rejections": {
+      "pass": 3280,
+      "eg_out_of_window": 4
+    },
+    "model_mae_used": 0.3498204957238204
+  },
+  "env": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "pymatgen": "2026.3.23",
+    "matminer": "0.10.1",
+    "xgboost": "3.2.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "optuna": "4.8.0"
+  },
+  "git": "59a2884-dirty",
+  "seconds": 7.82,
+  "finished_utc": "2026-09-29T01:48:25Z"
+}

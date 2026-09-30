@@ -10,8 +10,29 @@ __pycache__/
 .pytest_cache/
 data/*
 !data/.gitkeep
+!data/training_table.csv
+!data/README.md
+!data/sources/
 outputs/*
 !outputs/.gitkeep
+
+# Materials Project query cache: large and MP-licensed; rebuilt with your own free MP API key
+data/mp_cache/
+# Source copies that are not redistributable (only US-Gov and CC BY texts ship)
+data/sources/pdf/
+data/sources/lazard_*
+data/sources/pvmag_*
+data/sources/solardataatlas_*
+
+# v2 pipeline heavy regenerables (their sha256 digests are in runs/*/stage_*.json)
+runs/*/models/
+runs/*/features/
+runs/*/run_log.txt
+runs/*/*_log*.txt
+runs/v2/data/
+runs/v2/splits/
+runs/v2/predictions/
+paper/build/
 
 # Large artifacts intentionally not redistributed (see REPRODUCIBILITY.md)
 *.pt

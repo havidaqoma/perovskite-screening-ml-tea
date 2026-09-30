@@ -1,0 +1,33 @@
+# Exact pins. Mirrors the ORIGINAL WSL conda env `perovskite_ai` (Python 3.12.13) that
+# produced the April 2026 results. The pymatgen version matters: its ionic radii change the
+# steric funnel (2026.3.23 -> 3,284 survivors, matching the notebook; 2024.2.8 -> 3,615).
+# Full original conda freeze kept in the study archive (not redistributed).
+# Install:  uv venv .venv --python 3.12
+#           uv pip install --python .venv/Scripts/python.exe -r requirements-v2.lock.txt
+# torch / torch-geometric are NOT needed: the training table is exported once to
+# data/training_table.csv (see REPRODUCIBILITY.md). pymupdf is only used to extract source texts.
+numpy==2.4.3
+pandas==2.3.3
+scipy==1.17.1
+pymatgen==2026.3.23
+pymatgen-core==2026.4.16
+matminer==0.10.1
+monty==2026.2.18
+xgboost==3.2.0
+scikit-learn==1.8.0
+optuna==4.8.0
+joblib==1.5.3
+shap==0.51.0
+tqdm==4.67.3
+matplotlib==3.10.8
+seaborn==0.13.2
+adjustText==1.3.0
+mp-api==0.46.0
+emmet-core==0.86.3
+openpyxl==3.1.5
+python-docx==1.2.0
+pyyaml==6.0.2
+pytest==8.4.2
+SALib==1.6.0
+pvlib==0.16.1
+pymupdf

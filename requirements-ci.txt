@@ -1,9 +1,16 @@
-# Minimal set for CI + quickstart + offline tests.
-# pymatgen is required: src/ modules import Composition at module level.
-# matminer deliberately excluded (heavy; only the notebook uses it, and CI never runs the notebook).
-numpy
+# Minimal set for CI + quickstart + offline tests (no torch, no network, no API key).
+# pymatgen is required: src/ and pipeline/ modules import Composition at module level.
+# joblib: pipeline/s02_train, s14_screen_v2, s20_stability import it at module level.
+# matminer: pipeline/features.feature_names() builds the 132 Magpie features (tests/test_pipeline.py).
+# pvlib: pipeline/sq.py reads the ASTM G173-03 spectrum for the Shockley-Queisser test.
+# numpy>=2.0: pipeline/sq.py uses np.trapezoid.
+numpy>=2.0
 pandas
+scipy
 scikit-learn
 xgboost
+joblib
 pymatgen
+matminer
+pvlib
 pytest

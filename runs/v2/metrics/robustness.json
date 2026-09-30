@@ -1,0 +1,53 @@
+{
+  "frechet": {
+    "demonstrated": {
+      "independent": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "n_candidates_competitive_p_gt_0": 0
+    },
+    "realistic": {
+      "independent": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "n_candidates_competitive_p_gt_0": 0
+    },
+    "optimistic": {
+      "independent": 3.8039870099999993,
+      "lower": 0.5238499999999999,
+      "upper": 12.696100000000001,
+      "n_candidates_competitive_p_gt_0": 482
+    },
+    "ceiling": {
+      "independent": 55.944120870000006,
+      "lower": 19.39176,
+      "upper": 103.76273,
+      "n_candidates_competitive_p_gt_0": 1256
+    }
+  },
+  "viable_absorber": {
+    "independent": 42.0047210461298,
+    "upper": 101.51150000000001,
+    "lower": 3.198460000000002
+  },
+  "conformal_by_anion_mix": {
+    "1": {
+      "n": 42892,
+      "coverage": 0.8926839503870185
+    },
+    "2": {
+      "n": 10026,
+      "coverage": 0.8937761819269898
+    }
+  },
+  "conformal_mixed_anion_alkali": {
+    "n": 3308,
+    "coverage": 0.8938935912938332
+  },
+  "control_anion_mix": {
+    "n": 380,
+    "n_mixed_anion": 2
+  },
+  "n_train_featurized": 188035,
+  "n_train_featurize_failed": 2
+}

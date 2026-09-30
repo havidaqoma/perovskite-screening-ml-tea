@@ -1,0 +1,10 @@
+{
+  "model_source": "april_joblib",
+  "n_in": 3284,
+  "n_candidates": 3280,
+  "rejections": {
+    "pass": 3280,
+    "eg_out_of_window": 4
+  },
+  "model_mae_used": 0.3498204957238204
+}

@@ -1,0 +1,1692 @@
+<<p1>>NREL is a national laboratory of the U.S. Department of Energy 
+Office of Energy Efficiency & Renewable Energy 
+Operated by the Alliance for Sustainable Energy, LLC 
+This report is available at no cost from the National Renewable Energy 
+Laboratory (NREL) at www.nrel.gov/publications. 
+ 
+ 
+Contract No. DE-AC36-08GO28308 
+ 
+ 
+Technical Report 
+NREL/TP-7A40-87303 
+September 2023 
+U.S. Solar Photovoltaic System and 
+Energy Storage Cost Benchmarks, With 
+Minimum Sustainable Price Analysis: 
+Q1 2023 
+Vignesh Ramasamy,1 Jarett Zuboy,1 Michael Woodhouse,1 
+Eric O’Shaughnessy,2 David Feldman,1 Jal Desai,1  
+Andy Walker,1 Robert Margolis,1 and Paul Basore3 
+1 National Renewable Energy Laboratory 
+2 Clean Kilowatts, LLC 
+3 U.S. Department of Energy Solar Energy Technologies Office 
+
+<<p2>>NREL is a national laboratory of the U.S. Department of Energy 
+Office of Energy Efficiency & Renewable Energy 
+Operated by the Alliance for Sustainable Energy, LLC 
+This report is available at no cost from the National Renewable Energy 
+Laboratory (NREL) at www.nrel.gov/publications. 
+ 
+ 
+Contract No. DE-AC36-08GO28308 
+National Renewable Energy Laboratory 
+15013 Denver West Parkway 
+Golden, CO 80401 
+303-275-3000 • www.nrel.gov 
+Technical Report 
+NREL/TP-7A40-87303 
+September 2023 
+U.S. Solar Photovoltaic System and 
+Energy Storage Cost Benchmarks, With 
+Minimum Sustainable Price Analysis: 
+Q1 2023 
+Vignesh Ramasamy,1 Jarett Zuboy,1 Michael Woodhouse,1
+Eric O’Shaughnessy,2 David Feldman,1 Jal Desai,1  
+Andy Walker,1 Robert Margolis,1 and Paul Basore3 
+1 National Renewable Energy Laboratory 
+2 Clean Kilowatts, LLC 
+3 U.S. Department of Energy Solar Energy Technologies Office 
+Suggested Citation 
+Ramasamy, Vignesh, Jarett Zuboy, Michael Woodhouse, Eric O’Shaughnessy, David 
+Feldman, Jal Desai, Andy Walker, Robert Margolis, and Paul Basore. 2023. U.S. Solar 
+Photovoltaic System and Energy Storage Cost Benchmarks, With Minimum Sustainable 
+Price Analysis: Q1 2023. Golden, CO: National Renewable Energy Laboratory. NREL/TP-
+7A40-87303. https://www.nrel.gov/docs/fy23osti/87303.pdf. 
+
+<<p3>> 
+ 
+NOTICE 
+This work was authored in part by the National Renewable Energy Laboratory, operated by Alliance for Sustainable 
+Energy, LLC, for the U.S. Department of Energy (DOE) under Contract No. DE-AC36-08GO28308. Funding 
+provided by U.S. Department of Energy Office of Energy Efficiency and Renewable Energy Solar Energy 
+Technologies Office. The views expressed herein do not necessarily represent the views of the DOE or the U.S. 
+Government. 
+This report is available at no cost from the National Renewable 
+Energy Laboratory (NREL) at www.nrel.gov/publications. 
+U.S. Department of Energy (DOE) reports produced after 1991 
+and a growing number of pre-1991 documents are available  
+free via www.OSTI.gov. 
+Cover Photos by Dennis Schroeder: (clockwise, left to right) NREL 51934, NREL 45897, NREL 42160, NREL 45891, NREL 48097,  
+NREL 46526. 
+NREL prints on paper that contains recycled content. 
+
+<<p4>>iii 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+Acknowledgments 
+Because our Q1 2023 benchmarking methods required more direct input from the photovoltaic 
+(PV) and storage industries, this year we engaged with more expert participants than in recent 
+years. In February 2023, we attended Intersolar North America and Energy Storage North 
+America in Long Beach, California, where we gathered on-the-spot data and insights from more 
+than 100 exhibitors. After the conference, we conducted in-depth interviews and correspondence 
+with about 40 experts connected to the manufacturing and sale of modules, inverters, energy 
+storage systems, and balance-of-system components as well as the installation of PV and storage 
+systems. We thank all these participants for their assistance. The resulting data are aggregated 
+and anonymized in this report to develop our Q1 2023 cost benchmarks. However, to respect the 
+wishes of participants who may want to remain fully anonymous, here we only list those who 
+agreed to be acknowledged. 
+• Alencon Systems, Derek Walker, Director of Sales 
+• American Battery Solutions, Michael Hoff and Bud Collins 
+• Anderson Optimization, Jake Anderson, Co-Founder and CEO 
+• Bergstrom Inc., Stephan Erbe, Program Manager for Business Development 
+• DEHN, Inc., Ryan Fitzgerald, Business Development Manager Utilities Sector  
+• Jurchen Technology US Corp. 
+• JUWI Inc., James Antin, Project Developer 
+• KerTec, LLC 
+• Kore Power, Gregg Noble, VP of Strategic Partnerships 
+• Lawrence Berkeley National Laboratory, Galen Barbose, Research Scientist 
+• LG Energy Solution, Sarthak Rokade 
+• Nexamp, Inc. 
+• Perch Energy, Inc. 
+• PI Berlin, Don Cowan 
+• Redaptive, Inc., Ben Peters, Senior Manager – Solar and Storage Products 
+• Simple Solar, Scott Thompson, Owner 
+• Solar Gain Inc., Cole Morelli, Residential Sales Manager 
+• SolarPod, Mouli Vaidyanathan, President 
+• Solartime USA, Martyna Kowalczyk, CEO 
+• SunCentral, Pivot Energy’s community solar management team 
+• Strata Clean Energy 
+We also thank the reviewers who provided comments on our draft report, including Jake 
+Anderson (Anderson Optimization), Nate Blair (NREL), Jenny Chase (BloombergNEF), Don 
+Cowan (PI Berlin), Michael Hoff (American Battery Solutions), Brian Mirletz (NREL), Ben 
+Peters (Redaptive Inc.), Sarthak Rokade (LG Energy Solutions), Ashok Sekar (NREL), Brittany 
+Smith (NREL), and Adam Warren (NREL). Finally, we thank NREL’s Heidi McKenna for 
+logistical support and Emily Laidlaw for editing. 
+ 
+ 
+
+<<p5>>iv 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+List of Acronyms 
+ac 
+alternating current 
+AD/CVD 
+antidumping and countervailing duties 
+BLS 
+U.S. Bureau of Labor Statistics 
+BNEF 
+BloombergNEF 
+BOS 
+balance of system 
+COO 
+cost of ownership 
+CPI 
+consumer price index 
+dc 
+direct current 
+DOE 
+U.S. Department of Energy 
+EBOS 
+electrical balance of system 
+ESS 
+energy storage system 
+FRED 
+Federal Reserve Economic Data 
+GAAP 
+Generally Accepted Accounting Principles  
+IFRS 
+International Financial Reporting Standards 
+IMF 
+International Monetary Fund 
+ILR 
+inverter loading ratio 
+IRA 
+Inflation Reduction Act 
+IREC 
+Interstate Renewable Energy Council 
+kWh 
+kilowatt-hour 
+LMI 
+low- and moderate-income 
+MMP 
+modeled market price 
+MSP 
+minimum sustainable price 
+MWdc 
+megawatts direct current 
+NEM 
+net energy metering 
+NREL 
+National Renewable Energy Laboratory 
+O&M 
+operations and maintenance 
+PII 
+permitting, inspection, and interconnection 
+PV 
+photovoltaic(s) 
+Q 
+quarter 
+R&D 
+research and development 
+SBOS 
+structural balance of system 
+SEIA 
+Solar Energy Industries Association 
+SETO 
+U.S. Department of Energy Solar Energy Technologies Office 
+USD 
+U.S. dollars 
+Vdc 
+volts direct current 
+Wac 
+watts alternating current 
+Wdc 
+watts direct current 
+
+<<p6>>v 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+Executive Summary 
+The U.S. Department of Energy’s (DOE’s) Solar Energy Technologies Office (SETO) aims to 
+accelerate the advancement and deployment of solar technology in support of an equitable 
+transition to a decarbonized economy no later than 2050, starting with a decarbonized power 
+sector by 2035. Its approach to achieving this goal includes driving innovations in technology, 
+hardware, and soft cost reductions to make solar even more affordable and accessible for all. As 
+part of this effort, SETO tracks solar cost trends to focus its research and development (R&D) 
+investments on the highest-impact activities.  
+The National Renewable Energy Laboratory (NREL) publishes benchmark reports that 
+disaggregate photovoltaic (PV) and energy storage (battery) system installation costs to inform 
+SETO’s R&D investment decisions. This year, we introduce a new PV and storage cost 
+modeling approach. The PV System Cost Model (PVSCM) was developed by SETO and NREL 
+to make the cost benchmarks simpler and more transparent, while expanding to cover 
+components not previously benchmarked. High-level inputs and results are presented in this 
+report, and the full set of PVSCM inputs and results for Q1 2023 is available at 
+https://data.nrel.gov/.  
+In addition to the new modeling approach, this year’s benchmark report includes new analyses. 
+We show bottom-up manufacturing analyses for modules, inverters, and energy storage 
+components, and we model unique costs related to community solar installations. We also 
+account for PV manufacturing tax incentives available under the Inflation Reduction Act (IRA). 
+Purpose and Scope of NREL Benchmarks 
+The benchmarks in this report are bottom-up cost estimates of all major inputs to PV and energy 
+storage system (ESS) installations. Bottom-up costs are based on national averages and do not 
+necessarily represent typical costs in all local markets. Like last year’s report, this year’s report 
+includes two distinct sets of benchmarks—minimum sustainable price (MSP) benchmarks and 
+modeled market price (MMP) benchmarks: 
+• MSP benchmarks are meant to identify the lowest prices at which product suppliers can 
+remain financially solvent in the long term, based on input costs that represent the lowest 
+prices that each input supplier can charge to remain financially solvent in the long term. 
+• MMP benchmarks maintain continuity with previous benchmark reports by capturing 
+macroeconomic factors and the impact of market trends, reflecting typical national 
+system cash costs experienced by U.S. installers and passed on to U.S. consumers within 
+the analysis period.  
+These simplified estimates are useful for tracking technological progress, but they do not reflect 
+all experiences. In fact, no individual estimate under any approach can reflect the diversity of the 
+PV and storage manufacturing, installation, and maintenance industries. 
+The primary purpose of NREL’s benchmarks is to document and provide insight into the long-
+term trajectories of PV and storage system costs. The benchmarks also can be used to provide 
+insight into the disaggregated costs of individual system components. These benchmarks should 
+not be used for purposes better met by local- and customer-specific market prices and vice versa. 
+For instance, if a firm would like to know component prices for a specific location and time, then 
+
+<<p7>>vi 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+the firm should contact multiple vendors for each component. Further, the NREL benchmarks 
+typically differ from reported price data in sources such as Lawrence Berkeley National 
+Laboratory’s Tracking the Sun series. This disparity is expected because of the difference in 
+methods and purposes across the reports. For example, NREL’s bottom-up benchmarks 
+intentionally exclude optional yet common items that are included in reported system prices, 
+such as the costs of additional electrical work, financing, and additional roofing services. See 
+Section 3 for additional discussion of the purpose and scope of NREL’s benchmarks. 
+PV Installed Cost Benchmarks 
+Figure ES-1 compares our Q1 2023 MSP and MMP benchmarks for PV systems in the 
+residential, community solar, and utility-scale sectors. The MMP benchmark is higher than the 
+MSP benchmark for all sectors, because the MMP benchmark captures the inflationary market 
+distortions that occurred in Q1 2023. 
+Our MMP benchmark for an 8-kWdc residential PV system ($2.68 per watt direct current [Wdc]) 
+is 15% higher than the MSP benchmark ($2.34/Wdc) and 15% lower than our MMP benchmark 
+($3.18/Wdc) from Q1 2022 in 2022 U.S. dollars (USD). 
+Our MMP benchmark for a 3-MWdc fixed-tilt community solar system ($1.76/Wdc) is 18% 
+higher than our MSP benchmark ($1.49/Wdc). Our Q1 2022 benchmark report has no community 
+solar system for comparison.  
+Our MMP benchmark for a 100-MWdc utility-scale system with one-axis tracking ($1.16/Wdc) is 
+19% higher than our MSP benchmark ($0.97/Wdc) and 8% higher than its counterpart 
+($1.07/Wdc) in Q1 2022 in 2022 USD. Compared with Q1 2022, higher inverter and EBOS costs 
+plus new network upgrade costs more than offset lower module and SBOS costs in Q1 2023. 
+ 
+ 
+Figure ES-1. Q1 2023 U.S. PV cost benchmarks 
+
+<<p8>>vii 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+PV-Plus-Storage Installed Cost Benchmarks 
+Figure ES-2 compares our Q1 2023 MSP and MMP benchmarks for PV-plus-storage systems in 
+the residential, community solar, and utility-scale sectors. Again, the MMP benchmarks are 
+higher than the MSP benchmarks for all sectors. 
+Our MMP benchmark for an 8-kWdc residential system with a 5-kW/12.5-kWh ESS ($4.70/Wdc) 
+is 21% higher than our MSP benchmark ($3.88/Wdc) and 9% lower than its counterpart 
+($5.17/Wdc) in Q1 2022 in 2022 USD. 
+Our MMP benchmark for a 3-MWdc fixed-tilt community solar system with a 1.8-MW/7.2-MWh 
+ESS ($2.94/Wdc) is 26% higher than our MSP benchmark ($2.33/Wdc). Our Q1 2022 benchmark 
+report has no community solar system for comparison. 
+Our MMP benchmark for a 100-MWdc utility-scale system with one-axis tracking and a 60-
+MW/240 MWh ESS ($2.11/Wdc) is 28% higher than our MSP benchmark ($1.65/Wdc) and 
+roughly 0.2% higher than its counterpart ($2.10/Wdc) in Q1 2022 in 2022 USD. 
+ 
+Figure ES-2. Q1 2023 U.S. PV-plus-storage cost benchmarks 
+PV Operations and Maintenance Cost Benchmarks 
+Our operations and maintenance (O&M) analysis breaks costs into various categories and 
+provides total annualized O&M costs. The MSP results for PV systems (in units of 2022 real 
+USD/kWdc/yr) are $28.78 (residential), $39.83 (community solar), and $16.12 (utility-scale). The 
+MMP results are $30.36 (residential), $40.51 (community solar), and $16.58 (utility-scale). The 
+community solar O&M cost is higher than the O&M cost for a single-customer commercial PV 
+system of similar configuration because of the community solar subscriber management cost, 
+which accounts for about 40% of the total community solar O&M cost. 
+
+<<p9>>viii 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+PV-Plus-Storage Operations and Maintenance Cost Benchmarks 
+The MSP benchmarks for PV-plus-storage systems (in 2022 real USD/kWdc/yr) are $61.28 
+(residential), $75.25 (community solar), and $50.73 (utility-scale). For MMP, the benchmarks 
+are $65.04 (residential), $76.79 (community solar), and $51.88 (utility-scale). ESS replacement 
+constitutes the largest share of O&M costs for all the PV-plus-storage systems modeled. 
+
+<<p10>>ix 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+Table of Contents 
+List of Acronyms ........................................................................................................................................ iv 
+Executive Summary .................................................................................................................................... v 
+1 
+Introduction ........................................................................................................................................... 1 
+2 
+Market and Policy Context in Q1 2023 ............................................................................................... 2 
+3 
+Purpose and Scope of NREL Benchmarks ........................................................................................ 6 
+3.1 
+Meaning of the NREL Benchmarks .............................................................................................. 6 
+3.2 
+Purpose of the NREL Benchmarks ............................................................................................... 6 
+3.3 
+Benchmark Comparison With Other Metrics ................................................................................ 6 
+3.4 
+Minimum Sustainable Price and Modeled Market Price Benchmarks .......................................... 7 
+3.4.1 
+Minimum Sustainable Price Benchmarks ........................................................................ 8 
+3.4.2 
+Modeled Market Price Benchmarks ............................................................................... 13 
+3.5 
+Treatment of Tax Incentives........................................................................................................ 13 
+3.6 
+Limitations .................................................................................................................................. 14 
+3.7 
+Changes to Benchmarking Assumptions in Q1 2023 .................................................................. 15 
+4 
+New in 2023: PV System Cost Model ................................................................................................ 16 
+5 
+Residential Model ............................................................................................................................... 19 
+5.1 
+Representative System Parameters .............................................................................................. 19 
+5.2 
+System Costs ............................................................................................................................... 19 
+5.3 
+Component Costs ........................................................................................................................ 20 
+6 
+Community Solar Model .................................................................................................................... 23 
+6.1 
+Representative System Parameters .............................................................................................. 23 
+6.2 
+System Costs ............................................................................................................................... 23 
+6.3 
+Component Costs ........................................................................................................................ 24 
+7 
+Utility-Scale Model .............................................................................................................................. 28 
+7.1 
+Representative System Parameters .............................................................................................. 28 
+7.2 
+System Costs ............................................................................................................................... 28 
+7.3 
+Component Costs ........................................................................................................................ 29 
+8 
+Operations and Maintenance ............................................................................................................ 31 
+9 
+Conclusions ........................................................................................................................................ 34 
+References ................................................................................................................................................. 35 
+Appendix A: Example of PV System Cost Model Calculations ............................................................ 40 
+
+<<p11>>x 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+List of Figures 
+Figure ES-1. Q1 2023 U.S. PV cost benchmarks ........................................................................................ vi 
+Figure ES-2. Q1 2023 U.S. PV-plus-storage cost benchmarks ................................................................... vii 
+Figure 1. Select PV system price influences, April 2021–April 2023 .......................................................... 3 
+Figure 2. Overview of bottom-up cost modeling input data used to calculate the MSP for components ... 10 
+Figure 3. Steel index (adjusted to 2022 values using CPI) data and linear fit, 2003–2023 ........................ 11 
+Figure 4. Electrical equipment manufacturing index (adjusted to 2022 values using CPI) data and linear 
+fit, 2003–2023, showing deviation of data from fit during Q1 2023 ..................................... 12 
+Figure 5. Labor cost index (adjusted to 2022 values using CPI) data and linear fit, 2003–2023 ............... 12 
+Figure 6. Schematic of benchmark analysis using PVSCM (for utility-scale system) ............................... 18 
+Figure 7. Q1 2023 U.S. residential benchmarks (8-kWdc PV, 12.5-kWh ESS) .......................................... 20 
+Figure 8. Residential module, inverter, energy storage, and SBOS costs ................................................... 21 
+Figure 9. Residential EBOS, fieldwork, office work, and other capital costs ............................................ 22 
+Figure 10. Q1 2023 U.S. community solar benchmarks (3-MWdc PV, 7.2-MWh ESS) ............................. 24 
+Figure 11. Community solar module, inverter, energy storage, and SBOS costs ....................................... 26 
+Figure 12. Community solar EBOS, fieldwork, office work, and other capital costs ................................. 27 
+Figure 13. Utility-scale Q1 2023 U.S. benchmarks (100-MWdc PV, 240-MWh ESS) ............................... 28 
+Figure 14. Utility-scale module, inverter, energy storage, and SBOS costs ............................................... 29 
+Figure 15. Utility-scale EBOS, fieldwork, office work, and other capital costs ......................................... 30 
+Figure 16. MSP and MMP O&M benchmarks for all modeled systems .................................................... 33 
+Figure A-1. Illustration of the PVSCM analysis process (for SBOS in a residential PV system) .............. 41 
+ 
+List of Tables 
+Table 1. Select U.S. Events ca. Q1 2022–Q1 2023 ...................................................................................... 2 
+Table 2. Definitions of NREL MSP and MMP Benchmarks vs. Reported Market Prices ........................... 8 
+Table 3. Q1 2023 PV and PV-Plus-Storage MSP and MMP Benchmarks (2022 USD) ............................ 34 
+ 
+ 
+
+<<p12>>1 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+1 Introduction 
+The U.S. Department of Energy’s (DOE’s) Solar Energy Technologies Office (SETO) aims to 
+accelerate the advancement and deployment of solar technology in support of an equitable 
+transition to a decarbonized economy no later than 2050, starting with a decarbonized power 
+sector by 2035. The approaches used to achieve the goal of more affordable solar that is 
+accessible to all include driving innovations in technology, hardware, and soft cost reductions. 
+As part of this effort, SETO tracks solar cost trends so it can focus its research and development 
+(R&D) on the highest-impact activities.  
+The National Renewable Energy Laboratory (NREL) facilitates SETO’s decisions on R&D 
+investments by publishing benchmark reports that disaggregate photovoltaic (PV) and energy 
+storage (battery) costs.1 Because SETO focuses on optimizing R&D investments over the longer 
+term, NREL’s benchmark reports also help distinguish underlying, long-term technology-cost 
+trends from the price impacts of short-term distortions caused by policy and market events. 
+Minimum sustainable price (MSP) benchmarks provide an effective basis for long-term PV cost 
+analysis. However, they do not represent dynamic market conditions and should not be used for 
+near-term policy or market analysis. To help provide perspective on current market conditions, 
+the report also provides modeled market price (MMP) analysis, which reflects typical component 
+costs experienced by U.S. installers and passed on to U.S. consumers during the benchmark 
+period. 
+This year, we introduce a new PV and storage cost modeling approach that builds on the detailed 
+bottom-up models and methods we have developed over the past decade. The new approach 
+includes additional information about key component and system parameters. Compared with 
+previous benchmarking efforts, this year’s effort relies more on direct system design and cost 
+inputs from the PV and storage industries. Subcomponent values displayed in intrinsic units 
+(dollars per kilogram, dollars per square meter, etc.) are meant to aid with sensitivity analysis. 
+For the first time, this report shows bottom-up manufacturing analyses for modules, inverters, 
+and energy storage components. Also, for the first time, we model unique costs related to 
+community solar installations. 
+Additional details about the goals, methods, and limitations of the Q1 2023 benchmark report—
+along with a brief discussion of this period’s unique market and policy context—are provided in 
+Sections 2, 3, and 4. Sections 5 through 7 present the results of our Q1 2023 capital cost 
+modeling for residential, community solar, and utility-scale PV and PV-plus-storage systems. 
+Section 8 presents the results of our operations and maintenance (O&M) cost analysis. Section 9 
+offers a summary and conclusions. The appendix shows an example of our cost-modeling 
+process. The full set of benchmark inputs and results for Q1 2023 is available at 
+https://data.nrel.gov/. 
+ 
+ 
+ 
+1 All previous benchmark reports can be found at NREL’s Solar Technology Cost Analysis webpage, 
+www.nrel.gov/solar/market-research-analysis/solar-cost-analysis.html. 
+
+<<p13>>2 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+2 Market and Policy Context in Q1 2023 
+The PV and energy storage industries are in constant flux, and each of NREL’s benchmark 
+reports has been produced within a unique historical context. The period leading up to last year’s 
+report (Q1 2021 through Q1 2022) witnessed significant volatility as the effects from the 
+COVID-19 pandemic combined with market and policy events to disrupt the availability of 
+components and increase system prices (Ramasamy et al. 2022). Volatility continued during the 
+period between Q1 2022 and Q1 2023, but some stakeholders reported moderating price 
+impacts—if not a return to the pre-pandemic status quo. Our industry interviews, supporting 
+data, and analytical approach are designed to yield typical PV and storage prices in Q1 2023. 
+However, these estimates do not reflect the observations and experiences of all stakeholders 
+during this period. Section 3 describes the purpose, meaning, and limitations of our benchmarks 
+in general. Below we give a brief, noncomprehensive overview of developments that 
+characterized the period from Q1 2022 through Q1 2023 and likely had an influence on PV 
+system costs. Table 1 lists select events that occurred during this period. 
+Table 1. Select U.S. Events ca. Q1 2022–Q1 2023 
+Event 
+Date 
+Antidumping and countervailing duties (AD/CVD) circumvention investigation initiated by 
+U.S. Department of Commerce (DOC) 
+April 2022 
+AD/CVD tariffs on Southeast Asian modules waived by executive action for 24 months 
+June 2022 
+Uyghur Forced Labor Prevention Act implemented 
+June 2022 
+Inflation Reduction Act signed into law 
+Aug 2022 
+Companies in Southeast Asia preliminarily found by DOC to be circumventing AD/CVD 
+Dec 2022 
+Net metering rules in California revised, solar compensation reduced 
+Dec 2022 
+New net metering rules in California effective 
+April 2023 
+Waiver of AD/CVD tariffs on Southeast Asian modules repealed by U.S. Congress, but 
+repeal vetoed by the president 
+May 2023 
+Final determination of companies and circumstances subject to AD/CVD tariffs beginning 
+June 2024 (after expiration of executive waiver) made by DOC 
+Aug 2023 
+Economywide inflation moderated between Q1 2022 and Q1 2023. From April 2022 to April 
+2023, the Consumer Price Index for All Urban Consumers: All Items in U.S. City Average 
+(consumer price index—CPI) rose about 5%, compared with about 8% between April 2021 and 
+April 2022 (FRED 2023a). The 5% change was the smallest 12-month increase since April 2021 
+and included a 5% decrease in consumer prices for energy (BLS 2023a). The slowing inflation 
+was due in part to easing of the high demand for goods and services as well as supply constraints 
+that had been spurred by the COVID-19 pandemic, government stimulus programs, and Russia’s 
+invasion of Ukraine (Ramasamy et al. 2022, Smialek and Zhang 2023). In addition, the Federal 
+Reserve raised interest rates throughout 2022 and into 2023 to mitigate inflation (FRED 2023b, 
+Ngo and Casselman 2023). However, the 5% increase was still about twice as large as the annual 
+average CPI increase over the last 20 years and well above the Federal Reserve’s target rate of 
+2% (BLS 2023b, Ngo and Casselman 2023). 
+
+<<p14>>3 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+More striking were global commodity price fluctuations, which resulted in lower commodity 
+prices in Q1 2023 compared with Q1 2022. Primary commodity prices rose 49% between April 
+2021 and April 2022 but fell 30% between April 2022 and April 2023 (FRED 2023c, IMF 2023). 
+Energy prices were particularly volatile. After dropping at the beginning of the COVID-19 
+pandemic in spring 2020, crude oil prices mostly rose as economies recovered and then jumped 
+after Russia’s invasion of Ukraine in February 2022. Oil prices began dropping in summer 2022 
+because of a slowing global economy, recession fears, tighter monetary policy in many major 
+economies, and a relatively stable global oil supply. Natural gas and coal prices followed similar 
+overall patterns. Commodity metal prices were down about 7% between Q1 2022 and Q1 2023 
+(IMF 2023). 
+ 
+Figure 1. Select PV system price influences, April 2021–April 2023 
+Sources: BNEF (2023), EIA (2023), FRED (2023a, 2023c)  
+In addition to effects from these broader economic trends, the U.S. PV industry was impacted by 
+solar-specific issues between Q1 2022 and Q1 2023. Spanning the entire period was a U.S. 
+Department of Commerce (DOC) investigation into whether Chinese PV manufacturers were 
+circumventing antidumping and countervailing duties (AD/CVD) by working through Cambodia, 
+Malaysia, Thailand, and Vietnam. Initiation of the investigation in April 2022 stalled module 
+shipments from Southeast Asia (Wood Mackenzie and SEIA 2022a). In June 2022, an executive 
+order waived the duties on Southeast Asian modules for 2 years, which caused a spike in demand 
+and prices from that region (Wood Mackenzie and SEIA 2022a). Later that same month, 
+implementation of the Uyghur Forced Labor Prevention Act—which was unrelated to the 
+AD/CVD investigation—further constrained module supply and increased prices by requiring 
+proof that modules imported into the United States were unconnected to forced labor in China’s 
+Xinjiang region (Wood Mackenzie and SEIA 2022a). In December 2022, DOC issued a 
+preliminary determination that certain module manufacturers in Southeast Asia were 
+circumventing tariffs (Weaver 2022), which was made final in August 2023 (DOC 2023). The 
+impact of this determination was mitigated by the AD/CVD tariff waiver issued in June 2022. 
+
+<<p15>>4 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+Although Congress voted to overturn that waiver in May 2023, a presidential veto will keep the 
+waiver in place through June 2024 (DiGangi 2023). These tumultuous events are reflected in the 
+U.S. module prices (Figure 1), which fluctuated substantially even as global module prices 
+followed a steadily declining trend. 
+Additional solar-relevant U.S. policies instituted between Q1 2022 and Q1 2023 included the 
+Inflation Reduction Act (IRA) and California’s revised net metering rules. The IRA, which was 
+passed into law in August 2022, created incentives for domestic PV manufacturing and 
+deployment that analysts expect to drive significant increases in U.S. PV installations and use of 
+domestically manufactured components (Feldman et al. 2022). The resulting changes in the U.S. 
+PV industry may affect PV system prices, but any effects will likely become more apparent in 
+the years to come, as U.S. companies ramp up their activities with the aid of IRA incentives. Net 
+metering rules in California—the largest U.S. PV market—were revised in December 2022 and 
+became effective for new PV system interconnection applications in April 2023. The new rules 
+reduce the rates paid for exporting solar electricity and are meant to encourage electrification and 
+use of energy storage. This change boosted PV deployment in California in Q1 2023 as 
+customers sought to buy systems under the previous net metering rules. In the longer term, 
+analysts expect the new rules to constrain PV-only deployment in California and ultimately spur 
+the deployment of PV-plus-storage systems, which have higher upfront costs (Wood Mackenzie 
+and SEIA 2022b). 
+Our interviews also indicated market and policy trends affecting system costs between Q1 2022 
+and Q1 2023. According to several installers and developers, features that characterized 2022—
+including high and volatile component prices, limited component supplies, and outsized profits 
+made by some companies because of constrained competition—moderated in 2023. However, 
+others reported few or no component cost reductions in 2023 as well as ongoing cost 
+uncertainties related to trade policies and IRA implementation. Some companies reported using 
+new strategies to secure component supplies, such as developing relationships with additional 
+module manufacturers and working through equipment distributors. High wages and strong 
+competition for labor were also noted as challenges. Additional issues reported for community 
+solar and utility-scale systems included the higher cost and/or time required for land acquisition 
+and interconnection studies as well as more expensive civil contracting requirements.  
+Finally, our interview participants noted trends that could have potentially fundamental impacts 
+on PV and storage system costs going forward. In the residential sector, one of the most 
+frequently mentioned ways to reduce costs was by increased adoption of SolarAPP+ by 
+authorities having jurisdiction. SolarAPP+ is a web-based program that automates plan review, 
+permit approval, and project tracking for PV and PV-plus-storage systems. Its effectiveness in 
+terms of time and cost savings has been documented (Cook et al. 2023). The other most 
+frequently mentioned cost-reduction trend was the emergence of technologies for connecting PV 
+and battery systems to the grid through a simple connection to the electric meter, which 
+residential installers said could reduce electrical labor costs substantially; examples given by 
+participants included Tesla’s Backup Switch and ConnectDER’s meter socket adapters. 
+Additional cost-reduction opportunities mentioned by residential installers included platforms 
+that allow customers to design their rooftop PV systems online and increased use of racking 
+without rails. In the commercial sector, technologies with reported cost-reduction potential 
+included rooftop mounting systems that eliminate the need for racking, ballast, or anchors 
+
+<<p16>>5 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+(Maxeon’s Air system was given as an example) or that use batteries as ballast (Yotta Energy’s 
+SolarLEAF was given as an example). 
+ 
+
+<<p17>>6 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+3 Purpose and Scope of NREL Benchmarks 
+This section describes the meaning of the NREL benchmarks, their intended purposes, how they 
+vary from other market metrics, and their limitations. 
+3.1 Meaning of the NREL Benchmarks 
+Industry players, analysts, policymakers, and other stakeholders are interested in the prices of 
+new technologies and the underlying costs to produce those technologies. Market prices for the 
+U.S. PV industry are readily observable and documented in resources such as Barbose et al. 
+(2022). However, installed system prices do not provide direct insight into underlying system 
+cost structures or the prices for specific components. Disaggregating installed system prices into 
+underlying cost drivers requires identifying all relevant inputs to PV installations and assigning 
+costs to those inputs. Broadly, this cost disaggregation can be done through top-down or bottom-
+up cost modeling. Top-down modeling observes a final price, then develops a method to 
+distribute that price across individual cost components. Bottom-up cost modeling estimates the 
+costs to manufacture and deliver all the individual components and sums those costs to derive a 
+modeled total price. 
+The benchmarks in this report are bottom-up cost estimates of all major inputs to PV and energy 
+storage system (ESS) installations. Bottom-up costs are based on national averages and do not 
+necessarily represent typical costs in all local markets. As we discuss in Section 3.4, this year’s 
+report includes two distinct sets of benchmarks: MSP benchmarks and MMP benchmarks. MSP 
+benchmarks can be interpreted as the minimum price a company needs to charge to remain 
+financially solvent in the long term based on the minimum sustainable prices of all inputs 
+including minimum sustainable profit margins. MMP benchmarks can be interpreted as the 
+actual cash sales price the company charges in the given benchmark period. In a stable, balanced, 
+competitive market that is free of limited-duration trade policy distortions, MMP is equal to 
+MSP. 
+3.2 Purpose of the NREL Benchmarks 
+The primary purpose of these benchmarks is to provide insight into the long-term trajectories of 
+PV and storage system costs. These benchmarks are uniquely tailored to meet SETO’s evolving 
+programmatic needs. Last year’s addition of MMP and MSP benchmarks met SETO’s need to 
+distinguish near-term prices for policy guidance from long-term prices for R&D guidance. This 
+year, we provide component costs in intrinsic units to analyze cost impacts due to variation in 
+individual system parameters. We also provide detailed manufacturing cost analyses for 
+modules, inverters, and ESSs for the first time. In addition, the benchmarks provide insight into 
+the disaggregated costs of individual system components, which can be used to identify the 
+system components driving installed prices and opportunities for system price reductions. 
+3.3 Benchmark Comparison With Other Metrics 
+Cost and price metrics can vary significantly because of the various methods, time frames, and 
+calculation methods used in their development. For example, median residential PV system 
+prices from Lawrence Berkeley National Laboratory’s Tracking the Sun series—which are based 
+on values reported by installers or customers—are consistently higher than NREL’s residential 
+MMP benchmarks (e.g., see Barbose et al. 2022). There are three main reasons for this disparity. 
+
+<<p18>>7 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+First, the NREL benchmark is based on costs incurred by a typical, experienced installer in a 
+competitive market, whereas the U.S. residential installation industry includes a wide range of 
+companies with different cost structures and market strategies. Second, the MMP benchmark 
+includes costs only for a representative system installation, whereas reported prices may include 
+premium system features (such as premium inverters) and costs of complementary services such 
+as additional electrical work, securing financing, additional roofing services, and other home 
+upgrades. Third, NREL does not have robust data on profit margins, and the profit margins 
+reflected in reported system prices may be lower or higher than NREL’s assumptions in any 
+given year. For an illustration of variation across several sources and all three PV market sectors, 
+see our Q1 2022 report (Ramasamy et al. 2022).  
+Overall, different price benchmarks are useful for different purposes. Our benchmarks are 
+primarily used to understand market dynamics and provide insights into underlying cost drivers. 
+These benchmarks should not be used for purposes better met by local- and customer-specific 
+market prices and vice versa. For instance, if a firm would like to know component prices for a 
+specific location and time, then the firm should contact multiple vendors for each component. 
+Conversely, our benchmarks can inform an understanding of the potential trajectory of 
+underlying cost drivers in a stabilized market. It is also critical to understand the distinction 
+between our MSP and MMP calculation methods when using the benchmark results. These two 
+metrics are described next. 
+3.4 Minimum Sustainable Price and Modeled Market Price 
+Benchmarks 
+Beginning with the Q1 2022 report, we have provided capital cost results using two metrics: 
+1. MSP benchmarks are meant to identify the lowest prices at which product suppliers can 
+remain financially solvent in the long term, based on input costs that represent the lowest 
+prices that each input supplier can charge to remain financially solvent in the long term. 
+2. MMP benchmarks maintain continuity with previous benchmark reports by capturing 
+macroeconomic factors and the impact of market trends, reflecting typical national 
+system cash costs experienced by U.S. installers and passed on to U.S. consumers within 
+the analysis period (Q1 2023 in this report).  
+Both MSP and MMP are calculated for representative components and systems in each PV 
+market sector. Table 2 summarizes the meaning, approach, and purpose of each benchmark in 
+comparison to reported market prices (which are not shown in this report). The two benchmarks 
+are described further in the following subsections. 
+
+<<p19>>8 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+Table 2. Definitions of NREL MSP and MMP Benchmarks vs. Reported Market Prices 
+ 
+Minimum Sustainable 
+Price (MSP) Benchmark 
+Modeled Market Price 
+(MMP) Benchmark 
+Reported Market Prices* 
+Description 
+Estimated bottom-up 
+overnight capital costs (i.e., 
+cash costs)2 of 
+representative PV and 
+storage components. To 
+mute the short-term impacts 
+of market and policy events, 
+MSP is modeled at the 
+lowest prices at which 
+product suppliers can remain 
+financially solvent in the long 
+term, based on input costs 
+that represent the lowest 
+prices each input supplier 
+can charge to remain 
+financially solvent in the long 
+term.  
+Estimated bottom-up 
+overnight capital costs 
+(i.e., cash costs) of 
+representative PV and 
+storage components 
+under market conditions 
+experienced during the 
+analysis period.  
+Reported prices quoted by 
+installers and paid by 
+customers for a range of 
+technologies and 
+configurations, often inclusive 
+of financing costs. Market 
+prices can include items such 
+as smaller-market-share PV 
+systems (e.g., those with 
+premium efficiency panels), 
+atypical system configurations 
+due to site irregularities (e.g., 
+additional land grading) or 
+customer preferences (e.g., 
+pest traps), and specific 
+project requirements (e.g., 
+unionized labor). 
+Approach 
+Distorted input costs are 
+removed from model 
+calculations, and minimum 
+sustainable margins are 
+used to estimate price. If 
+there is more than one 
+typical technology or 
+configuration, the most 
+common one is modeled.3  
+The mean reported 
+market costs and prices 
+for subcomponents for 
+representative systems 
+are based on aggregated 
+interview data. MSP and 
+MMP use the same 
+technology 
+configurations. 
+Price metrics aggregated 
+(e.g., median, mean) from 
+sources that collect market 
+price data. 
+Purpose 
+Long-term analysis; 
+informing R&D investment 
+decisions. 
+Near-term policy and 
+market analysis based on 
+disaggregated system 
+costs. 
+Near-term analysis based on 
+reported prices. 
+*For reported market price details, see Barbose et al. (2022). 
+3.4.1 Minimum Sustainable Price Benchmarks 
+Reported market prices and MMP benchmarks are affected by market and policy conditions 
+unique to the analysis period. In contrast, our MSP benchmarks are meant to capture the long-
+term cost impacts of technological evolution while muting the impacts of policy distortions and 
+short-term market fluctuations. The MMP benchmarks described in Section 3.4.2 can be thought 
+of as MSPs distorted by short-term market and policy phenomena that occurred in Q1 2023.  
+ 
+ 
+2 Cash costs do not include any financing costs, which are often eligible to be included in a system’s cost basis for 
+calculating tax credits and depreciation. In the residential sector, costs have been observed related to the setup of 
+loan and lease products for customers as well as interest rate “buy-downs.” In the utility-scale space, common 
+financing costs also include construction loan interest payments and prepaid O&M contracts. 
+3 For example, in the residential sector, we model the installation of microinverters, although string inverters with 
+direct current (dc) optimizers are also common. 
+
+<<p20>>9 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+The MSP is an economic concept that was first used by NREL to estimate theoretical sustainable 
+PV prices and cost projections (Goodrich et al. 2013, Powell et al. 2013). The MSP cannot be 
+directly observed; rather, it must be derived from observable factors such as the underlying cost 
+drivers, market input prices (e.g., for raw materials and equipment), and additional feedback 
+from industry stakeholders. A comprehensive understanding of MSP would require in-depth 
+knowledge about the prices each input supplier must charge to remain financially solvent in the 
+long term within their complex and ever-changing market and policy contexts—from the 
+company that extracts raw materials to component manufacturers, equipment suppliers, 
+assemblers, and installers. For the Q1 2023 MSP benchmarks, we apply two general approaches 
+to infer MSP for the various PV and storage system components: detailed bottom-up cost 
+modeling and mitigation of distorted input values. 
+Calculating MSP Directly: Bottom-Up Cost Modeling for Component Manufacturing 
+We apply detailed bottom-up cost modeling to calculate MSP directly for modules, inverters, and 
+battery storage components. NREL has been applying bottom-up cost modeling techniques 
+across the PV supply chain for more than 13 years. Items included within these models capture 
+the variable and fixed costs experienced by firms following the U.S. Generally Accepted 
+Accounting Principles (GAAP) and the International Financial Reporting Standards (IFRS). 
+Figure 2 provides an overview of the input data needed for bottom-up component cost modeling 
+and representation of results following the GAAP and the IFRS. We first work with researchers 
+and companies to define the process flow. Then, we contact materials and equipment suppliers 
+representing each step in the manufacturing process to develop inputs for the top-left box in 
+Figure 2. The inputs needed to calculate depreciation include equipment throughput and price 
+and floorspace requirements. The inputs needed to calculate variable (or “cash”) costs include 
+materials, utilities, labor, and maintenance. Yield losses are also incorporated into the model 
+calculations, as are location-specific cost indices, including local labor and utility rates. 
+Overhead and minimum sustainable profit margins are included in the calculation of factory-gate 
+MSP, and shipping costs are included in the calculation of the final delivery price to PV and 
+storage projects. For additional details, see Smith et al. (2021) and Woodhouse et al. (2020). 
+
+<<p21>>10 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+ 
+Figure 2. Overview of bottom-up cost modeling input data used to calculate the MSP for 
+components 
+Converting MMP to MSP: Addressing Distorted Input Values for Other Cost Categories 
+Although all market prices fluctuate due to near-term changes in supply and demand, aggregated 
+market prices in mature, competitive industries tend to follow long-term trends. Deviations from 
+long-term technology costs and overall inflation provide evidence of temporary market 
+distortions such as supply shocks or significant policy reforms. These temporary distortions can 
+provide important information about real-time market conditions but obscure understanding of 
+long-term price trajectories. We use this basic concept to develop rules for adjusting input prices 
+that are significantly distorted by temporary market and policy shocks. We apply these rules to 
+structural balance of system (SBOS), electrical balance of system (EBOS), and labor costs, 
+because we collect original values for these categories in MMP terms. Our calculations for 
+manufacturing modules, inverters, and battery storage components result directly in MSP values, 
+as noted above, and thus require no adjustments. 
+In last year’s report, we inferred equipment cost distortions based on changes in the CPI, and we 
+excluded distorted values from our cost calculations. For labor, we used the most recent available 
+data from the Bureau of Labor Statistics (BLS) to determine that labor costs were within a 
+historically typical range and thus needed no adjustments (Ramasamy et al. 2022). This year, we 
+refine our method by using three indexes to evaluate and adjust (if necessary) component-
+specific distortions:  
+• For SBOS, the Producer Price Index by Commodity: Metals and Metal Products: Cold 
+Rolled Steel Sheet and Strip (FRED 2023d) 
+• For EBOS, the Producer Price Index by Industry: Electrical Equipment Manufacturing 
+(FRED 2023e) 
+
+<<p22>>11 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+• For labor, the Employment Cost Index: Wages and Salaries: Private Industry Workers 
+(FRED 2023f). 
+Figure 3 compares actual values versus the 20-year linear trend for the Producer Price Index by 
+Commodity: Metals and Metal Products: Cold Rolled Steel Sheet and Strip, adjusted to 2022 
+values using the CPI. Although this index spiked from mid-2021 through mid-2022, it returned 
+to a historically typical range in late 2022 through early 2023.4 For this reason, we consider the 
+SBOS costs that we collected for Q1 2023 to be undistorted by market fluctuations. We only 
+adjust MMP to MSP by accounting for costs associated with the Section 301 tariff and 
+manufacturing tax incentives for applicable components. 
+ 
+Figure 3. Steel index (adjusted to 2022 values using CPI) data and linear fit, 2003–2023 
+Data are from “Producer Price Index by Commodity: Metals and Metal Products: Cold Rolled Steel Sheet and Strip,” 
+index Jun 1982 = 100, not seasonally adjusted (FRED 2023d). The upward trajectory of the trend line becomes 
+slightly negative if data beyond January 2020 (onset of the COVID-19 pandemic) are removed. 
+Figure 4 compares actual values versus the 20-year linear trend for the Producer Price Index by 
+Industry: Electrical Equipment Manufacturing, adjusted to 2022 values using the CPI. The actual 
+values in Q1 2023 are more than two standard deviations above a linear fit to 20 years of index 
+data. We interpret this deviation as indicating a level of distortion that can separate EBOS input 
+prices from underlying cost fundamentals. We adjust for this distortion by reducing EBOS MMP 
+values by 8.25%—the difference between the actual electrical equipment index and the linear 
+trend in Q1 2023—when calculating EBOS MSP values. We also adjust MMP to MSP by 
+removing costs associated with the Section 301 tariff for applicable components.  
+Finally, Figure 5 compares actual values versus the 20-year linear trend for the Employment 
+Cost Index: Wages and Salaries: Private Industry Workers, adjusted to 2022 values using the 
+CPI. Although this index spiked in 2020 and early 2021, it returned to a historically typical range 
+in late 2021 through early 2023. For this reason, we consider the labor costs that we collected for 
+ 
+ 
+4 To analyze all three indexes discussed in this section, we define a historically typical range as two standard 
+deviations above and below a linear fit to 20 years of inflation-adjusted index data. We generate the distribution by 
+subtracting the adjusted index value from the linear-fit value for each date and taking the absolute value.  
+
+<<p23>>12 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+Q1 2023 to be undistorted by market fluctuations, and our labor MMPs are equal to our labor 
+MSPs. 
+For other upfront costs (e.g., distributor costs, profit) and O&M costs (e.g., insurance) that are 
+factors of system capital costs, MMPs are calculated using MMP capital costs, and MSPs are 
+calculated using MSP capital costs. 
+ 
+Figure 4. Electrical equipment manufacturing index (adjusted to 2022 values using CPI) data and 
+linear fit, 2003–2023, showing deviation of data from fit during Q1 2023 
+Data are from “Producer Price Index by Industry: Electrical Equipment Manufacturing,” index Dec 2003 = 100, not 
+seasonally adjusted (FRED 2023e). The modest upward trajectory of the trend line decreases, to a compound annual 
+growth rate of about 0.3%, if data beyond January 2020 (onset of the COVID-19 pandemic) are removed. 
+ 
+Figure 5. Labor cost index (adjusted to 2022 values using CPI) data and linear fit, 2003–2023 
+Data are from “Employment Cost Index: Wages and Salaries: Private Industry Workers,” index Dec 2005 = 100, 
+seasonally adjusted (FRED 2023f). The upward trajectory of the trend line represents a compound annual growth rate 
+of about 0.3%. 
+
+<<p24>>13 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+3.4.2 Modeled Market Price Benchmarks 
+Our MMP benchmarks can be interpreted as the average sales prices that a typical U.S. installer 
+would have charged in Q1 2023. As described in Section 3.4.1, we calculate MSP values directly 
+for the manufacturing of modules, inverters, and battery storage components. We then derive 
+MMP values for these components using reported market prices (including data from 
+BloombergNEF (BNEF), InfoLink, and PV Tech), interview data, and financial statements of 
+representative firms. Also as described in Section 3.4.1, we collect original values for SBOS, 
+EBOS, and labor costs in MMP terms. 
+3.5 Treatment of Tax Incentives 
+Under the U.S. tax code (and expanded by IRA), several U.S. tax credits are available to owners 
+of PV and ESSs as well as manufacturers of PV and energy storage components (DOE 2023a). 
+The credits for PV system owners are based either on the upfront cost of the system (Section 
+48/48E Investment Tax Credit or ITC) or the electricity generated by the system (Section 
+45(d)/45Y Production Tax Credit or PTC). These credits, along with related bonus credits,5 
+affect the prices U.S. customers will pay for PV systems and thus could impact installer and 
+manufacturer margins as well as the size of the U.S. PV market. However, the impact of the tax 
+credits is unclear because market competition within the U.S. PV sector—and from competing 
+sources of energy—already creates margin pressure. In addition, because these tax credits have 
+existed for well over a decade and will continue for a decade or more, they are part of the long-
+term market that our MSP benchmarks aim to capture. For these reasons, we do not include the 
+credits for system owners explicitly in our cost modeling. 
+The credits for manufacturers are based either on the cost of building a manufacturing facility 
+(Section 48C Advanced Energy Project ITC) or for domestically producing and selling clean 
+energy components (Section 45X Advanced Manufacturing PTC). No companies have received 
+Section 48C credit to date under IRA, so we exclude this credit from our cost modeling. 
+However, numerous U.S. manufacturers are likely taking advantage of the Section 45X credit, 
+and the reduced costs of producing the resulting components could directly impact system 
+installers. For this reason, we account for the Section 45X Advanced Manufacturing PTC credit 
+in our modeling of domestic components. 
+To determine the impact of the 45X credit, we follow four steps: 
+1. Identify domestically manufactured components. In Q1 2023, we model the following 
+components as U.S. manufactured: PV modules (assembly, residential installations), 
+microinverters (assembly, residential installations), battery modules (assembly, all 
+sectors), and torque tubes and structural fasteners of a tracking system (utility-scale 
+installations). 
+2. Determine how to adjust domestic components based on the tax credit. We use 
+bottom-up manufacturing models to calculate PV module, inverter, and battery MSPs. 
+We adjust the MMP of these components (for sectors specified in step #1) by the 45X 
+ 
+ 
+5 For more information, see the SETO guide to federal solar tax credit resources at 
+https://www.energy.gov/eere/solar/articles/federal-solar-tax-credit-resources. 
+
+<<p25>>14 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+credit, because the credit may affect the component prices paid by installers. In contrast, 
+we calculate BOS costs—including the cost of domestically manufactured torque tubes 
+and fasteners—based primarily on interviews with industry stakeholders. Those estimates 
+represent final prices paid by installers, so any impact from the 45X credit is already 
+incorporated into the MMP; thus, we adjust the MSP based on the credit. 
+3. Calculate production-based credit amounts for each domestic component. IRA 
+specifies the credit amounts by component, including $0.07/Wdc for PV modules, 
+$0.11/Wac for microinverters, $10/kWh for battery modules, $0.87/kg for torque tubes, 
+and $2.28/kg for structural fasteners of a tracking system (DOE 2023b). 
+4. Allocate credit values between the component seller (manufacturer) and buyer 
+(installer). The component manufacturer claims the production-based credit and decides 
+how its value is allocated. At one end of the spectrum, the manufacturer could pass the 
+entire value of the credit through to the buyer as a lower component price. At the other 
+end, the manufacturer could leave the component price unchanged and retain the entire 
+credit as part of its margin. No data on how manufacturers are allocating the 45X credit 
+are available. For Q1 2023, we assume that half of each credit amount is passed along to 
+the installer as a lower component price, and half is retained by the manufacturer. 
+3.6 Limitations 
+Our benchmarks convert complex processes and inputs into highly simplified individual 
+estimates. These simplified estimates are useful for tracking technological progress. However, no 
+individual estimate under any approach can reflect the diversity of the PV and storage 
+manufacturing, installation, and maintenance industries. Our MMP benchmarks are designed to 
+reflect typical costs experienced by installers, but these costs do not reflect all experiences. For 
+instance, MMP benchmarks based on national average costs do not reflect the distinct 
+experiences of developers in local markets and at different purchasing volumes. The benchmarks 
+also explicitly exclude certain costs that reflect key system components for certain customers. 
+For instance, many residential customers finance their PV systems, but the benchmarks exclude 
+financing costs, which can represent around 20% of reported market prices. For further research 
+on the complexity of PV markets and reported market prices, see Gillingham et al. (2016) and 
+Barbose et al. (2022). 
+Finally, any comparison of our benchmarks with reported market prices or other price 
+benchmarks should be implemented with caution. As already discussed, market prices and 
+different price benchmarks reflect different assumptions and should be used for different 
+purposes. The MSP benchmarks deviate from imperfect markets in the real world, and they have 
+been lower than MMP benchmarks for the past few years. In an oversupplied market and in the 
+absence of trade distortions, MSPs could become higher than MMPs in future. Our MSP 
+benchmarks are meant to provide stable estimates of input costs based on long-term trends that 
+are useful for making long-term decisions, including R&D directions. In contrast, our MMP 
+benchmarks are meant to reflect current market conditions relevant to making short-term 
+decisions, including policy recommendations. 
+
+<<p26>>15 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+3.7 Changes to Benchmarking Assumptions in Q1 2023 
+In addition to changing our data collection and analysis approach (see Section 4), we made 
+several changes to our benchmarked systems this year. In Q1 2023, we do not model a 
+commercial rooftop system or relatively small (500 kWdc) commercial ground-mounted system, 
+as we did in Q1 2022. Instead, we model a 3-MWdc ground-mounted community solar system, 
+owing to the growing public- and private-sector interest in this application. We chose 3 MWdc 
+based on industry feedback indicating increasing system sizes as well as the mean community 
+solar system size (2.5 MWdc) in 2022 in New York (New York State 2023), where 52% of U.S. 
+community solar capacity was installed in 2022 (Wood Mackenzie and SEIA 2023). Community 
+solar has additional cost categories beyond those for typical commercial PV systems, including 
+subscriber acquisition and maintenance costs, which we analyze in detail (see Sections 6 and 8). 
+Modules for residential PV systems and utility-scale PV systems are substantially larger this 
+year: 1.97 m2 and 410 Wdc, and 2.57 m2 and 525 Wdc, respectively in Q1 2023, compared with 
+1.8 m2 and 360 Wdc, and 2.0 m2 and 405 Wdc, in the Q1 2022 report. In addition, the 
+representative utility-scale modules in the Q1 2023 report are bifacial, rather than monofacial as 
+in the Q1 2022 report. Comprehensive national statistics on U.S. utility-scale module 
+specifications are not yet available. However, evidence—including U.S. tariff data (Feldman et 
+al. 2023), the International Technology Roadmap for Photovoltaic (ITRPV 2023), trade 
+publications including Taiyang News (e.g., Chunduri 2022), and industry interviews—suggests 
+that large bifacial modules have become dominant in the utility-scale sector. We use the utility-
+scale module assumptions for our benchmark 3-MWdc community solar system as well. 
+
+<<p27>>16 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+4 New in 2023: PV System Cost Model 
+For this Q1 2023 benchmark report, a new bottom-up PV and storage cost model is used for the 
+first time. The PV System Cost Model (PVSCM) was developed by SETO and NREL to make 
+the cost benchmarks simpler and more transparent, while expanding to cover PV product 
+components not previously benchmarked. PVSCM can also facilitate sensitivity analysis based 
+on key system parameters in their intrinsic units. 
+Our new PVSCM-based benchmarking approach shares similarities with and builds on the cost 
+models and methods we have used over the past decade. We develop representative system 
+parameters in multiple sectors based on industry trends. We collect data from multiple sources, 
+aligning our model inputs as closely as possible to the analysis period (Q1 2023 for this report). 
+We use those data to build subsystem and system costs from the bottom up and then validate 
+results with industry experts. After adjusting based on stakeholder feedback, we produce a draft 
+report, which we send to industry stakeholders as well as NREL and SETO reviewers. We use 
+feedback from this process to finalize the report, and then we publish the report on NREL’s 
+website later in the year (e.g., Q1 2022 results were published in September 2022). See all the 
+reports at NREL’s Solar Technology Cost Analysis webpage: https://www.nrel.gov/solar/market-
+research-analysis/solar-cost-analysis.html. 
+However, our new benchmarking approach also differs from our past approaches. Our previous 
+bottom-up capital cost models consisted of specific, detailed system designs, which we populated 
+with inputs in the form of material costs, component and subcomponent costs, installation rental 
+equipment rates, and labor rates from data sources such as RSMeans, the U.S. Bureau of Labor 
+Statistics, RENVU, EcoDirect, altE Store, BNEF, Wood Mackenzie, and the Solar Energy 
+Industries Association (SEIA). For example, our utility-scale PV design included a specific 
+number of module mounting structures, linear feet of trenches, days of geotechnical 
+investigation, and so forth—all the many items needed to build a complete utility-scale system. 
+We input per-unit material, equipment, and labor costs associated with each item based on the 
+data sources noted above, and the model calculated total costs for each item. We based additional 
+inputs—particularly soft costs such as customer acquisition costs; overhead; permitting, 
+inspection, and interconnection (PII) costs; and profit—on analysis of multiple years of industry 
+interviews. The final results were disaggregated system costs in terms of dollars per direct-
+current watt of PV system power rating ($/Wdc), dollars per kilowatt-hour of energy storage 
+($/kWh), and dollars per installed system. We sent these results for validation to industry 
+stakeholders. We did not publish detailed subcomponent cost data, such as torque tube or rail 
+contributions to SBOS costs, transformer or substation contributions to EBOS costs, and so forth. 
+In contrast, this year’s capital cost benchmarking approach using PVSCM starts with direct cost 
+inputs from interviews with industry stakeholders, and results are provided at the subcomponent 
+level. Figure 6 is a schematic of the process using a utility-scale system as an example. The 
+colored boxes inside the dashed line represent the PVSCM data we publish. Limiting the number 
+of cost elements in each box to 10 strikes a balance between level of detail and usability. The 
+gray boxes outside the dashed line represent data and analysis that feed into PVSCM but are not 
+published. For capital costs, we start with the gray “Component Cost Data” box. Here, our 
+primary data source consists of interviews with industry stakeholders. In February 2023, we 
+attended Intersolar North America and Energy Storage North America in Long Beach, 
+
+<<p28>>17 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+California, where we gathered on-the-spot data and insights from more than 100 exhibitors. After 
+the conference, we conducted in-depth interviews and correspondence with about 40 experts 
+connected to the manufacturing and sale of modules, inverters, ESSs, and balance-of-system 
+components, as well as the installation of PV and storage systems. We supplemented and cross-
+checked the interview-based data using reports, data, and tools including Barbose et al. (2022), 
+Bolinger et al. (2022), CA NEM (2023), PEguru (2023), RENVU (2023), and Roth MKM 
+(2023). We convert these data into intrinsic units to be input into PVSCM using system and 
+component specifications. Then various factors in PVSCM—derived from interviews, reports, 
+and the detailed bottom-up model used for our Q1 2022 benchmark report—are used to convert 
+the intrinsic units into system capital costs in dollars per kilowatt dc. The appendix shows an 
+example of the process, for SBOS components in a residential PV system. The full set of 
+PVSCM inputs and results for Q1 2023 is available at https://data.nrel.gov/. 
+
+<<p29>>18 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+ 
+Figure 6. Schematic of benchmark analysis using PVSCM (for utility-scale system) 
+
+<<p30>>19 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+5 Residential Model 
+This section describes our residential PV and PV-plus-storage parameters (Section 5.1) and 
+outputs (Section 5.2 and Section 5.3). The cost results are in 2022 real U.S. dollars (USD).6 If 
+the results were in Q1-2023 nominal USD, they would be about 3% higher. 
+5.1 Representative System Parameters 
+We model a baseline 8-kWdc rooftop PV system using 20.8%-efficient, 1.97-m2 monofacial 
+monocrystalline silicon modules from a Tier 1 U.S. supplier, microinverters with an inverter 
+loading ratio (ILR) of 1.21 imported from China with the Section 301 tariff, and a 5-kW/12.5-
+kWh alternating-current (ac) coupled lithium-ion storage system. The per-unit cost results are 
+meant to be generally applicable to systems with PV sizes between about 4 and 16 kWdc. 
+Module, inverter, and battery costs represent the costs to manufacture the components and ship 
+them to a distributor’s warehouse. SBOS and EBOS costs represent the costs for small but 
+experienced residential PV installers to procure these components. The fieldwork, office work, 
+and other costs relate to installation and overhead labor, PII, customer acquisition, logistics, sales 
+tax, and profit. 
+5.2 System Costs 
+Figure 7 compares our MSP and MMP benchmarks for rooftop 8-kWdc residential PV systems 
+with and without a 12.5-kWh capacity storage system. For Q1 2023, our MMP benchmark for 
+PV ($2.68/Wdc) is 15% higher than our MSP benchmark ($2.34/Wdc). Likewise, our PV-plus-
+storage MMP benchmark ($4.70/Wdc) is 21% higher than our MSP benchmark ($3.88/Wdc). 
+Without the 45X credit eligible for domestically assembled modules, inverters, and battery packs 
+the MMP of the residential PV and PV-plus-storage system would have been $2.90/Wdc and 
+$4.93/Wdc, respectively. 
+Our Q1 2023 MMP benchmarks are 16% lower (PV) and 9% lower (PV-plus-storage) than their 
+counterparts in Q1 2022, in 2022 USD. Higher BOS costs in Q1 2023 were more than offset by 
+lower module, inverter, battery pack, logistics, and customer acquisition costs. 
+ 
+ 
+6 Throughout the report, we adjust nominal cost data collected in Q1 2023 to 2022 real USD based on the 2022 
+average CPI (292.6) and Q1 2023 average CPI (301.3) from FRED (2023a), resulting in an inflation factor of 0.97. 
+
+<<p31>>20 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+ 
+Figure 7. Q1 2023 U.S. residential benchmarks (8-kWdc PV, 12.5-kWh ESS) 
+5.3 Component Costs 
+Figure 8 and Figure 9 show the component costs for our residential benchmark, with each graph 
+displayed in the intrinsic units corresponding to the component shown. 
+ 
+ 
+
+<<p32>>21 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+ 
+Figure 8. Residential module, inverter, energy storage, and SBOS costs 
+The results shown here are for PV-plus-storage systems; PV-only results are not shown here but are available at 
+https://data.nrel.gov/. In addition to the ESS cost itself, adding ESS affects the SBOS category (ESS mount cost). 
+The module “other material” category includes the front glass, backsheet, and encapsulant. The “rest of inverter” 
+category includes the sensors, fuses, software, and cooling system. 
+
+<<p33>>22 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+ 
+Figure 9. Residential EBOS, fieldwork, office work, and other capital costs 
+The results shown here are for PV-plus-storage systems; PV-only results are not shown here but are available at 
+https://data.nrel.gov/. Adding ESS affects multiple cost categories: fieldwork (ESS labor), office work (customer 
+acquisition), and other costs (distributors, sales tax, management, profit). 
+ 
+ 
+
+<<p34>>23 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+6 Community Solar Model  
+This year, we model a community solar system for the first time. With community solar, 
+customers can buy or lease a share of a large off-site PV or PV-plus-storage system, typically 
+receiving a monthly bill credit for their share of the electricity generation. In this section, we 
+describe our community solar parameters (Section 6.1) and outputs (Section 6.2 and Section 6.3). 
+The cost results are in 2022 real USD. If the results were in Q1-2023 nominal USD, they would 
+be about 3% higher. 
+The community solar cost structure resembles that of a comparably sized commercial ground-
+mounted, fixed-tilt PV system, with two distinctions. Community solar systems incur initial costs 
+to acquire numerous subscribers, unlike residential or commercial systems, which entail 
+acquiring only a single customer. Community solar systems also incur unique costs for ongoing 
+subscriber management, such as bill management, ongoing marketing, and customer acquisition 
+costs to manage customer turnover. We build benchmark estimates for both cost components 
+based on insights from the literature and interviews with three developers. In Section 6.3, we 
+discuss initial subscriber acquisition costs. Ongoing subscriber management costs are discussed 
+in Section 8. 
+6.1 Representative System Parameters 
+We model a 3-MWdc, 1,000-Vdc fixed-tilt community solar system using 20.5%-efficient, 2.57-
+m2 bifacial monocrystalline silicon modules from a Tier 1 supplier imported from Southeast Asia 
+with a Section 201 tariff exception, three-phase string inverters with an ILR of 1.34 imported 
+from China with the Section 301 tariff, and a 1.8-MW/7.2-MWh ac-coupled containerized 
+lithium-ion storage system. We chose a 3-MWdc PV system based on industry feedback 
+indicating increasing system sizes as well as the mean community solar system size (2.5 MWdc) 
+in 2022 in New York (New York State 2023), where 52% of U.S. community solar capacity was 
+installed in 2022 (Wood Mackenzie and SEIA 2023). The per-unit cost results are meant to be 
+generally applicable to systems with PV sizes between about 1.5 and 6 MWdc. Module, inverter, 
+and battery costs represent the costs to manufacture the components and ship them to a 
+warehouse. SBOS and EBOS costs represent the costs for developers to procure these 
+components. The fieldwork, office work, and other costs relate to installation and overhead 
+labor, PII, subscriber acquisition, logistics, sales tax, and profit. 
+6.2 System Costs 
+Figure 10 compares our MSP and MMP benchmarks for ground-mounted fixed-tilt 3-MWdc 
+community solar systems with and without a 7.2-MWh storage system. For Q1 2023, our MMP 
+benchmark for PV ($1.76/Wdc) is 18% higher than our MSP benchmark ($1.49/Wdc). Likewise, 
+our PV-plus-storage MMP benchmark ($2.94/Wdc) is 26% higher than our MSP benchmark 
+($2.33/Wdc). Without the 45X credit for locally assembled battery packs, the MMP of the PV-
+plus-storage system would have been $2.96/Wdc. 
+Our Q1 2022 benchmark report has no community solar system to enable a comparison over 
+time. Text Box 1 compares our Q1 2023 community solar benchmarks with the cost of similar 
+commercial PV and PV-plus-storage systems. 
+
+<<p35>>24 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+ 
+ 
+Figure 10. Q1 2023 U.S. community solar benchmarks (3-MWdc PV, 7.2-MWh ESS) 
+Text Box 1. Commercial PV and PV-plus-storage system costs 
+Previous NREL benchmark reports have provided cost results for commercial PV and PV-plus-storage 
+systems: rooftop or ground-mounted systems serving a single commercial customer. Although we do not 
+explicitly model commercial benchmarks for Q1 2023, the cost of 3-MWdc commercial ground-mounted 
+systems can be estimated from our community solar benchmarks by adjusting the subscriber recruitment 
+cost. As described in Section 6.3, we estimate the community solar subscriber recruitment cost at 
+$0.08/Wdc, based on a mix of subscriber types. We estimate that the cost to acquire a single large 
+customer for a comparable commercial system is equivalent to the cost of recruiting a large commercial 
+subscriber for a community solar system, at $0.041/Wdc. After accounting for changes to other costs that 
+are affected by the subscriber cost (management, profit, etc.), our community solar benchmarks are about 
+$0.05/Wdc higher than the upfront costs of similar commercial PV and PV-plus-storage systems. The 
+O&M costs also vary across system types (see Section 8). 
+6.3 Component Costs 
+Wood Mackenzie (2023) estimates community solar customer acquisition costs of $0.141/Wdc 
+for low- and moderate-income (LMI) residential subscribers, $0.078/Wdc for non-LMI residential 
+subscribers, $0.063/Wdc for small commercial subscribers, and $0.041/Wdc for large commercial 
+subscribers. Project-level customer acquisition costs are thus determined by the composition of 
+the subscriber base. Large commercial or industrial customers typically compose significant 
+portions of community solar capacity by acting as “anchor” tenants. Several state policies limit 
+anchor tenant subscriptions to 40% of project capacity, and several developers confirmed that 
+40% is an appropriate benchmark assumption. For the remaining 60%, the key question is how 
+much capacity is reserved for LMI subscribers. Based on feedback from developers and policy 
+trends (see Text Box 2), we estimate that 30% of our benchmark community solar project’s 
+capacity is reserved for LMI subscribers. Assuming the benchmark project includes a large 
+commercial anchor tenant subscribed to 40% of capacity, LMI subscribers subscribed to 30% of 
+capacity, and an even mix of residential and small commercial customers subscribed to the 
+
+<<p36>>25 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+remaining 30% of capacity, we estimate a project-level customer acquisition rate of $0.08/Wdc, 
+which represents a $0.04/Wdc premium over a single-offtaker large commercial PV system. 
+Figure 11 and Figure 12 show the component costs for our community solar benchmark, with 
+each graph displayed in the intrinsic units corresponding to the component shown. 
+Text Box 2. Community solar as a tool for LMI solar access 
+Community solar is broadly theorized as a way to promote solar access to underserved populations, 
+such as LMI households and renters. Policy reinforces the potential access benefits of community 
+solar. The federal IRA includes tax credits for community solar projects that serve LMI customers or 
+communities. At least 17 states mandate or incentivize community solar to serve LMI customers (IREC 
+2020, Xu et al. 2023). LMI community solar policy has become more ambitious over time. Recent 
+reforms, such as in California and New Jersey, call for LMI subscription targets as large as 50%. Two 
+developers interviewed for this study reported LMI targets of 15%–40%.  
+LMI community solar policies and business models pose unique challenges. LMI customers are 
+typically costlier to acquire (Wood Mackenzie 2023). LMI customer acquisition cost premiums reflect 
+several factors, including LMI household budget constraints and ingrained distrust in energy marketers 
+and institutions (Lydersen 2023). Subscriber managers can also incur additional costs to comply with 
+LMI mandates, such as requirements to verify household income. One developer noted that LMI 
+customers may be more likely to unsubscribe, although further research is required to estimate a 
+precise impact of LMI subscription rates on customer turnover. 
+  
+ 
+ 
+
+<<p37>>26 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+  
+ 
+ 
+Figure 11. Community solar module, inverter, energy storage, and SBOS costs 
+The results shown here are for PV-plus-storage systems; PV-only results are not shown here but are available at 
+https://data.nrel.gov/. In addition to the ESS cost itself, adding ESS affects the SBOS category (ESS pad cost). The 
+module “other material” category includes the front and back glass as well as encapsulant. The “rest of inverter” 
+category includes the sensors, fuses, software, and cooling system. 
+
+<<p38>>27 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+  
+ 
+Figure 12. Community solar EBOS, fieldwork, office work, and other capital costs 
+The results shown here are for PV-plus-storage systems; PV-only results are not shown here but are available at 
+https://data.nrel.gov/. Adding ESS affects two cost categories: fieldwork (ESS labor) and other costs (contingency, 
+sales tax, management, profit). 
+ 
+ 
+
+<<p39>>28 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+7 Utility-Scale Model 
+This section describes our utility-scale PV and PV-plus-storage parameters (Section 7.1) and 
+outputs (Section 7.2 and Section 7.3). The cost results are in 2022 real USD. If the results were 
+in Q1-2023 nominal USD, they would be about 3% higher.  
+7.1 Representative System Parameters 
+We model a 100-MWdc, 1,500-Vdc decentralized single-axis tracking utility-scale PV system 
+using 20.5%-efficient, 2.57-m2 bifacial monocrystalline silicon modules from a Tier 1 supplier 
+imported from Southeast Asia with Section 201 tariff exemption. We also model three-phase 
+central inverters with an ILR of 1.34 imported from Europe with no tariff and a 60-MW/240 
+MWh ac-coupled containerized lithium-ion storage system. We chose a 100-MWdc PV system 
+because that was the approximate average size of U.S. utility-scale systems reported in EIA 
+(2022). The per-unit cost results are meant to be generally applicable to systems with PV sizes 
+between about 50 and 200 MWdc. Module, inverter, and battery costs represent the costs to 
+manufacture the components and ship them to a warehouse. SBOS and EBOS costs represent the 
+costs for developers to procure these components. The fieldwork, office work, and other costs 
+relate to installation and overhead labor, PII, logistics, sales tax, and profit. 
+7.2 System Costs 
+Figure 13 compares our MSP and MMP benchmarks for single-axis-tracker 100-MWdc utility- 
+scale PV systems with and without a 240-MWh capacity storage system. For Q1 2023, our MMP 
+benchmark for PV ($1.16/Wdc) is 19% higher than our MSP benchmark ($0.97/Wdc). Likewise, 
+our PV-plus-storage MMP benchmark ($2.11/Wdc) is 28% higher than our MSP benchmark 
+($1.65/Wdc). 
+Our Q1 2023 MMP benchmarks are 8% higher (PV) and 0.2% higher (PV-plus-storage) than 
+their counterparts in Q1 2022, in 2022 USD. Higher inverter and EBOS costs plus new network 
+upgrade costs more than offset lower module and SBOS costs in Q1 2023. 
+  
+ 
+Figure 13. Utility-scale Q1 2023 U.S. benchmarks (100-MWdc PV, 240-MWh ESS) 
+
+<<p40>>29 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+7.3 Component Costs 
+Figure 14 and Figure 15 show the component costs for our utility-scale benchmark, with each 
+graph displayed in the intrinsic units corresponding to the component shown. 
+   
+Figure 14. Utility-scale module, inverter, energy storage, and SBOS costs 
+The results shown here are for PV-plus-storage systems; PV-only results are not shown here but are available at 
+https://data.nrel.gov/. In addition to the ESS cost itself, adding ESS affects the SBOS category (ESS pad cost). The 
+module “other material” category includes the front and back glass as well as encapsulant. The “rest of inverter” 
+category includes the sensors, fuses, software, and cooling system. 
+
+<<p41>>30 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+  
+ 
+Figure 15. Utility-scale EBOS, fieldwork, office work, and other capital costs 
+The results shown here are for PV-plus-storage systems; PV-only results are not shown here but are available at 
+https://data.nrel.gov/. Adding ESS affects two cost categories: fieldwork (ESS labor) and other costs (contingency, 
+sales tax, management, profit). 
+ 
+ 
+
+<<p42>>31 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+8 Operations and Maintenance 
+Benchmark PV O&M costs are estimated using a PV O&M cost model (Walker et al. 2020) that 
+provides a line-item cost estimate of measures that correspond to the PV O&M services 
+described in Best Practices for Operation and Maintenance of Photovoltaic and Energy Storage 
+Systems, 3rd Edition (NREL et al. 2018); O&M cost drivers for PV modules and inverters in the 
+model are informed by actuarial failure and repair data from Sandia National Laboratories (Klise, 
+Lavrova, and Gooding 2018), but current default values for other measures that occur on fixed 
+intervals or for which the failure rate data are unavailable reflect the best judgement of a Solar 
+Energy Technologies Office-sponsored working group. 
+Like the system cost modeling in this report, we estimate two sets of O&M cost numbers: one 
+with MMP parameters and another with MSP parameters. For Q1 2023, the labor rates, discount 
+rate, and inflation rate are updated; these items are common across the MSP and MMP 
+calculations. O&M costs associated with future replacement of hardware use the component’s 
+MSP even when calculating O&M MMP, because MSP is a better estimate of future component 
+cost than this year’s MMP. Actuarial failure and repair data are not updated from last year. Five 
+additional line measures (land lease, property taxes, insurance, asset management, and security) 
+were added in Q1 2020, based on feedback from U.S. solar industry professionals collected by 
+Lawrence Berkeley National Laboratory (Wiser et al. 2020); of these, only the insurance line 
+item was updated in Q1 2021. For Q1 2023, no changes are made to those line items. In Q1 
+2021, some of the 133 line measures were deleted if they were either outdated or not applicable 
+to certain types of systems, especially residential and utility systems (one-axis tracking), based 
+on high-level market research. For Q1 2023, no line measures were deleted. In Q1 2023, O&M 
+was estimated for residential, community solar, and utility-scale systems. 
+O&M costs in the PV O&M cost model include preventative maintenance, scheduled at regular 
+intervals with costs increasing at the rate of general inflation, as well as corrective maintenance 
+to replace components. The model derives corrective maintenance by multiplying the 
+replacement cost, including labor, by the probability that a failure will occur each year based on 
+actuarial data. Component failure probabilities for each year are calculated using a Weibull, log-
+normal, or other distribution based on actual data, when possible (Gunda and Homan 2020). 
+We use the Elevate community solar cost model as a basis to estimate subscriber management 
+costs (Elevate 2021). We use default values for all inputs—assuming a 5-MW system and a 40% 
+anchor tenant—with one exception. The Elevate model uses a default value of 1.5% for customer 
+turnover rates, meaning that about 1.5% of subscribers end their subscriptions each year. 
+However, feedback from developers suggested a range from 2%–8%, and Martin (2022) 
+estimates a community solar customer turnover rate of 5%. One developer noted that customer 
+turnover rates vary with how customers are billed. Turnover tends to be lower when subscribers 
+receive a single community solar and utility bill (consolidated billing) and higher where 
+customers receive separate community solar and utility bills (dual billing). While dual billing 
+remains common, consolidated billing has emerged as a best practice in key markets such as 
+New York (Martin 2022). In our forward-looking benchmark, we estimate a 3% customer 
+turnover rate to reflect a turnover rate consistent with consolidated billing. We estimate a 25-year 
+lifetime and a 6.5% discount rate to estimate the net present value of ongoing subscriber 
+management costs. Finally, we estimate that 30% of subscribers entail an 80% management cost 
+
+<<p43>>32 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+premium, reflecting the acquisition cost difference between non-LMI and LMI customers 
+estimated by Wood Mackenzie (2023).  
+The current MSP benchmarks for PV systems in 2022 real USD are $28.78/kWdc/yr (residential), 
+$39.83/kWdc/yr (community solar), and $16.12/kWdc/yr (utility-scale, single-axis tracking). For 
+MMP, the current benchmarks are $30.36/kWdc/yr (residential), $40.51/kWdc/yr (community 
+solar), and $16.58/kWdc/yr (utility-scale, single-axis tracking). Most of the management cost 
+($17.41/kWdc/yr) for community solar systems is allocated to ongoing subscriber management, 
+while only $5.05/kWdc/yr is allocated to asset management. These PV systems results are shown 
+in the top half of Figure 16. 
+The bottom half of Figure 16 shows O&M results for PV-plus-storage systems. The MSP 
+benchmarks in 2022 real USD are $61.28/kWdc/yr (residential), $75.25/kWdc/yr (community 
+solar), and $50.73/kWdc/yr (utility-scale, single-axis tracking). For MMP, the benchmarks are 
+$65.04/kWdc/yr (residential), $76.79/kWdc/yr (community solar), and $51.88/kWdc/yr (utility-
+scale, single-axis tracking). ESS replacement constitutes the largest share of O&M costs for all 
+the PV-plus-storage systems modeled. 
+
+<<p44>>33 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+ 
+Figure 16. MSP and MMP O&M benchmarks for all modeled systems 
+
+<<p45>>34 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+9 Conclusions 
+Our bottom-up cost models can be used to assess the MSP and MMP of PV and PV-plus-storage 
+systems with various configurations. While MSP can be used to estimate potential system cost-
+reduction opportunities—thus helping guide R&D aimed at advancing cost-effective system 
+configuration—MMP can be used to understand system costs under recent market conditions. 
+Based on our bottom-up modeling, the Q1 2023 cost benchmarks are listed in Table 3. The full 
+set of benchmark inputs and results for Q1 2023 is available at https://data.nrel.gov/. 
+Table 3. Q1 2023 PV and PV-Plus-Storage MSP and MMP Benchmarks (2022 USD) 
+MSP Benchmarks 
+MMP Benchmarks 
+System and Cost Type 
+Residential Systems 
+$2.34/Wdc 
+$2.68/Wdc  
+8-kWdc rooftop PV system cost 
+$3.88/Wdc 
+$4.70/Wdc  
+8-kWdc rooftop PV with 5-kWdc/12.5-kWh ESS system cost 
+$28.78/kWdc/yr 
+$30.36/kWdc/yr 
+PV O&M cost 
+$61.28/kWdc/yr 
+$65.04/kWdc/yr 
+PV-plus-storage O&M cost 
+Community Solar Systems 
+$1.49/Wdc 
+$1.76/Wdc  
+3-MWdc ground-mounted community PV system cost 
+$2.33/Wdc 
+$2.94/Wdc  
+3-MWdc ground-mounted community PV with 1.8-MWdc/7.2-
+MWh ESS system cost 
+$39.83/kWdc/yr 
+$40.51/kWdc/yr 
+PV O&M cost 
+$75.25/kWdc/yr 
+$76.79/kWdc/yr 
+PV-plus-storage O&M cost 
+Utility-Scale Systems 
+$0.96/Wdc 
+$1.17/Wdc  
+100-MWdc one-axis-tracking PV system cost 
+$1.64/Wdc 
+$2.13/Wdc  
+100-MWdc one-axis-tracking PV with 60-MWdc/240-MWh ESS 
+system cost 
+$16.12/kWdc/yr 
+$16.58/kWdc/yr 
+PV O&M cost 
+$50.73/kWdc/yr 
+$51.88/kWdc/yr 
+PV-plus-storage O&M cost 
+ 
+ 
+
+<<p46>>35 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+References  
+Barbose, Galen, Naïm Darghouth, Eric O’Shaughnessy, and Sydney Forrester. 2022. Tracking 
+the Sun: Pricing and Design Trends for Distributed Photovoltaic Systems in the United States. 
+Berkeley, CA: Lawrence Berkeley National Laboratory. 
+https://emp.lbl.gov/sites/default/files/2_tracking_the_sun_2022_report.pdf. 
+BLS (U.S. Bureau of Labor Statistics). 2023a. “Consumer Prices up 4.9 Percent from April 2022 
+to April 2023.” TED: The Economics Daily, May 15, 2023. 
+www.bls.gov/opub/ted/2023/consumer-prices-up-4-9-percent-from-april-2022-to-april-2023.htm. 
+BLS. 2023b. “Databases, Tables & Calculators by Subject: CPI for All Urban Consumers (CPI-
+U).” Accessed July 2023. https://data.bls.gov/cgi-bin/surveymost?bls. 
+BNEF. 2023. Bimonthly PV Index, April 2023. New York: BloombergNEF. 
+Bolinger, Mark, Joachim Seel, Cody Warner, and Dana Robson. 2022. Utility-Scale Solar, 2022 
+Edition. Berkeley, CA: Lawrence Berkeley National Laboratory. 
+https://emp.lbl.gov/sites/default/files/utility_scale_solar_2022_edition_slides.pdf. 
+CA NEM. 2023. “NEM Currently Interconnected Data Set.” California Distributed Generation 
+Statistics. Accessed June 2023. 
+http://www.californiadgstats.ca.gov/downloads.http://www.californiadgstats.ca.gov/downloads 
+Chunduri, Shravan. 2022. “Modules Using Large Wafers to Attain High Power Rating Has 
+Become Common Practice for Large Power Plant Applications.” Taiyang News, September 19, 
+2022. https://taiyangnews.info/technology/powerful-modules-for-utility/. 
+Cook, Jeff, Rosalie Yu, Kaifeng Xu, Sushmita Jena, Tim Rivard, and Jessica de la Paz. 2023. 
+SolarAPP+ Performance Review (2022 Data). Golden, CO: National Renewable Energy 
+Laboratory. www.nrel.gov/docs/fy23osti/85827.pdf. 
+DiGangi, Diana. 2023. “House Fails to Overturn Biden’s Veto on Congressional Resolution to 
+End Southeast Asia Solar Panel Tariff Pause.” Utility Dive, May 17, 2023. 
+www.utilitydive.com/news/biden-veto-resolution-tariff-solar-panels-commerce-asia/650450/.  
+DOC (U.S. Department of Commerce). 2023. “Department of Commerce Issues Final 
+Determination of Circumvention Inquiries of Solar Cells and Modules from China.” Press 
+Release. www.commerce.gov/news/press-releases/2023/08/department-commerce-issues-final-
+determination-circumvention-inquiries. 
+DOE (U.S. Department of Energy). 2023a. “Federal Solar Tax Credit Resources.” Accessed 
+August 2023. www.energy.gov/eere/solar/articles/federal-solar-tax-credit-resources. 
+DOE. 2023b. “Federal Tax Credits for Solar Manufacturers.” Accessed August 2023. 
+www.energy.gov/eere/solar/federal-tax-credits-solar-manufacturers. 
+
+<<p47>>36 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+EIA (U.S. Energy Information Administration). 2022. “2021 Form EIA-860 Data.” Accessed 
+December 2022. www.eia.gov/electricity/data/eia860. 
+EIA. 2023. “Monthly Solar Photovoltaic Module Shipments Report.” Accessed April 2023. 
+www.eia.gov/renewable/monthly/solar_photo/pdf/pv_table3.pdf. 
+Elevate. 2021. Community Solar Pro Forma, v1.1. Chicago: Elevate. 
+www.elevatenp.org/publications/elevate-community-solar-pro-forma. 
+Feldman, David, Krysta Dummit, Jarett Zuboy, and Robert Margolis. 2022. Fall 2022 Solar 
+Industry Update. Golden, CO: National Renewable Energy Laboratory. 
+www.nrel.gov/docs/fy23osti/84515.pdf. 
+Feldman, David, Krysta Dummit, Jarett Zuboy, and Robert Margolis. 2023. Spring 2023 Solar 
+Industry Update. Golden, CO: National Renewable Energy Laboratory. 
+www.nrel.gov/docs/fy23osti/86215.pdf.  
+FRED (Federal Reserve Economic Data). 2023a. “Consumer Price Index for All Urban 
+Consumers: All Items in U.S. City Average.” Accessed July 2023, 
+https://fred.stlouisfed.org/series/CPIAUCSL. 
+FRED. 2023b. “Federal Funds Effective Rate.” Accessed July 2023, 
+https://fred.stlouisfed.org/series/fedfunds. 
+FRED. 2023c. “Global Price Index of All Commodities.” Accessed July 2023. 
+https://fred.stlouisfed.org/series/PALLFNFINDEXQ. 
+FRED. 2023d. “Producer Price Index by Commodity: Metals and Metal Products: Cold Rolled 
+Steel Sheet and Strip.” Accessed July 2023. https://fred.stlouisfed.org/series/WPU101707. 
+FRED. 2023e. “Producer Price Index by Industry: Electrical Equipment Manufacturing.” 
+Accessed July 2023. https://fred.stlouisfed.org/series/PCU3353133531. 
+FRED. 2023f. “Employment Cost Index: Wages and Salaries: Private Industry Workers.” 
+Accessed July 2023. https://fred.stlouisfed.org/series/ECIWAG. 
+Gillingham, Kenneth, Hao Deng, Ryan Wiser, Naïm Richard Darghouth, Gregory Nemet, Galen 
+Barbose, Varun Rai, and Changgui Dong. 2016. “Deconstructing Solar Photovoltaic Pricing: The 
+Role of Market Structure, Technology, and Policy.” Energy Journal 37(3): 231–250. 
+Goodrich, Alan C., Douglas M. Powell, Ted L. James, Michael Woodhouse, and Tonio 
+Buonassisi. 2013. “Assessing the Drivers of Regional Trends in Solar Photovoltaic 
+Manufacturing.” Energy & Environmental Science 6: 2811–2821. 
+https://pubs.rsc.org/en/content/articlepdf/2013/ee/c3ee40701b. 
+Gunda, Thushara, and Rachel Homan. 2020. Evaluation of Component Reliability in 
+Photovoltaic Systems Using Field Failure Statistics. Albuquerque, NM: Sandia National 
+Laboratories. SAND2020-9231. https://doi.org/10.2172/1660804.  
+
+<<p48>>37 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+IMF (International Monetary Fund). 2023. “Commodity Special Feature: Market Developments 
+and the Macroeconomic Impact of Declines in Fossil Fuel Extraction.” World Economic Outlook 
+Special Feature, April 2023. www.imf.org/-
+/media/Files/Research/CommodityPrices/WEOSpecialFeature/CSFApril2023.ashx. 
+IREC (Interstate Renewable Energy Council). 2020. Shared Renewables Policy Catalog. Albany, 
+NY: IREC. https://irecusa.org/resources/shared-renewables-policy-catalog/. 
+ITRPV. 2023. International Technology Roadmap for Photovoltaic (ITRPV): 2022 Results. 
+VDMA. www.vdma.org/international-technology-roadmap-photovoltaic. 
+Klise, Geoffrey T., Olga Lavrova, and Renee Gooding. 2018. PV System Component Fault and 
+Failure Compilation and Analysis. Albuquerque, NM: Sandia National Laboratories. 
+SAND2018-1743. https://doi.org/10.2172/1424887. 
+Lydersen, Kari. 2023. “Bringing Community Solar to Low-Income Customers is Harder Than it 
+Looks.” Canary Media, April 11, 2023. www.canarymedia.com/articles/solar/bringing-
+community-solar-to-low-income-customers-is-harder-than-it-looks. 
+Martin, Keith. 2022. “Taking Stock of Community Solar.” Norton Rose Fulbright, June 23, 
+2022. www.projectfinance.law/publications/2022/june/taking-stock-of-community-solar. 
+New York State. 2023. “Solar Electric Programs Reported by NYSERDA: Beginning 2000.” 
+Accessed March 2023. https://data.ny.gov/Energy-Environment/Solar-Electric-Programs-
+Reported-by-NYSERDA-Beginn/3x8r-34rs. 
+Ngo, Madeleine, and Ben Casselman. 2023. “Inflation Inched Higher in April, Reflecting 
+Challenge for the Fed.” New York Times, May 26, 2023. 
+www.nytimes.com/2023/05/26/us/politics/inflation-april-federal-reserve.html. 
+NREL (National Renewable Energy Laboratory), Sandia National Laboratories, SunSpec 
+Alliance, and the SunShot National Laboratory Multiyear Partnership (SuNLaMP) PV O&M 
+Best Practices Working Group. 2018. Best Practices for Operation and Maintenance of 
+Photovoltaic and Energy Storage Systems, 3rd Edition. NREL/TP-7A40-73822. Golden, CO: 
+National Renewable Energy Laboratory. https://www.nrel.gov/docs/fy19osti/73822.pdf. 
+PEguru. 2023. “Substation Cost Estimator.” Accessed 2023. https://peguru.com/substation-cost-
+estimator/. 
+Powell, Douglas M., Mark T. Winkler, Alan Goodrich, and Tonio Buonassisi. 2013. “Modeling 
+the Cost and Minimum Sustainable Price of Crystalline Silicon Photovoltaic Manufacturing in 
+the United States.” IEEE Journal of Photovoltaics 3(2): 662–668. 
+Ramasamy, Vignesh, Jarett Zuboy, Eric O’Shaughnessy, David Feldman, Jal Desai, Michael 
+Woodhouse, Paul Basore, and Robert Margolis. 2022. U.S. Solar Photovoltaic System and 
+Energy Storage Cost Benchmarks, With Minimum Sustainable Price Analysis: Q1 2022. Golden, 
+CO: National Renewable Energy Laboratory. https://www.nrel.gov/docs/fy22osti/83586.pdf. 
+
+<<p49>>38 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+RENVU. 2023. “Solar Design & Quote Tool.” Accessed 2023. www.renvu.com/solar-kit-guide. 
+Roth MKM. 2023. Company Note, Equity Research: Daqo New Energy Corp. Newport Beach, 
+CA: Roth MKM. 
+Smialek, Jeanna, and Christine Zhang. 2023. “Inflation Is Still High. What’s Driving It Has 
+Changed.” New York Times, April 27, 2023. 
+http://www.nytimes.com/2023/04/27/business/economy/what-causes-inflation.html.  
+Smith, Brittany L., Michael Woodhouse, Kelsey A.W. Horowitz, Timothy J. Silverman, Jarett 
+Zuboy, and Robert M. Margolis. 2021. Photovoltaic (PV) Module Technologies: 2020 
+Benchmark Costs and Technology Evolution Framework Results. NREL/TP-7A40-78173. 
+Golden, CO: National Renewable Energy Laboratory. 
+https://www.nrel.gov/docs/fy22osti/78173.pdf. 
+Walker, Andy, Eric Lockhart, Jal Desai, Kristen Ardani, Geoff Klise, Olga Lavrova, Tom Tansy 
+et al. 2020. Model of Operation and Maintenance Costs for Photovoltaic Systems. NREL/TP-
+5C00-74840. Golden, CO: National Renewable Energy Laboratory. 
+https://www.nrel.gov/docs/fy20osti/74840.pdf. 
+Weaver, John F. 2022. “Commerce Clarifies that Recent Module Manufacturing Ruling Only 
+Applies to Four Nations.” PV Magazine USA, December 21, 2022. https://pv-magazine-
+usa.com/2022/12/21/commerce-clarifies-that-recent-module-manufacturing-ruling-only-applies-
+to-four-nations/. 
+Wiser, Ryan H., Mark Bolinger, and Joachim Seel. 2020. Benchmarking Utility-Scale PV 
+Operational Expenses and Project Lifetimes: Results from a Survey of U.S. Solar Industry 
+Professionals. Berkeley, CA: Lawrence Berkeley National Laboratory. 
+https://emp.lbl.gov/publications/benchmarking-utility-scale-pv. 
+Woodhouse, Michael, Brittany Smith, Ashwin Ramdas, and Robert Margolis. 2020. Crystalline 
+Silicon Photovoltaic Module Manufacturing Costs and Sustainable Pricing: 1H 2018 Benchmark 
+and Cost Reduction Road Map. NREL/TP-6A20-72134. Golden, CO: National Renewable 
+Energy Laboratory. https://www.nrel.gov/docs/fy19osti/72134.pdf. 
+Wood Mackenzie. 2023. US Community Solar Market Outlook: H1 2023. Edinburgh: Wood 
+Mackenzie. 
+Wood Mackenzie and SEIA (Solar Energy Industries Association). 2022a. US Solar Market 
+Insight: Q3 2022. Edinburgh: Wood Mackenzie. 
+Wood Mackenzie and SEIA. 2022b. US Solar Market Insight: Q4 2022. Edinburgh: Wood 
+Mackenzie. 
+Wood Mackenzie and SEIA. 2023. US Solar Market Insight: 2022 Year in Review. Edinburgh: 
+Wood Mackenzie. 
+
+<<p50>>39 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+Xu, Kaifeng, Jenny Sumner, Emily Dalecki, and Robin Burton. 2023. Expanding Solar Access: 
+State Community Solar Landscape. Golden, CO: National Renewable Energy Laboratory. 
+www.nrel.gov/docs/fy23osti/84247.pdf. 
+ 
+ 
+
+<<p51>>40 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+Appendix A: Example of PV System Cost Model 
+Calculations 
+Figure A-1 shows an example of PVSCM calculations, for SBOS components in a residential PV 
+system. At step (1), data from industry stakeholders and other sources are used to generate 
+representative costs and quantities for mounts, rails, clamps, and shipping. The table in Figure A-
+1 contains illustrative data for the purpose of this example. These are market costs, aligned with 
+our MMP benchmark. These costs are converted into intrinsic units and MSPs (2). The shipping 
+cost is already in its intrinsic units ($/kg). The costs for mounts, rails, and clamps are converted 
+into their intrinsic units ($/m2) by dividing the total cost per 8-kW system by the total area of 
+modules in that system. Because PVSCM receives cost inputs as MSP values, we now convert 
+the MMPs to MSPs. We identify no distortions for mounts and shipping, so those values are 
+transferred directly into the PVSCM SBOS worksheet (3). However, 25% Section 301 tariffs 
+apply to rails and clamps, so we divide the MMPs by 1.25 to calculate MSPs and then transfer 
+those values into the SBOS worksheet (4). At the same time, we convert the data from nominal 
+USD to 2022 USD for entry into the PVSCM worksheet. 
+The remaining calculations are performed automatically in PVSCM. Mount, rail, and clamp 
+costs are already in the final units for the SBOS worksheet (“Intrinsic Units per m2” = 1), so they 
+are directly transferred into the “Cost Element per m2” column for MSP (5). The mount cost is 
+also transferred directly into the “Price Element per m2” column for MMP. However, because 
+rails and clamps are subject to the Section 301 tariff, that tariff—from the Factors worksheet—is 
+applied to generate the MMP values (6). The shipping cost is converted into $/m2 based on a 
+value in the Factors worksheet before being transferred into the MSP and MMP columns (7). All 
+the $/m2 values in the SBOS worksheet are summed for MSP and MMP and transferred into the 
+SBOS row of the System worksheet (8). Those $/m2 values are then converted to $/kWdc values 
+using the inverse of the module efficiency from the Factors worksheet to show the contribution 
+of SBOS costs to total system costs in those units (9). 
+The use of intrinsic units is important because it facilitates analysis of variations in component 
+costs. For example, the residential SBOS MSP is $219/kWdc, as shown in Figure A-1. Mounts 
+account for $88/kWdc of this cost. Assume that hypothetically the PV industry will report a 10% 
+reduction in mount costs next year. If system component costs were only available in $/kWdc, a 
+10% reduction in mount costs would yield a total SBOS MSP of $210/kWdc. However, the cost 
+of mounts—and other SBOS components—depends on the area of the system’s modules, not on 
+their power capacity. If next year the reported average efficiency of modules were to increase 
+from 20.8% to 21.8%, the SBOS MSP calculated using intrinsic units would be $201/kWdc, or 
+about 4% lower than the MSP calculated using values in $/kWdc. The use of intrinsic units and 
+conversion factors in PVSCM makes analysis more accurate by making the relationships 
+between component costs and specifications transparent, while also providing cost outputs in 
+traditional $/kWdc terms. 
+Such unit conversions are also used for the O&M analysis in PVSCM. Otherwise, our methods 
+for calculating O&M costs are similar to those used in last year’s benchmark report. See Section 
+8 for additional information on the O&M analysis. 
+
+<<p52>>41 
+This report is available at no cost from the National Renewable Energy Laboratory at www.nrel.gov/publications. 
+ 
+Figure A-1. Illustration of the PVSCM analysis process (for SBOS in a residential PV system) 
+MSP = Adjusted for Distortion
+Mounts:
+MMP = MSP (no distortion) 
+=
+$18.85/m2
+Rails:
+Sec. 301 tariff: ($16.50/m2)/1.25 =
+$13.20/m2
+Clamps:
+Sec. 301 tariff: ($2.53/m2)/1.25 =
+$2.02/m2
+Shipping: MMP = MSP (no distortion) 
+=
+$4/kg
+Project Capacity - 8kWdc, ILR - 1.2, 365W PV Module, 1.8m2 module area, Microinverter, Rooftop Mount 
+Component 
+Component Qty for 8kW 
+Price per Component 
+Comment 
+Mounts 
+30 
+$24.63 
+ 
+Rails 
+10 
+$64.68 
+ 
+Clamps 
+50 
+$1.98 
+Shipping 
+ 
+ 
+$4/kg 
+MMP = (Component Qty x Price Per Component)/System Area
+Mounts:
+(30 x $24.63)/39.2 m2 =$18.85/m2
+Rails:
+(10 x $64.68)/39.2 m2 =$16.50/m2
+Clamps:
+(50 x $1.98)/39.2 m2 =$2.53/m2
+Shipping: Already intrinsic  
+=$4/kg
+Component Cost Data, 
+Q1 2023 $ (aligned with 
+MMP benchmark)
+Conversion to Intrinsic Units 
+and MSP Values
+SBOS Worksheet
+System Worksheet
+Factors Worksheet
+PVSCM
+x
+x
+x
+x
+x
+1
+3
+4
+5
+6
+7
+7
+6
+8
+8
+9
+9
+4
+3
+2
+3
+3

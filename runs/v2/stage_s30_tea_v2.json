@@ -1,0 +1,83 @@
+{
+  "stage": "s30_tea_v2",
+  "fingerprint": "5f4b2277444c46134980225e44340c10bba5969ed47346796b4b96d28a2772fa",
+  "inputs": {
+    "scored": {
+      "path": "runs\\v2\\stability\\v2_screen_scored.csv",
+      "sha256": "c35dafcb9af83ceeeb193da3538ec5cf0af42175895e8225cb153df4562108c2"
+    },
+    "model": {
+      "path": "runs\\v2\\models\\v2_final.joblib",
+      "sha256": "0c8c3e40546c7ebef16d7fb4a539c5bd173b402b211997e347fb79ce9e6ad89a"
+    },
+    "umlip": {
+      "path": "runs\\v2\\stability\\umlip.csv",
+      "sha256": "a55cd9b0e3428996a9da64d6c17ce6d8dcbfc376157f7a7d63cb134491227919"
+    }
+  },
+  "params": {
+    "seed": 42,
+    "n_mc": 4000,
+    "basis": "msp"
+  },
+  "outputs": {
+    "tea_v2/efficiency_sweep.csv": "fb4d52d96aa80dfdcd25a4e7973b824de568e2998a3bdfa6374b9619ab43d4ef",
+    "tea_v2/breakeven_efficiency.csv": "518b9c0e8b9c7237127c5cf41a8b541db8f00abfdda3678c8f67593104af57f0",
+    "tea_v2/candidate_lcoe.csv": "b5414224a499a100edb6864fdc5a2e7b7e5c45cf586ed025b88eb059f19f556e",
+    "tea_v2/sobol.csv": "4fed0dc5ebbf9926d63113a4fa96a7e5be6c46bab4c00c78e64dfe1cd78d9d33",
+    "metrics/tea_v2.json": "59a1da8d1b30eeaf85cf0450b963610ed98d7070557b3a404c47c4ab7b9dec47"
+  },
+  "metrics": {
+    "e2_csi_ref": {
+      "msp_median_usd_mwh": 58.706331066632615,
+      "msp_p10": 44.04277867264463,
+      "msp_p90": 81.74041795716994,
+      "mmp_median_usd_mwh": 68.24489973836435,
+      "lazard_utility_range_usd_mwh": [
+        29,
+        92
+      ],
+      "irena_2023_global_avg_usd_mwh": 44
+    },
+    "e3_decoupling_test": {
+      "high": {
+        "lcoe_8pct_over_18pct": 2.063587907911287,
+        "monotonic_decreasing": true,
+        "area_share_of_capex_at_10pct": 0.9438079336749381
+      },
+      "low": {
+        "lcoe_8pct_over_18pct": 1.7940373682151058,
+        "monotonic_decreasing": true,
+        "area_share_of_capex_at_10pct": 0.8364885240408779
+      },
+      "med": {
+        "lcoe_8pct_over_18pct": 1.8628367222358833,
+        "monotonic_decreasing": true,
+        "area_share_of_capex_at_10pct": 0.86755326367214
+      }
+    },
+    "e4_breakeven": {
+      "n_scenarios": 90,
+      "n_unreachable": 53,
+      "base_low_35y_deg0.7": 0.2025,
+      "base_med_35y_deg0.7": 0.26,
+      "med_10y_deg2": NaN
+    }
+  },
+  "env": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "pymatgen": "2026.3.23",
+    "matminer": "0.10.1",
+    "xgboost": "3.2.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "optuna": "4.8.0"
+  },
+  "git": "59a2884-dirty",
+  "seconds": 51.08,
+  "finished_utc": "2026-09-29T01:47:54Z"
+}

@@ -1,4 +1,5 @@
-# Reproducible offline-oriented environment pins for ML -> TEA screening.
+# Reproducible offline-oriented environment pins for the ORIGINAL (legacy) notebook study.
+# The v2 audit pipeline (pipeline/, runs/v2, paper/) uses requirements-v2.lock.txt instead.
 python>=3.11
 numpy==1.26.4
 pandas==2.1.4

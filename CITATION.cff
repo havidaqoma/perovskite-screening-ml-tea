@@ -3,11 +3,11 @@ title: "Lead-free double perovskite screening: XGBoost property prediction with 
 message: "If you use this code or data, please cite as follows."
 type: software
 authors:
-  - family-names: "Khoiruddin"
-    given-names: "Havid Aqoma"
+  - family-names: "Aqoma"
+    given-names: "Havid"
     orcid: "https://orcid.org/0000-0003-1264-1916"
     affiliation: "Xiamen University Malaysia"
 repository-code: "https://github.com/havidaqoma/perovskite-screening-ml-tea"
 license: MIT
-version: "1.0.0"
-date-released: "2026-09-02"
+version: "2.0.0"
+date-released: "2026-09-30"

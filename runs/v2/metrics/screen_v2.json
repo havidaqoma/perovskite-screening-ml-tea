@@ -1,0 +1,20 @@
+{
+  "n_charge_balanced": 6080,
+  "funnel_fail_counts": {
+    "tau_not_perovskite": 4386,
+    "pass": 1256,
+    "no_oxidation_state_assignment": 420,
+    "predicted_metal": 18
+  },
+  "n_v2_candidates": 1256,
+  "n_legacy_steric_pass": 3284,
+  "april_candidates_trace": {
+    "tau_not_perovskite": 2432,
+    "pass": 645,
+    "no_oxidation_state_assignment": 200,
+    "predicted_metal": 3
+  },
+  "n_v2_candidates_in_april_set": 645,
+  "p_pv_absorber_ge_0.5": 48,
+  "cs2agbibr6": []
+}

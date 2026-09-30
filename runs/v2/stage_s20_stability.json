@@ -1,0 +1,105 @@
+{
+  "stage": "s20_stability",
+  "fingerprint": "6293cc846f25fb0051094892f8cc99a3d3994186c30f505e5cdaf6f4b46d0e4c",
+  "inputs": {
+    "candidates": {
+      "path": "runs\\v2\\screen\\v2_candidates.csv",
+      "sha256": "475057f968a485b1aae700f3c3598aba0e8b2af961bc4772360a7a82be21cb39"
+    },
+    "model": {
+      "path": "runs\\v2\\models\\v2_final.joblib",
+      "sha256": "0c8c3e40546c7ebef16d7fb4a539c5bd173b402b211997e347fb79ce9e6ad89a"
+    },
+    "oof": {
+      "path": "runs\\v2\\predictions\\oof_v2.csv",
+      "sha256": "bdfd7afee51d73276a17998f5d914ba6c10e9d390f501a8f329a4181f91cc037"
+    }
+  },
+  "params": {
+    "thresholds": [
+      0,
+      20,
+      35,
+      50,
+      100
+    ],
+    "gate_meV": 50.0,
+    "p_min": 0.5
+  },
+  "outputs": {
+    "stability/v2_stability.csv": "85f8fa9fb4f4fe01e3666bce8a3dde0ec6497fd7e62b41404d4e1faa44eb9de6",
+    "stability/control_known_a2bbx6.csv": "0626f0cf44c2c7c3136118a3c21cc3b68a0edecae85dc1ed61407d5a086004da",
+    "metrics/stability_v2.json": "e682290368d728f614c8da4a1a170aa8d3e44d033d9a23e1298346840ded12ac"
+  },
+  "metrics": {
+    "mp_database_version": "2026.04.13",
+    "n": 1256,
+    "status_counts": {
+      "unstable_likely": 940,
+      "stable_likely": 277,
+      "known_mp": 39
+    },
+    "n_p50_ge_0.5_by_thr": {
+      "0": 172,
+      "20": 212,
+      "35": 243,
+      "50": 285,
+      "100": 440
+    },
+    "ef_residual_mae": 0.06308969229958639,
+    "ef_residual_bias": 0.006898009694670566,
+    "control": {
+      "n": 400,
+      "n_ok": 380,
+      "frac_true_stable_50": 0.31842105263157894,
+      "roc_auc_p50": 0.8348543348543349,
+      "brier_p50": 0.15144550219600794,
+      "gate_precision": 0.660377358490566,
+      "gate_recall": 0.5785123966942148,
+      "ehull_mae_meV_vs_rest": 42.532354837708695,
+      "reliability": {
+        "(-0.001, 0.2]": {
+          "n": 156,
+          "mean_p": 0.089497428962378,
+          "obs_frac": 0.07051282051282051
+        },
+        "(0.2, 0.4]": {
+          "n": 89,
+          "mean_p": 0.29190671227866294,
+          "obs_frac": 0.29213483146067415
+        },
+        "(0.4, 0.6]": {
+          "n": 58,
+          "mean_p": 0.49779359641815596,
+          "obs_frac": 0.5
+        },
+        "(0.6, 0.8]": {
+          "n": 44,
+          "mean_p": 0.6913557849897057,
+          "obs_frac": 0.6818181818181818
+        },
+        "(0.8, 1.0]": {
+          "n": 33,
+          "mean_p": 0.8740789171517063,
+          "obs_frac": 0.7575757575757576
+        }
+      }
+    }
+  },
+  "env": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "pymatgen": "2026.3.23",
+    "matminer": "0.10.1",
+    "xgboost": "3.2.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "optuna": "4.8.0"
+  },
+  "git": "b444ffc-dirty",
+  "seconds": 361.97,
+  "finished_utc": "2026-09-28T19:40:58Z"
+}

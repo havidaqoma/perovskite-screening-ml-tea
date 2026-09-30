@@ -1,0 +1,10 @@
+{
+  "model_source": "retrained",
+  "n_in": 3284,
+  "n_candidates": 3276,
+  "rejections": {
+    "pass": 3276,
+    "eg_out_of_window": 8
+  },
+  "model_mae_used": 0.3489078651419837
+}

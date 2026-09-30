@@ -1,0 +1,91 @@
+{
+  "stage": "s41_robustness",
+  "fingerprint": "43f6fed5cce254d11c1020b1b2dbfcf8d87c79ae037177a494ac6b54111e6f3d",
+  "inputs": {
+    "candidate_lcoe": {
+      "path": "runs\\v2\\tea_v2\\candidate_lcoe.csv",
+      "sha256": "b5414224a499a100edb6864fdc5a2e7b7e5c45cf586ed025b88eb059f19f556e"
+    },
+    "oof": {
+      "path": "runs\\v2\\predictions\\oof_v2.csv",
+      "sha256": "bdfd7afee51d73276a17998f5d914ba6c10e9d390f501a8f329a4181f91cc037"
+    },
+    "control": {
+      "path": "runs\\v2\\stability\\control_known_a2bbx6.csv",
+      "sha256": "0626f0cf44c2c7c3136118a3c21cc3b68a0edecae85dc1ed61407d5a086004da"
+    }
+  },
+  "params": {},
+  "outputs": {
+    "metrics/robustness.json": "4430d2414592e8bb60e21299d667d386bd5fb1f48ce9a0a48bb67da52db54fa5"
+  },
+  "metrics": {
+    "frechet": {
+      "demonstrated": {
+        "independent": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "n_candidates_competitive_p_gt_0": 0
+      },
+      "realistic": {
+        "independent": 0.0,
+        "lower": 0.0,
+        "upper": 0.0,
+        "n_candidates_competitive_p_gt_0": 0
+      },
+      "optimistic": {
+        "independent": 3.8039870099999993,
+        "lower": 0.5238499999999999,
+        "upper": 12.696100000000001,
+        "n_candidates_competitive_p_gt_0": 482
+      },
+      "ceiling": {
+        "independent": 55.944120870000006,
+        "lower": 19.39176,
+        "upper": 103.76273,
+        "n_candidates_competitive_p_gt_0": 1256
+      }
+    },
+    "viable_absorber": {
+      "independent": 42.0047210461298,
+      "upper": 101.51150000000001,
+      "lower": 3.198460000000002
+    },
+    "conformal_by_anion_mix": {
+      "1": {
+        "n": 42892,
+        "coverage": 0.8926839503870185
+      },
+      "2": {
+        "n": 10026,
+        "coverage": 0.8937761819269898
+      }
+    },
+    "conformal_mixed_anion_alkali": {
+      "n": 3308,
+      "coverage": 0.8938935912938332
+    },
+    "control_anion_mix": {
+      "n": 380,
+      "n_mixed_anion": 2
+    },
+    "n_train_featurized": 188035,
+    "n_train_featurize_failed": 2
+  },
+  "env": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "pymatgen": "2026.3.23",
+    "matminer": "0.10.1",
+    "xgboost": "3.2.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "optuna": "4.8.0"
+  },
+  "git": "720c812-dirty",
+  "seconds": 1.6,
+  "finished_utc": "2026-09-29T04:18:08Z"
+}

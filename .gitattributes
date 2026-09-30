@@ -3,3 +3,10 @@
 *.joblib binary
 *.png binary
 *.jpeg binary
+*.pdf binary
+# v2 run artifacts, data and the number map ship byte-for-byte: the stage manifests
+# (runs/*/stage_*.json) record sha256 over these exact bytes, so git must not rewrite line endings.
+runs/** -text
+data/** -text
+paper/numbers.json -text
+paper/figures/** -text

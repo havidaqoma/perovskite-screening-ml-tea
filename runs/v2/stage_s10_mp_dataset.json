@@ -1,0 +1,98 @@
+{
+  "stage": "s10_mp_dataset",
+  "fingerprint": "704d541c6430f5875287f1993d373f099ead9fcdcf62d5ed5fc410582e3fa012",
+  "inputs": {},
+  "params": {
+    "fields": [
+      "material_id",
+      "formula_pretty",
+      "nelements",
+      "nsites",
+      "band_gap",
+      "is_gap_direct",
+      "is_metal",
+      "formation_energy_per_atom",
+      "energy_above_hull",
+      "theoretical"
+    ],
+    "exclude": [
+      "Tc",
+      "Pm",
+      "Po",
+      "At",
+      "Rn",
+      "Fr",
+      "Ra",
+      "Ac",
+      "Th",
+      "Pa",
+      "U",
+      "Np",
+      "Pu"
+    ],
+    "metal_gap": 0.1
+  },
+  "outputs": {
+    "data/train_v2.csv": "aa490bbe75449e0fc91dc381f57ba0d1f72058d94f6479d507e35515e11f102c",
+    "metrics/dataset_v2.json": "58a8eeec1301f4878154eed272d3a6b7eaa41a86f6a3a9e8affc31acccfc919e"
+  },
+  "metrics": {
+    "mp_queries": [
+      {
+        "name": "summary_nel2",
+        "mp_database_version": "2026.04.13",
+        "retrieved_utc": "2026-09-28T17:53:22Z",
+        "n_rows": 19419,
+        "sha256": "4f29a9315e80620454b860df960b3954d3fd20376513e63fb45a09ff873f0d4b"
+      },
+      {
+        "name": "summary_nel3",
+        "mp_database_version": "2026.04.13",
+        "retrieved_utc": "2026-09-28T17:54:35Z",
+        "n_rows": 82531,
+        "sha256": "887286643056989c3b11660d523d7214f5a0064566963cbaa863d097ed6bf246"
+      },
+      {
+        "name": "summary_nel4",
+        "mp_database_version": "2026.04.13",
+        "retrieved_utc": "2026-09-28T17:56:46Z",
+        "n_rows": 117116,
+        "sha256": "c84f2b5cbcbbf7b35c278457defeaebb6056d24ad51007ad07b466cfdb50c10b"
+      },
+      {
+        "name": "summary_nel5",
+        "mp_database_version": "2026.04.13",
+        "retrieved_utc": "2026-09-28T17:56:57Z",
+        "n_rows": 16217,
+        "sha256": "dcac6b4a2cfdac2a402a03e933c218a55dbe853cab77a0a25fc27ab83522fed1"
+      }
+    ],
+    "n_raw_entries": 235270,
+    "n_formulas": 188037,
+    "n_chemsys": 99984,
+    "frac_semi": 0.3235,
+    "frac_ehull_le_0.1": 0.8517,
+    "by_nelements": {
+      "2": 10587,
+      "3": 63573,
+      "4": 101785,
+      "5": 12092
+    }
+  },
+  "env": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "pymatgen": "2026.3.23",
+    "matminer": "0.10.1",
+    "xgboost": "3.2.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "optuna": "4.8.0"
+  },
+  "git": "9df09b0-dirty",
+  "seconds": 243.86,
+  "finished_utc": "2026-09-28T17:57:06Z"
+}

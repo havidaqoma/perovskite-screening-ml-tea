@@ -1,0 +1,62 @@
+{
+  "stage": "s04_screen",
+  "fingerprint": "f35d079ef172c10a18569aba44c077cc72723bee270f2434af7ee3177dc092dc",
+  "inputs": {
+    "steric_survivors": {
+      "path": "runs\\legacy_repro\\screen\\steric_survivors.csv",
+      "sha256": "a8b26d1d6a13cd63397058712df23b2c0bc59df0c9ae6614659640728bce4356"
+    },
+    "model": {
+      "path": "runs\\legacy_repro\\models\\cascade_legacy.joblib",
+      "sha256": "a799d2f81427c64c12a4c69c656e75dface76346b13f74f6902700fb5b74b3a8"
+    }
+  },
+  "params": {
+    "model_source": "retrained",
+    "eg": [
+      0.5,
+      2.5
+    ],
+    "ef_max": 1.0,
+    "toxic": [
+      "Cd",
+      "Hg",
+      "As",
+      "Tl",
+      "Pb",
+      "U",
+      "Th"
+    ]
+  },
+  "outputs": {
+    "screen/ml_predictions.csv": "5602d13bca30affcbbdbefef49973b288cd34c8a0744826a93413058665803ae",
+    "screen/candidates.csv": "43820271cbd62fe69a7ab4e41cbe587f5cefd954e184539c5c83a69ccf9903d0",
+    "metrics/funnel_screen.json": "ae7e2e22ae8c23124b0cdacf245566c2b1afd4ec997edc44914d2080d20d8388"
+  },
+  "metrics": {
+    "model_source": "retrained",
+    "n_in": 3284,
+    "n_candidates": 3276,
+    "rejections": {
+      "pass": 3276,
+      "eg_out_of_window": 8
+    },
+    "model_mae_used": 0.3489078651419837
+  },
+  "env": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "pymatgen": "2026.3.23",
+    "matminer": "0.10.1",
+    "xgboost": "3.2.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "optuna": "4.8.0"
+  },
+  "git": "5c50925-dirty",
+  "seconds": 8.04,
+  "finished_utc": "2026-09-28T17:10:23Z"
+}

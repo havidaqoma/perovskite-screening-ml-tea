@@ -1,0 +1,51 @@
+{
+  "stage": "s13_final_models",
+  "fingerprint": "61fbc28c3d32eac0e67992ea2bad0b1d7385704e92bfe69f7ddea7f3d678690c",
+  "inputs": {
+    "train_v2": {
+      "path": "runs\\v2\\data\\train_v2.csv",
+      "sha256": "aa490bbe75449e0fc91dc381f57ba0d1f72058d94f6479d507e35515e11f102c"
+    },
+    "X": {
+      "path": "runs\\v2\\features\\train_v2_X.npz",
+      "sha256": "dc7490e37a1fd1c25a6e2e358d989e4b9e802bff4115acaf137176a4f479c8fd"
+    },
+    "oof": {
+      "path": "runs\\v2\\predictions\\oof_v2.csv",
+      "sha256": "bdfd7afee51d73276a17998f5d914ba6c10e9d390f501a8f329a4181f91cc037"
+    }
+  },
+  "params": {
+    "alpha": 0.1,
+    "seed": 42
+  },
+  "outputs": {
+    "models/v2_final.joblib": "0c8c3e40546c7ebef16d7fb4a539c5bd173b402b211997e347fb79ce9e6ad89a",
+    "metrics/final_models_v2.json": "4d7e304c3412059d0ef050de886f006dd86578c9cf2bb53378a4a8ec4927435b"
+  },
+  "metrics": {
+    "n_rows": 188035,
+    "n_semi": 60837,
+    "q_gap": 1.9880328886118759,
+    "n_cal": 11848,
+    "ef_residual_n": 113877,
+    "ef_residual_mae_4_5el": 0.06308969229958639,
+    "ef_residual_bias": 0.006898009694670566
+  },
+  "env": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "pymatgen": "2026.3.23",
+    "matminer": "0.10.1",
+    "xgboost": "3.2.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "optuna": "4.8.0"
+  },
+  "git": "9df09b0-dirty",
+  "seconds": 64.58,
+  "finished_utc": "2026-09-28T18:40:46Z"
+}

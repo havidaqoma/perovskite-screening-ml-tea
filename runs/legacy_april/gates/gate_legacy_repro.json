@@ -1,0 +1,52 @@
+{
+  "checks": {
+    "G1-3_april_model": {
+      "pass": true,
+      "stored_mae": 0.3498204957238204,
+      "note": "model = original April joblib; retraining metrics live in the retrained run"
+    },
+    "G4_funnel": {
+      "pass": true,
+      "got": [
+        23940,
+        3284,
+        3280
+      ],
+      "expected": [
+        23940,
+        3284,
+        3280
+      ],
+      "n_charge_balanced": 6080
+    },
+    "G5_candidates": {
+      "pass": true,
+      "n_new_only": 0,
+      "n_legacy_only": 0,
+      "new_only_examples": [],
+      "legacy_only_examples": [],
+      "max_abs_d_eg": 5.000000000254801e-06,
+      "max_abs_d_ef": 5.000000000254801e-06,
+      "median_abs_d_eg": 2.9999999999752447e-06
+    },
+    "G6_tea": {
+      "pass": true,
+      "n_compared": 3280,
+      "max_abs_d_pce_pp": 4.0000000002038405e-05,
+      "max_rel_d_lcoe": 0.00024673081667907876,
+      "median_rel_d_lcoe": 0.0,
+      "top10_overlap": 10,
+      "top10_median_lcoe_new": 0.036725,
+      "top10_median_lcoe_old": 0.036725
+    }
+  },
+  "tolerances": {
+    "bg_mae": 0.005,
+    "fe_mae": 0.002,
+    "eg": 0.02,
+    "ef": 0.02,
+    "pce_pp": 0.25,
+    "lcoe_rel": 0.01
+  },
+  "pass": true
+}

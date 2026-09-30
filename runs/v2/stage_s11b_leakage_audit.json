@@ -1,0 +1,54 @@
+{
+  "stage": "s11b_leakage_audit",
+  "fingerprint": "84512626d9e4420be916b5efad5df352204fc8faa98b4ee38d50890527fb68fd",
+  "inputs": {
+    "training_table": {
+      "path": "data\\training_table.csv",
+      "sha256": "8f19a476d63f00440099d0835ceef555e0636459c669d0eb8014a6d8aea40d4d"
+    },
+    "X": {
+      "path": "runs\\legacy_repro\\features\\train_X.npz",
+      "sha256": "7558364d462b7ee45e229a9ffd67233cbc9bcc50e0279eb4c685d7a9acf61085"
+    }
+  },
+  "params": {},
+  "outputs": {
+    "metrics/leakage_audit.json": "fd65a250c665d9a70bb85dbf84cede037e3d336346a81f8960643938f78018bd"
+  },
+  "metrics": {
+    "random_row": {
+      "n_train": 25020,
+      "n_val": 6255,
+      "bg_mae_eV": 0.3495231757061087,
+      "val_formula_in_train": 0.4321
+    },
+    "formula": {
+      "n_train": 25305,
+      "n_val": 5970,
+      "bg_mae_eV": 0.3942258317167036,
+      "val_formula_in_train": 0.0
+    },
+    "chemsys": {
+      "n_train": 25277,
+      "n_val": 5998,
+      "bg_mae_eV": 0.4148279105317159,
+      "val_formula_in_train": 0.0
+    }
+  },
+  "env": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "pymatgen": "2026.3.23",
+    "matminer": "0.10.1",
+    "xgboost": "3.2.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "optuna": "4.8.0"
+  },
+  "git": "9df09b0-dirty",
+  "seconds": 85.54,
+  "finished_utc": "2026-09-28T18:14:24Z"
+}

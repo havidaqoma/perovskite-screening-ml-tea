@@ -1,0 +1,83 @@
+{
+  "checks": {
+    "G1_split": {
+      "pass": true,
+      "got": [
+        25020,
+        6255
+      ],
+      "expected": [
+        25020,
+        6255
+      ]
+    },
+    "G2_bg_mae": {
+      "pass": true,
+      "got": 0.3489078651419837,
+      "expected": 0.3498204957238204
+    },
+    "G3_fe_mae": {
+      "pass": true,
+      "got": 0.0761822217060413,
+      "expected": 0.0763
+    },
+    "G4_funnel": {
+      "pass": true,
+      "got": [
+        23940,
+        3284,
+        3276
+      ],
+      "expected": [
+        23940,
+        3284,
+        3280
+      ],
+      "n_charge_balanced": 6080,
+      "note": "retrained: steric funnel must be exact; candidate count may differ"
+    },
+    "G5_candidates": {
+      "pass": true,
+      "n_new_only": 4,
+      "n_legacy_only": 8,
+      "new_only_examples": [
+        "Cs2FeAgI6",
+        "Cs2MoInO3F3",
+        "K2MoInO3F3",
+        "Rb2FeAgI6"
+      ],
+      "legacy_only_examples": [
+        "Cs2SnMoO6",
+        "Cs2SnWO6",
+        "Cs2TiInO3F3",
+        "Cs2TiSbO3F3",
+        "Cs2WGaO3F3"
+      ],
+      "max_abs_d_eg": 0.46811899999999995,
+      "max_abs_d_ef": 0.21352499999999974,
+      "median_abs_d_eg": 0.07034499999999988,
+      "candidate_overlap": 0.9976,
+      "note": "retrained: pass if >=99% of legacy candidates reproduced"
+    },
+    "G6_tea": {
+      "pass": true,
+      "note": "retrained: rank correlation >= 0.90; overlaps reported",
+      "n_compared": 3272,
+      "spearman_lcoe": 0.9536456231582339,
+      "top10_overlap": 0,
+      "top50_overlap": 14,
+      "top100_overlap": 35,
+      "top300_overlap": 184,
+      "n_within_1pct_of_best_legacy": 336
+    }
+  },
+  "tolerances": {
+    "bg_mae": 0.005,
+    "fe_mae": 0.002,
+    "eg": 0.02,
+    "ef": 0.02,
+    "pce_pp": 0.25,
+    "lcoe_rel": 0.01
+  },
+  "pass": true
+}

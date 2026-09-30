@@ -1,0 +1,49 @@
+{
+  "stage": "s05_tea_legacy",
+  "fingerprint": "945c33700d1b757ed2e80f258fac541a8a75e872f2a547c93ae7eaac4267c7d7",
+  "inputs": {
+    "candidates": {
+      "path": "runs\\legacy_april\\screen\\candidates.csv",
+      "sha256": "c2c9f1f9da2b0e32468e27bb4462eec147c931f23657abfe34769e89ed581d9a"
+    },
+    "model": {
+      "path": "xgboost_cascade_pipeline_2.joblib",
+      "sha256": "1a1f5ebb1137f15fdbd7c7ee74f3a73eb6de89a77d893880bd36c6d23fa59b55"
+    }
+  },
+  "params": {
+    "model_source": "april_joblib",
+    "seed": 42,
+    "iterations": 50000,
+    "future": true
+  },
+  "outputs": {
+    "tea/legacy_fullstats.csv": "70ddee551ba74d10426f2de2ff6ca13c2b3f4f82a49c456167125ebebd913840",
+    "metrics/tea_legacy.json": "e19a3efafc2540481adc0c6aa6e61cf0d599d1bc24a001193652bbd425ad1892"
+  },
+  "metrics": {
+    "n": 3280,
+    "mae_sigma_used": 0.3498204957238204,
+    "top10_median_lcoe": 0.03672911881657056,
+    "top1": "Na2WSbS3Br3",
+    "lifetime_unique_values": [
+      30.0
+    ]
+  },
+  "env": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "pymatgen": "2026.3.23",
+    "matminer": "0.10.1",
+    "xgboost": "3.2.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "optuna": "4.8.0"
+  },
+  "git": "5ff7457-dirty",
+  "seconds": 108.28,
+  "finished_utc": "2026-09-28T17:05:15Z"
+}

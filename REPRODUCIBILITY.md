@@ -44,6 +44,25 @@ Key dependency versions (verified working):
 
 The XGBoost models were trained on Materials Project data (31,275 inorganic compounds) with 132 Magpie + composition features. Hyperparameters were tuned via Optuna (100 trials). The ML → TEA → derating chain is deterministic given the same input CSVs.
 
+## v2 audit pipeline (manuscript)
+
+The sections above describe the ORIGINAL study. The v2 audit (`pipeline/`, `runs/`, `paper/`) is run through `python -m pipeline.run` (see README, "v2 audit pipeline (manuscript)").
+
+- **Environment.** Exact pins: `requirements-v2.lock.txt` (Python 3.12). CI uses the light set in `requirements-ci.txt` (no torch). The optional GPU stages s12 (Roost) and s21 (MACE-MP-0) run in a separate environment built by `env/setup_wsl_gpu.sh`, pinned in `env/freeze-wsl-gpu.txt`.
+- **Seeds.** 42 everywhere in the v2 stages (`pipeline/config.py`, `pipeline/s11_ml_eval.py`). XGBoost device (CPU or CUDA) is recorded in each stage manifest.
+- **Manifests.** Every stage writes `runs/<run-id>/stage_<name>.json` with the sha256 of each input and output, parameters, metrics, package versions and git commit. The `.gitattributes` rule `runs/** -text` keeps committed bytes identical to the hashed bytes.
+- **Materials Project.** Stages s10, s20 and s21 need your own `MP_API_KEY` (environment or local `.env`). The run in `runs/v2` used MP database version 2026.04.13 (`runs/v2/metrics/dataset_v2.json`). A newer MP release will move the numbers slightly.
+- **Not shipped (regenerable).** `data/mp_cache/`, `runs/v2/data/`, `runs/v2/splits/`, `runs/v2/predictions/`, `runs/v2/models/`, `runs/v2/features/`. Their hashes are in the committed stage manifests.
+
+| Shipped file | Source | Licence |
+|---|---|---|
+| `data/training_table.csv` | Materials Project, April 2026 export (see `data/README.md`) | CC BY 4.0 |
+| `runs/v2/**` | This pipeline on Materials Project database 2026.04.13 | CC BY 4.0 derivative / MIT |
+| `data/sources/usgs_mcs2024_*.txt` | USGS Mineral Commodity Summaries 2024 | Public domain |
+| `data/sources/nrel_*` | NREL Q1 2023 cost benchmark; NREL ATB 2024 | Public domain |
+| `data/sources/zhang_natcommun2022_cs2agbibr6.md` | Zhang et al., Nat. Commun. 2022 | CC BY 4.0 |
+| `paper/numbers.json` | `paper/paper_numbers.py` over `runs/` | MIT |
+
 ## License
 
 MIT License — see LICENSE file.

@@ -1,0 +1,9 @@
+{
+  "n_train": 25020,
+  "n_val": 6255,
+  "gatekeeper": "always_semiconductor (training set has one class)",
+  "n_classes_in_train": 1,
+  "bg_mae_eV": 0.3489078651419837,
+  "fe_mae_eV_atom": 0.0761822217060413,
+  "val_rows_formula_in_train": 0.4321
+}

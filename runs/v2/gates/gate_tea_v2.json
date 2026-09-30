@@ -1,0 +1,67 @@
+{
+  "checks": {
+    "E-G1_nrel_reproduction": {
+      "pass": true,
+      "msp": {
+        "capex_kwdc": 972.9999999999999,
+        "nrel_total": 973,
+        "abs_err": 1.1368683772161603e-13
+      },
+      "mmp": {
+        "capex_kwdc": 1159.8695228821812,
+        "nrel_total": 1161,
+        "abs_err": 1.1304771178188275
+      },
+      "crosschecks_ok": true
+    },
+    "E-G2_csi_benchmark": {
+      "pass": true,
+      "msp_median_usd_mwh": 58.706331066632615,
+      "msp_p10": 44.04277867264463,
+      "msp_p90": 81.74041795716994,
+      "mmp_median_usd_mwh": 68.24489973836435,
+      "lazard_utility_range_usd_mwh": [
+        29,
+        92
+      ],
+      "irena_2023_global_avg_usd_mwh": 44
+    },
+    "E-G3_hand_calc": {
+      "pass": true,
+      "engine": 0.03295873260962731,
+      "closed_form": 0.03295873260962731
+    },
+    "E-G4_csi_equivalence": {
+      "pass": true,
+      "breakeven_eta_csi_equivalent": 0.205,
+      "eta_csi": 0.205,
+      "base_lcoe_usd_mwh": 49.17375651018055,
+      "absorber_max_cost_effect_rel": 0.048579260984739525,
+      "replace_labor_effect_rel_L10": 0.08807036937002732
+    },
+    "E-G5_efficiency_dependence": {
+      "pass": true,
+      "ratio_lcoe_8_over_18": {
+        "high": 2.064,
+        "low": 1.794,
+        "med": 1.863
+      },
+      "area_share_capex_10pct": {
+        "high": 0.944,
+        "low": 0.836,
+        "med": 0.868
+      }
+    },
+    "E-G6_provenance": {
+      "pass": true,
+      "ef_references": [],
+      "absorber_max_effect": 0.048579260984739525,
+      "n_absorber_price_unsourced": 1256
+    },
+    "E-G7_sobol_sanity": {
+      "pass": true,
+      "sum_S1": 0.8812999999999999
+    }
+  },
+  "pass": true
+}

@@ -1,0 +1,20 @@
+{
+  "random_row": {
+    "n_train": 25020,
+    "n_val": 6255,
+    "bg_mae_eV": 0.3495231757061087,
+    "val_formula_in_train": 0.4321
+  },
+  "formula": {
+    "n_train": 25305,
+    "n_val": 5970,
+    "bg_mae_eV": 0.3942258317167036,
+    "val_formula_in_train": 0.0
+  },
+  "chemsys": {
+    "n_train": 25277,
+    "n_val": 5998,
+    "bg_mae_eV": 0.4148279105317159,
+    "val_formula_in_train": 0.0
+  }
+}

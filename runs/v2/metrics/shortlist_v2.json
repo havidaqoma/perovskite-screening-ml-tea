@@ -1,0 +1,99 @@
+{
+  "n": 1256,
+  "n_known_mp": 39,
+  "n_novel": 1217,
+  "n_flag_hull_extrapolation": 63,
+  "n_flag_ox_implausible": 49,
+  "n_novel_plausible": 1115,
+  "expected_viable_novel_all": 57.49947166507717,
+  "expected_viable_novel_plausible": 42.0047210461298,
+  "n_novel_plausible_p_viable_ge": {
+    "0.1": 128,
+    "0.2": 51,
+    "0.3": 15,
+    "0.5": 0
+  },
+  "shortlist_novel_min_p": 0.23991159834796502,
+  "top10_novel": [
+    {
+      "formula": "Cs2BiAgBr3I3",
+      "ox_states": "Cs+1;Bi+3;Ag+1;Br-1;I-1",
+      "p_semi": 0.892,
+      "p_gap_pv": 0.756,
+      "p_stable50": 0.712,
+      "p_viable_plausible": 0.48
+    },
+    {
+      "formula": "Rb2GeMnCl6",
+      "ox_states": "Rb+1;Ge+2;Mn+2;Cl-1",
+      "p_semi": 0.859,
+      "p_gap_pv": 0.531,
+      "p_stable50": 0.866,
+      "p_viable_plausible": 0.395
+    },
+    {
+      "formula": "K2GeMnCl6",
+      "ox_states": "K+1;Ge+2;Mn+2;Cl-1",
+      "p_semi": 0.84,
+      "p_gap_pv": 0.54,
+      "p_stable50": 0.866,
+      "p_viable_plausible": 0.393
+    },
+    {
+      "formula": "Cs2GeMnCl6",
+      "ox_states": "Cs+1;Ge+2;Mn+2;Cl-1",
+      "p_semi": 0.847,
+      "p_gap_pv": 0.497,
+      "p_stable50": 0.881,
+      "p_viable_plausible": 0.371
+    },
+    {
+      "formula": "Cs2SbAgF3Cl3",
+      "ox_states": "Cs+1;Sb+3;Ag+1;F-1;Cl-1",
+      "p_semi": 0.915,
+      "p_gap_pv": 0.464,
+      "p_stable50": 0.832,
+      "p_viable_plausible": 0.354
+    },
+    {
+      "formula": "Rb2SbAgF3Cl3",
+      "ox_states": "Rb+1;Sb+3;Ag+1;F-1;Cl-1",
+      "p_semi": 0.922,
+      "p_gap_pv": 0.449,
+      "p_stable50": 0.837,
+      "p_viable_plausible": 0.347
+    },
+    {
+      "formula": "Cs2MnCuCl3Br3",
+      "ox_states": "Cs+1;Mn+2;Cu+2;Cl-1;Br-1",
+      "p_semi": 0.672,
+      "p_gap_pv": 0.617,
+      "p_stable50": 0.832,
+      "p_viable_plausible": 0.345
+    },
+    {
+      "formula": "K2GeCuF3Cl3",
+      "ox_states": "K+1;Ge+2;Cu+2;F-1;Cl-1",
+      "p_semi": 0.678,
+      "p_gap_pv": 0.55,
+      "p_stable50": 0.909,
+      "p_viable_plausible": 0.339
+    },
+    {
+      "formula": "Rb2GeFeCl6",
+      "ox_states": "Rb+1;Ge+2;Fe+2;Cl-1",
+      "p_semi": 0.854,
+      "p_gap_pv": 0.481,
+      "p_stable50": 0.808,
+      "p_viable_plausible": 0.332
+    },
+    {
+      "formula": "Cs2GeMnCl3Br3",
+      "ox_states": "Cs+1;Ge+2;Mn+2;Cl-1;Br-1",
+      "p_semi": 0.864,
+      "p_gap_pv": 0.533,
+      "p_stable50": 0.717,
+      "p_viable_plausible": 0.33
+    }
+  ]
+}
