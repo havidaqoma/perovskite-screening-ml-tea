@@ -27,9 +27,14 @@ def j(rel):
 
 def main() -> Path:
     out = HERE / "build" / "SI_data_v2.xlsx"
+    out.parent.mkdir(parents=True, exist_ok=True)
     N = json.loads((HERE / "numbers.json").read_text(encoding="utf-8"))
-    from build_paper import author_meta          # author block has one source: the manuscript front matter
-    a = author_meta((HERE / "manuscript_part1.md").read_text(encoding="utf-8"))
+    try:                                          # author block has one source: the manuscript front matter
+        from build_paper import author_meta       # (manuscript sources are not in the public repo)
+        a = author_meta((HERE / "manuscript_part1.md").read_text(encoding="utf-8"))
+    except (ImportError, FileNotFoundError):      # public repo: fall back to CITATION.cff metadata
+        a = {"author": "Havid Aqoma", "orcid": "0000-0003-1264-1916", "email": "",
+             "affiliations": ["Xiamen University Malaysia"]}
     about = pd.DataFrame({"field": ["Title", "Author", "ORCID", "E-mail"]
                           + [f"Affiliation {i + 1}" for i in range(len(a["affiliations"]))] + ["Contents", "Provenance"],
                           "value": ["Uncertainty and stability, not material cost, bound the economics of lead-free "
