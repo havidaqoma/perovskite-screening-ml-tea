@@ -2,6 +2,7 @@
 # pymatgen is required: src/ and pipeline/ modules import Composition at module level.
 # joblib: pipeline/s02_train, s14_screen_v2, s20_stability import it at module level.
 # matminer: pipeline/features.feature_names() builds the 132 Magpie features (tests/test_pipeline.py).
+#   >=0.9 because 0.8 imports pkg_resources, which a fresh venv without setuptools lacks.
 # pvlib: pipeline/sq.py reads the ASTM G173-03 spectrum for the Shockley-Queisser test.
 # numpy>=2.0: pipeline/sq.py uses np.trapezoid.
 numpy>=2.0
@@ -11,6 +12,7 @@ scikit-learn
 xgboost
 joblib
 pymatgen
-matminer
+# matminer>=0.9: 0.8 imports pkg_resources, which a fresh venv without setuptools lacks.
+matminer>=0.9
 pvlib
 pytest
