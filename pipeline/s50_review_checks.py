@@ -77,6 +77,7 @@ def r1_walterbos(run_dir, st) -> dict:
     def block(d: pd.DataFrame) -> dict:
         s = d[d.hse_nonmetal & d.p_semi.notna()]
         cover = (s.bandgap >= s.gap_lo90_eV) & (s.bandgap <= s.gap_hi90_eV)
+        off = (s.bandgap - s.gap_pred_eV).median()
         return {"n": int(len(d)), "n_featurized": int(d.p_semi.notna().sum()),
                 "n_metal_hse": int((~d.hse_nonmetal).sum()),
                 "auc_semi_vs_hse_nonmetal": float(roc_auc_score(d.hse_nonmetal[d.p_semi.notna()],
@@ -87,6 +88,18 @@ def r1_walterbos(run_dir, st) -> dict:
                 "mae_vs_hse_eV": float((s.bandgap - s.gap_pred_eV).abs().mean()),
                 "coverage_hse_by_interval": float(cover.mean()),
                 "frac_hse_above_interval": float((s.bandgap > s.gap_hi90_eV).mean()),
+                "frac_hse_below_interval": float((s.bandgap < s.gap_lo90_eV).mean()),
+                "coverage_after_median_shift": float(((s.bandgap - off >= s.gap_lo90_eV)
+                                                      & (s.bandgap - off <= s.gap_hi90_eV)).mean()),
+                "residual_mean_eV": float((s.bandgap - s.gap_pred_eV).mean()),
+                "residual_sd_eV": float((s.bandgap - s.gap_pred_eV).std()),
+                "n_metal_called_semi_p05": int((d[~d.hse_nonmetal].p_semi >= 0.5).sum()),
+                "n_nonmetal_rejected_p05": int((s.p_semi < 0.5).sum()),
+                "by_anion": {x: {"n": int(len(g)), "coverage": float(((g.bandgap >= g.gap_lo90_eV)
+                                                                      & (g.bandgap <= g.gap_hi90_eV)).mean()),
+                                 "median_hse_minus_pred_eV": float((g.bandgap - g.gap_pred_eV).median())}
+                             for x, g in s.groupby("element.X")},
+                "n_in_window_nonmetal": int(s.hse_in_pv_window.sum()),
                 "n_hse_in_pv_window": int(s.hse_in_pv_window.sum()),
                 "auc_p_gap_pv_vs_hse_window": float(roc_auc_score(s.hse_in_pv_window, s.p_gap_pv)),
                 "frac_spin_forbidden_in_window": float(s[s.hse_in_pv_window].spin_forbidden.mean())}
@@ -220,6 +233,7 @@ def r4_oxidation(run_dir, st) -> dict:
                 on="formula")
     nov = d.status.ne("known_mp")
     short = pd.read_csv(run_dir / "stability/shortlist_for_umlip.csv").formula
+    um = lc[["formula", "umlip_ehull_meV"]].dropna()
     front = pd.read_csv(run_dir / "pareto/pareto.csv").query("front == 1").formula
     red = s.ox_states.fillna("").map(lambda o: bool({x.rstrip("+-0123456789") for x in o.split(";") if "-" in x}
                                                      & set(REDUCING)))
@@ -229,6 +243,10 @@ def r4_oxidation(run_dir, st) -> dict:
            "n_high_valent_reducing_unflagged": int(d.strict_flag.sum()),
            "n_known_among_them": int((d.strict_flag & ~nov).sum()),
            "n_in_umlip_shortlist": int(short.isin(d.formula[d.strict_flag]).sum()),
+           "n_umlip_shortlist": int(len(short)),
+           "n_in_umlip_shortlist_within_50meV": int(um[um.formula.isin(d.formula[d.strict_flag])
+                                                       & (um.umlip_ehull_meV <= 50)].shape[0]),
+           "n_in_umlip_shortlist_with_mace": int(um.formula.isin(d.formula[d.strict_flag]).sum()),
            "n_on_pareto_front": int(front.isin(d.formula[d.strict_flag]).sum()),
            "expected_viable_novel": {"paper_rule": float(d.p_viable_plausible[nov].sum()),
                                      "strict_rule": float(d.p_viable_plausible[nov & ~d.strict_flag].sum())}}

@@ -246,6 +246,24 @@ def build() -> dict:
         put(f"si_wb_auc_semi_{tag}", b["auc_semi_vs_hse_nonmetal"], ".2f", S + f"{blk}.auc_semi_vs_hse_nonmetal")
         put(f"si_wb_auc_pv_{tag}", b["auc_p_gap_pv_vs_hse_window"], ".2f", S + f"{blk}.auc_p_gap_pv_vs_hse_window")
     put("si_wb_mae_unseen", r1["not_in_training"]["mae_vs_hse_eV"], ".2f", S + "not_in_training.mae_vs_hse_eV")
+    u = r1["not_in_training"]
+    put("si_wb_below_unseen_pct", 100 * u["frac_hse_below_interval"], ".0f", S + "not_in_training.frac_hse_below x100")
+    put("si_wb_shift_cov_unseen_pct", 100 * u["coverage_after_median_shift"], ".0f",
+        S + "not_in_training.coverage_after_median_shift x100")
+    put("si_wb_res_mean", u["residual_mean_eV"], ".2f", S + "not_in_training.residual_mean_eV")
+    put("si_wb_res_sd", u["residual_sd_eV"], ".2f", S + "not_in_training.residual_sd_eV")
+    put("si_wb_res_mean_train", r1["in_training"]["residual_mean_eV"], ".2f", S + "in_training.residual_mean_eV")
+    put("si_wb_below_train_pct", 100 * r1["in_training"]["frac_hse_below_interval"], ".0f",
+        S + "in_training.frac_hse_below x100")
+    put("si_wb_metal_semi", u["n_metal_called_semi_p05"], "d", S + "not_in_training.n_metal_called_semi_p05")
+    put("si_wb_n_metal_unseen", u["n_metal_hse"], "d", S + "not_in_training.n_metal_hse")
+    put("si_wb_nonmetal_rej", u["n_nonmetal_rejected_p05"], ",d", S + "not_in_training.n_nonmetal_rejected_p05")
+    ba = u["by_anion"]
+    if min(ba, key=lambda x: ba[x]["coverage"]) != "I" or max(ba, key=lambda x: ba[x]["coverage"]) != "F":
+        raise SystemExit("FAIL-CLOSED: prose says iodides have the lowest and fluorides the highest coverage")
+    for x in ("I", "F"):
+        put(f"si_wb_cov_{x}_pct", 100 * ba[x]["coverage"], ".0f", S + f"not_in_training.by_anion.{x}.coverage x100")
+        put(f"si_wb_n_{x}", ba[x]["n"], "d", S + f"not_in_training.by_anion.{x}.n")
     put("si_wb_npv_unseen", r1["not_in_training"]["n_hse_in_pv_window"], "d", S + "not_in_training.n_hse_in_pv_window")
     put("si_wb_n_train_nonmetal", r1["in_training"]["n_nonmetal"], "d", S + "in_training.n_nonmetal")
     put("si_wb_ov_cov_pct", 100 * r1["v2_overlap"]["coverage_hse_by_interval"], ".0f", S + "v2_overlap.coverage x100")

@@ -774,6 +774,71 @@
   "fmt": ".2f",
   "src": "v2/metrics/review_checks.json#r1.not_in_training.mae_vs_hse_eV"
  },
+ "si_wb_below_unseen_pct": {
+  "value": 21.294117647058826,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.frac_hse_below x100"
+ },
+ "si_wb_shift_cov_unseen_pct": {
+  "value": 47.647058823529406,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.coverage_after_median_shift x100"
+ },
+ "si_wb_res_mean": {
+  "value": 0.12085874217358807,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.residual_mean_eV"
+ },
+ "si_wb_res_sd": {
+  "value": 1.6149298619834263,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.residual_sd_eV"
+ },
+ "si_wb_res_mean_train": {
+  "value": 0.9598230934982801,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.in_training.residual_mean_eV"
+ },
+ "si_wb_below_train_pct": {
+  "value": 6.3457330415754925,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.in_training.frac_hse_below x100"
+ },
+ "si_wb_metal_semi": {
+  "value": 124,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.n_metal_called_semi_p05"
+ },
+ "si_wb_n_metal_unseen": {
+  "value": 209,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.n_metal_hse"
+ },
+ "si_wb_nonmetal_rej": {
+  "value": 323,
+  "fmt": ",d",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.n_nonmetal_rejected_p05"
+ },
+ "si_wb_cov_I_pct": {
+  "value": 37.07865168539326,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.by_anion.I.coverage x100"
+ },
+ "si_wb_n_I": {
+  "value": 89,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.by_anion.I.n"
+ },
+ "si_wb_cov_F_pct": {
+  "value": 49.9194847020934,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.by_anion.F.coverage x100"
+ },
+ "si_wb_n_F": {
+  "value": 621,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.by_anion.F.n"
+ },
  "si_wb_npv_unseen": {
   "value": 298,
   "fmt": "d",

@@ -956,8 +956,43 @@
  },
  "wb_off_unseen": {
   "value": 0.31439758092880254,
-  "fmt": ".1f",
+  "fmt": ".2f",
   "src": "v2/metrics/review_checks.json#r1.not_in_training.median_hse_minus_pred_eV"
+ },
+ "wb_below_unseen_pct": {
+  "value": 21.294117647058826,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.frac_hse_below x100"
+ },
+ "wb_above_unseen_pct": {
+  "value": 32.470588235294116,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.frac_hse_above x100"
+ },
+ "wb_cov_shift_unseen_pct": {
+  "value": 47.647058823529406,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.coverage_after_median_shift x100"
+ },
+ "wb_metal_semi_n": {
+  "value": 124,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.n_metal_called_semi_p05"
+ },
+ "wb_metal_n": {
+  "value": 209,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.n_metal_hse"
+ },
+ "wb_nonmetal_rej": {
+  "value": 323,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.n_nonmetal_rejected_p05"
+ },
+ "wb_window_n": {
+  "value": 337,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r1.all.n_in_window_nonmetal"
  },
  "wb_cov_unseen_pct": {
   "value": 46.23529411764706,
@@ -983,6 +1018,16 @@
   "value": 6.0458302900000005,
   "fmt": ".1f",
   "src": "v2/metrics/review_checks.json#r2.*.optimistic max"
+ },
+ "thr_va_lo": {
+  "value": 24.19103650530839,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r2.*.expected_viable_novel_plausible min"
+ },
+ "thr_va_hi": {
+  "value": 65.18110347900593,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r2.*.expected_viable_novel_plausible max"
  },
  "om_be_low_125": {
   "value": 21.75,
@@ -1024,10 +1069,20 @@
   "fmt": "d",
   "src": "v2/metrics/review_checks.json#r4.n_in_umlip_shortlist"
  },
+ "ox_umlip_n": {
+  "value": 40,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r4.n_umlip_shortlist"
+ },
  "ox_strict_viable": {
   "value": 32.84647,
   "fmt": ".1f",
   "src": "v2/metrics/review_checks.json#r4.expected_viable_novel.strict_rule"
+ },
+ "repo_version": {
+  "value": "2.1.0",
+  "fmt": "s",
+  "src": "public repo CITATION.cff#version, git tag v2.1.0"
  },
  "lazard_lo": {
   "value": 29,

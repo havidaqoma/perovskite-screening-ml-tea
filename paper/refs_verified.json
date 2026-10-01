@@ -1056,6 +1056,28 @@
   "claim": "parity-forbidden transitions in Pb-free double perovskites"
  },
  {
+  "key": "filip2016",
+  "doi": "10.1021/acs.jpclett.6b01041",
+  "ok": true,
+  "title": "Band Gaps of the Lead-Free Halide Double Perovskites Cs 2 BiAgCl 6 and Cs 2 BiAgBr 6 from Theory and Experiment",
+  "year": 2016,
+  "venue": "The Journal of Physical Chemistry Letters",
+  "authors": [
+   "Marina Rucsandra Filip",
+   "Sam A. J. Hillman",
+   "Amir A. Haghighirad",
+   "Henry James Snaith",
+   "Feliciano Giustino"
+  ],
+  "volume": "7",
+  "issue": "13",
+  "first_page": "2579",
+  "last_page": "2585",
+  "type": "article",
+  "cited_by": 748,
+  "claim": "indirect band gaps of Cs2BiAgCl6 and Cs2BiAgBr6"
+ },
+ {
   "key": "even2013",
   "doi": "10.1021/jz401532q",
   "ok": true,

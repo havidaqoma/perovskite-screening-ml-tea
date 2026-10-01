@@ -13,6 +13,35 @@
       "mae_vs_hse_eV": 1.267697789655915,
       "coverage_hse_by_interval": 0.4422809457579972,
       "frac_hse_above_interval": 0.3764487714418173,
+      "frac_hse_below_interval": 0.18127028280018545,
+      "coverage_after_median_shift": 0.47797867408437644,
+      "residual_mean_eV": 0.2986087229595798,
+      "residual_sd_eV": 1.576442188370525,
+      "n_metal_called_semi_p05": 126,
+      "n_nonmetal_rejected_p05": 391,
+      "by_anion": {
+        "Br": {
+          "n": 550,
+          "coverage": 0.44,
+          "median_hse_minus_pred_eV": 0.3740560077285767
+        },
+        "Cl": {
+          "n": 688,
+          "coverage": 0.42296511627906974,
+          "median_hse_minus_pred_eV": 0.40756908123016355
+        },
+        "F": {
+          "n": 811,
+          "coverage": 0.46979038224414305,
+          "median_hse_minus_pred_eV": 0.7504391716384888
+        },
+        "I": {
+          "n": 108,
+          "coverage": 0.37037037037037035,
+          "median_hse_minus_pred_eV": 0.35625220525741585
+        }
+      },
+      "n_in_window_nonmetal": 337,
       "n_hse_in_pv_window": 337,
       "auc_p_gap_pv_vs_hse_window": 0.6871751394006587,
       "frac_spin_forbidden_in_window": 0.22551928783382788
@@ -28,6 +57,35 @@
       "mae_vs_hse_eV": 1.2678717378893913,
       "coverage_hse_by_interval": 0.4623529411764706,
       "frac_hse_above_interval": 0.3247058823529412,
+      "frac_hse_below_interval": 0.21294117647058824,
+      "coverage_after_median_shift": 0.4764705882352941,
+      "residual_mean_eV": 0.12085874217358807,
+      "residual_sd_eV": 1.6149298619834263,
+      "n_metal_called_semi_p05": 124,
+      "n_nonmetal_rejected_p05": 323,
+      "by_anion": {
+        "Br": {
+          "n": 467,
+          "coverage": 0.4475374732334047,
+          "median_hse_minus_pred_eV": 0.24443007621765145
+        },
+        "Cl": {
+          "n": 523,
+          "coverage": 0.4474187380497132,
+          "median_hse_minus_pred_eV": 0.19303652893066392
+        },
+        "F": {
+          "n": 621,
+          "coverage": 0.499194847020934,
+          "median_hse_minus_pred_eV": 0.4867318252563475
+        },
+        "I": {
+          "n": 89,
+          "coverage": 0.3707865168539326,
+          "median_hse_minus_pred_eV": 0.31433009063720707
+        }
+      },
+      "n_in_window_nonmetal": 298,
       "n_hse_in_pv_window": 298,
       "auc_p_gap_pv_vs_hse_window": 0.6551427012226062,
       "frac_spin_forbidden_in_window": 0.23154362416107382
@@ -43,6 +101,35 @@
       "mae_vs_hse_eV": 1.2670507174526104,
       "coverage_hse_by_interval": 0.3676148796498906,
       "frac_hse_above_interval": 0.5689277899343544,
+      "frac_hse_below_interval": 0.06345733041575492,
+      "coverage_after_median_shift": 0.5689277899343544,
+      "residual_mean_eV": 0.9598230934982801,
+      "residual_sd_eV": 1.2153288621314926,
+      "n_metal_called_semi_p05": 2,
+      "n_nonmetal_rejected_p05": 68,
+      "by_anion": {
+        "Br": {
+          "n": 83,
+          "coverage": 0.39759036144578314,
+          "median_hse_minus_pred_eV": 0.7919462688446046
+        },
+        "Cl": {
+          "n": 165,
+          "coverage": 0.34545454545454546,
+          "median_hse_minus_pred_eV": 0.839463638343811
+        },
+        "F": {
+          "n": 190,
+          "coverage": 0.3736842105263158,
+          "median_hse_minus_pred_eV": 1.4108657368373874
+        },
+        "I": {
+          "n": 19,
+          "coverage": 0.3684210526315789,
+          "median_hse_minus_pred_eV": 0.8106893341827393
+        }
+      },
+      "n_in_window_nonmetal": 39,
       "n_hse_in_pv_window": 39,
       "auc_p_gap_pv_vs_hse_window": 0.805668016194332,
       "frac_spin_forbidden_in_window": 0.1794871794871795
@@ -134,6 +221,9 @@
     "n_high_valent_reducing_unflagged": 127,
     "n_known_among_them": 0,
     "n_in_umlip_shortlist": 7,
+    "n_umlip_shortlist": 40,
+    "n_in_umlip_shortlist_within_50meV": 0,
+    "n_in_umlip_shortlist_with_mace": 7,
     "n_on_pareto_front": 0,
     "expected_viable_novel": {
       "paper_rule": 42.004780000000004,

@@ -223,7 +223,15 @@ def build() -> dict:
     wu, wa = rc["r1_walterbos"]["not_in_training"], rc["r1_walterbos"]["all"]
     put("wb_n_unseen", wu["n_nonmetal"], ",d", src + "r1.not_in_training.n_nonmetal")
     put("wb_rho_unseen", wu["spearman_gap_pred_vs_hse"], ".2f", src + "r1.not_in_training.spearman")
-    put("wb_off_unseen", wu["median_hse_minus_pred_eV"], ".1f", src + "r1.not_in_training.median_hse_minus_pred_eV")
+    put("wb_off_unseen", wu["median_hse_minus_pred_eV"], ".2f", src + "r1.not_in_training.median_hse_minus_pred_eV")
+    put("wb_below_unseen_pct", 100 * wu["frac_hse_below_interval"], ".0f", src + "r1.not_in_training.frac_hse_below x100")
+    put("wb_above_unseen_pct", 100 * wu["frac_hse_above_interval"], ".0f", src + "r1.not_in_training.frac_hse_above x100")
+    put("wb_cov_shift_unseen_pct", 100 * wu["coverage_after_median_shift"], ".0f",
+        src + "r1.not_in_training.coverage_after_median_shift x100")
+    put("wb_metal_semi_n", wu["n_metal_called_semi_p05"], "d", src + "r1.not_in_training.n_metal_called_semi_p05")
+    put("wb_metal_n", wu["n_metal_hse"], "d", src + "r1.not_in_training.n_metal_hse")
+    put("wb_nonmetal_rej", wu["n_nonmetal_rejected_p05"], "d", src + "r1.not_in_training.n_nonmetal_rejected_p05")
+    put("wb_window_n", wa["n_in_window_nonmetal"], "d", src + "r1.all.n_in_window_nonmetal")
     put("wb_cov_unseen_pct", 100 * wu["coverage_hse_by_interval"], ".0f", src + "r1.not_in_training.coverage x100")
     put("wb_auc_semi_unseen", wu["auc_semi_vs_hse_nonmetal"], ".2f", src + "r1.not_in_training.auc_semi")
     put("wb_spinforb_pct", 100 * wa["frac_spin_forbidden_in_window"], ".0f", src + "r1.all.frac_spin_forbidden_in_window")
@@ -231,6 +239,9 @@ def build() -> dict:
     opt = [thr[t]["expected_competitive_stable_umlip__optimistic"] for t in thr]
     put("thr_opt_lo", min(opt), ".1f", src + "r2.*.optimistic min")
     put("thr_opt_hi", max(opt), ".1f", src + "r2.*.optimistic max")
+    va = [thr[t]["expected_viable_novel_plausible"] for t in thr]
+    put("thr_va_lo", min(va), ".1f", src + "r2.*.expected_viable_novel_plausible min")
+    put("thr_va_hi", max(va), ".1f", src + "r2.*.expected_viable_novel_plausible max")
     zero = max(thr[t][f"expected_competitive_stable_umlip__{k}"] for t in thr for k in ("realistic", "demonstrated"))
     if zero != 0.0:
         raise SystemExit(f"FAIL-CLOSED: prose says realistic/demonstrated stay at zero at every threshold; max = {zero}")
@@ -251,7 +262,13 @@ def build() -> dict:
     put("n_flag_ox_red", ox["n_flagged_with_reducing_anion"], "d", src + "r4.n_flagged_with_reducing_anion")
     put("ox_strict_n", ox["n_high_valent_reducing_unflagged"], "d", src + "r4.n_high_valent_reducing_unflagged")
     put("ox_strict_umlip", ox["n_in_umlip_shortlist"], "d", src + "r4.n_in_umlip_shortlist")
+    put("ox_umlip_n", ox["n_umlip_shortlist"], "d", src + "r4.n_umlip_shortlist")
+    if ox["n_in_umlip_shortlist_with_mace"] != ox["n_in_umlip_shortlist"] or ox["n_in_umlip_shortlist_within_50meV"] != 0:
+        raise SystemExit("FAIL-CLOSED: prose says MACE placed every strict-rule shortlist composition above 50 meV")
     put("ox_strict_viable", ox["expected_viable_novel"]["strict_rule"], ".1f", src + "r4.expected_viable_novel.strict_rule")
+
+    # public code release cited in Data availability and the cover letter; build_jmca.py checks the tag exists
+    put("repo_version", "2.1.0", "s", "public repo CITATION.cff#version, git tag v2.1.0")
 
     # ---------------- sourced literature constants used in prose ----------------
     put("lazard_lo", 29, "d", "LAZ24 p9/p35 (data/sources/SOURCES.md)")
