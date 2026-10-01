@@ -203,6 +203,10 @@ def fig4():
     ax.text(0.97, 0.97, "shading: P10–P90 over site/finance draws", transform=ax.transAxes, ha="right", va="top",
             fontsize=6, color="0.35")
     ax = axes[1]
+    import sys
+    sys.path.insert(0, str(ROOT))
+    from pipeline.sq import sq_table
+    sq_max = float(sq_table()[1].max())            # single-junction limit from the pipeline, not a typed constant
     tb = be[(be.module_cost == "low") & (be.burnin == 0)].pivot(index="module_life", columns="deg", values="breakeven_eta")
     cmap = matplotlib.colormaps["viridis_r"].copy()
     cmap.set_bad("0.88")
@@ -210,7 +214,7 @@ def fig4():
     for i in range(tb.shape[0]):
         for k in range(tb.shape[1]):
             v = tb.to_numpy()[i, k]
-            lab = "n.r." if pd.isna(v) else (f"{100 * v:.1f}*" if v > 0.337 else f"{100 * v:.1f}")
+            lab = "n.r." if pd.isna(v) else (f"{100 * v:.1f}*" if v > sq_max else f"{100 * v:.1f}")
             ax.text(k, i, lab, ha="center", va="center", fontsize=7,
                     color="k" if pd.isna(v) or v < 0.33 else "w")
     ax.set_xticks(range(tb.shape[1]), [f"{100 * c:.1f}" for c in tb.columns])
@@ -220,7 +224,10 @@ def fig4():
     ax.set_title(r"Break-even efficiency (%), \$50 m$^{-2}$ module", loc="left", fontsize=8)
     cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
     cbar.set_label("Break-even efficiency (%)")
-    ax.text(0.0, -0.30, "* above the single-junction SQ limit (33.7%), physically unreachable; n.r. = not reached below 40%", transform=ax.transAxes, fontsize=6.5)
+    # short key kept inside panel (b)'s width (a one-line footnote once pushed the canvas ~30% wider than the
+    # plots and left both panels crowded to the left); the full explanation lives in the caption
+    ax.text(0.5, -0.27, f"* above SQ limit ({100 * sq_max:.1f}%)\nn.r. = not reached below 40%", transform=ax.transAxes,
+            fontsize=6.3, ha="center", va="top", linespacing=1.3)
     for a, s in zip(axes, "ab"):
         panel(a, f"({s})")
     for sp in ("top", "right"):

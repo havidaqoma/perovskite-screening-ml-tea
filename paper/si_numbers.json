@@ -1,0 +1,652 @@
+{
+ "si_n_chemsys": {
+  "value": 99984,
+  "fmt": ",d",
+  "src": "v2/metrics/dataset_v2.json#n_chemsys"
+ },
+ "si_frac_ehull01_pct": {
+  "value": 85.17,
+  "fmt": ".1f",
+  "src": "dataset_v2.json#frac_ehull_le_0.1"
+ },
+ "si_metal_gap": {
+  "value": 0.1,
+  "fmt": ".1f",
+  "src": "pipeline/s10_mp_dataset.py#METAL_GAP_EV"
+ },
+ "si_n_queries": {
+  "value": 4,
+  "fmt": "d",
+  "src": "dataset_v2.json#mp_queries"
+ },
+ "si_n_semi": {
+  "value": 60837,
+  "fmt": ",d",
+  "src": "v2/metrics/final_models_v2.json#n_semi"
+ },
+ "si_n_features": {
+  "value": 139,
+  "fmt": "d",
+  "src": "ml_eval_v2.json#feature_names"
+ },
+ "si_n_folds": {
+  "value": 5,
+  "fmt": "d",
+  "src": "pipeline/s11_ml_eval.py#N_FOLDS"
+ },
+ "si_seed": {
+  "value": 42,
+  "fmt": "d",
+  "src": "pipeline/s11_ml_eval.py#SEED"
+ },
+ "si_n_anion_fam": {
+  "value": 6,
+  "fmt": "d",
+  "src": "pipeline/s11_ml_eval.py#ANION_FAMILIES"
+ },
+ "si_ridge_alpha": {
+  "value": 1.0,
+  "fmt": ".1f",
+  "src": "s11_ml_eval.py#Ridge alpha"
+ },
+ "si_rf_trees": {
+  "value": 100,
+  "fmt": "d",
+  "src": "s11_ml_eval.py#rf"
+ },
+ "si_roost_epochs": {
+  "value": 40,
+  "fmt": "d",
+  "src": "roost_chemsys_gap_semi.json#epochs"
+ },
+ "si_roost_lr": {
+  "value": "3e-4",
+  "fmt": "s",
+  "src": "pipeline/s12_roost.py#AdamW lr"
+ },
+ "si_roost_wd": {
+  "value": "1e-6",
+  "fmt": "s",
+  "src": "pipeline/s12_roost.py#weight_decay"
+ },
+ "si_roost_batch": {
+  "value": 256,
+  "fmt": "d",
+  "src": "pipeline/s12_roost.py#batch_size"
+ },
+ "si_roost_emb": {
+  "value": "matscholar200",
+  "fmt": "s",
+  "src": "pipeline/s12_roost.py#elem_embedding"
+ },
+ "si_roost_fold_min": {
+  "value": 0.4745394716405545,
+  "fmt": ".3f",
+  "src": "roost_chemsys_gap_semi.json#folds.mae min"
+ },
+ "si_roost_fold_max": {
+  "value": 0.5038087286418765,
+  "fmt": ".3f",
+  "src": "roost_chemsys_gap_semi.json#folds.mae max"
+ },
+ "si_alpha": {
+  "value": 0.1,
+  "fmt": ".2f",
+  "src": "pipeline/s11_ml_eval.py#CONFORMAL_ALPHA"
+ },
+ "si_sigma_floor": {
+  "value": 0.05,
+  "fmt": ".2f",
+  "src": "pipeline/s13_final_models.py#sigma_floor"
+ },
+ "si_cal_frac": {
+  "value": 0.2,
+  "fmt": ".1f",
+  "src": "pipeline/s11_ml_eval.py#calibration fraction"
+ },
+ "si_cal_min": {
+  "value": 200,
+  "fmt": "d",
+  "src": "pipeline/s11_ml_eval.py#n_cal floor"
+ },
+ "si_final_cal_frac": {
+  "value": 0.2,
+  "fmt": ".1f",
+  "src": "pipeline/s13_final_models.py#GroupShuffleSplit test_size"
+ },
+ "si_q_gap": {
+  "value": 1.9880328886118759,
+  "fmt": ".2f",
+  "src": "final_models_v2.json#q_gap"
+ },
+ "si_n_cal": {
+  "value": 11848,
+  "fmt": ",d",
+  "src": "final_models_v2.json#n_cal"
+ },
+ "si_cov_random_min": {
+  "value": 0.8948870586316562,
+  "fmt": ".3f",
+  "src": "ml_eval_v2.json#conformal.random.coverage_folds min"
+ },
+ "si_cov_random_max": {
+  "value": 0.9016977225672878,
+  "fmt": ".3f",
+  "src": "ml_eval_v2.json#conformal.random.coverage_folds max"
+ },
+ "si_width_p90_random": {
+  "value": 3.549823733509642,
+  "fmt": ".2f",
+  "src": "ml_eval_v2.json#conformal.random.width_p90"
+ },
+ "si_cov_chemsys_min": {
+  "value": 0.8896210873146623,
+  "fmt": ".3f",
+  "src": "ml_eval_v2.json#conformal.chemsys.coverage_folds min"
+ },
+ "si_cov_chemsys_max": {
+  "value": 0.8967710371819961,
+  "fmt": ".3f",
+  "src": "ml_eval_v2.json#conformal.chemsys.coverage_folds max"
+ },
+ "si_width_p90_chemsys": {
+  "value": 3.5261907660585994,
+  "fmt": ".2f",
+  "src": "ml_eval_v2.json#conformal.chemsys.width_p90"
+ },
+ "si_cov_single": {
+  "value": 0.8926839503870185,
+  "fmt": ".3f",
+  "src": "robustness.json#conformal_by_anion_mix.1"
+ },
+ "si_n_single": {
+  "value": 42892,
+  "fmt": ",d",
+  "src": "robustness.json#conformal_by_anion_mix.1.n"
+ },
+ "si_cov_mix_alk": {
+  "value": 0.8938935912938332,
+  "fmt": ".3f",
+  "src": "robustness.json#conformal_mixed_anion_alkali"
+ },
+ "si_n_mix_alk": {
+  "value": 3308,
+  "fmt": ",d",
+  "src": "robustness.json#conformal_mixed_anion_alkali.n"
+ },
+ "si_tau_max": {
+  "value": 4.18,
+  "fmt": ".2f",
+  "src": "pipeline/geometry.py#TAU_MAX"
+ },
+ "si_pv_lo": {
+  "value": 1.0,
+  "fmt": ".1f",
+  "src": "pipeline/s14_screen_v2.py#PV_WINDOW_EV"
+ },
+ "si_pv_hi": {
+  "value": 1.8,
+  "fmt": ".1f",
+  "src": "pipeline/s14_screen_v2.py#PV_WINDOW_EV"
+ },
+ "si_p_semi_min": {
+  "value": 0.5,
+  "fmt": ".1f",
+  "src": "pipeline/s14_screen_v2.py#P_SEMI_MIN"
+ },
+ "si_toxic": {
+  "value": "Cd, Hg, As, Tl, Pb, U, Th",
+  "fmt": "s",
+  "src": "pipeline/config.py#TOXIC"
+ },
+ "si_n_a": {
+  "value": 5,
+  "fmt": "d",
+  "src": "pipeline/config.py#A_SITE"
+ },
+ "si_n_b": {
+  "value": 19,
+  "fmt": "d",
+  "src": "pipeline/config.py#B_SITE"
+ },
+ "si_n_x": {
+  "value": 7,
+  "fmt": "d",
+  "src": "pipeline/config.py#X_SITE"
+ },
+ "si_n_bpairs": {
+  "value": 171,
+  "fmt": "d",
+  "src": "C(len(config.B_SITE), 2), as in s03_generate.generate"
+ },
+ "si_n_xcomb": {
+  "value": 28,
+  "fmt": "d",
+  "src": "len(X_SITE) + C(len(X_SITE), 2), as in s03_generate.generate"
+ },
+ "si_n_xpairs": {
+  "value": 21,
+  "fmt": "d",
+  "src": "C(len(config.X_SITE), 2)"
+ },
+ "si_n_pv_absorber_05": {
+  "value": 48,
+  "fmt": "d",
+  "src": "screen_v2.json#p_pv_absorber_ge_0.5"
+ },
+ "si_april_tau_fail": {
+  "value": 2432,
+  "fmt": ",d",
+  "src": "screen_v2.json#april_candidates_trace.tau_not_perovskite"
+ },
+ "si_april_ox_fail": {
+  "value": 200,
+  "fmt": "d",
+  "src": "screen_v2.json#april_candidates_trace.no_ox"
+ },
+ "si_april_metal_fail": {
+  "value": 3,
+  "fmt": "d",
+  "src": "screen_v2.json#april_candidates_trace.predicted_metal"
+ },
+ "si_gate_mev": {
+  "value": 50.0,
+  "fmt": ".0f",
+  "src": "pipeline/s20_stability.py#GATE_MEV"
+ },
+ "si_p_stable_min": {
+  "value": 0.5,
+  "fmt": ".1f",
+  "src": "pipeline/s20_stability.py#P_STABLE_MIN"
+ },
+ "si_control_n": {
+  "value": 400,
+  "fmt": "d",
+  "src": "pipeline/s20_stability.py#CONTROL_N"
+ },
+ "si_ef_res_n": {
+  "value": 113877,
+  "fmt": ",d",
+  "src": "final_models_v2.json#ef_residual_n"
+ },
+ "si_ef_res_bias_mev": {
+  "value": 6.898009694670566,
+  "fmt": ".1f",
+  "src": "final_models_v2.json#ef_residual_bias x1000"
+ },
+ "si_ctrl_prec": {
+  "value": 0.660377358490566,
+  "fmt": ".2f",
+  "src": "stability_v2.json#control.gate_precision"
+ },
+ "si_ctrl_rec": {
+  "value": 0.5785123966942148,
+  "fmt": ".2f",
+  "src": "stability_v2.json#control.gate_recall"
+ },
+ "si_ctrl_failed": {
+  "value": 20,
+  "fmt": "d",
+  "src": "stability_v2.json#control.n - n_ok"
+ },
+ "si_hull_extrap": {
+  "value": -50.0,
+  "fmt": ".0f",
+  "src": "pipeline/s22_shortlist.py#HULL_EXTRAP_MEV"
+ },
+ "si_ox_implausible": {
+  "value": "Mn7+ and Cr6+",
+  "fmt": "s",
+  "src": "pipeline/s22_shortlist.py#OX_IMPLAUSIBLE"
+ },
+ "si_top_n_novel": {
+  "value": 30,
+  "fmt": "d",
+  "src": "pipeline/s22_shortlist.py#TOP_N_NOVEL"
+ },
+ "si_n_control_umlip": {
+  "value": 10,
+  "fmt": "d",
+  "src": "pipeline/s22_shortlist.py#N_CONTROL"
+ },
+ "si_fmax": {
+  "value": 0.05,
+  "fmt": ".2f",
+  "src": "pipeline/s21_umlip.py#FMAX"
+ },
+ "si_steps": {
+  "value": 400,
+  "fmt": "d",
+  "src": "pipeline/s21_umlip.py#STEPS"
+ },
+ "si_umlip_ok": {
+  "value": 40,
+  "fmt": "d",
+  "src": "v2/stability/umlip.csv#status==ok"
+ },
+ "si_umlip_conv": {
+  "value": 37,
+  "fmt": "d",
+  "src": "umlip.csv#converged"
+ },
+ "si_umlip_nref_med": {
+  "value": 31.5,
+  "fmt": ".0f",
+  "src": "umlip.csv#n_ref_phases median"
+ },
+ "si_umlip_nref_max": {
+  "value": 64,
+  "fmt": "d",
+  "src": "umlip.csv#n_ref_phases max"
+ },
+ "si_umlip_sec_med": {
+  "value": 23.450000000000003,
+  "fmt": ".0f",
+  "src": "umlip.csv#seconds median"
+ },
+ "si_umlip_ctrl_min": {
+  "value": -51.59813803676316,
+  "fmt": ".0f",
+  "src": "umlip.csv#control min"
+ },
+ "si_umlip_ctrl_max": {
+  "value": 32.19696676362371,
+  "fmt": ".0f",
+  "src": "umlip.csv#control max"
+ },
+ "si_umlip_novel_min": {
+  "value": 22.51376531455884,
+  "fmt": ".0f",
+  "src": "umlip.csv#novel min"
+ },
+ "si_umlip_novel_max": {
+  "value": 287.9999254367532,
+  "fmt": ".0f",
+  "src": "umlip.csv#novel max"
+ },
+ "si_sq_t": {
+  "value": 300.0,
+  "fmt": ".0f",
+  "src": "pipeline/sq.py#T_CELL"
+ },
+ "si_sq_peak_eg": {
+  "value": 1.335,
+  "fmt": ".2f",
+  "src": "pipeline/sq.py#sq_table argmax"
+ },
+ "si_sq_peak": {
+  "value": 33.68880197556834,
+  "fmt": ".2f",
+  "src": "pipeline/sq.py#sq_table max"
+ },
+ "si_sq_n": {
+  "value": 741,
+  "fmt": "d",
+  "src": "pipeline/sq.py#sq_table n"
+ },
+ "si_sq_egmin": {
+  "value": 0.3,
+  "fmt": ".1f",
+  "src": "pipeline/sq.py#sq_table eg_min"
+ },
+ "si_sq_egmax": {
+  "value": 4.0,
+  "fmt": ".1f",
+  "src": "pipeline/sq.py#sq_table eg_max"
+ },
+ "si_f_csi": {
+  "value": 0.61,
+  "fmt": ".2f",
+  "src": "tea_v2.json#e5_candidates.f_sq_csi_module_parity"
+ },
+ "si_f_mid": {
+  "value": 0.5,
+  "fmt": ".2f",
+  "src": "pipeline/tea_params.py#f_sq grid"
+ },
+ "si_e1_msp": {
+  "value": 972.9999999999999,
+  "fmt": ".1f",
+  "src": "tea_v2.json#e1_reproduction.msp.capex_kwdc"
+ },
+ "si_e1_mmp": {
+  "value": 1159.8695228821812,
+  "fmt": ".1f",
+  "src": "tea_v2.json#e1_reproduction.mmp.capex_kwdc"
+ },
+ "si_e1_mmp_ref": {
+  "value": 1161,
+  "fmt": ",d",
+  "src": "tea_v2.json#e1_reproduction.mmp.nrel_total"
+ },
+ "si_be_csi": {
+  "value": 20.5,
+  "fmt": ".1f",
+  "src": "tea_v2.json#e4_consistency"
+ },
+ "si_base_lcoe": {
+  "value": 49.17375651018055,
+  "fmt": ".1f",
+  "src": "tea_v2.json#e4_consistency.base_lcoe_usd_mwh"
+ },
+ "si_n_mc": {
+  "value": 4000,
+  "fmt": ",d",
+  "src": "pipeline/s30_tea_v2.py#N_MC"
+ },
+ "si_tea_seed": {
+  "value": 42,
+  "fmt": "d",
+  "src": "pipeline/s30_tea_v2.py#SEED"
+ },
+ "si_sobol_base": {
+  "value": 1024,
+  "fmt": ",d",
+  "src": "s30_tea_v2.py#Saltelli N"
+ },
+ "si_sobol_k": {
+  "value": 9,
+  "fmt": "d",
+  "src": "tea_v2.json#e6_sobol.ranking_ST"
+ },
+ "si_sobol_n": {
+  "value": 11264,
+  "fmt": ",d",
+  "src": "tea_v2.json#e6_sobol.n_eval"
+ },
+ "si_sobol_sum_s1": {
+  "value": 0.8811701596659729,
+  "fmt": ".2f",
+  "src": "tea_v2.json#e6_sobol.sum_S1"
+ },
+ "si_sobol_inter_pct": {
+  "value": 12.0,
+  "fmt": ".0f",
+  "src": "1 - tea_v2.json#e6_sobol.sum_S1 (as printed)"
+ },
+ "si_abs_thick": {
+  "value": 500,
+  "fmt": "d",
+  "src": "tea_params.py#absorber_thickness_nm"
+ },
+ "si_abs_rho": {
+  "value": 5.0,
+  "fmt": ".1f",
+  "src": "tea_params.py#absorber_density_gcm3"
+ },
+ "si_abs_util": {
+  "value": 0.85,
+  "fmt": ".2f",
+  "src": "tea_params.py#absorber_utilization"
+ },
+ "si_abs_med": {
+  "value": 4.41850667152047,
+  "fmt": ".2f",
+  "src": "tea_v2.json#e5_candidates.absorber_cost_m2_median"
+ },
+ "si_abs_max": {
+  "value": 11.497450638029113,
+  "fmt": ".2f",
+  "src": "tea_v2.json#e5_candidates.absorber_cost_m2_max"
+ },
+ "si_abs_unsourced": {
+  "value": 1256,
+  "fmt": ",d",
+  "src": "tea_v2.json#e5_candidates.n_absorber_price_unsourced"
+ },
+ "si_plant_life": {
+  "value": 35,
+  "fmt": "d",
+  "src": "tea_params.py#plant_life"
+ },
+ "si_ilr": {
+  "value": 1.34,
+  "fmt": ".2f",
+  "src": "tea_params.py#ilr"
+ },
+ "si_repl_alt": {
+  "value": 0.5,
+  "fmt": ".1f",
+  "src": "tea_params.py#replace_labor_frac.alt"
+ },
+ "si_repl_base": {
+  "value": 0.0,
+  "fmt": ".0f",
+  "src": "tea_params.py#replace_labor_frac.value"
+ },
+ "si_be_reachable": {
+  "value": 23,
+  "fmt": "d",
+  "src": "breakeven_efficiency.csv#breakeven_reachable_by_sq"
+ },
+ "si_be_above_sq": {
+  "value": 14,
+  "fmt": "d",
+  "src": "breakeven_efficiency.csv#breakeven_eta notna & not reachable_by_sq"
+ },
+ "si_be_eta_lo": {
+  "value": 20.25,
+  "fmt": ".1f",
+  "src": "breakeven_efficiency.csv#min"
+ },
+ "si_be_grid_lo": {
+  "value": 4.0,
+  "fmt": ".0f",
+  "src": "pipeline/s30_tea_v2.py#break-even grid start"
+ },
+ "si_be_grid_hi": {
+  "value": 40.0,
+  "fmt": ".0f",
+  "src": "pipeline/s30_tea_v2.py#break-even grid end"
+ },
+ "si_be_grid_step": {
+  "value": 0.25,
+  "fmt": ".2f",
+  "src": "pipeline/s30_tea_v2.py#break-even grid step"
+ },
+ "si_n_csi_draws": {
+  "value": 4000,
+  "fmt": ",d",
+  "src": "pipeline/s30_tea_v2.py#N_MC"
+ },
+ "si_roost_val_frac": {
+  "value": 0.1,
+  "fmt": ".1f",
+  "src": "pipeline/s12_roost.py#validation fraction"
+ },
+ "si_roost_val_min": {
+  "value": 500,
+  "fmt": "d",
+  "src": "pipeline/s12_roost.py#validation floor"
+ },
+ "si_csi_gap": {
+  "value": 1.12,
+  "fmt": ".2f",
+  "src": "pipeline/s30_tea_v2.py#c-Si gap for f_SQ parity"
+ },
+ "si_reach_gap": {
+  "value": 1.34,
+  "fmt": ".2f",
+  "src": "pipeline/s30_tea_v2.py#gap used for the reachability test"
+ },
+ "si_sobol_gap": {
+  "value": 1.34,
+  "fmt": ".2f",
+  "src": "pipeline/s30_tea_v2.py#gap used in the Sobol model"
+ },
+ "si_umlip_unconv": {
+  "value": 3,
+  "fmt": "d",
+  "src": "umlip.csv#not converged"
+ },
+ "si_umlip_unconv_min": {
+  "value": 219.2423962110226,
+  "fmt": ".0f",
+  "src": "umlip.csv#min hull distance among unconverged runs"
+ },
+ "si_radioactive": {
+  "value": "Tc, Pm, Po, At, Rn, Fr, Ra, Ac, Th, Pa, U, Np, Pu",
+  "fmt": "s",
+  "src": "pipeline/s10_mp_dataset.py#RADIOACTIVE"
+ },
+ "si_a_list": {
+  "value": "K, Rb, Cs, Na, Li",
+  "fmt": "s",
+  "src": "pipeline/config.py#A_SITE"
+ },
+ "si_b_list": {
+  "value": "Sn, Ge, Ti, Zr, V, Nb, Ta, Cr, Mo, W, Fe, Mn, Bi, Sb, Cu, Ag, Zn, In, Ga",
+  "fmt": "s",
+  "src": "pipeline/config.py#B_SITE"
+ },
+ "si_x_list": {
+  "value": "O, S, Se, F, Cl, Br, I",
+  "fmt": "s",
+  "src": "pipeline/config.py#X_SITE"
+ },
+ "si_cov_bin_lo": {
+  "value": 0.759494,
+  "fmt": ".3f",
+  "src": "figures/si_data/figS1_conformal.csv#panel b first bin"
+ },
+ "si_cov_bin_lo_label": {
+  "value": "0.1 to 0.5",
+  "fmt": "s",
+  "src": "figures/si_data/figS1_conformal.csv#panel b first bin label"
+ },
+ "si_cov_bin_rest_min": {
+  "value": 0.888273,
+  "fmt": ".3f",
+  "src": "figS1_conformal.csv#panel b other bins min"
+ },
+ "si_cov_bin_rest_max": {
+  "value": 0.937174,
+  "fmt": ".3f",
+  "src": "figS1_conformal.csv#panel b other bins max"
+ },
+ "si_n_scen": {
+  "value": 4,
+  "fmt": "d",
+  "src": "pipeline/s40_pareto.py#SCENARIOS"
+ },
+ "si_n_variants": {
+  "value": 8,
+  "fmt": "d",
+  "src": "pipeline/s40_pareto.py#variants"
+ },
+ "si_robust_thr": {
+  "value": 0.75,
+  "fmt": ".2f",
+  "src": "s40_pareto.py#robust thr"
+ },
+ "si_spearman": {
+  "value": 0.15883423150578294,
+  "fmt": ".2f",
+  "src": "tea_v2.json#rank_spearman_optimistic_vs_ceiling"
+ },
+ "si_va_ind": {
+  "value": 42.0047210461298,
+  "fmt": ".1f",
+  "src": "robustness.json#viable_absorber.independent"
+ }
+}

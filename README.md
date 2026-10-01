@@ -49,9 +49,9 @@ assumes.
 
 ## v2 audit pipeline (manuscript)
 
-The manuscript "Uncertainty and stability, not material cost, bound the economics
-of lead-free double perovskite photovoltaics" is under submission.
-arXiv: to be added.
+The manuscript "Band-gap uncertainty, thermodynamic stability and area-scaled plant
+costs limit the techno-economic viability of lead-free double perovskite
+photovoltaics" is under submission. arXiv: to be added.
 
 The v2 pipeline re-runs the screen with evaluation and cost models that a reviewer
 can check stage by stage:
@@ -143,6 +143,29 @@ rebuilds it from `runs/`; `paper/make_figures_v2.py` rebuilds `paper/figures/`.
 A few keys read `runs/v2/data/train_v2.csv` (not redistributed) or the original model
 file, so a full rebuild needs the s10 stage first.
 
+### Electronic Supplementary Information (ESI)
+
+The ESI of the manuscript (Supplementary Notes S1 to S12, Figures S1 to S7,
+Tables S1 to S9) is built from the same artifacts. The code and data behind it
+ship here; the ESI text itself is part of the manuscript and is not.
+
+| File | What it holds |
+|---|---|
+| `paper/make_si_figures.py` | Builds Figures S1 to S7 (`paper/figures/figS*.{png,pdf}`) and the data plotted in each (`paper/figures/si_data/figS*.csv`) |
+| `paper/si_numbers.py` | Builds `paper/si_numbers.json`: the 130 numbers and method settings quoted in the ESI, each with its source. Settings are read from the pipeline code itself (imported, or matched on the source line), and the script stops if a pattern is not found |
+| `paper/si_refs_verified.json` | The two ESI-only references (ASE, FIRE), checked against OpenAlex |
+| `paper/make_si_excel.py` | Builds the supplementary workbook `paper/build/SI_data_v2.xlsx`: the data behind every main and ESI figure, every number with its source, every TEA assumption, and the references |
+
+```bash
+python paper/make_si_figures.py   # Figures S2-S7 offline; S1 needs runs/v2/predictions/ (re-run s11) and is skipped otherwise
+python paper/si_numbers.py        # offline
+python paper/make_si_excel.py     # offline
+```
+
+The numbering follows the order in which the ESI cites the figures: S5 is the
+break-even map for every module cost and burn-in setting, S6 the candidate-level
+LCOE, and S7 the Sobol indices.
+
 ## Repository layout
 
 ```
@@ -156,7 +179,7 @@ raw_data/                  9 CSVs, the full screening data package (see raw_data
 results_optionA/           Option A derated rankings + lifetime-corrected variant
 pipeline/                  v2 audit pipeline (stages s01-s41, gates, TEA v2, MP client)
 runs/                      committed v2 and legacy-reproduction artifacts (metrics, gates, manifests, CSVs)
-paper/                     numbers.json map, figure and SI scripts, manuscript figures
+paper/                     numbers.json and si_numbers.json maps, figure and SI scripts, main and ESI figures
 data/                      training_table.csv (legacy training set), sources/ (redistributable TEA source texts)
 env/                       optional GPU environment for the Roost and MACE stages
 examples/ outputs/         quickstart script; runtime output dir

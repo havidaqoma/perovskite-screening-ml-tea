@@ -62,6 +62,7 @@ The sections above describe the ORIGINAL study. The v2 audit (`pipeline/`, `runs
 | `data/sources/nrel_*` | NREL Q1 2023 cost benchmark; NREL ATB 2024 | Public domain |
 | `data/sources/zhang_natcommun2022_cs2agbibr6.md` | Zhang et al., Nat. Commun. 2022 | CC BY 4.0 |
 | `paper/numbers.json` | `paper/paper_numbers.py` over `runs/` | MIT |
+| `paper/si_numbers.json`, `paper/figures/si_data/*.csv`, `paper/figures/figS*` | `paper/si_numbers.py`, `paper/make_si_figures.py` over `runs/` and `pipeline/` | MIT |
 
 ## License
 

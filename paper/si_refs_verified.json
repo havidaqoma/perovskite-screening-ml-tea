@@ -1,0 +1,61 @@
+[
+ {
+  "key": "larsen2017",
+  "doi": "10.1088/1361-648x/aa680e",
+  "ok": true,
+  "title": "The atomic simulation environment\u2014a Python library for working with atoms",
+  "year": 2017,
+  "venue": "Journal of Physics Condensed Matter",
+  "authors": [
+   "Ask Hjorth Larsen",
+   "Jens J\u00f8rgen Mortensen",
+   "Jakob Blomqvist",
+   "Ivano E. Castelli",
+   "Rune Christensen",
+   "Marcin Du\u0142ak",
+   "Jesper Friis",
+   "Michael N. Groves",
+   "Bj\u00f8rk Hammer",
+   "Cory Hargus",
+   "Eric Hermes",
+   "Paul C Jennings",
+   "Peter Bjerre Jensen",
+   "James R. Kermode",
+   "John R. Kitchin",
+   "Esben L. Kolsbjerg",
+   "Joseph Kubal",
+   "Kristen Kaasbjerg",
+   "Steen Lysgaard",
+   "J\u00f3n Bergmann Maronsson"
+  ],
+  "volume": "29",
+  "issue": "27",
+  "first_page": "273002",
+  "last_page": "273002",
+  "type": "article",
+  "cited_by": 4745,
+  "claim": "Atomic Simulation Environment (ASE): structure relaxation driver"
+ },
+ {
+  "key": "bitzek2006",
+  "doi": "10.1103/physrevlett.97.170201",
+  "ok": true,
+  "title": "Structural Relaxation Made Simple",
+  "year": 2006,
+  "venue": "Physical Review Letters",
+  "authors": [
+   "Erik Bitzek",
+   "Pekka Koskinen",
+   "Franz G\u00e4hler",
+   "Michael Moseler",
+   "Peter Gumbsch"
+  ],
+  "volume": "97",
+  "issue": "17",
+  "first_page": "170201",
+  "last_page": "170201",
+  "type": "article",
+  "cited_by": 1798,
+  "claim": "FIRE structural optimiser used for the MACE relaxations"
+ }
+]
