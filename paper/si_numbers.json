@@ -648,5 +648,190 @@
   "value": 42.0047210461298,
   "fmt": ".1f",
   "src": "robustness.json#viable_absorber.independent"
+ },
+ "si_wb_n_src": {
+  "value": 2542,
+  "fmt": ",d",
+  "src": "v2/metrics/review_checks.json#r1.n_rows_source"
+ },
+ "si_wb_n_vac": {
+  "value": 132,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r1.n_vacancy_dropped"
+ },
+ "si_wb_n": {
+  "value": 2410,
+  "fmt": ",d",
+  "src": "v2/metrics/review_checks.json#r1.all.n"
+ },
+ "si_wb_n_metal": {
+  "value": 253,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r1.all.n_metal_hse"
+ },
+ "si_wb_n_train": {
+  "value": 501,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r1.n_in_training"
+ },
+ "si_wb_n_cands": {
+  "value": 27,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r1.n_in_v2_candidates"
+ },
+ "si_wb_rho_all": {
+  "value": 0.529895798271346,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.all.spearman_gap_pred_vs_hse"
+ },
+ "si_wb_off_all": {
+  "value": 0.5144470442199707,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.all.median_hse_minus_pred_eV"
+ },
+ "si_wb_cov_all_pct": {
+  "value": 44.22809457579972,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.all.coverage x100"
+ },
+ "si_wb_above_all_pct": {
+  "value": 37.644877144181734,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.all.frac_hse_above x100"
+ },
+ "si_wb_auc_semi_all": {
+  "value": 0.7565257704944468,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.all.auc_semi_vs_hse_nonmetal"
+ },
+ "si_wb_auc_pv_all": {
+  "value": 0.6871751394006587,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.all.auc_p_gap_pv_vs_hse_window"
+ },
+ "si_wb_rho_unseen": {
+  "value": 0.4258561630502241,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.spearman_gap_pred_vs_hse"
+ },
+ "si_wb_off_unseen": {
+  "value": 0.31439758092880254,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.median_hse_minus_pred_eV"
+ },
+ "si_wb_cov_unseen_pct": {
+  "value": 46.23529411764706,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.coverage x100"
+ },
+ "si_wb_above_unseen_pct": {
+  "value": 32.470588235294116,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.frac_hse_above x100"
+ },
+ "si_wb_auc_semi_unseen": {
+  "value": 0.6941148325358852,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.auc_semi_vs_hse_nonmetal"
+ },
+ "si_wb_auc_pv_unseen": {
+  "value": 0.6551427012226062,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.auc_p_gap_pv_vs_hse_window"
+ },
+ "si_wb_rho_train": {
+  "value": 0.8002778103275638,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.in_training.spearman_gap_pred_vs_hse"
+ },
+ "si_wb_off_train": {
+  "value": 1.0672831775283815,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.in_training.median_hse_minus_pred_eV"
+ },
+ "si_wb_cov_train_pct": {
+  "value": 36.76148796498906,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.in_training.coverage x100"
+ },
+ "si_wb_above_train_pct": {
+  "value": 56.89277899343544,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.in_training.frac_hse_above x100"
+ },
+ "si_wb_auc_semi_train": {
+  "value": 0.9350507260791725,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.in_training.auc_semi_vs_hse_nonmetal"
+ },
+ "si_wb_auc_pv_train": {
+  "value": 0.805668016194332,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.in_training.auc_p_gap_pv_vs_hse_window"
+ },
+ "si_wb_mae_unseen": {
+  "value": 1.2678717378893913,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.mae_vs_hse_eV"
+ },
+ "si_wb_npv_unseen": {
+  "value": 298,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.n_hse_in_pv_window"
+ },
+ "si_wb_n_train_nonmetal": {
+  "value": 457,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r1.in_training.n_nonmetal"
+ },
+ "si_wb_ov_cov_pct": {
+  "value": 44.44444444444444,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.v2_overlap.coverage x100"
+ },
+ "si_wb_ov_off": {
+  "value": 0.9358152888298035,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.v2_overlap.median_hse_minus_pred_eV"
+ },
+ "si_inv_year": {
+  "value": 15,
+  "fmt": "d",
+  "src": "pipeline/s50_review_checks.py#INV_REPLACE_YEAR"
+ },
+ "si_inv_usd": {
+  "value": 39.50696055684455,
+  "fmt": ".1f",
+  "src": "review_checks.json#r3.inverter_replace_usd_kwdc"
+ },
+ "si_om_max_pct": {
+  "value": 100.0,
+  "fmt": ".0f",
+  "src": "pipeline/s50_review_checks.py#OM_SCALE"
+ },
+ "si_ox_viable_paper": {
+  "value": 42.004780000000004,
+  "fmt": ".1f",
+  "src": "review_checks.json#r4.expected_viable_novel.paper_rule"
+ },
+ "si_ox_opt_paper": {
+  "value": 3.8040299999999996,
+  "fmt": ".1f",
+  "src": "review_checks.json#r4.optimistic.paper_rule"
+ },
+ "si_ox_opt_strict": {
+  "value": 3.2332399999999994,
+  "fmt": ".1f",
+  "src": "review_checks.json#r4.optimistic.strict_rule"
+ },
+ "si_ox_ceil_paper": {
+  "value": 55.94424000000001,
+  "fmt": ".1f",
+  "src": "review_checks.json#r4.ceiling.paper_rule"
+ },
+ "si_ox_ceil_strict": {
+  "value": 46.76077,
+  "fmt": ".1f",
+  "src": "review_checks.json#r4.ceiling.strict_rule"
  }
 }

@@ -1,0 +1,241 @@
+{
+  "stage": "s50_review_checks",
+  "fingerprint": "ff357ec4e12c32c4c7fdcd8d7b094ebe4103211b41be43c8edde4da53dc2a5ae",
+  "inputs": {
+    "walterbos": {
+      "path": "data\\external\\walterbos2026\\hdp_hse06_subset.csv",
+      "sha256": "0c6eff3fae68134b6b2e52896baf57362178c184dd1be9c899d809e680f2b04e"
+    },
+    "model": {
+      "path": "runs\\v2\\models\\v2_final.joblib",
+      "sha256": "0c8c3e40546c7ebef16d7fb4a539c5bd173b402b211997e347fb79ce9e6ad89a"
+    },
+    "scored": {
+      "path": "runs\\v2\\stability\\v2_screen_scored.csv",
+      "sha256": "c35dafcb9af83ceeeb193da3538ec5cf0af42175895e8225cb153df4562108c2"
+    },
+    "cand_lcoe": {
+      "path": "runs\\v2\\tea_v2\\candidate_lcoe.csv",
+      "sha256": "b5414224a499a100edb6864fdc5a2e7b7e5c45cf586ed025b88eb059f19f556e"
+    },
+    "train": {
+      "path": "runs\\v2\\data\\train_v2.csv",
+      "sha256": "aa490bbe75449e0fc91dc381f57ba0d1f72058d94f6479d507e35515e11f102c"
+    },
+    "shortlist": {
+      "path": "runs\\v2\\stability\\shortlist_for_umlip.csv",
+      "sha256": "7ab1470483854fc36609a322897226d6a2538f8643438e9fee61df148c36e41f"
+    },
+    "pareto": {
+      "path": "runs\\v2\\pareto\\pareto.csv",
+      "sha256": "b022ea89e1f8f2ca4d915b900cedfff3c3291e5e9e7450e19b2ccd38fbe86e0b"
+    },
+    "s22_metrics": {
+      "path": "runs\\v2\\metrics\\shortlist_v2.json",
+      "sha256": "299d2cde4ed3cd2b8f73eb705d0b7ab1821e854ed9359fbe43fffc9154378769"
+    },
+    "s30_metrics": {
+      "path": "runs\\v2\\metrics\\tea_v2.json",
+      "sha256": "59a1da8d1b30eeaf85cf0450b963610ed98d7070557b3a404c47c4ab7b9dec47"
+    }
+  },
+  "params": {
+    "thresholds": [
+      0,
+      20,
+      35,
+      50,
+      100
+    ],
+    "om_scale": [
+      1.0,
+      1.25,
+      1.5,
+      2.0
+    ],
+    "inv_year": 15,
+    "seed": 42,
+    "n_mc": 4000
+  },
+  "outputs": {
+    "review/walterbos_check.csv": "f087bee6d5dea654f27d2d110e61ad567bd6b32f9ed2c89e920da3e5f93ce5b1",
+    "review/om_inverter_breakeven.csv": "3b4c570fb549ef51fd6bf359d7be30550d81e12f73322d61004ab2c24808895d",
+    "review/high_valent_b_site.csv": "6097b010cbd90de50031f0b4fa1bf35219807131c394487834e7bb0f21a3dc09",
+    "metrics/review_checks.json": "7341d433e42a5903dd949997fc8cef96c1cebf291512589ebed20e62c887874f"
+  },
+  "metrics": {
+    "r1_walterbos": {
+      "n_rows_source": 2542,
+      "n_vacancy_dropped": 132,
+      "all": {
+        "n": 2410,
+        "n_featurized": 2410,
+        "n_metal_hse": 253,
+        "auc_semi_vs_hse_nonmetal": 0.7565257704944468,
+        "n_nonmetal": 2157,
+        "spearman_gap_pred_vs_hse": 0.529895798271346,
+        "median_hse_minus_pred_eV": 0.5144470442199707,
+        "mae_vs_hse_eV": 1.267697789655915,
+        "coverage_hse_by_interval": 0.4422809457579972,
+        "frac_hse_above_interval": 0.3764487714418173,
+        "n_hse_in_pv_window": 337,
+        "auc_p_gap_pv_vs_hse_window": 0.6871751394006587,
+        "frac_spin_forbidden_in_window": 0.22551928783382788
+      },
+      "not_in_training": {
+        "n": 1909,
+        "n_featurized": 1909,
+        "n_metal_hse": 209,
+        "auc_semi_vs_hse_nonmetal": 0.6941148325358852,
+        "n_nonmetal": 1700,
+        "spearman_gap_pred_vs_hse": 0.4258561630502241,
+        "median_hse_minus_pred_eV": 0.31439758092880254,
+        "mae_vs_hse_eV": 1.2678717378893913,
+        "coverage_hse_by_interval": 0.4623529411764706,
+        "frac_hse_above_interval": 0.3247058823529412,
+        "n_hse_in_pv_window": 298,
+        "auc_p_gap_pv_vs_hse_window": 0.6551427012226062,
+        "frac_spin_forbidden_in_window": 0.23154362416107382
+      },
+      "in_training": {
+        "n": 501,
+        "n_featurized": 501,
+        "n_metal_hse": 44,
+        "auc_semi_vs_hse_nonmetal": 0.9350507260791725,
+        "n_nonmetal": 457,
+        "spearman_gap_pred_vs_hse": 0.8002778103275638,
+        "median_hse_minus_pred_eV": 1.0672831775283815,
+        "mae_vs_hse_eV": 1.2670507174526104,
+        "coverage_hse_by_interval": 0.3676148796498906,
+        "frac_hse_above_interval": 0.5689277899343544,
+        "n_hse_in_pv_window": 39,
+        "auc_p_gap_pv_vs_hse_window": 0.805668016194332,
+        "frac_spin_forbidden_in_window": 0.1794871794871795
+      },
+      "n_in_training": 501,
+      "n_in_v2_candidates": 27,
+      "v2_overlap": {
+        "n": 27,
+        "n_nonmetal": 27,
+        "coverage_hse_by_interval": 0.4444444444444444,
+        "median_hse_minus_pred_eV": 0.9358152888298035
+      }
+    },
+    "r2_thresholds": {
+      "0": {
+        "expected_viable_novel_plausible": 24.19103650530839,
+        "expected_competitive_stable_umlip__realistic": 0.0,
+        "expected_competitive_stable_umlip__optimistic": 1.71055117,
+        "expected_competitive_stable_umlip__ceiling": 27.780104199999997,
+        "expected_competitive_stable_umlip__demonstrated": 0.0
+      },
+      "20": {
+        "expected_viable_novel_plausible": 30.802461247053515,
+        "expected_competitive_stable_umlip__realistic": 0.0,
+        "expected_competitive_stable_umlip__optimistic": 2.4718623899999996,
+        "expected_competitive_stable_umlip__ceiling": 37.72583369,
+        "expected_competitive_stable_umlip__demonstrated": 0.0
+      },
+      "35": {
+        "expected_viable_novel_plausible": 36.18642464884508,
+        "expected_competitive_stable_umlip__realistic": 0.0,
+        "expected_competitive_stable_umlip__optimistic": 3.15460326,
+        "expected_competitive_stable_umlip__ceiling": 47.518014060000006,
+        "expected_competitive_stable_umlip__demonstrated": 0.0
+      },
+      "50": {
+        "expected_viable_novel_plausible": 42.0047210461298,
+        "expected_competitive_stable_umlip__realistic": 0.0,
+        "expected_competitive_stable_umlip__optimistic": 3.80398701,
+        "expected_competitive_stable_umlip__ceiling": 55.944120870000006,
+        "expected_competitive_stable_umlip__demonstrated": 0.0
+      },
+      "100": {
+        "expected_viable_novel_plausible": 65.18110347900593,
+        "expected_competitive_stable_umlip__realistic": 0.0,
+        "expected_competitive_stable_umlip__optimistic": 6.0458302900000005,
+        "expected_competitive_stable_umlip__ceiling": 91.92997416,
+        "expected_competitive_stable_umlip__demonstrated": 0.0
+      }
+    },
+    "r3_om_inverter": {
+      "inverter_replace_year": 15,
+      "inverter_replace_usd_kwdc": 39.50696055684455,
+      "inverter_effect_on_csi_lcoe_rel": 0.014273528822666526,
+      "eta_grid_step": 0.0025,
+      "om_scale": [
+        1.0,
+        1.25,
+        1.5,
+        2.0
+      ],
+      "breakeven": {
+        "inv0_om1_low": 0.2025,
+        "inv0_om1_med": 0.26,
+        "inv0_om1.25_low": 0.2175,
+        "inv0_om1.25_med": 0.2775,
+        "inv0_om1.5_low": 0.2325,
+        "inv0_om1.5_med": 0.2975,
+        "inv0_om2_low": 0.2725,
+        "inv0_om2_med": 0.3475,
+        "inv1_om1_low": 0.2025,
+        "inv1_om1_med": 0.26,
+        "inv1_om1.25_low": 0.2175,
+        "inv1_om1.25_med": 0.2775,
+        "inv1_om1.5_low": 0.2325,
+        "inv1_om1.5_med": 0.2975,
+        "inv1_om2_low": 0.2725,
+        "inv1_om2_med": 0.3475
+      }
+    },
+    "r4_oxidation": {
+      "rule": [
+        "Mn+7",
+        "Cr+6"
+      ],
+      "n_ions": 9,
+      "n_flagged": 49,
+      "n_flagged_with_reducing_anion": 22,
+      "n_high_valent_reducing_unflagged": 127,
+      "n_known_among_them": 0,
+      "n_in_umlip_shortlist": 7,
+      "n_on_pareto_front": 0,
+      "expected_viable_novel": {
+        "paper_rule": 42.004780000000004,
+        "strict_rule": 32.84647
+      },
+      "expected_competitive_stable_umlip__optimistic": {
+        "paper_rule": 3.8040299999999996,
+        "strict_rule": 3.2332399999999994
+      },
+      "expected_competitive_stable_umlip__ceiling": {
+        "paper_rule": 55.94424000000001,
+        "strict_rule": 46.76077
+      },
+      "expected_competitive_stable_umlip__realistic": {
+        "paper_rule": 0.0,
+        "strict_rule": 0.0
+      },
+      "expected_competitive_stable_umlip__demonstrated": {
+        "paper_rule": 0.0,
+        "strict_rule": 0.0
+      }
+    }
+  },
+  "env": {
+    "python": "3.12.13",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "pymatgen": "2026.3.23",
+    "matminer": "0.10.1",
+    "xgboost": "3.2.0",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "optuna": "4.8.0"
+  },
+  "git": "9bf7e8b-dirty",
+  "seconds": 23.38,
+  "finished_utc": "2026-10-01T08:52:35Z"
+}

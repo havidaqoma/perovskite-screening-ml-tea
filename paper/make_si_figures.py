@@ -7,6 +7,7 @@ Fig S4  detailed-balance limit and the f_SQ efficiency scenarios
 Fig S5  break-even module efficiency for every module cost and burn-in setting
 Fig S6  candidate-level LCOE: (a) median LCOE vs predicted gap, (b) P(LCOE <= c-Si) under two scenarios
 Fig S7  Sobol first-order and total indices of perovskite LCOE
+Fig S8  predicted band gap against the Walterbos et al. HSE06 gap (stage s50, check R1)
 (Numbered in the order the ESI cites them.) Fig S1 needs runs/v2/predictions/oof_v2.csv, a regenerable s11 output
 that the public repository does not ship; without it Fig S1 is skipped and its committed PNG/PDF/CSV are kept.
 PNG (300 dpi) + PDF -> paper/figures/figS*.{png,pdf}; plotted data -> paper/figures/si_data/figS*.csv
@@ -305,10 +306,42 @@ def figS_candidates():
             f"p_lcoe_le_csi__{ceil}"]], "figS6_candidates")
 
 
-FIGS = (figS1, figS2, figS3, figS4, figS_breakeven, figS_candidates, figS_sobol)
+def figS_walterbos():
+    w = pd.read_csv(R / "v2/review/walterbos_check.csv")
+    w = w[w.hse_nonmetal].copy()
+    fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.0), sharex=True, sharey=True)
+    lim = (-0.5, 10.0)
+    for ax, (flag, title) in zip(axes, ((False, "not in the training set"), (True, "in the training set"))):
+        d = w[w.in_training == flag]
+        inside = (d.bandgap >= d.gap_lo90_eV) & (d.bandgap <= d.gap_hi90_eV)
+        ax.scatter(d.gap_pred_eV[~inside], d.bandgap[~inside], s=4, color=C["orange"], alpha=0.6,
+                   label="HSE06 gap outside the 90% interval", rasterized=True)
+        ax.scatter(d.gap_pred_eV[inside], d.bandgap[inside], s=4, color=C["blue"], alpha=0.6,
+                   label="HSE06 gap inside the 90% interval", rasterized=True)
+        ax.plot(lim, lim, color="k", lw=0.8, ls="--")
+        ax.axhspan(1.0, 1.8, color="0.92", zorder=0)
+        ax.set_xlim(*lim)
+        ax.set_ylim(*lim)
+        ax.set_xlabel("Predicted band gap, this work (eV)")
+        ax.set_title(f"{title}, n = {len(d):,}", loc="left", fontsize=7.5)
+    axes[0].set_ylabel("HSE06 band gap, Walterbos et al. (eV)")
+    axes[1].legend(loc="lower right", fontsize=6.2, markerscale=2.5)
+    for a, s_ in zip(axes, "ab"):
+        panel(a, f"({s_})")
+    despine(*axes)
+    fig.tight_layout(w_pad=1.5)
+    save(fig, "figS8_hse06")
+    dump(w[["comp_name_full", "in_training", "in_v2_candidates", "gap_pred_eV", "gap_lo90_eV", "gap_hi90_eV",
+            "p_semi", "bandgap", "cond_type", "spin_forbidden"]], "figS8_hse06")
+
+
+FIGS = (figS1, figS2, figS3, figS4, figS_breakeven, figS_candidates, figS_sobol, figS_walterbos)
 
 if __name__ == "__main__":
     for f in FIGS:
+        if f is figS_walterbos and not (R / "v2/review/walterbos_check.csv").exists():
+            print("SKIP figS8: runs/v2/review/walterbos_check.csv not present (run stage s50); committed figure kept")
+            continue
         if f is figS1 and not (R / "v2/predictions/oof_v2.csv").exists():
             print("SKIP figS1: runs/v2/predictions/oof_v2.csv not present (re-run stage s11); committed figure kept")
             continue

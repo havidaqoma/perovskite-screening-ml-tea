@@ -225,6 +225,47 @@ def build() -> dict:
     put("si_spearman", e5["rank_spearman_optimistic_vs_ceiling"], ".2f", "tea_v2.json#rank_spearman_optimistic_vs_ceiling")
     va = rb["viable_absorber"]
     put("si_va_ind", va["independent"], ".1f", "robustness.json#viable_absorber.independent")
+
+    # ---------------- Note S12: hybrid-functional check (stage s50, R1) ----------------
+    from pipeline import s50_review_checks
+    rc = j("v2/metrics/review_checks.json")
+    r1 = rc["r1_walterbos"]
+    S = "v2/metrics/review_checks.json#r1."
+    put("si_wb_n_src", r1["n_rows_source"], ",d", S + "n_rows_source")
+    put("si_wb_n_vac", r1["n_vacancy_dropped"], "d", S + "n_vacancy_dropped")
+    put("si_wb_n", r1["all"]["n"], ",d", S + "all.n")
+    put("si_wb_n_metal", r1["all"]["n_metal_hse"], "d", S + "all.n_metal_hse")
+    put("si_wb_n_train", r1["n_in_training"], "d", S + "n_in_training")
+    put("si_wb_n_cands", r1["n_in_v2_candidates"], "d", S + "n_in_v2_candidates")
+    for blk, tag in (("all", "all"), ("not_in_training", "unseen"), ("in_training", "train")):
+        b = r1[blk]
+        put(f"si_wb_rho_{tag}", b["spearman_gap_pred_vs_hse"], ".2f", S + f"{blk}.spearman_gap_pred_vs_hse")
+        put(f"si_wb_off_{tag}", b["median_hse_minus_pred_eV"], ".2f", S + f"{blk}.median_hse_minus_pred_eV")
+        put(f"si_wb_cov_{tag}_pct", 100 * b["coverage_hse_by_interval"], ".0f", S + f"{blk}.coverage x100")
+        put(f"si_wb_above_{tag}_pct", 100 * b["frac_hse_above_interval"], ".0f", S + f"{blk}.frac_hse_above x100")
+        put(f"si_wb_auc_semi_{tag}", b["auc_semi_vs_hse_nonmetal"], ".2f", S + f"{blk}.auc_semi_vs_hse_nonmetal")
+        put(f"si_wb_auc_pv_{tag}", b["auc_p_gap_pv_vs_hse_window"], ".2f", S + f"{blk}.auc_p_gap_pv_vs_hse_window")
+    put("si_wb_mae_unseen", r1["not_in_training"]["mae_vs_hse_eV"], ".2f", S + "not_in_training.mae_vs_hse_eV")
+    put("si_wb_npv_unseen", r1["not_in_training"]["n_hse_in_pv_window"], "d", S + "not_in_training.n_hse_in_pv_window")
+    put("si_wb_n_train_nonmetal", r1["in_training"]["n_nonmetal"], "d", S + "in_training.n_nonmetal")
+    put("si_wb_ov_cov_pct", 100 * r1["v2_overlap"]["coverage_hse_by_interval"], ".0f", S + "v2_overlap.coverage x100")
+    put("si_wb_ov_off", r1["v2_overlap"]["median_hse_minus_pred_eV"], ".2f", S + "v2_overlap.median_hse_minus_pred_eV")
+
+    # ---------------- Note S13: sensitivity checks (stage s50, R2-R4) ----------------
+    om = rc["r3_om_inverter"]
+    put("si_inv_year", om["inverter_replace_year"], "d", "pipeline/s50_review_checks.py#INV_REPLACE_YEAR")
+    put("si_inv_usd", om["inverter_replace_usd_kwdc"], ".1f", "review_checks.json#r3.inverter_replace_usd_kwdc")
+    put("si_om_max_pct", 100 * (max(s50_review_checks.OM_SCALE) - 1), ".0f", "pipeline/s50_review_checks.py#OM_SCALE")
+    ox = rc["r4_oxidation"]
+    put("si_ox_viable_paper", ox["expected_viable_novel"]["paper_rule"], ".1f", "review_checks.json#r4.expected_viable_novel.paper_rule")
+    put("si_ox_opt_paper", ox["expected_competitive_stable_umlip__optimistic"]["paper_rule"], ".1f",
+        "review_checks.json#r4.optimistic.paper_rule")
+    put("si_ox_opt_strict", ox["expected_competitive_stable_umlip__optimistic"]["strict_rule"], ".1f",
+        "review_checks.json#r4.optimistic.strict_rule")
+    put("si_ox_ceil_paper", ox["expected_competitive_stable_umlip__ceiling"]["paper_rule"], ".1f",
+        "review_checks.json#r4.ceiling.paper_rule")
+    put("si_ox_ceil_strict", ox["expected_competitive_stable_umlip__ceiling"]["strict_rule"], ".1f",
+        "review_checks.json#r4.ceiling.strict_rule")
     return N
 
 

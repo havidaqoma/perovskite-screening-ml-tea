@@ -1,0 +1,17 @@
+inverter_replacement,om_scale_pvk,module_cost,module_m2,breakeven_eta
+False,1.0000,low,50.0000,0.2025
+False,1.0000,med,85.0000,0.2600
+False,1.2500,low,50.0000,0.2175
+False,1.2500,med,85.0000,0.2775
+False,1.5000,low,50.0000,0.2325
+False,1.5000,med,85.0000,0.2975
+False,2.0000,low,50.0000,0.2725
+False,2.0000,med,85.0000,0.3475
+True,1.0000,low,50.0000,0.2025
+True,1.0000,med,85.0000,0.2600
+True,1.2500,low,50.0000,0.2175
+True,1.2500,med,85.0000,0.2775
+True,1.5000,low,50.0000,0.2325
+True,1.5000,med,85.0000,0.2975
+True,2.0000,low,50.0000,0.2725
+True,2.0000,med,85.0000,0.3475

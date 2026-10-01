@@ -53,11 +53,13 @@ The sections above describe the ORIGINAL study. The v2 audit (`pipeline/`, `runs
 - **Manifests.** Every stage writes `runs/<run-id>/stage_<name>.json` with the sha256 of each input and output, parameters, metrics, package versions and git commit. The `.gitattributes` rule `runs/** -text` keeps committed bytes identical to the hashed bytes.
 - **Materials Project.** Stages s10, s20 and s21 need your own `MP_API_KEY` (environment or local `.env`). The run in `runs/v2` used MP database version 2026.04.13 (`runs/v2/metrics/dataset_v2.json`). A newer MP release will move the numbers slightly.
 - **Not shipped (regenerable).** `data/mp_cache/`, `runs/v2/data/`, `runs/v2/splits/`, `runs/v2/predictions/`, `runs/v2/models/`, `runs/v2/features/`. Their hashes are in the committed stage manifests.
+- **Stage s50 (pre-submission review checks).** `python -m pipeline.run --v2 --run-id v2 --only s50` compares the final model with the HSE06 gaps of Walterbos et al. (shipped subset, hash-checked by `scripts/fetch_walterbos2026.py`) and runs the hull-threshold, O&M/inverter and oxidation-state sensitivity checks. It needs the s13 model and `runs/v2/data/train_v2.csv` (both not redistributed), and stops if its 50 meV and base-case rows do not reproduce s22 and s30 exactly.
 
 | Shipped file | Source | Licence |
 |---|---|---|
 | `data/training_table.csv` | Materials Project, April 2026 export (see `data/README.md`) | CC BY 4.0 |
 | `runs/v2/**` | This pipeline on Materials Project database 2026.04.13 | CC BY 4.0 derivative / MIT |
+| `data/external/walterbos2026/hdp_hse06_subset.csv` | Walterbos et al. 2026 (arXiv:2606.11928), Zenodo 10.5281/zenodo.20598121, 8 columns unchanged | CC BY 4.0 |
 | `data/sources/usgs_mcs2024_*.txt` | USGS Mineral Commodity Summaries 2024 | Public domain |
 | `data/sources/nrel_*` | NREL Q1 2023 cost benchmark; NREL ATB 2024 | Public domain |
 | `data/sources/zhang_natcommun2022_cs2agbibr6.md` | Zhang et al., Nat. Commun. 2022 | CC BY 4.0 |

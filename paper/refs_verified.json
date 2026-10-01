@@ -15,7 +15,7 @@
   "first_page": "510",
   "last_page": "519",
   "type": "article",
-  "cited_by": 13245,
+  "cited_by": 13260,
   "claim": "SQ detailed-balance limit"
  },
  {
@@ -33,7 +33,7 @@
   "first_page": "139",
   "last_page": "147",
   "type": "article",
-  "cited_by": 2044,
+  "cited_by": 2049,
   "claim": "tabulated SQ values"
  },
  {
@@ -57,7 +57,7 @@
   "first_page": "eaav0693",
   "last_page": "eaav0693",
   "type": "article",
-  "cited_by": 1838,
+  "cited_by": 1843,
   "claim": "tau tolerance factor"
  },
  {
@@ -75,7 +75,7 @@
   "first_page": "477",
   "last_page": "485",
   "type": "article",
-  "cited_by": 4019,
+  "cited_by": 4032,
   "claim": "Goldschmidt tolerance factor"
  },
  {
@@ -93,7 +93,7 @@
   "first_page": "751",
   "last_page": "767",
   "type": "article",
-  "cited_by": 66152,
+  "cited_by": 66176,
   "claim": "ionic radii"
  },
  {
@@ -121,7 +121,7 @@
   "first_page": null,
   "last_page": null,
   "type": "editorial",
-  "cited_by": 13297,
+  "cited_by": 13266,
   "claim": "Materials Project",
   "crossref_pages": "011002"
  },
@@ -149,7 +149,7 @@
   "first_page": "314",
   "last_page": "319",
   "type": "article",
-  "cited_by": 4530,
+  "cited_by": 4514,
   "claim": "pymatgen"
  },
  {
@@ -161,7 +161,7 @@
   "venue": "npj Computational Materials",
   "authors": [
    "Logan T. Ward",
-   "Ankit Kumar Agrawal",
+   "Ankit Agrawal",
    "Alok Choudhary",
    "Christopher Wolverton"
   ],
@@ -170,7 +170,7 @@
   "first_page": null,
   "last_page": null,
   "type": "article",
-  "cited_by": 1836,
+  "cited_by": 1835,
   "claim": "Magpie descriptors",
   "crossref_pages": "16028"
  },
@@ -204,7 +204,7 @@
   "first_page": "60",
   "last_page": "69",
   "type": "article",
-  "cited_by": 1102,
+  "cited_by": 1098,
   "claim": "matminer"
  },
  {
@@ -223,7 +223,7 @@
   "first_page": "785",
   "last_page": "794",
   "type": "conference-paper",
-  "cited_by": 53695,
+  "cited_by": 53791,
   "claim": "XGBoost"
  },
  {
@@ -242,7 +242,7 @@
   "first_page": "6280",
   "last_page": "6280",
   "type": "article",
-  "cited_by": 427,
+  "cited_by": 426,
   "claim": "Roost"
  },
  {
@@ -264,7 +264,7 @@
   "first_page": null,
   "last_page": null,
   "type": "article",
-  "cited_by": 375,
+  "cited_by": 380,
   "claim": "Matbench benchmark",
   "crossref_pages": "138"
  },
@@ -355,7 +355,7 @@
   "first_page": null,
   "last_page": null,
   "type": "preprint",
-  "cited_by": 249,
+  "cited_by": 247,
   "claim": "MACE-MP-0 foundation model"
  },
  {
@@ -374,7 +374,7 @@
   "first_page": "494",
   "last_page": "591",
   "type": "article",
-  "cited_by": 658,
+  "cited_by": 664,
   "claim": "conformal prediction tutorial"
  },
  {
@@ -394,7 +394,7 @@
   "first_page": "3538",
   "last_page": "3548",
   "type": "preprint",
-  "cited_by": 51,
+  "cited_by": 49,
   "claim": "conformalized quantile regression"
  },
  {
@@ -416,7 +416,7 @@
   "first_page": "1094",
   "last_page": "1111",
   "type": "article",
-  "cited_by": 904,
+  "cited_by": 905,
   "claim": "split conformal prediction for regression (locally weighted)"
  },
  {
@@ -482,7 +482,7 @@
   "first_page": "1254",
   "last_page": "1259",
   "type": "article",
-  "cited_by": 1148,
+  "cited_by": 1150,
   "claim": "lead-free halide double perovskites"
  },
  {
@@ -507,7 +507,7 @@
   "first_page": "2630",
   "last_page": "2638",
   "type": "article",
-  "cited_by": 1007,
+  "cited_by": 1004,
   "claim": "design of lead-free double perovskites via transmutation"
  },
  {
@@ -559,7 +559,7 @@
   "first_page": "3397",
   "last_page": "3397",
   "type": "article",
-  "cited_by": 444,
+  "cited_by": 445,
   "claim": "hydrogenated Cs2AgBiBr6 6.37%"
  },
  {
@@ -579,7 +579,7 @@
   "first_page": "949",
   "last_page": "955",
   "type": "article",
-  "cited_by": 563,
+  "cited_by": 561,
   "claim": "Pb-free double perovskites efficiency limits"
  },
  {
@@ -601,7 +601,7 @@
   "first_page": "1200",
   "last_page": "1219",
   "type": "article",
-  "cited_by": 513,
+  "cited_by": 514,
   "claim": "perovskite TEA / R2R manufacturing"
  },
  {
@@ -627,7 +627,7 @@
   "first_page": "1297",
   "last_page": "1305",
   "type": "article",
-  "cited_by": 615,
+  "cited_by": 614,
   "claim": "perovskite module manufacturing TEA"
  },
  {
@@ -719,7 +719,7 @@
   "first_page": "978",
   "last_page": "989",
   "type": "article",
-  "cited_by": 543,
+  "cited_by": 549,
   "claim": "PV degradation rates"
  },
  {
@@ -737,7 +737,7 @@
   "first_page": "271",
   "last_page": "280",
   "type": "article",
-  "cited_by": 6457,
+  "cited_by": 6467,
   "claim": "Sobol indices"
  },
  {
@@ -760,7 +760,7 @@
   "first_page": "259",
   "last_page": "270",
   "type": "article",
-  "cited_by": 3596,
+  "cited_by": 3600,
   "claim": "Saltelli estimator"
  },
  {
@@ -779,7 +779,7 @@
   "first_page": "97",
   "last_page": "97",
   "type": "software-paper",
-  "cited_by": 1594,
+  "cited_by": 1593,
   "claim": "SALib"
  },
  {
@@ -799,7 +799,7 @@
   "first_page": "884",
   "last_page": "884",
   "type": "software-paper",
-  "cited_by": 1163,
+  "cited_by": 1161,
   "claim": "pvlib python"
  },
  {
@@ -848,7 +848,7 @@
   "first_page": "e1600225",
   "last_page": "e1600225",
   "type": "article",
-  "cited_by": 993,
+  "cited_by": 988,
   "claim": "metastability of inorganic compounds"
  },
  {
@@ -871,7 +871,7 @@
   "first_page": "80",
   "last_page": "85",
   "type": "article",
-  "cited_by": 1470,
+  "cited_by": 1473,
   "claim": "GNoME"
  },
  {
@@ -890,7 +890,7 @@
    "Ryan Cohn",
    "Cheol Woo Park",
    "Alok Choudhary",
-   "Ankit Kumar Agrawal",
+   "Ankit Agrawal",
    "Simon J. L. Billinge",
    "Elizabeth A. Holm",
    "Shyue Ping Ong",
@@ -901,7 +901,7 @@
   "first_page": null,
   "last_page": null,
   "type": "article",
-  "cited_by": 1186,
+  "cited_by": 1187,
   "claim": "recent advances in materials informatics",
   "crossref_pages": "59"
  },
@@ -949,7 +949,7 @@
   "first_page": "19375",
   "last_page": "19375",
   "type": "article",
-  "cited_by": 524,
+  "cited_by": 525,
   "claim": "ML bandgap double perovskites"
  },
  {
@@ -984,7 +984,7 @@
    "T. Jesper Jacobsson",
    "Adam Hultqvist",
    "Alberto Garc\u00eda\u2010Fern\u00e1ndez",
-   "Aman Raj Anand",
+   "Aman Anand",
    "Amran Al\u2010Ashouri",
    "Anders Hagfeldt",
    "Andrea Crovetto",
@@ -1007,7 +1007,98 @@
   "first_page": "107",
   "last_page": "115",
   "type": "article",
-  "cited_by": 368,
+  "cited_by": 369,
   "claim": "perovskite database FAIR"
+ },
+ {
+  "key": "walterbos2026",
+  "doi": "10.48550/arxiv.2606.11928",
+  "ok": true,
+  "title": "Spin-Polarized Electronic Structure and Chemical Bonding Data for 2,500+ Halide Double Perovskites",
+  "year": 2026,
+  "venue": "arXiv (Cornell University)",
+  "authors": [
+   "Luc Walterbos",
+   "Alex McEwan",
+   "Ravindra Shinde",
+   "Janine George",
+   "Linn Leppert"
+  ],
+  "volume": null,
+  "issue": null,
+  "first_page": null,
+  "last_page": null,
+  "type": "preprint",
+  "cited_by": 0,
+  "claim": "HSE06 gaps of 2,500+ halide double perovskites (external check)"
+ },
+ {
+  "key": "meng2017",
+  "doi": "10.1021/acs.jpclett.7b01042",
+  "ok": true,
+  "title": "Parity-Forbidden Transitions and Their Impact on the Optical Absorption Properties of Lead-Free Metal Halide Perovskites and Double Perovskites",
+  "year": 2017,
+  "venue": "The Journal of Physical Chemistry Letters",
+  "authors": [
+   "Weiwei Meng",
+   "Xiaoming Wang",
+   "Zewen Xiao",
+   "Jianbo Wang",
+   "David B. Mitzi",
+   "Yanfa Yan"
+  ],
+  "volume": "8",
+  "issue": "13",
+  "first_page": "2999",
+  "last_page": "3007",
+  "type": "article",
+  "cited_by": 674,
+  "claim": "parity-forbidden transitions in Pb-free double perovskites"
+ },
+ {
+  "key": "even2013",
+  "doi": "10.1021/jz401532q",
+  "ok": true,
+  "title": "Importance of Spin\u2013Orbit Coupling in Hybrid Organic/Inorganic Perovskites for Photovoltaic Applications",
+  "year": 2013,
+  "venue": "The Journal of Physical Chemistry Letters",
+  "authors": [
+   "Jacky Even",
+   "Laurent P\u00e9desseau",
+   "Jean\u2010Marc Jancu",
+   "Claudine Katan"
+  ],
+  "volume": "4",
+  "issue": "17",
+  "first_page": "2999",
+  "last_page": "3005",
+  "type": "article",
+  "cited_by": 1292,
+  "claim": "spin-orbit coupling in halide perovskites"
+ },
+ {
+  "key": "schmidt2023",
+  "doi": "10.1002/adma.202210788",
+  "ok": true,
+  "title": "Machine\u2010Learning\u2010Assisted Determination of the Global Zero\u2010Temperature Phase Diagram of Materials",
+  "year": 2023,
+  "venue": "Advanced Materials",
+  "authors": [
+   "Jonathan Schmidt",
+   "Noah Hoffmann",
+   "Hai\u2010Chen Wang",
+   "Pedro Borlido",
+   "Pedro J. M. A. Carri\u00e7o",
+   "Tiago F. T. Cerqueira",
+   "Silvana Botti",
+   "Miguel A. L. Marques"
+  ],
+  "volume": "35",
+  "issue": "22",
+  "first_page": "e2210788",
+  "last_page": "e2210788",
+  "type": "article",
+  "cited_by": 109,
+  "claim": "crystal-graph attention networks for global stability"
  }
 ]

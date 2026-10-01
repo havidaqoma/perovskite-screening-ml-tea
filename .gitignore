@@ -44,3 +44,4 @@ Thumbs.db
 
 # User's local upload guide: references the private repo and key rotation — never ships public
 UPLOAD_CHECKLIST.md
+!data/external/

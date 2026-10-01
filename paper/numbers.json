@@ -944,6 +944,91 @@
   "fmt": ",d",
   "src": "pipeline/s30_tea_v2.py#n_c"
  },
+ "wb_n_unseen": {
+  "value": 1700,
+  "fmt": ",d",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.n_nonmetal"
+ },
+ "wb_rho_unseen": {
+  "value": 0.4258561630502241,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.spearman"
+ },
+ "wb_off_unseen": {
+  "value": 0.31439758092880254,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.median_hse_minus_pred_eV"
+ },
+ "wb_cov_unseen_pct": {
+  "value": 46.23529411764706,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.coverage x100"
+ },
+ "wb_auc_semi_unseen": {
+  "value": 0.6941148325358852,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r1.not_in_training.auc_semi"
+ },
+ "wb_spinforb_pct": {
+  "value": 22.551928783382788,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r1.all.frac_spin_forbidden_in_window"
+ },
+ "thr_opt_lo": {
+  "value": 1.71055117,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r2.*.optimistic min"
+ },
+ "thr_opt_hi": {
+  "value": 6.0458302900000005,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r2.*.optimistic max"
+ },
+ "om_be_low_125": {
+  "value": 21.75,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r3.breakeven.inv0_om1.25_low x100"
+ },
+ "om_be_low_200": {
+  "value": 27.250000000000004,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r3.breakeven.inv0_om2_low x100"
+ },
+ "om_be_med_200": {
+  "value": 34.75,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r3.breakeven.inv0_om2_med x100"
+ },
+ "inv_effect_pct": {
+  "value": 1.4273528822666526,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r3.inverter_effect_on_csi_lcoe_rel x100"
+ },
+ "eta_step_pp": {
+  "value": 0.25,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r3.eta_grid_step x100"
+ },
+ "n_flag_ox_red": {
+  "value": 22,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r4.n_flagged_with_reducing_anion"
+ },
+ "ox_strict_n": {
+  "value": 127,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r4.n_high_valent_reducing_unflagged"
+ },
+ "ox_strict_umlip": {
+  "value": 7,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r4.n_in_umlip_shortlist"
+ },
+ "ox_strict_viable": {
+  "value": 32.84647,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r4.expected_viable_novel.strict_rule"
+ },
  "lazard_lo": {
   "value": 29,
   "fmt": "d",

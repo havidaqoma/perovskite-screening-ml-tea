@@ -13,6 +13,7 @@ starting from public, permissively licensed sources:
 | All CSVs in `raw_data/` and root | Output of this repo's code on the inputs above | MIT / CC BY 4.0 attribution to Materials Project | Screening, TEA, figures |
 | `data/training_table.csv` (31,275 rows) | Derived from Materials Project entries (April 2026 query; MP database version not recorded then, see `data/README.md`) | CC BY 4.0 (Materials Project derivative) | Legacy training set, leakage audit |
 | `runs/v2/**` derived tables | This pipeline on Materials Project data, MP database version 2026.04.13 (`runs/v2/metrics/dataset_v2.json`) | CC BY 4.0 (Materials Project derivative) / MIT for the code output | v2 screen, stability, TEA, Pareto |
+| `data/external/walterbos2026/hdp_hse06_subset.csv` (2,542 rows, 8 columns, values unchanged) | Walterbos, McEwan, Shinde, George and Leppert, *Spin-Polarized Electronic Structure and Chemical Bonding Data for 2,500+ Halide Double Perovskites*, arXiv:2606.11928 (2026); Zenodo record 20598121 (10.5281/zenodo.20598121), file `AnalysisResults/HDP_CombinedInfo_260510.csv` (full table not redistributed here) | CC BY 4.0; source sha256 in `SOURCE_SHA256`, re-fetch with `scripts/fetch_walterbos2026.py` | Independent HSE06 band-gap check of the v2 model (stage s50, ESI Note S12) |
 | `data/sources/usgs_mcs2024_*.txt` | USGS Mineral Commodity Summaries 2024 | Public domain (U.S. Government work) | Element prices in the TEA |
 | `data/sources/nrel_87303_q1_2023_benchmarks.txt`, `data/sources/nrel_atb2024_utility_pv.md` | NREL Q1 2023 PV cost benchmark (NREL/TP-7A40-87303); NREL Annual Technology Baseline 2024 | Public domain (U.S. Government work) | TEA v2 cost structure, verbatim-quote tests |
 | `data/sources/zhang_natcommun2022_cs2agbibr6.md` | Zhang et al., Nat. Commun. 13, 3397 (2022), 10.1038/s41467-022-31016-w | CC BY 4.0 | Demonstrated-efficiency anchor |
@@ -21,3 +22,5 @@ starting from public, permissively licensed sources:
 Reusing any part of Materials Project data requires attribution to Materials
 Project under CC BY 4.0. If you publish results based on this repository,
 cite Materials Project as a data source and this repository via CITATION.cff.
+The HSE06 subset in `data/external/walterbos2026/` is reused under CC BY 4.0;
+cite Walterbos et al. (2026) and the Zenodo record when you use it.

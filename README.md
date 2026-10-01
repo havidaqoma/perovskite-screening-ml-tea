@@ -83,7 +83,7 @@ not in Materials Project (`runs/v2/metrics/pareto.json`). All four v2 gates pass
 The single entry point is `pipeline/run.py`:
 
 ```bash
-# v2: s10 -> s11 -> s11b -> s13 -> s14 -> s20 -> s22 -> s30 -> s40 -> s41, then the gates
+# v2: s10 -> s11 -> s11b -> s13 -> s14 -> s20 -> s22 -> s30 -> s40 -> s41 -> s50, then the gates
 python -m pipeline.run --v2 --run-id v2 --gate
 # one stage only (repeatable), e.g. the Pareto front and robustness numbers
 python -m pipeline.run --v2 --run-id v2 --only s40 --only s41
@@ -103,10 +103,11 @@ python -m pipeline.run --run-id legacy_repro --gate
 | s22 | `s22_shortlist.py`: joint P(viable), plausibility flags | s14, s20 |
 | s30, s31, s32 | `s30_tea_v2.py`, `s31_tea_figures.py`, `s32_tea_summary.py`: TEA v2 | s30 needs the s13 model (`runs/v2/models/v2_final.joblib`, not redistributed); s31/s32 read committed files |
 | s40, s41 | `s40_pareto.py`, `s41_robustness.py`: Pareto front, robustness | s40 reads committed files; s41 also needs `runs/v2/predictions/oof_v2.csv` from s11 (not redistributed) |
+| s50 | `s50_review_checks.py`: HSE06 comparison with Walterbos et al. (2026), hull-threshold, O&M/inverter and oxidation-state sensitivity | `data/external/walterbos2026/` (shipped; `scripts/fetch_walterbos2026.py` re-downloads and checks its hash), the s13 model and the s10 training table (not redistributed); stops if its 50 meV / base-case rows do not reproduce s22 and s30 |
 
 Offline with the shipped files alone: the test suite, s31, s32, s40,
-`paper/make_figures_v2.py` (it rebuilds byte-identical PNGs) and 196 of the 197
-keys in `paper/paper_numbers.py`. Two gates pass directly (`python -m
+`paper/make_figures_v2.py` (it rebuilds byte-identical PNGs) and 213 of the 214
+keys in `paper/paper_numbers.py` (the missing one, `v2_gap_max`, reads the s10 training table `runs/v2/data/train_v2.csv`, not redistributed). Two gates pass directly (`python -m
 pipeline.gate_tea_v2 runs/v2`, `python -m pipeline.gate_stability runs/v2`).
 `pipeline.gate_pareto` checks that the figures are newer than their inputs by file
 time, which a fresh clone does not preserve: run `python paper/make_figures_v2.py`
@@ -145,26 +146,26 @@ file, so a full rebuild needs the s10 stage first.
 
 ### Electronic Supplementary Information (ESI)
 
-The ESI of the manuscript (Supplementary Notes S1 to S12, Figures S1 to S7,
-Tables S1 to S9) is built from the same artifacts. The code and data behind it
+The ESI of the manuscript (Supplementary Notes S1 to S14, Figures S1 to S8,
+Tables S1 to S12) is built from the same artifacts. The code and data behind it
 ship here; the ESI text itself is part of the manuscript and is not.
 
 | File | What it holds |
 |---|---|
-| `paper/make_si_figures.py` | Builds Figures S1 to S7 (`paper/figures/figS*.{png,pdf}`) and the data plotted in each (`paper/figures/si_data/figS*.csv`) |
-| `paper/si_numbers.py` | Builds `paper/si_numbers.json`: the 130 numbers and method settings quoted in the ESI, each with its source. Settings are read from the pipeline code itself (imported, or matched on the source line), and the script stops if a pattern is not found |
+| `paper/make_si_figures.py` | Builds Figures S1 to S8 (`paper/figures/figS*.{png,pdf}`) and the data plotted in each (`paper/figures/si_data/figS*.csv`) |
+| `paper/si_numbers.py` | Builds `paper/si_numbers.json`: the 167 numbers and method settings quoted in the ESI, each with its source. Settings are read from the pipeline code itself (imported, or matched on the source line), and the script stops if a pattern is not found |
 | `paper/si_refs_verified.json` | The two ESI-only references (ASE, FIRE), checked against OpenAlex |
 | `paper/make_si_excel.py` | Builds the supplementary workbook `paper/build/SI_data_v2.xlsx`: the data behind every main and ESI figure, every number with its source, every TEA assumption, and the references |
 
 ```bash
-python paper/make_si_figures.py   # Figures S2-S7 offline; S1 needs runs/v2/predictions/ (re-run s11) and is skipped otherwise
+python paper/make_si_figures.py   # Figures S2-S8 offline; S1 needs runs/v2/predictions/ (re-run s11) and is skipped otherwise
 python paper/si_numbers.py        # offline
 python paper/make_si_excel.py     # offline
 ```
 
 The numbering follows the order in which the ESI cites the figures: S5 is the
 break-even map for every module cost and burn-in setting, S6 the candidate-level
-LCOE, and S7 the Sobol indices.
+LCOE, S7 the Sobol indices and S8 the comparison with HSE06 band gaps.
 
 ## Repository layout
 
@@ -177,7 +178,7 @@ XGBoost_Mendeleev_MAgpie_v23C.ipynb  full training notebook (outputs cleared)
 tests/                     pytest suite (offline; no network, no API key)
 raw_data/                  9 CSVs, the full screening data package (see raw_data/README.md)
 results_optionA/           Option A derated rankings + lifetime-corrected variant
-pipeline/                  v2 audit pipeline (stages s01-s41, gates, TEA v2, MP client)
+pipeline/                  v2 audit pipeline (stages s01-s50, gates, TEA v2, MP client)
 runs/                      committed v2 and legacy-reproduction artifacts (metrics, gates, manifests, CSVs)
 paper/                     numbers.json and si_numbers.json maps, figure and SI scripts, main and ESI figures
 data/                      training_table.csv (legacy training set), sources/ (redistributable TEA source texts)

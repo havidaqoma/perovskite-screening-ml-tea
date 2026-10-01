@@ -217,6 +217,42 @@ def build() -> dict:
     put("n_mc_draws", 4000, ",d", "pipeline/s30_tea_v2.py#N_MC")
     put("n_gap_draws", 1000, ",d", "pipeline/s30_tea_v2.py#n_c")
 
+    # ---------------- pre-submission review checks (stage s50) ----------------
+    rc = j("v2/metrics/review_checks.json")
+    src = "v2/metrics/review_checks.json#"
+    wu, wa = rc["r1_walterbos"]["not_in_training"], rc["r1_walterbos"]["all"]
+    put("wb_n_unseen", wu["n_nonmetal"], ",d", src + "r1.not_in_training.n_nonmetal")
+    put("wb_rho_unseen", wu["spearman_gap_pred_vs_hse"], ".2f", src + "r1.not_in_training.spearman")
+    put("wb_off_unseen", wu["median_hse_minus_pred_eV"], ".1f", src + "r1.not_in_training.median_hse_minus_pred_eV")
+    put("wb_cov_unseen_pct", 100 * wu["coverage_hse_by_interval"], ".0f", src + "r1.not_in_training.coverage x100")
+    put("wb_auc_semi_unseen", wu["auc_semi_vs_hse_nonmetal"], ".2f", src + "r1.not_in_training.auc_semi")
+    put("wb_spinforb_pct", 100 * wa["frac_spin_forbidden_in_window"], ".0f", src + "r1.all.frac_spin_forbidden_in_window")
+    thr = rc["r2_thresholds"]
+    opt = [thr[t]["expected_competitive_stable_umlip__optimistic"] for t in thr]
+    put("thr_opt_lo", min(opt), ".1f", src + "r2.*.optimistic min")
+    put("thr_opt_hi", max(opt), ".1f", src + "r2.*.optimistic max")
+    zero = max(thr[t][f"expected_competitive_stable_umlip__{k}"] for t in thr for k in ("realistic", "demonstrated"))
+    if zero != 0.0:
+        raise SystemExit(f"FAIL-CLOSED: prose says realistic/demonstrated stay at zero at every threshold; max = {zero}")
+    om = rc["r3_om_inverter"]
+    b = om["breakeven"]
+    if any(b[f"inv1_om{k:g}_{c}"] != b[f"inv0_om{k:g}_{c}"] for k in om["om_scale"] for c in ("low", "med")):
+        raise SystemExit("FAIL-CLOSED: prose says inverter replacement leaves every break-even unchanged")
+    put("om_be_low_125", 100 * b["inv0_om1.25_low"], ".1f", src + "r3.breakeven.inv0_om1.25_low x100")
+    put("om_be_low_200", 100 * b["inv0_om2_low"], ".1f", src + "r3.breakeven.inv0_om2_low x100")
+    put("om_be_med_200", 100 * b["inv0_om2_med"], ".1f", src + "r3.breakeven.inv0_om2_med x100")
+    put("inv_effect_pct", 100 * om["inverter_effect_on_csi_lcoe_rel"], ".1f", src + "r3.inverter_effect_on_csi_lcoe_rel x100")
+    put("eta_step_pp", 100 * om["eta_grid_step"], ".2f", src + "r3.eta_grid_step x100")
+    ox = rc["r4_oxidation"]
+    if ox["n_on_pareto_front"] != 0:
+        raise SystemExit("FAIL-CLOSED: prose says no strict-rule composition is on the Pareto front")
+    if ox["n_flagged"] != N["n_flag_ox"]["value"]:
+        raise SystemExit("FAIL-CLOSED: s50 flagged count differs from s22")
+    put("n_flag_ox_red", ox["n_flagged_with_reducing_anion"], "d", src + "r4.n_flagged_with_reducing_anion")
+    put("ox_strict_n", ox["n_high_valent_reducing_unflagged"], "d", src + "r4.n_high_valent_reducing_unflagged")
+    put("ox_strict_umlip", ox["n_in_umlip_shortlist"], "d", src + "r4.n_in_umlip_shortlist")
+    put("ox_strict_viable", ox["expected_viable_novel"]["strict_rule"], ".1f", src + "r4.expected_viable_novel.strict_rule")
+
     # ---------------- sourced literature constants used in prose ----------------
     put("lazard_lo", 29, "d", "LAZ24 p9/p35 (data/sources/SOURCES.md)")
     put("lazard_hi", 92, "d", "LAZ24 p9/p35")

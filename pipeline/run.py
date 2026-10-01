@@ -7,6 +7,7 @@ Legacy reproduction (April 2026 science, flaws included):
 v2 (Phases C-D: audit-grade ML + stability), needs MP_API_KEY for s10/s20:
     python -m pipeline.run --v2 --run-id v2 --gate
     (Roost s12 and uMLIP s21 run in the WSL GPU env; see REPRODUCIBILITY.md)
+    s50 (external HSE06 check and sensitivity checks) needs data/external/walterbos2026/ (scripts/fetch_walterbos2026.py)
 
 Artifacts go to runs/<run-id>/ with one stage_<name>.json manifest per stage
 (input hashes, params, output hashes, metrics, package versions, git commit).
@@ -24,10 +25,11 @@ LEGACY_STAGES = [("s01", s01_featurize), ("s02", s02_train), ("s03", s03_generat
 
 def v2_stages():
     from . import (s10_mp_dataset, s11_ml_eval, s11b_leakage_audit, s13_final_models, s14_screen_v2,
-                   s20_stability, s22_shortlist, s30_tea_v2, s40_pareto, s41_robustness)
+                   s20_stability, s22_shortlist, s30_tea_v2, s40_pareto, s41_robustness, s50_review_checks)
     return [("s10", s10_mp_dataset), ("s11", s11_ml_eval), ("s11b", s11b_leakage_audit),
             ("s13", s13_final_models), ("s14", s14_screen_v2), ("s20", s20_stability), ("s22", s22_shortlist),
-            ("s30", s30_tea_v2), ("s40", s40_pareto), ("s41", s41_robustness)]
+            ("s30", s30_tea_v2), ("s40", s40_pareto), ("s41", s41_robustness),
+            ("s50", s50_review_checks)]
 
 
 def main(argv=None) -> int:
