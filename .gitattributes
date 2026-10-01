@@ -9,4 +9,6 @@
 runs/** -text
 data/** -text
 paper/numbers.json -text
+paper/si_numbers.json -text
+paper/si_refs_verified.json -text
 paper/figures/** -text
