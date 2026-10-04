@@ -47,7 +47,8 @@ INV_REPLACE_YEAR = 15
 REDUCING = ("S", "Se", "Te", "I")
 ENTRY_DIR = config.DATA_DIR / "mp_cache" / "entries"     # written by s20 (GGA/GGA+U entries per chemical system)
 HALOGENS = {"F", "Cl", "Br", "I"}
-CHALC_PNICT_O = {"O", "S", "Se", "Te", "N", "P", "As", "Sb"}
+NON_HALIDE_ANIONS = {"H", "B", "C", "N", "O", "Si", "P", "S", "Se", "Te"}   # any of these -> not a pure halide
+CAND_ELEMENTS = set(config.A_SITE) | set(config.B_SITE) | HALOGENS          # elements of the screened space
 
 
 def _key(f: str) -> str:
@@ -295,19 +296,33 @@ def r5_energy_scheme(run_dir, st) -> dict:
 
     def kind(f: str) -> str:
         el = {e.symbol for e in Composition(f).elements}
-        return "halide_only" if el & HALOGENS and not el & CHALC_PNICT_O else "other"
+        if not el & HALOGENS or el & NON_HALIDE_ANIONS:
+            return "other"
+        return "candidate_element_halide" if el <= CAND_ELEMENTS else "halide_only"
     d["kind"] = d.formula.map(kind)
     d.to_csv(st.path("review/energy_scheme.csv"), index=False, float_format="%.6f")
 
     def summ(x: pd.Series) -> dict:
-        return {"n": int(len(x)), "median_meV": float(x.median()), "frac_gt_10meV": float((x > 10).mean()),
+        return {"n": int(len(x)), "median_meV": float(x.median()), "n_gt_10meV": int((x > 10).sum()),
+                "n_gt_50meV": int((x > 50).sum()), "frac_gt_10meV": float((x > 10).mean()),
                 "frac_gt_50meV": float((x > 50).mean()), "max_meV": float(x.max())}
     ctrl = pd.read_csv(run_dir / "stability/control_known_a2bbx6.csv").merge(tr, on="formula")
     ctrl = ctrl.dropna(subset=["true_ef_pd"])
     cdiff = 1000.0 * (ctrl.formation_energy_per_atom - ctrl.true_ef_pd).abs()
+    hal = d.kind != "other"                           # every pure halide (candidate-element ones included)
+    cand = d[d.kind == "candidate_element_halide"].sort_values("abs_diff_meV", ascending=False)
+    big = d.abs_diff_meV > 50
     return {"n_chemsys": len(files), "all": summ(d.abs_diff_meV),
-            "halide_only": summ(d.abs_diff_meV[d.kind == "halide_only"]),
-            "other": summ(d.abs_diff_meV[d.kind == "other"]), "controls": summ(cdiff)}
+            "pure_halide": summ(d.abs_diff_meV[hal]),
+            "candidate_element_halide": summ(cand.abs_diff_meV),
+            "other": summ(d.abs_diff_meV[~hal]),
+            "n_gt50_pure_halide": int((big & hal).sum()), "n_gt50_other": int((big & ~hal).sum()),
+            "candidate_element_halide_top": [{"formula": r.formula, "abs_diff_meV": float(r.abs_diff_meV)}
+                                             for r in cand.head(5).itertuples()],
+            "controls": summ(cdiff),
+            "kind_rule": "pure halide = contains F/Cl/Br/I and none of " + ",".join(sorted(NON_HALIDE_ANIONS))
+                         + "; candidate-element halide = pure halide whose elements are all in A_SITE, B_SITE "
+                           "or the halogens"}
 
 
 def run(run_dir, force: bool = False) -> dict:

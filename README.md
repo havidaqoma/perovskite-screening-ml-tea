@@ -105,7 +105,7 @@ python -m pipeline.run --run-id legacy_repro --gate
 | s50 | `s50_review_checks.py`: HSE06 comparison with Walterbos et al. (2026), hull-threshold, O&M/inverter and oxidation-state sensitivity, and the check that the training formation energies (MP defaults) agree with the GGA/GGA+U hull entries | `data/external/walterbos2026/` (shipped; `scripts/fetch_walterbos2026.py` re-downloads and checks its hash), the s13 model, the s10 training table and the s20 entry cache `data/mp_cache/entries/` (not redistributed); stops if its 50 meV / base-case rows do not reproduce s22 and s30 |
 
 Offline with the shipped files alone: the test suite, s31, s32, s40,
-`paper/make_figures_v2.py` (it rebuilds byte-identical PNGs) and 225 of the 226
+`paper/make_figures_v2.py` (it rebuilds byte-identical PNGs) and 227 of the 228
 keys in `paper/paper_numbers.py` (the missing one, `v2_gap_max`, reads the s10 training table `runs/v2/data/train_v2.csv`, not redistributed). Two gates pass directly (`python -m
 pipeline.gate_tea_v2 runs/v2`, `python -m pipeline.gate_stability runs/v2`).
 `pipeline.gate_pareto` checks that the figures are newer than their inputs by file
@@ -152,7 +152,7 @@ ship here; the ESI text itself is part of the manuscript and is not.
 | File | What it holds |
 |---|---|
 | `paper/make_si_figures.py` | Builds Figures S1 to S8 (`paper/figures/figS*.{png,pdf}`) and the data plotted in each (`paper/figures/si_data/figS*.csv`) |
-| `paper/si_numbers.py` | Builds `paper/si_numbers.json`: the 188 numbers and method settings quoted in the ESI, each with its source. Settings are read from the pipeline code itself (imported, or matched on the source line), and the script stops if a pattern is not found |
+| `paper/si_numbers.py` | Builds `paper/si_numbers.json`: the 197 numbers and method settings quoted in the ESI, each with its source. Settings are read from the pipeline code itself (imported, or matched on the source line), and the script stops if a pattern is not found |
 | `paper/si_refs_verified.json` | The two ESI-only references (ASE, FIRE), checked against OpenAlex |
 | `paper/make_si_excel.py` | Builds the supplementary workbook `paper/build/SI_data_v2.xlsx`: the data behind every main and ESI figure, every number with its source, every TEA assumption, and the references |
 

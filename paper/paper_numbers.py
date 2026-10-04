@@ -271,9 +271,12 @@ def build() -> dict:
         raise SystemExit("FAIL-CLOSED: prose says the training/hull energy-scheme offset of every control is far below "
                          "the 50 meV gate")
     put("es_ctrl_max", es["controls"]["max_meV"], ".1f", src + "r5.controls.max_meV")
+    put("es_cand_n", es["candidate_element_halide"]["n"], ",d", src + "r5.candidate_element_halide.n")
+    put("es_cand_gt50_n", es["candidate_element_halide"]["n_gt_50meV"], ",d",
+        src + "r5.candidate_element_halide.n_gt_50meV")
 
     # public code release cited in Data availability and the cover letter; build_jmca.py checks the tag exists
-    put("repo_version", "2.2.0", "s", "public repo CITATION.cff#version, git tag v2.2.0")
+    put("repo_version", "2.2.1", "s", "public repo CITATION.cff#version, git tag v2.2.1")
 
     # ---------------- sourced literature constants used in prose ----------------
     put("lazard_lo", 29, "d", "LAZ24 p9/p35 (data/sources/SOURCES.md)")

@@ -1,6 +1,6 @@
 {
   "stage": "s50_review_checks",
-  "fingerprint": "9f8397fd8bf8096f9a9cc20235d0e3dfcc542f04396917ad92aac3784e688778",
+  "fingerprint": "d17ed8e13744628277f91ce741269320781855f9b25e942d6c8ae251b91c96f8",
   "inputs": {
     "walterbos": {
       "path": "data\\external\\walterbos2026\\hdp_hse06_subset.csv",
@@ -65,8 +65,8 @@
     "review/walterbos_check.csv": "f087bee6d5dea654f27d2d110e61ad567bd6b32f9ed2c89e920da3e5f93ce5b1",
     "review/om_inverter_breakeven.csv": "3b4c570fb549ef51fd6bf359d7be30550d81e12f73322d61004ab2c24808895d",
     "review/high_valent_b_site.csv": "6097b010cbd90de50031f0b4fa1bf35219807131c394487834e7bb0f21a3dc09",
-    "review/energy_scheme.csv": "35f57e97d9a8a341bc04b77fd36443efd836b734ca3570e84940f9c403769e0e",
-    "metrics/review_checks.json": "c75256504ef9ded915433b1bcd51295b5c187ed715dacb7865250e6b0493a172"
+    "review/energy_scheme.csv": "c57d9f824f41096e86594abaa1cc52751540757cf6ae3c82dddf6c8522eceeb3",
+    "metrics/review_checks.json": "a40a2ada4947ab73a273209e280fd55c911a6fc2f498f2a375abcf249f6f2d19"
   },
   "metrics": {
     "r1_walterbos": {
@@ -321,31 +321,73 @@
       "all": {
         "n": 7749,
         "median_meV": 1.7452492319756097,
+        "n_gt_10meV": 1084,
+        "n_gt_50meV": 536,
         "frac_gt_10meV": 0.13988901793779843,
         "frac_gt_50meV": 0.06917021551167893,
         "max_meV": 405.1038394719828
       },
-      "halide_only": {
-        "n": 2047,
-        "median_meV": 2.5146715862063296,
-        "frac_gt_10meV": 0.02979970688812897,
-        "frac_gt_50meV": 0.00537371763556424,
+      "pure_halide": {
+        "n": 2279,
+        "median_meV": 2.5146695862070523,
+        "n_gt_10meV": 62,
+        "n_gt_50meV": 11,
+        "frac_gt_10meV": 0.02720491443615621,
+        "frac_gt_50meV": 0.004826678367705134,
         "max_meV": 245.55200400000032
       },
+      "candidate_element_halide": {
+        "n": 1338,
+        "median_meV": 1.5719847413792065,
+        "n_gt_10meV": 29,
+        "n_gt_50meV": 7,
+        "frac_gt_10meV": 0.021674140508221227,
+        "frac_gt_50meV": 0.00523168908819133,
+        "max_meV": 196.297778
+      },
       "other": {
-        "n": 5702,
-        "median_meV": 1.3982321999996827,
-        "frac_gt_10meV": 0.17941073307611363,
-        "frac_gt_50meV": 0.09207295685724308,
+        "n": 5470,
+        "median_meV": 1.3937785482515674,
+        "n_gt_10meV": 1022,
+        "n_gt_50meV": 525,
+        "frac_gt_10meV": 0.18683729433272395,
+        "frac_gt_50meV": 0.09597806215722121,
         "max_meV": 405.1038394719828
       },
+      "n_gt50_pure_halide": 11,
+      "n_gt50_other": 525,
+      "candidate_element_halide_top": [
+        {
+          "formula": "CuGeI3",
+          "abs_diff_meV": 196.297778
+        },
+        {
+          "formula": "ZrFeCl6",
+          "abs_diff_meV": 186.6544699999997
+        },
+        {
+          "formula": "Ti2(InBr3)3",
+          "abs_diff_meV": 175.51301369047613
+        },
+        {
+          "formula": "MoF4",
+          "abs_diff_meV": 72.06902300000007
+        },
+        {
+          "formula": "InAg3F6",
+          "abs_diff_meV": 66.26679600000007
+        }
+      ],
       "controls": {
         "n": 380,
         "median_meV": 3.994999999999971,
+        "n_gt_10meV": 0,
+        "n_gt_50meV": 0,
         "frac_gt_10meV": 0.0,
         "frac_gt_50meV": 0.0,
         "max_meV": 9.336000000000011
-      }
+      },
+      "kind_rule": "pure halide = contains F/Cl/Br/I and none of B,C,H,N,O,P,S,Se,Si,Te; candidate-element halide = pure halide whose elements are all in A_SITE, B_SITE or the halogens"
     }
   },
   "env": {
@@ -361,7 +403,7 @@
     "joblib": "1.5.3",
     "optuna": "4.8.0"
   },
-  "git": "0db2fed-dirty",
-  "seconds": 60.35,
-  "finished_utc": "2026-10-04T12:59:34Z"
+  "git": "ef71bb6-dirty",
+  "seconds": 151.75,
+  "finished_utc": "2026-10-04T13:52:58Z"
 }

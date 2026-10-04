@@ -1084,10 +1084,20 @@
   "fmt": ".1f",
   "src": "v2/metrics/review_checks.json#r5.controls.max_meV"
  },
+ "es_cand_n": {
+  "value": 1338,
+  "fmt": ",d",
+  "src": "v2/metrics/review_checks.json#r5.candidate_element_halide.n"
+ },
+ "es_cand_gt50_n": {
+  "value": 7,
+  "fmt": ",d",
+  "src": "v2/metrics/review_checks.json#r5.candidate_element_halide.n_gt_50meV"
+ },
  "repo_version": {
-  "value": "2.2.0",
+  "value": "2.2.1",
   "fmt": "s",
-  "src": "public repo CITATION.cff#version, git tag v2.2.0"
+  "src": "public repo CITATION.cff#version, git tag v2.2.1"
  },
  "lazard_lo": {
   "value": 29,

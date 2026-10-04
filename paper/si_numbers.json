@@ -919,20 +919,65 @@
   "fmt": ".1f",
   "src": "review_checks.json#r5.all.frac_gt_50meV"
  },
- "si_es_hal_n": {
-  "value": 2047,
+ "si_es_all_gt50_n": {
+  "value": 536,
   "fmt": ",d",
-  "src": "review_checks.json#r5.halide_only.n"
+  "src": "review_checks.json#r5.all.n_gt_50meV"
+ },
+ "si_es_hal_n": {
+  "value": 2279,
+  "fmt": ",d",
+  "src": "review_checks.json#r5.pure_halide.n"
  },
  "si_es_hal_gt10_pct": {
-  "value": 2.9799706888128967,
+  "value": 2.7204914436156207,
   "fmt": ".1f",
-  "src": "review_checks.json#r5.halide_only.frac_gt_10meV"
+  "src": "review_checks.json#r5.pure_halide.frac_gt_10meV"
  },
  "si_es_hal_gt50_pct": {
-  "value": 0.537371763556424,
+  "value": 0.4826678367705134,
   "fmt": ".1f",
-  "src": "review_checks.json#r5.halide_only.frac_gt_50meV"
+  "src": "review_checks.json#r5.pure_halide.frac_gt_50meV"
+ },
+ "si_es_hal_gt50_n": {
+  "value": 11,
+  "fmt": ",d",
+  "src": "review_checks.json#r5.pure_halide.n_gt_50meV"
+ },
+ "si_es_cand_n": {
+  "value": 1338,
+  "fmt": ",d",
+  "src": "review_checks.json#r5.candidate_element_halide.n"
+ },
+ "si_es_cand_gt10_pct": {
+  "value": 2.167414050822123,
+  "fmt": ".1f",
+  "src": "review_checks.json#r5.candidate_element_halide.frac_gt_10meV"
+ },
+ "si_es_cand_gt50_pct": {
+  "value": 0.523168908819133,
+  "fmt": ".1f",
+  "src": "review_checks.json#r5.candidate_element_halide.frac_gt_50meV"
+ },
+ "si_es_cand_gt50_n": {
+  "value": 7,
+  "fmt": ",d",
+  "src": "review_checks.json#r5.candidate_element_halide.n_gt_50meV"
+ },
+ "si_es_gt50_other_n": {
+  "value": 525,
+  "fmt": ",d",
+  "src": "review_checks.json#r5.n_gt50_other"
+ },
+ "si_es_cand_top_formula": {
+  "value": "CuGeI~3~",
+  "fmt": "s",
+  "src": "review_checks.json#r5.candidate_element_halide_top[0].formula"
+ },
+ "si_es_cand_top_mev": {
+  "value": 196.297778,
+  "fmt": ".0f",
+  "src": "review_checks.json#r5.candidate_element_halide_top[0].abs_diff_meV"
  },
  "si_es_ctrl_med": {
   "value": 3.994999999999971,

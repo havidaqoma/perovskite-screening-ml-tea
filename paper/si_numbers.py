@@ -286,10 +286,16 @@ def build() -> dict:
         "review_checks.json#r4.ceiling.strict_rule")
     es = rc["r5_energy_scheme"]
     put("si_es_n_chemsys", es["n_chemsys"], ",d", "review_checks.json#r5.n_chemsys")
-    for grp, tag in (("all", "all"), ("halide_only", "hal")):
+    for grp, tag in (("all", "all"), ("pure_halide", "hal"), ("candidate_element_halide", "cand")):
         put(f"si_es_{tag}_n", es[grp]["n"], ",d", f"review_checks.json#r5.{grp}.n")
         put(f"si_es_{tag}_gt10_pct", 100 * es[grp]["frac_gt_10meV"], ".1f", f"review_checks.json#r5.{grp}.frac_gt_10meV")
         put(f"si_es_{tag}_gt50_pct", 100 * es[grp]["frac_gt_50meV"], ".1f", f"review_checks.json#r5.{grp}.frac_gt_50meV")
+        put(f"si_es_{tag}_gt50_n", es[grp]["n_gt_50meV"], ",d", f"review_checks.json#r5.{grp}.n_gt_50meV")
+    put("si_es_gt50_other_n", es["n_gt50_other"], ",d", "review_checks.json#r5.n_gt50_other")
+    top = es["candidate_element_halide_top"][0]
+    put("si_es_cand_top_formula", re.sub(r"(\d+)", r"~\1~", top["formula"]), "s",
+        "review_checks.json#r5.candidate_element_halide_top[0].formula")
+    put("si_es_cand_top_mev", top["abs_diff_meV"], ".0f", "review_checks.json#r5.candidate_element_halide_top[0].abs_diff_meV")
     put("si_es_ctrl_med", es["controls"]["median_meV"], ".1f", "review_checks.json#r5.controls.median_meV")
     return N
 
