@@ -268,7 +268,7 @@ def build() -> dict:
     put("ox_strict_viable", ox["expected_viable_novel"]["strict_rule"], ".1f", src + "r4.expected_viable_novel.strict_rule")
 
     # public code release cited in Data availability and the cover letter; build_jmca.py checks the tag exists
-    put("repo_version", "2.1.0", "s", "public repo CITATION.cff#version, git tag v2.1.0")
+    put("repo_version", "2.1.1", "s", "public repo CITATION.cff#version, git tag v2.1.1")
 
     # ---------------- sourced literature constants used in prose ----------------
     put("lazard_lo", 29, "d", "LAZ24 p9/p35 (data/sources/SOURCES.md)")

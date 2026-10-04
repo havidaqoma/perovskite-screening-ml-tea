@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "perovskite-screening-ml-tea: code and data for \"Band-gap uncertainty, thermodynamic stability and area-scaled plant costs limit the techno-economic viability of lead-free double perovskite photovoltaics\""
+title: "perovskite-screening-ml-tea: code and data for \"An end-to-end audit of machine-learning techno-economic screening for lead-free double perovskite photovoltaics\""
 message: "If you use this code or data, please cite as follows."
 type: software
 authors:
@@ -9,5 +9,5 @@ authors:
     affiliation: "Xiamen University Malaysia"
 repository-code: "https://github.com/havidaqoma/perovskite-screening-ml-tea"
 license: MIT
-version: "2.1.0"
-date-released: "2026-10-01"
+version: "2.1.1"
+date-released: "2026-10-04"

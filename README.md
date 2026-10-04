@@ -49,9 +49,8 @@ assumes.
 
 ## v2 audit pipeline (manuscript)
 
-The manuscript "Band-gap uncertainty, thermodynamic stability and area-scaled plant
-costs limit the techno-economic viability of lead-free double perovskite
-photovoltaics" is under submission. arXiv: to be added.
+The manuscript "An end-to-end audit of machine-learning techno-economic screening
+for lead-free double perovskite photovoltaics" is under submission. arXiv: to be added.
 
 The v2 pipeline re-runs the screen with evaluation and cost models that a reviewer
 can check stage by stage:

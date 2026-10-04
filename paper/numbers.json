@@ -1080,9 +1080,9 @@
   "src": "v2/metrics/review_checks.json#r4.expected_viable_novel.strict_rule"
  },
  "repo_version": {
-  "value": "2.1.0",
+  "value": "2.1.1",
   "fmt": "s",
-  "src": "public repo CITATION.cff#version, git tag v2.1.0"
+  "src": "public repo CITATION.cff#version, git tag v2.1.1"
  },
  "lazard_lo": {
   "value": 29,
