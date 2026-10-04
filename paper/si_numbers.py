@@ -284,6 +284,13 @@ def build() -> dict:
         "review_checks.json#r4.ceiling.paper_rule")
     put("si_ox_ceil_strict", ox["expected_competitive_stable_umlip__ceiling"]["strict_rule"], ".1f",
         "review_checks.json#r4.ceiling.strict_rule")
+    es = rc["r5_energy_scheme"]
+    put("si_es_n_chemsys", es["n_chemsys"], ",d", "review_checks.json#r5.n_chemsys")
+    for grp, tag in (("all", "all"), ("halide_only", "hal")):
+        put(f"si_es_{tag}_n", es[grp]["n"], ",d", f"review_checks.json#r5.{grp}.n")
+        put(f"si_es_{tag}_gt10_pct", 100 * es[grp]["frac_gt_10meV"], ".1f", f"review_checks.json#r5.{grp}.frac_gt_10meV")
+        put(f"si_es_{tag}_gt50_pct", 100 * es[grp]["frac_gt_50meV"], ".1f", f"review_checks.json#r5.{grp}.frac_gt_50meV")
+    put("si_es_ctrl_med", es["controls"]["median_meV"], ".1f", "review_checks.json#r5.controls.median_meV")
     return N
 
 

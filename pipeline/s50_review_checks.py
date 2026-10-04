@@ -13,9 +13,15 @@ R3  O&M and inverter-replacement sensitivity of the break-even efficiency, with 
     inverter replacement at year 15 is added to both plants at the initial inverter price.
 R4  Oxidation-state audit: every B-site oxidation state of +5 or higher among the v2 candidates, split by
     whether the anion set contains a reducing anion (S, Se, Te, I). The flag rule itself (s22) is unchanged.
+R5  Energy-scheme consistency. The training formation energies (s10) are the MP summary defaults, which in
+    recent database versions mix GGA, GGA+U and r2SCAN results; the hulls of s20 use GGA/GGA+U entries only.
+    For every formula of the training table that occurs in an s20 chemical system, the formation energy of its
+    lowest-energy GGA/GGA+U entry (corrected energies, elemental references of the same system) is compared
+    with the training value; the known A2BB'X6 controls of s20 are reported separately.
 """
 from __future__ import annotations
 
+import gzip
 import json
 
 import joblib
@@ -39,6 +45,9 @@ THRESHOLDS = (0, 20, 35, 50, 100)
 OM_SCALE = (1.0, 1.25, 1.5, 2.0)
 INV_REPLACE_YEAR = 15
 REDUCING = ("S", "Se", "Te", "I")
+ENTRY_DIR = config.DATA_DIR / "mp_cache" / "entries"     # written by s20 (GGA/GGA+U entries per chemical system)
+HALOGENS = {"F", "Cl", "Br", "I"}
+CHALC_PNICT_O = {"O", "S", "Se", "Te", "N", "P", "As", "Sb"}
 
 
 def _key(f: str) -> str:
@@ -257,12 +266,57 @@ def r4_oxidation(run_dir, st) -> dict:
     return out
 
 
+def r5_energy_scheme(run_dir, st) -> dict:
+    files = sorted(ENTRY_DIR.glob("*.json.gz"))
+    if not files:
+        raise SystemExit(f"FAIL-CLOSED: no s20 entry cache in {ENTRY_DIR}; run s20 first")
+    best: dict[str, float] = {}                       # reduced formula -> GGA/GGA+U formation energy (eV/atom)
+    for fp in files:
+        ents = json.loads(gzip.decompress(fp.read_bytes()))["entries"]
+        comp = [Composition(e["composition"]) for e in ents]
+        epa = [(e["energy"] + e.get("correction", 0.0)) / c.num_atoms for e, c in zip(ents, comp)]
+        mu = {}
+        for c, x in zip(comp, epa):
+            if len(c.elements) == 1:
+                el = c.elements[0].symbol
+                mu[el] = min(mu.get(el, np.inf), x)
+        low: dict[str, float] = {}
+        for c, x in zip(comp, epa):
+            rf = c.reduced_formula
+            low[rf] = min(low.get(rf, np.inf), x)
+        for rf, x in low.items():
+            c = Composition(rf)
+            if all(e.symbol in mu for e in c.elements):
+                best[rf] = x - sum(c.get_atomic_fraction(e) * mu[e.symbol] for e in c.elements)
+    tr = pd.read_csv(run_dir / "data/train_v2.csv", usecols=["formula", "formation_energy_per_atom"])
+    d = tr[tr.formula.isin(best)].copy()
+    d["ef_gga"] = d.formula.map(best)
+    d["abs_diff_meV"] = 1000.0 * (d.formation_energy_per_atom - d.ef_gga).abs()
+
+    def kind(f: str) -> str:
+        el = {e.symbol for e in Composition(f).elements}
+        return "halide_only" if el & HALOGENS and not el & CHALC_PNICT_O else "other"
+    d["kind"] = d.formula.map(kind)
+    d.to_csv(st.path("review/energy_scheme.csv"), index=False, float_format="%.6f")
+
+    def summ(x: pd.Series) -> dict:
+        return {"n": int(len(x)), "median_meV": float(x.median()), "frac_gt_10meV": float((x > 10).mean()),
+                "frac_gt_50meV": float((x > 50).mean()), "max_meV": float(x.max())}
+    ctrl = pd.read_csv(run_dir / "stability/control_known_a2bbx6.csv").merge(tr, on="formula")
+    ctrl = ctrl.dropna(subset=["true_ef_pd"])
+    cdiff = 1000.0 * (ctrl.formation_energy_per_atom - ctrl.true_ef_pd).abs()
+    return {"n_chemsys": len(files), "all": summ(d.abs_diff_meV),
+            "halide_only": summ(d.abs_diff_meV[d.kind == "halide_only"]),
+            "other": summ(d.abs_diff_meV[d.kind == "other"]), "controls": summ(cdiff)}
+
+
 def run(run_dir, force: bool = False) -> dict:
     inputs = {"walterbos": WALTERBOS, "model": run_dir / "models/v2_final.joblib",
               "scored": run_dir / "stability/v2_screen_scored.csv", "cand_lcoe": run_dir / "tea_v2/candidate_lcoe.csv",
               "train": run_dir / "data/train_v2.csv", "shortlist": run_dir / "stability/shortlist_for_umlip.csv",
               "pareto": run_dir / "pareto/pareto.csv", "s22_metrics": run_dir / "metrics/shortlist_v2.json",
-              "s30_metrics": run_dir / "metrics/tea_v2.json"}
+              "s30_metrics": run_dir / "metrics/tea_v2.json",
+              "controls": run_dir / "stability/control_known_a2bbx6.csv"}
     st = Stage(run_dir, "s50_review_checks", inputs, MODULES,
                params={"thresholds": THRESHOLDS, "om_scale": OM_SCALE, "inv_year": INV_REPLACE_YEAR,
                        "seed": SEED, "n_mc": N_MC})
@@ -270,7 +324,8 @@ def run(run_dir, force: bool = False) -> dict:
         print("[s50] up to date, skipped")
         return {}
     st.metrics = {"r1_walterbos": r1_walterbos(run_dir, st), "r2_thresholds": r2_thresholds(run_dir),
-                  "r3_om_inverter": r3_om(st), "r4_oxidation": r4_oxidation(run_dir, st)}
+                  "r3_om_inverter": r3_om(st), "r4_oxidation": r4_oxidation(run_dir, st),
+                  "r5_energy_scheme": r5_energy_scheme(run_dir, st)}
     dump_json(st.path("metrics/review_checks.json"), st.metrics)
     st.finish()
     print("[s50] done")

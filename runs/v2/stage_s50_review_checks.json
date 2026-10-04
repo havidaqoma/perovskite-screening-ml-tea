@@ -1,6 +1,6 @@
 {
   "stage": "s50_review_checks",
-  "fingerprint": "2140d0ecf778ab22d4ed6915c38786eddbb916752a234baa90e71e5f0ef16c53",
+  "fingerprint": "9f8397fd8bf8096f9a9cc20235d0e3dfcc542f04396917ad92aac3784e688778",
   "inputs": {
     "walterbos": {
       "path": "data\\external\\walterbos2026\\hdp_hse06_subset.csv",
@@ -37,6 +37,10 @@
     "s30_metrics": {
       "path": "runs\\v2\\metrics\\tea_v2.json",
       "sha256": "59a1da8d1b30eeaf85cf0450b963610ed98d7070557b3a404c47c4ab7b9dec47"
+    },
+    "controls": {
+      "path": "runs\\v2\\stability\\control_known_a2bbx6.csv",
+      "sha256": "0626f0cf44c2c7c3136118a3c21cc3b68a0edecae85dc1ed61407d5a086004da"
     }
   },
   "params": {
@@ -61,7 +65,8 @@
     "review/walterbos_check.csv": "f087bee6d5dea654f27d2d110e61ad567bd6b32f9ed2c89e920da3e5f93ce5b1",
     "review/om_inverter_breakeven.csv": "3b4c570fb549ef51fd6bf359d7be30550d81e12f73322d61004ab2c24808895d",
     "review/high_valent_b_site.csv": "6097b010cbd90de50031f0b4fa1bf35219807131c394487834e7bb0f21a3dc09",
-    "metrics/review_checks.json": "3d5dd78be3623f9bdfb3d6aa2c55911807ff5bff587fb06d9d731ec08fd737ef"
+    "review/energy_scheme.csv": "35f57e97d9a8a341bc04b77fd36443efd836b734ca3570e84940f9c403769e0e",
+    "metrics/review_checks.json": "c75256504ef9ded915433b1bcd51295b5c187ed715dacb7865250e6b0493a172"
   },
   "metrics": {
     "r1_walterbos": {
@@ -310,6 +315,37 @@
         "paper_rule": 0.0,
         "strict_rule": 0.0
       }
+    },
+    "r5_energy_scheme": {
+      "n_chemsys": 1637,
+      "all": {
+        "n": 7749,
+        "median_meV": 1.7452492319756097,
+        "frac_gt_10meV": 0.13988901793779843,
+        "frac_gt_50meV": 0.06917021551167893,
+        "max_meV": 405.1038394719828
+      },
+      "halide_only": {
+        "n": 2047,
+        "median_meV": 2.5146715862063296,
+        "frac_gt_10meV": 0.02979970688812897,
+        "frac_gt_50meV": 0.00537371763556424,
+        "max_meV": 245.55200400000032
+      },
+      "other": {
+        "n": 5702,
+        "median_meV": 1.3982321999996827,
+        "frac_gt_10meV": 0.17941073307611363,
+        "frac_gt_50meV": 0.09207295685724308,
+        "max_meV": 405.1038394719828
+      },
+      "controls": {
+        "n": 380,
+        "median_meV": 3.994999999999971,
+        "frac_gt_10meV": 0.0,
+        "frac_gt_50meV": 0.0,
+        "max_meV": 9.336000000000011
+      }
     }
   },
   "env": {
@@ -325,7 +361,7 @@
     "joblib": "1.5.3",
     "optuna": "4.8.0"
   },
-  "git": "d7c72d2-dirty",
-  "seconds": 19.61,
-  "finished_utc": "2026-10-01T10:14:05Z"
+  "git": "0db2fed-dirty",
+  "seconds": 60.35,
+  "finished_utc": "2026-10-04T12:59:34Z"
 }

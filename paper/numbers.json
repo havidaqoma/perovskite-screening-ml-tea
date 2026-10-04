@@ -1079,10 +1079,15 @@
   "fmt": ".1f",
   "src": "v2/metrics/review_checks.json#r4.expected_viable_novel.strict_rule"
  },
+ "es_ctrl_max": {
+  "value": 9.336000000000011,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r5.controls.max_meV"
+ },
  "repo_version": {
-  "value": "2.1.1",
+  "value": "2.2.0",
   "fmt": "s",
-  "src": "public repo CITATION.cff#version, git tag v2.1.1"
+  "src": "public repo CITATION.cff#version, git tag v2.2.0"
  },
  "lazard_lo": {
   "value": 29,

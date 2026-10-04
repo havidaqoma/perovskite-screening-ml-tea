@@ -266,9 +266,14 @@ def build() -> dict:
     if ox["n_in_umlip_shortlist_with_mace"] != ox["n_in_umlip_shortlist"] or ox["n_in_umlip_shortlist_within_50meV"] != 0:
         raise SystemExit("FAIL-CLOSED: prose says MACE placed every strict-rule shortlist composition above 50 meV")
     put("ox_strict_viable", ox["expected_viable_novel"]["strict_rule"], ".1f", src + "r4.expected_viable_novel.strict_rule")
+    es = rc["r5_energy_scheme"]
+    if es["controls"]["max_meV"] >= 50 or es["controls"]["n"] != c["n_ok"]:
+        raise SystemExit("FAIL-CLOSED: prose says the training/hull energy-scheme offset of every control is far below "
+                         "the 50 meV gate")
+    put("es_ctrl_max", es["controls"]["max_meV"], ".1f", src + "r5.controls.max_meV")
 
     # public code release cited in Data availability and the cover letter; build_jmca.py checks the tag exists
-    put("repo_version", "2.1.1", "s", "public repo CITATION.cff#version, git tag v2.1.1")
+    put("repo_version", "2.2.0", "s", "public repo CITATION.cff#version, git tag v2.2.0")
 
     # ---------------- sourced literature constants used in prose ----------------
     put("lazard_lo", 29, "d", "LAZ24 p9/p35 (data/sources/SOURCES.md)")

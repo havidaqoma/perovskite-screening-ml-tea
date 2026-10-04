@@ -898,5 +898,45 @@
   "value": 46.76077,
   "fmt": ".1f",
   "src": "review_checks.json#r4.ceiling.strict_rule"
+ },
+ "si_es_n_chemsys": {
+  "value": 1637,
+  "fmt": ",d",
+  "src": "review_checks.json#r5.n_chemsys"
+ },
+ "si_es_all_n": {
+  "value": 7749,
+  "fmt": ",d",
+  "src": "review_checks.json#r5.all.n"
+ },
+ "si_es_all_gt10_pct": {
+  "value": 13.988901793779842,
+  "fmt": ".1f",
+  "src": "review_checks.json#r5.all.frac_gt_10meV"
+ },
+ "si_es_all_gt50_pct": {
+  "value": 6.917021551167893,
+  "fmt": ".1f",
+  "src": "review_checks.json#r5.all.frac_gt_50meV"
+ },
+ "si_es_hal_n": {
+  "value": 2047,
+  "fmt": ",d",
+  "src": "review_checks.json#r5.halide_only.n"
+ },
+ "si_es_hal_gt10_pct": {
+  "value": 2.9799706888128967,
+  "fmt": ".1f",
+  "src": "review_checks.json#r5.halide_only.frac_gt_10meV"
+ },
+ "si_es_hal_gt50_pct": {
+  "value": 0.537371763556424,
+  "fmt": ".1f",
+  "src": "review_checks.json#r5.halide_only.frac_gt_50meV"
+ },
+ "si_es_ctrl_med": {
+  "value": 3.994999999999971,
+  "fmt": ".1f",
+  "src": "review_checks.json#r5.controls.median_meV"
  }
 }
