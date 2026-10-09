@@ -15,7 +15,7 @@
   "first_page": "510",
   "last_page": "519",
   "type": "article",
-  "cited_by": 13260,
+  "cited_by": 13306,
   "claim": "SQ detailed-balance limit"
  },
  {
@@ -33,7 +33,7 @@
   "first_page": "139",
   "last_page": "147",
   "type": "article",
-  "cited_by": 2049,
+  "cited_by": 2050,
   "claim": "tabulated SQ values"
  },
  {
@@ -57,7 +57,7 @@
   "first_page": "eaav0693",
   "last_page": "eaav0693",
   "type": "article",
-  "cited_by": 1843,
+  "cited_by": 1841,
   "claim": "tau tolerance factor"
  },
  {
@@ -75,7 +75,7 @@
   "first_page": "477",
   "last_page": "485",
   "type": "article",
-  "cited_by": 4032,
+  "cited_by": 4031,
   "claim": "Goldschmidt tolerance factor"
  },
  {
@@ -93,7 +93,7 @@
   "first_page": "751",
   "last_page": "767",
   "type": "article",
-  "cited_by": 66176,
+  "cited_by": 66133,
   "claim": "ionic radii"
  },
  {
@@ -121,7 +121,7 @@
   "first_page": null,
   "last_page": null,
   "type": "editorial",
-  "cited_by": 13266,
+  "cited_by": 13068,
   "claim": "Materials Project",
   "crossref_pages": "011002"
  },
@@ -149,7 +149,7 @@
   "first_page": "314",
   "last_page": "319",
   "type": "article",
-  "cited_by": 4514,
+  "cited_by": 4361,
   "claim": "pymatgen"
  },
  {
@@ -170,7 +170,7 @@
   "first_page": null,
   "last_page": null,
   "type": "article",
-  "cited_by": 1835,
+  "cited_by": 1808,
   "claim": "Magpie descriptors",
   "crossref_pages": "16028"
  },
@@ -204,7 +204,7 @@
   "first_page": "60",
   "last_page": "69",
   "type": "article",
-  "cited_by": 1098,
+  "cited_by": 1075,
   "claim": "matminer"
  },
  {
@@ -213,7 +213,7 @@
   "ok": true,
   "title": "XGBoost",
   "year": 2016,
-  "venue": "",
+  "venue": "ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD)",
   "authors": [
    "Tianqi Chen",
    "Carlos Guestrin"
@@ -223,7 +223,7 @@
   "first_page": "785",
   "last_page": "794",
   "type": "conference-paper",
-  "cited_by": 53791,
+  "cited_by": 53163,
   "claim": "XGBoost"
  },
  {
@@ -242,7 +242,7 @@
   "first_page": "6280",
   "last_page": "6280",
   "type": "article",
-  "cited_by": 426,
+  "cited_by": 404,
   "claim": "Roost"
  },
  {
@@ -264,7 +264,7 @@
   "first_page": null,
   "last_page": null,
   "type": "article",
-  "cited_by": 380,
+  "cited_by": 384,
   "claim": "Matbench benchmark",
   "crossref_pages": "138"
  },
@@ -294,7 +294,7 @@
   "first_page": "819",
   "last_page": "825",
   "type": "article",
-  "cited_by": 277,
+  "cited_by": 266,
   "claim": "extrapolation / LOCO CV in materials ML"
  },
  {
@@ -317,7 +317,7 @@
   "first_page": null,
   "last_page": null,
   "type": "article",
-  "cited_by": 270,
+  "cited_by": 269,
   "claim": "formation energy ML fails for stability",
   "crossref_pages": "97"
  },
@@ -348,14 +348,15 @@
    "Ceriotti, Michele",
    "Chong, Sanggyu",
    "James P. Darby",
-   "Sandip De"
+   "Sandip De",
+   "others"
   ],
   "volume": null,
   "issue": null,
   "first_page": null,
   "last_page": null,
   "type": "preprint",
-  "cited_by": 247,
+  "cited_by": 241,
   "claim": "MACE-MP-0 foundation model"
  },
  {
@@ -374,7 +375,7 @@
   "first_page": "494",
   "last_page": "591",
   "type": "article",
-  "cited_by": 664,
+  "cited_by": 706,
   "claim": "conformal prediction tutorial"
  },
  {
@@ -416,7 +417,7 @@
   "first_page": "1094",
   "last_page": "1111",
   "type": "article",
-  "cited_by": 905,
+  "cited_by": 911,
   "claim": "split conformal prediction for regression (locally weighted)"
  },
  {
@@ -437,7 +438,7 @@
   "first_page": "2138",
   "last_page": "2141",
   "type": "article",
-  "cited_by": 2209,
+  "cited_by": 2210,
   "claim": "Cs2AgBiBr6 first report"
  },
  {
@@ -458,7 +459,7 @@
   "first_page": "1348",
   "last_page": "1354",
   "type": "article",
-  "cited_by": 1672,
+  "cited_by": 1673,
   "claim": "Cs2AgBiX6 double perovskites"
  },
  {
@@ -482,7 +483,7 @@
   "first_page": "1254",
   "last_page": "1259",
   "type": "article",
-  "cited_by": 1150,
+  "cited_by": 1146,
   "claim": "lead-free halide double perovskites"
  },
  {
@@ -507,7 +508,7 @@
   "first_page": "2630",
   "last_page": "2638",
   "type": "article",
-  "cited_by": 1004,
+  "cited_by": 1005,
   "claim": "design of lead-free double perovskites via transmutation"
  },
  {
@@ -559,7 +560,7 @@
   "first_page": "3397",
   "last_page": "3397",
   "type": "article",
-  "cited_by": 445,
+  "cited_by": 451,
   "claim": "hydrogenated Cs2AgBiBr6 6.37%"
  },
  {
@@ -579,7 +580,7 @@
   "first_page": "949",
   "last_page": "955",
   "type": "article",
-  "cited_by": 561,
+  "cited_by": 556,
   "claim": "Pb-free double perovskites efficiency limits"
  },
  {
@@ -627,7 +628,7 @@
   "first_page": "1297",
   "last_page": "1305",
   "type": "article",
-  "cited_by": 614,
+  "cited_by": 615,
   "claim": "perovskite module manufacturing TEA"
  },
  {
@@ -650,7 +651,7 @@
   "first_page": "314",
   "last_page": "324",
   "type": "article",
-  "cited_by": 161,
+  "cited_by": 162,
   "claim": "R2R perovskite manufacturing cost and market"
  },
  {
@@ -673,7 +674,7 @@
   "first_page": "1600269",
   "last_page": "1600269",
   "type": "article",
-  "cited_by": 518,
+  "cited_by": 516,
   "claim": "cost-performance analysis perovskite modules"
  },
  {
@@ -719,7 +720,7 @@
   "first_page": "978",
   "last_page": "989",
   "type": "article",
-  "cited_by": 549,
+  "cited_by": 546,
   "claim": "PV degradation rates"
  },
  {
@@ -737,7 +738,7 @@
   "first_page": "271",
   "last_page": "280",
   "type": "article",
-  "cited_by": 6467,
+  "cited_by": 6374,
   "claim": "Sobol indices"
  },
  {
@@ -760,7 +761,7 @@
   "first_page": "259",
   "last_page": "270",
   "type": "article",
-  "cited_by": 3600,
+  "cited_by": 3547,
   "claim": "Saltelli estimator"
  },
  {
@@ -779,7 +780,7 @@
   "first_page": "97",
   "last_page": "97",
   "type": "software-paper",
-  "cited_by": 1593,
+  "cited_by": 1543,
   "claim": "SALib"
  },
  {
@@ -799,7 +800,7 @@
   "first_page": "884",
   "last_page": "884",
   "type": "software-paper",
-  "cited_by": 1161,
+  "cited_by": 1148,
   "claim": "pvlib python"
  },
  {
@@ -821,7 +822,7 @@
   "first_page": null,
   "last_page": null,
   "type": "article",
-  "cited_by": 523,
+  "cited_by": 510,
   "claim": "hull / stability of hypothetical compounds",
   "crossref_pages": "155208"
  },
@@ -848,7 +849,7 @@
   "first_page": "e1600225",
   "last_page": "e1600225",
   "type": "article",
-  "cited_by": 988,
+  "cited_by": 961,
   "claim": "metastability of inorganic compounds"
  },
  {
@@ -871,7 +872,7 @@
   "first_page": "80",
   "last_page": "85",
   "type": "article",
-  "cited_by": 1473,
+  "cited_by": 1470,
   "claim": "GNoME"
  },
  {
@@ -901,7 +902,7 @@
   "first_page": null,
   "last_page": null,
   "type": "article",
-  "cited_by": 1187,
+  "cited_by": 1165,
   "claim": "recent advances in materials informatics",
   "crossref_pages": "59"
  },
@@ -925,7 +926,7 @@
   "first_page": null,
   "last_page": null,
   "type": "article",
-  "cited_by": 236,
+  "cited_by": 233,
   "claim": "ML for double perovskite formation energy",
   "crossref_pages": "37"
  },
@@ -949,7 +950,7 @@
   "first_page": "19375",
   "last_page": "19375",
   "type": "article",
-  "cited_by": 525,
+  "cited_by": 517,
   "claim": "ML bandgap double perovskites"
  },
  {
@@ -1000,7 +1001,8 @@
    "Carolin Rehermann",
    "Daniel Ram\u00edrez",
    "David Fairen\u2010Jim\u00e9nez",
-   "Diego Di Girolamo"
+   "Diego Di Girolamo",
+   "others"
   ],
   "volume": "7",
   "issue": "1",
@@ -1074,7 +1076,7 @@
   "first_page": "2579",
   "last_page": "2585",
   "type": "article",
-  "cited_by": 748,
+  "cited_by": 747,
   "claim": "indirect band gaps of Cs2BiAgCl6 and Cs2BiAgBr6"
  },
  {
@@ -1095,7 +1097,7 @@
   "first_page": "2999",
   "last_page": "3005",
   "type": "article",
-  "cited_by": 1292,
+  "cited_by": 1294,
   "claim": "spin-orbit coupling in halide perovskites"
  },
  {
@@ -1122,5 +1124,203 @@
   "type": "article",
   "cited_by": 109,
   "claim": "crystal-graph attention networks for global stability"
+ },
+ {
+  "key": "chen2022dhoip",
+  "doi": "10.1039/d1ta09911f",
+  "ok": true,
+  "title": "\u0394-Machine learning-driven discovery of double hybrid organic\u2013inorganic perovskites",
+  "year": 2021,
+  "venue": "Journal of Materials Chemistry A",
+  "authors": [
+   "Jialu Chen",
+   "Wenjun Xu",
+   "Rui-Qin Zhang"
+  ],
+  "volume": "10",
+  "issue": "3",
+  "first_page": "1402",
+  "last_page": "1413",
+  "type": "article",
+  "cited_by": 31,
+  "claim": "ML discovery of double hybrid organic-inorganic perovskites (JMCA)"
+ },
+ {
+  "key": "wei2023dp",
+  "doi": "10.1039/d3ta03600f",
+  "ok": true,
+  "title": "A domain knowledge enhanced machine learning method to predict the properties of halide double perovskite A 2 B + B 3+ X 6",
+  "year": 2023,
+  "venue": "Journal of Materials Chemistry A",
+  "authors": [
+   "Xiao Wei",
+   "Yunong Zhang",
+   "Xi Liu",
+   "Junjie Peng",
+   "Shengzhou Li",
+   "Renchao Che",
+   "Huiran Zhang"
+  ],
+  "volume": "11",
+  "issue": "37",
+  "first_page": "20193",
+  "last_page": "20205",
+  "type": "article",
+  "cited_by": 15,
+  "claim": "domain-knowledge ML for halide double perovskite properties (JMCA)"
+ },
+ {
+  "key": "li2019dp",
+  "doi": "10.1002/adfm.201807280",
+  "ok": true,
+  "title": "Thermodynamic Stability Landscape of Halide Double Perovskites via High\u2010Throughput Computing and Machine Learning",
+  "year": 2019,
+  "venue": "Advanced Functional Materials",
+  "authors": [
+   "Zhenzhu Li",
+   "Qichen Xu",
+   "Qingde Sun",
+   "Zhufeng Hou",
+   "Wan\u2010Jian Yin"
+  ],
+  "volume": "29",
+  "issue": "9",
+  "first_page": null,
+  "last_page": null,
+  "type": "article",
+  "cited_by": 232,
+  "claim": "stability landscape of halide double perovskites by HT computing and ML",
+  "crossref_pages": "1807280"
+ },
+ {
+  "key": "wolf2021",
+  "doi": "10.1002/anie.202016185",
+  "ok": true,
+  "title": "Doubling the Stakes: The Promise of Halide Double Perovskites",
+  "year": 2021,
+  "venue": "Angewandte Chemie International Edition",
+  "authors": [
+   "Nathan R. Wolf",
+   "Bridget A. Connor",
+   "Adam H. Slavney",
+   "Hemamala I. Karunadasa"
+  ],
+  "volume": "60",
+  "issue": "30",
+  "first_page": "16264",
+  "last_page": "16278",
+  "type": "article",
+  "cited_by": 159,
+  "claim": "review: promise and limits of halide double perovskites"
+ },
+ {
+  "key": "kapoor2023",
+  "doi": "10.1016/j.patter.2023.100804",
+  "ok": true,
+  "title": "Leakage and the reproducibility crisis in machine-learning-based science",
+  "year": 2023,
+  "venue": "Patterns",
+  "authors": [
+   "Sayash Kapoor",
+   "Arvind Narayanan"
+  ],
+  "volume": "4",
+  "issue": "9",
+  "first_page": "100804",
+  "last_page": "100804",
+  "type": "article",
+  "cited_by": 1137,
+  "claim": "data leakage and reproducibility in ML-based science"
+ },
+ {
+  "key": "riebesell2025",
+  "doi": "10.1038/s42256-025-01055-1",
+  "ok": true,
+  "title": "A framework to evaluate machine learning crystal stability predictions",
+  "year": 2025,
+  "venue": "Nature Machine Intelligence",
+  "authors": [
+   "Janosh Riebesell",
+   "Rhys E. A. Goodall",
+   "Philipp Benner",
+   "Yuan Chiang",
+   "Bowen Deng",
+   "Gerbrand Ceder",
+   "Mark Asta",
+   "Alpha A. Lee",
+   "Anubhav Jain",
+   "Kristin Aslaug Persson"
+  ],
+  "volume": "7",
+  "issue": "6",
+  "first_page": "836",
+  "last_page": "847",
+  "type": "article",
+  "cited_by": 154,
+  "claim": "Matbench Discovery: evaluating ML crystal stability predictions"
+ },
+ {
+  "key": "peters2019",
+  "doi": "10.1016/j.joule.2019.07.028",
+  "ok": true,
+  "title": "The Value of Efficiency in Photovoltaics",
+  "year": 2019,
+  "venue": "Joule",
+  "authors": [
+   "Ian Marius Peters",
+   "Carlos David Rodriguez Gallegos",
+   "Sarah E. Sofia",
+   "Tonio Buonassisi"
+  ],
+  "volume": "3",
+  "issue": "11",
+  "first_page": "2732",
+  "last_page": "2747",
+  "type": "article",
+  "cited_by": 87,
+  "claim": "the value of module efficiency in PV systems"
+ },
+ {
+  "key": "zafoschnig2020",
+  "doi": "10.1109/jphotov.2020.3024739",
+  "ok": true,
+  "title": "The Race for Lowest Costs of Electricity Production: Techno-Economic Analysis of Silicon, Perovskite and Tandem Solar Cells",
+  "year": 2020,
+  "venue": "IEEE Journal of Photovoltaics",
+  "authors": [
+   "Lisa Anna Zafoschnig",
+   "Sebastian Nold",
+   "Jan Christoph Goldschmidt"
+  ],
+  "volume": "10",
+  "issue": "6",
+  "first_page": "1632",
+  "last_page": "1641",
+  "type": "article",
+  "cited_by": 117,
+  "claim": "LCOE of silicon, perovskite and tandem modules"
+ },
+ {
+  "key": "borlido2019",
+  "doi": "10.1021/acs.jctc.9b00322",
+  "ok": true,
+  "title": "Large-Scale Benchmark of Exchange\u2013Correlation Functionals for the Determination of Electronic Band Gaps of Solids",
+  "year": 2019,
+  "venue": "Journal of Chemical Theory and Computation",
+  "authors": [
+   "Pedro Borlido",
+   "Thorsten Aull",
+   "Ahmad W. Huran",
+   "Fabien Tran",
+   "Miguel A. L. Marques",
+   "Silvana Botti"
+  ],
+  "volume": "15",
+  "issue": "9",
+  "first_page": "5069",
+  "last_page": "5079",
+  "type": "article",
+  "cited_by": 325,
+  "claim": "benchmark of XC functionals for band gaps (semi-local underestimation)"
  }
 ]

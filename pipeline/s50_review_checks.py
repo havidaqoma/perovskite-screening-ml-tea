@@ -18,6 +18,15 @@ R5  Energy-scheme consistency. The training formation energies (s10) are the MP 
     For every formula of the training table that occurs in an s20 chemical system, the formation energy of its
     lowest-energy GGA/GGA+U entry (corrected energies, elemental references of the same system) is compared
     with the training value; the known A2BB'X6 controls of s20 are reported separately.
+R6  Module-price floor (review 2026-10-09). Break-even efficiency at module prices from zero up to the benchmark
+    silicon module's own areal price, at silicon-grade durability (35 y, 0.7 %/yr, no burn-in), on the SAME draws
+    as s30; it must reproduce the s30 break-even at $50 m-2 and at the silicon areal price, or the stage stops.
+R7  Band-gap offset. The candidate Monte Carlo of s30 (same seed, draw order and residual draws) repeated with
+    every gap draw shifted up by the median HSE06-minus-prediction offsets of R1, plus the PV-window probability
+    and the expected number of viable absorbers at the same shifts; zero shift must reproduce s30 and s22 exactly.
+R8  Stability-gate recall on the known candidates, the signed hull-distance error of the stable controls, the
+    chain from the ML-probability count to the stability-gated pool, the MACE coverage of that pool, rank
+    correlations of the scenario costs, and the viable-absorber count after the MACE veto.
 """
 from __future__ import annotations
 
@@ -36,7 +45,9 @@ from .common import Stage, dump_json
 from .features import featurize_many
 from .s14_screen_v2 import PV_WINDOW_EV, gap_posterior_prob
 from .s22_shortlist import OX_IMPLAUSIBLE
-from .s30_tea_v2 import N_MC, SEED, lcoe_csi, lcoe_pvk, site_finance_draws
+from .s30_tea_v2 import (N_MC, SEED, absorber_cost_m2, csi_module_m2, lcoe_csi, lcoe_pvk, plant_costs,
+                         site_finance_draws)
+from .sq import sq_limit
 from .tea_params import P
 
 MODULES = ("s50_review_checks",)
@@ -44,6 +55,7 @@ WALTERBOS = config.DATA_DIR / "external/walterbos2026/hdp_hse06_subset.csv"
 THRESHOLDS = (0, 20, 35, 50, 100)
 OM_SCALE = (1.0, 1.25, 1.5, 2.0)
 INV_REPLACE_YEAR = 15
+MODULE_PRICES = (0.0, 10.0, 25.0, 50.0)             # $/m2; the silicon areal price is added at run time
 REDUCING = ("S", "Se", "Te", "I")
 ENTRY_DIR = config.DATA_DIR / "mp_cache" / "entries"     # written by s20 (GGA/GGA+U entries per chemical system)
 HALOGENS = {"F", "Cl", "Br", "I"}
@@ -325,22 +337,166 @@ def r5_energy_scheme(run_dir, st) -> dict:
                            "or the halogens"}
 
 
+def _breakeven(d, ref, module_m2, fine):
+    for e in fine:
+        if np.median(lcoe_pvk(e, d, module_m2, 35, 0.007) / ref) <= 1.0:
+            return float(e)
+    return float("nan")
+
+
+def r6_module_floor(st) -> dict:
+    rng = np.random.default_rng(SEED)
+    d = site_finance_draws(rng, N_MC)          # first draws of s30: identical site/finance samples
+    ref = lcoe_csi(d)
+    fine = np.round(np.arange(0.04, 0.4001, 0.0025), 4)
+    csi_m2 = float(csi_module_m2())
+    rows = [{"module_m2": m, "breakeven_eta": _breakeven(d, ref, m, fine)} for m in MODULE_PRICES + (csi_m2,)]
+    t = pd.DataFrame(rows)
+    t.to_csv(st.path("review/module_price_floor.csv"), index=False, float_format="%.4f")
+    tea = json.loads((st.run_dir / "metrics/tea_v2.json").read_text())
+    be = dict(zip(t.module_m2, t.breakeven_eta))
+    if (be[50.0], be[csi_m2]) != (tea["e4_breakeven"]["base_low_35y_deg0.7"],
+                                  tea["e4_consistency"]["breakeven_eta_csi_equivalent"]):
+        raise SystemExit("FAIL-CLOSED: R6 does not reproduce the s30 break-even at $50 m-2 or at the silicon price")
+    pc = plant_costs()
+    f_demo = min(P["f_sq"]["grid"])
+    sq_peak = float(sq_limit(np.linspace(0.3, 4.0, 3701)).max())
+    return {"breakeven": {f"{m:g}": v for m, v in be.items()}, "csi_module_m2": csi_m2,
+            "area_bos_m2": float(pc["sbos_m2"] + pc["fieldwork_m2"]), "markup": float(pc["markup"]),
+            "f_sq_demonstrated": f_demo, "sq_peak": sq_peak, "eta_cap_demonstrated": f_demo * sq_peak,
+            "conditions": "35 y module life, 0.7 %/yr, no burn-in, median of LCOE ratio over 4,000 draws"}
+
+
+def r7_gap_offset(run_dir, st, r1) -> dict:
+    df = pd.read_csv(run_dir / "stability/v2_screen_scored.csv")
+    mdl = joblib.load(run_dir / "models/v2_final.joblib")
+    signed = np.asarray(mdl["gap_cal_signed_scores"], float)
+    lc = pd.read_csv(run_dir / "tea_v2/candidate_lcoe.csv").set_index("formula")
+    tea = json.loads((run_dir / "metrics/tea_v2.json").read_text())["e5_candidates"]
+    defs = tea["scenario_definitions"]
+    # reproduce the s30 random stream: site/finance draws, then residual, semiconductor and draw-index samples
+    rng = np.random.default_rng(SEED)
+    d = site_finance_draws(rng, N_MC)
+    ref = lcoe_csi(d)
+    n_c = 1000
+    z = rng.choice(signed, size=(len(df), n_c), replace=True)
+    u_semi = rng.uniform(size=(len(df), n_c))
+    idx = rng.integers(0, N_MC, size=n_c)
+    dd = {k: v[idx] for k, v in d.items()}
+    ref_c = ref[idx]
+    semi = u_semi < df.p_semi.to_numpy()[:, None]
+    absm = np.array([absorber_cost_m2(f)[0] for f in df.formula])[:, None]
+    stab = (df.formula.map(lc.p_stable50) * df.formula.map(lc.plausible).astype(float)).to_numpy()
+    veto = df.formula.map(lc.umlip_veto).fillna(False).astype(bool).to_numpy()
+    nov = (df.status.ne("known_mp") & df.formula.map(lc.plausible).astype(bool)).to_numpy()
+    shifts = {"none": 0.0, "unseen_median": float(r1["not_in_training"]["median_hse_minus_pred_eV"]),
+              "in_training_median": float(r1["in_training"]["median_hse_minus_pred_eV"])}
+    out = {"shifts_eV": shifts}
+    for name, s in shifts.items():
+        gap = df.gap_pred_eV.to_numpy()[:, None] + s + z * df.gap_sigma_eV.to_numpy()[:, None]
+        sqg = sq_limit(gap)
+        row = {}
+        for scen, col in defs.items():
+            f_sq, mod, life, deg = col.split("__")[1].split("_")
+            f_sq, life, deg = float(f_sq[1:]), int(life[1:]), float(deg[1:])
+            lab = P["replace_labor_frac"]["alt"] if life == 15 else 0.0
+            eta = np.where(semi, f_sq * sqg, 0.0)
+            l = lcoe_pvk(eta, dd, P["module_pvk_m2"][mod], life, deg, absorber_m2=absm, replace_labor_frac=lab)
+            p = np.mean(l <= ref_c[None, :], axis=1)
+            if s == 0.0 and not np.allclose(p, df.formula.map(lc[col]).to_numpy(), atol=1e-9):
+                raise SystemExit(f"FAIL-CLOSED: R7 at zero shift does not reproduce s30 column {col}")
+            row[f"expected_competitive_stable_umlip__{scen}"] = float(np.where(veto, 0.0, p * stab).sum())
+            row[f"n_p_gt_0__{scen}"] = int((p > 0).sum())
+        ok = df.gap_sigma_eV.notna().to_numpy()
+        pgp = np.zeros(len(df))
+        pgp[ok] = gap_posterior_prob(df.gap_pred_eV.to_numpy()[ok] + s, df.gap_sigma_eV.to_numpy()[ok], signed,
+                                     *PV_WINDOW_EV)
+        # the scored CSV stores rounded gaps and probabilities, so the reproduction tolerance is the CSV precision
+        if s == 0.0 and not np.allclose(pgp[ok], df.p_gap_pv.to_numpy()[ok], atol=2e-4):
+            raise SystemExit("FAIL-CLOSED: R7 at zero shift does not reproduce the s14 window probability")
+        va = df.p_semi.to_numpy() * pgp * stab
+        row["expected_viable_novel_plausible"] = float(va[nov].sum())
+        row["expected_viable_novel_plausible_after_veto"] = float(np.where(veto, 0.0, va)[nov].sum())
+        out[name] = row
+    e5 = tea["expected_n_competitive_and_stable_umlip"]
+    if any(abs(out["none"][f"expected_competitive_stable_umlip__{k}"] - e5[k]) > 1e-6 for k in defs):
+        raise SystemExit("FAIL-CLOSED: R7 at zero shift does not reproduce the s30 expected counts")
+    s22 = json.loads((run_dir / "metrics/shortlist_v2.json").read_text())["expected_viable_novel_plausible"]
+    if abs(out["none"]["expected_viable_novel_plausible"] - s22) > 0.01:
+        raise SystemExit("FAIL-CLOSED: R7 at zero shift does not reproduce the s22 viable-absorber count")
+    return out
+
+
+def r8_gate_recall(run_dir) -> dict:
+    s = pd.read_csv(run_dir / "stability/v2_screen_scored.csv")
+    pa = pd.read_csv(run_dir / "pareto/pareto.csv")
+    lc = pd.read_csv(run_dir / "tea_v2/candidate_lcoe.csv")
+    kn = s[s.status.eq("known_mp")]
+    mp_ok = kn.mp_ehull_meV <= 50
+    ml_ok = kn.p_ehull_le_50 >= 0.5
+    cs = kn.set_index("formula").loc["Cs2BiAgBr6"]
+    c = pd.read_csv(run_dir / "stability/control_known_a2bbx6.csv").dropna(subset=["true_ehull_vs_rest_meV",
+                                                                                "ehull_pred_meV"])
+    err = c.ehull_pred_meV - c.true_ehull_vs_rest_meV
+    cst = c.true_ehull_vs_rest_meV <= 50
+    # chain from the ML probability count to the stability-gated pool
+    m = pa.merge(s[["formula", "p_ehull_le_50"]], on="formula", how="left")
+    a = int((m.p_ehull_le_50 >= 0.5).sum())
+    b = int((m.p_stable50 >= 0.5).sum())
+    cc = int(((m.p_stable50 >= 0.5) & m.plausible.astype(bool)).sum())
+    pool = m[m.p_stable_final >= 0.5]
+    stb = json.loads((run_dir / "metrics/stability_v2.json").read_text())
+    par = json.loads((run_dir / "metrics/pareto.json").read_text())
+    if a != stb["n_p50_ge_0.5_by_thr"]["50"] or len(pool) != par["n_stable_gated_pool"]:
+        raise SystemExit("FAIL-CLOSED: R8 pool chain does not reproduce s20/s40 counts")
+    um = pd.read_csv(run_dir / "stability/umlip.csv").query("status == 'ok'")
+    nv = um[um.role == "novel"]
+    from scipy.stats import spearmanr as _sp
+    tea = json.loads((run_dir / "metrics/tea_v2.json").read_text())["e5_candidates"]["scenario_definitions"]
+    po, pc = lc[tea["optimistic"]], lc[tea["ceiling"]]
+    lo, lce = (lc[tea[k].replace("p_lcoe_le_csi", "lcoe_median")] for k in ("optimistic", "ceiling"))
+    nvp = pa[pa.status.ne("known_mp") & pa.plausible.astype(bool)]
+    return {"known_n": int(len(kn)), "known_mp_stable": int(mp_ok.sum()),
+            "known_mp_stable_ml_pass": int((mp_ok & ml_ok).sum()), "known_mp_stable_ml_reject": int((mp_ok & ~ml_ok).sum()),
+            "cs2agbibr6": {"p_ml": float(cs.p_ehull_le_50), "ehull_ml_meV": float(cs.ehull_pred_meV),
+                           "ehull_mp_meV": float(cs.mp_ehull_meV)},
+            "controls_signed_err_median_meV": float(err.median()), "controls_stable_n": int(cst.sum()),
+            "controls_stable_signed_err_median_meV": float(err[cst].median()),
+            "controls_unstable_signed_err_median_meV": float(err[~cst].median()),
+            "chain": {"ml_p_ge_0.5": a, "known_by_mp": b, "plausible": cc, "after_mace_veto": int(len(pool))},
+            "pool_n": int(len(pool)), "pool_known": int(pool.status.eq("known_mp").sum()),
+            "pool_mace_checked": int(pool.umlip_ehull_meV.notna().sum()),
+            "pool_novel_mace_checked": int((pool.umlip_ehull_meV.notna() & pool.status.ne("known_mp")).sum()),
+            "pool_novel_unchecked": int((pool.umlip_ehull_meV.isna() & pool.status.ne("known_mp")).sum()),
+            "shortlist_novel_n": int(len(nv)), "shortlist_novel_pass": int((nv.umlip_ehull_vs_rest_meV <= 50).sum()),
+            "spearman_p_opt_ceil": float(_sp(po, pc)[0]), "spearman_lcoe_opt_ceil": float(_sp(lo, lce)[0]),
+            "n_p_gt_0_optimistic": int((po > 0).sum()), "n_p_gt_0_ceiling": int((pc > 0).sum()),
+            "n_candidates": int(len(lc)),
+            "viable_novel_plausible_before_veto": float((nvp.p_semi * nvp.p_gap_pv * nvp.p_stable50).sum()),
+            "viable_novel_plausible_after_veto": float((nvp.p_semi * nvp.p_gap_pv * nvp.p_stable_final).sum())}
+
+
 def run(run_dir, force: bool = False) -> dict:
     inputs = {"walterbos": WALTERBOS, "model": run_dir / "models/v2_final.joblib",
               "scored": run_dir / "stability/v2_screen_scored.csv", "cand_lcoe": run_dir / "tea_v2/candidate_lcoe.csv",
               "train": run_dir / "data/train_v2.csv", "shortlist": run_dir / "stability/shortlist_for_umlip.csv",
               "pareto": run_dir / "pareto/pareto.csv", "s22_metrics": run_dir / "metrics/shortlist_v2.json",
               "s30_metrics": run_dir / "metrics/tea_v2.json",
-              "controls": run_dir / "stability/control_known_a2bbx6.csv"}
+              "controls": run_dir / "stability/control_known_a2bbx6.csv",
+              "umlip": run_dir / "stability/umlip.csv", "stability_metrics": run_dir / "metrics/stability_v2.json",
+              "pareto_metrics": run_dir / "metrics/pareto.json"}
     st = Stage(run_dir, "s50_review_checks", inputs, MODULES,
                params={"thresholds": THRESHOLDS, "om_scale": OM_SCALE, "inv_year": INV_REPLACE_YEAR,
+                       "module_prices": MODULE_PRICES,
                        "seed": SEED, "n_mc": N_MC})
     if st.up_to_date() and not force:
         print("[s50] up to date, skipped")
         return {}
-    st.metrics = {"r1_walterbos": r1_walterbos(run_dir, st), "r2_thresholds": r2_thresholds(run_dir),
+    r1 = r1_walterbos(run_dir, st)
+    st.metrics = {"r1_walterbos": r1, "r2_thresholds": r2_thresholds(run_dir),
                   "r3_om_inverter": r3_om(st), "r4_oxidation": r4_oxidation(run_dir, st),
-                  "r5_energy_scheme": r5_energy_scheme(run_dir, st)}
+                  "r5_energy_scheme": r5_energy_scheme(run_dir, st), "r6_module_floor": r6_module_floor(st),
+                  "r7_gap_offset": r7_gap_offset(run_dir, st, r1), "r8_gate_recall": r8_gate_recall(run_dir)}
     dump_json(st.path("metrics/review_checks.json"), st.metrics)
     st.finish()
     print("[s50] done")

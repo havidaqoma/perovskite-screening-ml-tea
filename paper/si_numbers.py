@@ -51,6 +51,10 @@ def build() -> dict:
     put("si_n_queries", len(ds["mp_queries"]), "d", "dataset_v2.json#mp_queries")
     fm = j("v2/metrics/final_models_v2.json")
     put("si_n_semi", fm["n_semi"], ",d", "v2/metrics/final_models_v2.json#n_semi")
+    put("si_n_semi_all", int(pd.read_csv(R / "v2/data/train_v2.csv", usecols=["is_semi"]).is_semi.sum()), ",d",
+        "v2/data/train_v2.csv#is_semi sum (before featurisation)")
+    put("si_markup", j("v2/metrics/review_checks.json")["r6_module_floor"]["markup"], ".2f",
+        "review_checks.json#r6.markup")
 
     # ---------------- Note S2-S3: features, splits, models ----------------
     ev = j("v2/metrics/ml_eval_v2.json")
@@ -124,6 +128,8 @@ def build() -> dict:
     put("si_ctrl_rec", ctrl["gate_recall"], ".2f", "stability_v2.json#control.gate_recall")
     put("si_ctrl_failed", ctrl["n"] - ctrl["n_ok"], "d", "stability_v2.json#control.n - n_ok")
     put("si_hull_extrap", s22_shortlist.HULL_EXTRAP_MEV, ".0f", "pipeline/s22_shortlist.py#HULL_EXTRAP_MEV")
+    put("si_ox_implausible_or", " or ".join(o.replace("+", "") + "+" for o in s22_shortlist.OX_IMPLAUSIBLE), "s",
+        "pipeline/s22_shortlist.py#OX_IMPLAUSIBLE (joined with 'or')")
     put("si_ox_implausible", " and ".join(o.replace("+", "") + "+" for o in s22_shortlist.OX_IMPLAUSIBLE), "s",
         "pipeline/s22_shortlist.py#OX_IMPLAUSIBLE")
     put("si_top_n_novel", s22_shortlist.TOP_N_NOVEL, "d", "pipeline/s22_shortlist.py#TOP_N_NOVEL")
@@ -135,6 +141,11 @@ def build() -> dict:
     u = pd.read_csv(R / "v2/stability/umlip.csv")
     ok = u[u.status == "ok"]
     put("si_umlip_ok", len(ok), "d", "v2/stability/umlip.csv#status==ok")
+    a_cs = float(ok.set_index("formula").loc["Cs2BiAgBr6", "a_relaxed"])
+    a_exp = 11.2711                                     # MCCLURE16 abstract (10.1021/acs.chemmater.5b04231): 11.2711(1) A, X = Br
+    put("si_umlip_a_cs2agbibr6", a_cs, ".2f", "umlip.csv#Cs2BiAgBr6.a_relaxed")
+    put("si_a_exp_cs2agbibr6", a_exp, ".2f", "MCCLURE16 abstract: lattice parameter 11.2711(1) A (X = Br)")
+    put("si_umlip_a_dev_pct", 100 * (a_cs / a_exp - 1), ".1f", "umlip.csv#Cs2BiAgBr6.a_relaxed / 11.2711 - 1")
     put("si_umlip_conv", int(ok.converged.astype(bool).sum()), "d", "umlip.csv#converged")
     put("si_umlip_nref_med", float(ok.n_ref_phases.median()), ".0f", "umlip.csv#n_ref_phases median")
     put("si_umlip_nref_max", int(ok.n_ref_phases.max()), "d", "umlip.csv#n_ref_phases max")

@@ -318,5 +318,99 @@
       "max_meV": 9.336000000000011
     },
     "kind_rule": "pure halide = contains F/Cl/Br/I and none of B,C,H,N,O,P,S,Se,Si,Te; candidate-element halide = pure halide whose elements are all in A_SITE, B_SITE or the halogens"
+  },
+  "r6_module_floor": {
+    "breakeven": {
+      "0": 0.1225,
+      "10": 0.1375,
+      "25": 0.1625,
+      "50": 0.2025,
+      "51.865": 0.205
+    },
+    "csi_module_m2": 51.864999999999995,
+    "area_bos_m2": 74.82499999999999,
+    "markup": 1.12877030162413,
+    "f_sq_demonstrated": 0.21,
+    "sq_peak": 0.3368880197556834,
+    "eta_cap_demonstrated": 0.07074648414869351,
+    "conditions": "35 y module life, 0.7 %/yr, no burn-in, median of LCOE ratio over 4,000 draws"
+  },
+  "r7_gap_offset": {
+    "shifts_eV": {
+      "none": 0.0,
+      "unseen_median": 0.31439758092880254,
+      "in_training_median": 1.0672831775283815
+    },
+    "none": {
+      "expected_competitive_stable_umlip__realistic": 0.0,
+      "n_p_gt_0__realistic": 0,
+      "expected_competitive_stable_umlip__optimistic": 3.80398701,
+      "n_p_gt_0__optimistic": 482,
+      "expected_competitive_stable_umlip__ceiling": 55.944120870000006,
+      "n_p_gt_0__ceiling": 1256,
+      "expected_competitive_stable_umlip__demonstrated": 0.0,
+      "n_p_gt_0__demonstrated": 0,
+      "expected_viable_novel_plausible": 42.00471044400186,
+      "expected_viable_novel_plausible_after_veto": 35.686949565596294
+    },
+    "unseen_median": {
+      "expected_competitive_stable_umlip__realistic": 0.0,
+      "n_p_gt_0__realistic": 0,
+      "expected_competitive_stable_umlip__optimistic": 2.4286265499999997,
+      "n_p_gt_0__optimistic": 480,
+      "expected_competitive_stable_umlip__ceiling": 41.52839705000001,
+      "n_p_gt_0__ceiling": 1256,
+      "expected_competitive_stable_umlip__demonstrated": 0.0,
+      "n_p_gt_0__demonstrated": 0,
+      "expected_viable_novel_plausible": 31.36822711701659,
+      "expected_viable_novel_plausible_after_veto": 26.332451620528346
+    },
+    "in_training_median": {
+      "expected_competitive_stable_umlip__realistic": 0.0,
+      "n_p_gt_0__realistic": 0,
+      "expected_competitive_stable_umlip__optimistic": 0.67476246,
+      "n_p_gt_0__optimistic": 465,
+      "expected_competitive_stable_umlip__ceiling": 12.91996709,
+      "n_p_gt_0__ceiling": 1255,
+      "expected_competitive_stable_umlip__demonstrated": 0.0,
+      "n_p_gt_0__demonstrated": 0,
+      "expected_viable_novel_plausible": 9.85017499133431,
+      "expected_viable_novel_plausible_after_veto": 8.268254809298144
+    }
+  },
+  "r8_gate_recall": {
+    "known_n": 39,
+    "known_mp_stable": 26,
+    "known_mp_stable_ml_pass": 8,
+    "known_mp_stable_ml_reject": 18,
+    "cs2agbibr6": {
+      "p_ml": 0.48479,
+      "ehull_ml_meV": 59.35298,
+      "ehull_mp_meV": 0.94906
+    },
+    "controls_signed_err_median_meV": 5.331320000000005,
+    "controls_stable_n": 121,
+    "controls_stable_signed_err_median_meV": 28.582720000000002,
+    "controls_unstable_signed_err_median_meV": -6.942149999999998,
+    "chain": {
+      "ml_p_ge_0.5": 285,
+      "known_by_mp": 303,
+      "plausible": 223,
+      "after_mace_veto": 202
+    },
+    "pool_n": 202,
+    "pool_known": 26,
+    "pool_mace_checked": 18,
+    "pool_novel_mace_checked": 8,
+    "pool_novel_unchecked": 168,
+    "shortlist_novel_n": 30,
+    "shortlist_novel_pass": 8,
+    "spearman_p_opt_ceil": 0.15883423150578294,
+    "spearman_lcoe_opt_ceil": 0.9997515595663496,
+    "n_p_gt_0_optimistic": 482,
+    "n_p_gt_0_ceiling": 1256,
+    "n_candidates": 1256,
+    "viable_novel_plausible_before_veto": 42.00472104612981,
+    "viable_novel_plausible_after_veto": 35.68684339330722
   }
 }

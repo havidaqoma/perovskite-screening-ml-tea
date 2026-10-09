@@ -275,8 +275,65 @@ def build() -> dict:
     put("es_cand_gt50_n", es["candidate_element_halide"]["n_gt_50meV"], ",d",
         src + "r5.candidate_element_halide.n_gt_50meV")
 
+    # ---------------- review 2026-10-09: s50 R6 (module-price floor), R7 (gap offset), R8 (gate recall) ----------
+    r6, r7, r8 = rc["r6_module_floor"], rc["r7_gap_offset"], rc["r8_gate_recall"]
+    be6 = r6["breakeven"]
+    put("be_free", 100 * be6["0"], ".1f", src + "r6.breakeven.0")
+    put("be_m10", 100 * be6["10"], ".1f", src + "r6.breakeven.10")
+    put("be_m25", 100 * be6["25"], ".1f", src + "r6.breakeven.25")
+    put("be_csi_price", 100 * be6[f"{r6['csi_module_m2']:g}"], ".1f", src + "r6.breakeven.<csi_module_m2>")
+    put("csi_module_m2", r6["csi_module_m2"], ".0f", src + "r6.csi_module_m2")
+    put("area_bos_m2", r6["area_bos_m2"], ".0f", src + "r6.area_bos_m2")
+    put("eta_cap_demo", 100 * r6["eta_cap_demonstrated"], ".1f", src + "r6.eta_cap_demonstrated")
+    if abs(100 * be6["50"] - N["be_low"]["value"]) > 1e-9:
+        raise SystemExit("FAIL-CLOSED: R6 $50 break-even differs from be_low")
+    for tag, k in (("unseen", "unseen_median"), ("train", "in_training_median")):
+        put(f"opt_shift_{tag}", r7[k]["expected_competitive_stable_umlip__optimistic"], ".1f",
+            src + f"r7.{k}.expected_competitive_stable_umlip__optimistic")
+        put(f"ceil_shift_{tag}", r7[k]["expected_competitive_stable_umlip__ceiling"], ".1f",
+            src + f"r7.{k}.expected_competitive_stable_umlip__ceiling")
+        put(f"va_shift_{tag}", r7[k]["expected_viable_novel_plausible"], ".1f",
+            src + f"r7.{k}.expected_viable_novel_plausible")
+    put("wb_off_train_r7", r7["shifts_eV"]["in_training_median"], ".2f", src + "r7.shifts_eV.in_training_median")
+    put("known_mp_stable", r8["known_mp_stable"], "d", src + "r8.known_mp_stable")
+    put("known_ml_pass", r8["known_mp_stable_ml_pass"], "d", src + "r8.known_mp_stable_ml_pass")
+    put("cs2agbibr6_pml", r8["cs2agbibr6"]["p_ml"], ".2f", src + "r8.cs2agbibr6.p_ml")
+    put("cs2agbibr6_ehull_ml", r8["cs2agbibr6"]["ehull_ml_meV"], ".0f", src + "r8.cs2agbibr6.ehull_ml_meV")
+    put("ctrl_stable_n", r8["controls_stable_n"], "d", src + "r8.controls_stable_n")
+    put("ctrl_stable_bias", r8["controls_stable_signed_err_median_meV"], ".0f",
+        src + "r8.controls_stable_signed_err_median_meV")
+    put("ctrl_unstable_bias_abs", -r8["controls_unstable_signed_err_median_meV"], ".0f",
+        src + "r8.controls_unstable_signed_err_median_meV (sign flipped; prose says 'underestimates')")
+    if r8["controls_unstable_signed_err_median_meV"] >= 0 or r8["controls_stable_signed_err_median_meV"] <= 0:
+        raise SystemExit("FAIL-CLOSED: prose says stable controls are over- and unstable ones under-estimated")
+    put("pool_chain_known", r8["chain"]["known_by_mp"], "d", src + "r8.chain.known_by_mp")
+    put("pool_chain_plaus", r8["chain"]["plausible"], "d", src + "r8.chain.plausible")
+    put("pool_novel_n", r8["pool_n"] - r8["pool_known"], "d", src + "r8.pool_n - pool_known")
+    put("pool_novel_checked", r8["pool_novel_mace_checked"], "d", src + "r8.pool_novel_mace_checked")
+    if r8["chain"]["ml_p_ge_0.5"] != N["n_stable_thr50"]["value"] or r8["pool_n"] != N["n_stable_pool"]["value"]:
+        raise SystemExit("FAIL-CLOSED: R8 pool chain endpoints differ from n_stable_thr50 / n_stable_pool")
+    put("rank_rho_lcoe", r8["spearman_lcoe_opt_ceil"], ".4f", src + "r8.spearman_lcoe_opt_ceil")
+    put("n_p_gt0_opt", r8["n_p_gt_0_optimistic"], ",d", src + "r8.n_p_gt_0_optimistic")
+    if abs(r8["spearman_p_opt_ceil"] - N["rank_rho_opt_ceil"]["value"]) > 1e-6:
+        raise SystemExit("FAIL-CLOSED: R8 probability rank correlation differs from rank_rho_opt_ceil")
+    put("exp_viable_novel_veto", r8["viable_novel_plausible_after_veto"], ".1f", src + "r8.viable_novel_plausible_after_veto")
+    if abs(r8["viable_novel_plausible_before_veto"] - N["exp_viable_novel"]["value"]) > 0.01:
+        raise SystemExit("FAIL-CLOSED: exp_viable_novel is not the before-veto value")
+    wbc = pd.read_csv(R / "v2/review/walterbos_check.csv").set_index("comp_name_full")
+    put("cs2agbibr6_hse", float(wbc.loc["Cs2AgBiBr6", "bandgap"]), ".2f", "v2/review/walterbos_check.csv#Cs2AgBiBr6.bandgap")
+    put("cs2agbibr6_exp_lo", 1.95, ".2f", "SLAVNEY16 abstract (10.1021/jacs.5b13294): 'indirect bandgap of 1.95 eV'")
+    put("cs2agbibr6_exp_hi", 2.19, ".2f", "MCCLURE16 abstract (10.1021/acs.chemmater.5b04231): 'band gaps of 2.19 eV (X = Br)'")
+    import sys
+    sys.path.insert(0, str(ROOT))
+    from pipeline.tea_params import ELEMENT_PRICE, LEGACY_UNSOURCED
+    n_reagent = sum("no market price" in s for _, s in ELEMENT_PRICE.values())
+    if n_reagent != 2:
+        raise SystemExit("FAIL-CLOSED: prose names Cs and Rb as the two reagent-priced elements")
+    put("n_price_usgs", len(ELEMENT_PRICE) - n_reagent, "d", "pipeline/tea_params.py#ELEMENT_PRICE (USGS entries)")
+    put("n_price_legacy", len(LEGACY_UNSOURCED), "d", "pipeline/tea_params.py#LEGACY_UNSOURCED")
+
     # public code release cited in Data availability and the cover letter; build_jmca.py checks the tag exists
-    put("repo_version", "2.2.1", "s", "public repo CITATION.cff#version, git tag v2.2.1")
+    put("repo_version", "2.3.0", "s", "public repo CITATION.cff#version, git tag v2.3.0")
 
     # ---------------- sourced literature constants used in prose ----------------
     put("lazard_lo", 29, "d", "LAZ24 p9/p35 (data/sources/SOURCES.md)")

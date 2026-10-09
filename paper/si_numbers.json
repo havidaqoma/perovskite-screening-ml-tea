@@ -24,6 +24,16 @@
   "fmt": ",d",
   "src": "v2/metrics/final_models_v2.json#n_semi"
  },
+ "si_n_semi_all": {
+  "value": 60838,
+  "fmt": ",d",
+  "src": "v2/data/train_v2.csv#is_semi sum (before featurisation)"
+ },
+ "si_markup": {
+  "value": 1.12877030162413,
+  "fmt": ".2f",
+  "src": "review_checks.json#r6.markup"
+ },
  "si_n_features": {
   "value": 139,
   "fmt": "d",
@@ -294,6 +304,11 @@
   "fmt": ".0f",
   "src": "pipeline/s22_shortlist.py#HULL_EXTRAP_MEV"
  },
+ "si_ox_implausible_or": {
+  "value": "Mn7+ or Cr6+",
+  "fmt": "s",
+  "src": "pipeline/s22_shortlist.py#OX_IMPLAUSIBLE (joined with 'or')"
+ },
  "si_ox_implausible": {
   "value": "Mn7+ and Cr6+",
   "fmt": "s",
@@ -323,6 +338,21 @@
   "value": 40,
   "fmt": "d",
   "src": "v2/stability/umlip.csv#status==ok"
+ },
+ "si_umlip_a_cs2agbibr6": {
+  "value": 11.48257501007096,
+  "fmt": ".2f",
+  "src": "umlip.csv#Cs2BiAgBr6.a_relaxed"
+ },
+ "si_a_exp_cs2agbibr6": {
+  "value": 11.2711,
+  "fmt": ".2f",
+  "src": "MCCLURE16 abstract: lattice parameter 11.2711(1) A (X = Br)"
+ },
+ "si_umlip_a_dev_pct": {
+  "value": 1.8762588396071367,
+  "fmt": ".1f",
+  "src": "umlip.csv#Cs2BiAgBr6.a_relaxed / 11.2711 - 1"
  },
  "si_umlip_conv": {
   "value": 37,

@@ -26,14 +26,15 @@
    "Joseph Kubal",
    "Kristen Kaasbjerg",
    "Steen Lysgaard",
-   "J\u00f3n Bergmann Maronsson"
+   "J\u00f3n Bergmann Maronsson",
+   "others"
   ],
   "volume": "29",
   "issue": "27",
   "first_page": "273002",
   "last_page": "273002",
   "type": "article",
-  "cited_by": 4745,
+  "cited_by": 4509,
   "claim": "Atomic Simulation Environment (ASE): structure relaxation driver"
  },
  {
@@ -55,7 +56,34 @@
   "first_page": "170201",
   "last_page": "170201",
   "type": "article",
-  "cited_by": 1798,
+  "cited_by": 1775,
   "claim": "FIRE structural optimiser used for the MACE relaxations"
+ },
+ {
+  "key": "kingsbury2022",
+  "doi": "10.1038/s41524-022-00881-w",
+  "ok": true,
+  "title": "A flexible and scalable scheme for mixing computed formation energies from different levels of theory",
+  "year": 2022,
+  "venue": "npj Computational Materials",
+  "authors": [
+   "Ryan Kingsbury",
+   "Andrew Rosen",
+   "Ayush S. Gupta",
+   "Jason M. Munro",
+   "Shyue Ping Ong",
+   "Anubhav Jain",
+   "Shyam Dwaraknath",
+   "Matthew K. Horton",
+   "Kristin Aslaug Persson"
+  ],
+  "volume": "8",
+  "issue": "1",
+  "first_page": null,
+  "last_page": null,
+  "type": "article",
+  "cited_by": 49,
+  "claim": "MP scheme that mixes GGA, GGA+U and r2SCAN formation energies (default summary values; Note S6, review check R5)",
+  "crossref_pages": "195"
  }
 ]

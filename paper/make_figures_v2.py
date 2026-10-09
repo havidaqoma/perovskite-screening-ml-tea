@@ -56,8 +56,8 @@ def fig1():
     v2 = [("Generated A$_2$BB$'$X$_6$", fg["n_generated"]), ("Charge balanced", fg["n_charge_balanced"]),
           ("Oxidation-state radii + $\\tau$", fg["n_charge_balanced"] - ff["tau_not_perovskite"] - ff["no_oxidation_state_assignment"]),
           ("Gatekeeper (semiconductor)", sc["n_v2_candidates"]),
-          ("Likely stable or known (MP)", stable_like),
-          ("Pareto front", pa["n_front1"])]
+          ("ML likely stable or in MP", stable_like),
+          (f"Pareto front ({pa['n_front_stable']} stability-gated)", pa["n_front1"])]
     fig, axes = plt.subplots(2, 1, figsize=(5.6, 4.4), sharex=True,
                              gridspec_kw={"height_ratios": [len(legacy), len(v2)]})
     for ax, rows, title, col in ((axes[0], legacy, "April 2026 pipeline (legacy)", C["grey"]),
@@ -155,8 +155,8 @@ def fig3():
     ax.set_ylim(0, 1)
     ax.set_title(f"{c['n_ok']} known A$_2$BB$'$X$_6$, ROC-AUC {c['roc_auc_p50']:.2f}", loc="left")
     ax = axes[1]
-    for role, lab, col, mk in (("control_known_mp", "Known (MP) controls", C["green"], "s"),
-                               ("novel", "Novel shortlist", C["red"], "o")):
+    for role, lab, col, mk in (("control_known_mp", "Known (MP) controls", C["blue"], "s"),
+                               ("novel", "Novel shortlist", C["orange"], "o")):
         s = u[u.role == role]
         xv = s.mp_ehull_meV if role == "control_known_mp" else s.ml_ehull_pred_meV
         ax.scatter(xv, s.umlip_ehull_vs_rest_meV, s=16, color=col, marker=mk, label=lab)

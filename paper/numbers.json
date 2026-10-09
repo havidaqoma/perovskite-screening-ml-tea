@@ -1094,10 +1094,175 @@
   "fmt": ",d",
   "src": "v2/metrics/review_checks.json#r5.candidate_element_halide.n_gt_50meV"
  },
+ "be_free": {
+  "value": 12.25,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r6.breakeven.0"
+ },
+ "be_m10": {
+  "value": 13.750000000000002,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r6.breakeven.10"
+ },
+ "be_m25": {
+  "value": 16.25,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r6.breakeven.25"
+ },
+ "be_csi_price": {
+  "value": 20.5,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r6.breakeven.<csi_module_m2>"
+ },
+ "csi_module_m2": {
+  "value": 51.864999999999995,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r6.csi_module_m2"
+ },
+ "area_bos_m2": {
+  "value": 74.82499999999999,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r6.area_bos_m2"
+ },
+ "eta_cap_demo": {
+  "value": 7.074648414869351,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r6.eta_cap_demonstrated"
+ },
+ "opt_shift_unseen": {
+  "value": 2.4286265499999997,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r7.unseen_median.expected_competitive_stable_umlip__optimistic"
+ },
+ "ceil_shift_unseen": {
+  "value": 41.52839705000001,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r7.unseen_median.expected_competitive_stable_umlip__ceiling"
+ },
+ "va_shift_unseen": {
+  "value": 31.36822711701659,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r7.unseen_median.expected_viable_novel_plausible"
+ },
+ "opt_shift_train": {
+  "value": 0.67476246,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r7.in_training_median.expected_competitive_stable_umlip__optimistic"
+ },
+ "ceil_shift_train": {
+  "value": 12.91996709,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r7.in_training_median.expected_competitive_stable_umlip__ceiling"
+ },
+ "va_shift_train": {
+  "value": 9.85017499133431,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r7.in_training_median.expected_viable_novel_plausible"
+ },
+ "wb_off_train_r7": {
+  "value": 1.0672831775283815,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r7.shifts_eV.in_training_median"
+ },
+ "known_mp_stable": {
+  "value": 26,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r8.known_mp_stable"
+ },
+ "known_ml_pass": {
+  "value": 8,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r8.known_mp_stable_ml_pass"
+ },
+ "cs2agbibr6_pml": {
+  "value": 0.48479,
+  "fmt": ".2f",
+  "src": "v2/metrics/review_checks.json#r8.cs2agbibr6.p_ml"
+ },
+ "cs2agbibr6_ehull_ml": {
+  "value": 59.35298,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r8.cs2agbibr6.ehull_ml_meV"
+ },
+ "ctrl_stable_n": {
+  "value": 121,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r8.controls_stable_n"
+ },
+ "ctrl_stable_bias": {
+  "value": 28.582720000000002,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r8.controls_stable_signed_err_median_meV"
+ },
+ "ctrl_unstable_bias_abs": {
+  "value": 6.942149999999998,
+  "fmt": ".0f",
+  "src": "v2/metrics/review_checks.json#r8.controls_unstable_signed_err_median_meV (sign flipped; prose says 'underestimates')"
+ },
+ "pool_chain_known": {
+  "value": 303,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r8.chain.known_by_mp"
+ },
+ "pool_chain_plaus": {
+  "value": 223,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r8.chain.plausible"
+ },
+ "pool_novel_n": {
+  "value": 176,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r8.pool_n - pool_known"
+ },
+ "pool_novel_checked": {
+  "value": 8,
+  "fmt": "d",
+  "src": "v2/metrics/review_checks.json#r8.pool_novel_mace_checked"
+ },
+ "rank_rho_lcoe": {
+  "value": 0.9997515595663496,
+  "fmt": ".4f",
+  "src": "v2/metrics/review_checks.json#r8.spearman_lcoe_opt_ceil"
+ },
+ "n_p_gt0_opt": {
+  "value": 482,
+  "fmt": ",d",
+  "src": "v2/metrics/review_checks.json#r8.n_p_gt_0_optimistic"
+ },
+ "exp_viable_novel_veto": {
+  "value": 35.68684339330722,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r8.viable_novel_plausible_after_veto"
+ },
+ "cs2agbibr6_hse": {
+  "value": 2.07415,
+  "fmt": ".2f",
+  "src": "v2/review/walterbos_check.csv#Cs2AgBiBr6.bandgap"
+ },
+ "cs2agbibr6_exp_lo": {
+  "value": 1.95,
+  "fmt": ".2f",
+  "src": "SLAVNEY16 abstract (10.1021/jacs.5b13294): 'indirect bandgap of 1.95 eV'"
+ },
+ "cs2agbibr6_exp_hi": {
+  "value": 2.19,
+  "fmt": ".2f",
+  "src": "MCCLURE16 abstract (10.1021/acs.chemmater.5b04231): 'band gaps of 2.19 eV (X = Br)'"
+ },
+ "n_price_usgs": {
+  "value": 12,
+  "fmt": "d",
+  "src": "pipeline/tea_params.py#ELEMENT_PRICE (USGS entries)"
+ },
+ "n_price_legacy": {
+  "value": 18,
+  "fmt": "d",
+  "src": "pipeline/tea_params.py#LEGACY_UNSOURCED"
+ },
  "repo_version": {
-  "value": "2.2.1",
+  "value": "2.3.0",
   "fmt": "s",
-  "src": "public repo CITATION.cff#version, git tag v2.2.1"
+  "src": "public repo CITATION.cff#version, git tag v2.3.0"
  },
  "lazard_lo": {
   "value": 29,
