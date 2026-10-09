@@ -184,6 +184,8 @@ def build() -> dict:
     put("front1_min_lcoe", pa["front1_min_lcoe_usd_mwh"], ".1f", "pareto.json#front1_min_lcoe")
     put("front1_max_p", pa["front1_max_p_competitive"], ".2f", "pareto.json#front1_max_p")
     put("n_front_stable", pa["n_front_stable"], "d", "pareto.json#n_front_stable")
+    _pf = pd.read_csv(R / "v2/pareto/pareto.csv").query("front_stable == 1")
+    put("n_front_stable_known", int((_pf.status == "known_mp").sum()), "d", "pareto/pareto.csv: front_stable==1 & known_mp")
     put("n_front_stable_novel", pa["n_front_stable_novel"], "d", "pareto.json#n_front_stable_novel")
     put("n_stable_pool", pa["n_stable_gated_pool"], "d", "pareto.json#n_stable_gated_pool")
     put("front_stable_umlip_checked", pa["front_stable_umlip_checked"], "d", "pareto.json#front_stable_umlip_checked")
@@ -277,21 +279,25 @@ def build() -> dict:
 
     # ---------------- review 2026-10-09: s50 R6 (module-price floor), R7 (gap offset), R8 (gate recall) ----------
     r6, r7, r8 = rc["r6_module_floor"], rc["r7_gap_offset"], rc["r8_gate_recall"]
-    be6 = r6["breakeven"]
-    put("be_free", 100 * be6["0"], ".1f", src + "r6.breakeven.0")
-    put("be_m10", 100 * be6["10"], ".1f", src + "r6.breakeven.10")
-    put("be_m25", 100 * be6["25"], ".1f", src + "r6.breakeven.25")
-    put("be_csi_price", 100 * be6[f"{r6['csi_module_m2']:g}"], ".1f", src + "r6.breakeven.<csi_module_m2>")
+    be6 = r6["breakeven_exact"]     # exact crossing (bisection); the s30 grid value is one 0.25-point step above
+    put("be_free", 100 * be6["0"], ".1f", src + "r6.breakeven_exact.0")
+    put("be_m10", 100 * be6["10"], ".1f", src + "r6.breakeven_exact.10")
+    put("be_m25", 100 * be6["25"], ".1f", src + "r6.breakeven_exact.25")
+    put("be_csi_price", 100 * be6[f"{r6['csi_module_m2']:g}"], ".1f", src + "r6.breakeven_exact.<csi_module_m2>")
     put("csi_module_m2", r6["csi_module_m2"], ".0f", src + "r6.csi_module_m2")
     put("area_bos_m2", r6["area_bos_m2"], ".0f", src + "r6.area_bos_m2")
     put("eta_cap_demo", 100 * r6["eta_cap_demonstrated"], ".1f", src + "r6.eta_cap_demonstrated")
-    if abs(100 * be6["50"] - N["be_low"]["value"]) > 1e-9:
+    if abs(100 * r6["breakeven"]["50"] - N["be_low"]["value"]) > 1e-9:
         raise SystemExit("FAIL-CLOSED: R6 $50 break-even differs from be_low")
+    if f"{100 * be6['50']:.1f}" != f"{N['be_low']['value']:.1f}":
+        raise SystemExit("FAIL-CLOSED: printed be_low differs from the exact $50 crossing")
     for tag, k in (("unseen", "unseen_median"), ("train", "in_training_median")):
         put(f"opt_shift_{tag}", r7[k]["expected_competitive_stable_umlip__optimistic"], ".1f",
             src + f"r7.{k}.expected_competitive_stable_umlip__optimistic")
         put(f"ceil_shift_{tag}", r7[k]["expected_competitive_stable_umlip__ceiling"], ".1f",
             src + f"r7.{k}.expected_competitive_stable_umlip__ceiling")
+        put(f"va_shift_{tag}_veto", r7[k]["expected_viable_novel_plausible_after_veto"], ".1f",
+            src + f"r7.{k}.expected_viable_novel_plausible_after_veto")
         put(f"va_shift_{tag}", r7[k]["expected_viable_novel_plausible"], ".1f",
             src + f"r7.{k}.expected_viable_novel_plausible")
     put("wb_off_train_r7", r7["shifts_eV"]["in_training_median"], ".2f", src + "r7.shifts_eV.in_training_median")
@@ -333,7 +339,7 @@ def build() -> dict:
     put("n_price_legacy", len(LEGACY_UNSOURCED), "d", "pipeline/tea_params.py#LEGACY_UNSOURCED")
 
     # public code release cited in Data availability and the cover letter; build_jmca.py checks the tag exists
-    put("repo_version", "2.3.0", "s", "public repo CITATION.cff#version, git tag v2.3.0")
+    put("repo_version", "2.3.1", "s", "public repo CITATION.cff#version, git tag v2.3.1")
 
     # ---------------- sourced literature constants used in prose ----------------
     put("lazard_lo", 29, "d", "LAZ24 p9/p35 (data/sources/SOURCES.md)")

@@ -56,8 +56,8 @@ def fig1():
     v2 = [("Generated A$_2$BB$'$X$_6$", fg["n_generated"]), ("Charge balanced", fg["n_charge_balanced"]),
           ("Oxidation-state radii + $\\tau$", fg["n_charge_balanced"] - ff["tau_not_perovskite"] - ff["no_oxidation_state_assignment"]),
           ("Gatekeeper (semiconductor)", sc["n_v2_candidates"]),
-          ("ML likely stable or in MP", stable_like),
-          (f"Pareto front ({pa['n_front_stable']} stability-gated)", pa["n_front1"])]
+          ("Stability-gated pool", pa["n_stable_gated_pool"]),
+          ("Stability-gated Pareto front", pa["n_front_stable"])]
     fig, axes = plt.subplots(2, 1, figsize=(5.6, 4.4), sharex=True,
                              gridspec_kw={"height_ratios": [len(legacy), len(v2)]})
     for ax, rows, title, col in ((axes[0], legacy, "April 2026 pipeline (legacy)", C["grey"]),
@@ -153,7 +153,7 @@ def fig3():
     ax.set_ylabel("Observed fraction (MP)")
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
-    ax.set_title(f"{c['n_ok']} known A$_2$BB$'$X$_6$, ROC-AUC {c['roc_auc_p50']:.2f}", loc="left")
+    ax.set_title(f"{c['n_ok']} known A$_2$BB$'$X$_6$, ROC-AUC {c['roc_auc_p50']:.3f}", loc="left")
     ax = axes[1]
     for role, lab, col, mk in (("control_known_mp", "Known (MP) controls", C["blue"], "s"),
                                ("novel", "Novel shortlist", C["orange"], "o")):
@@ -164,7 +164,7 @@ def fig3():
     ax.scatter(fm.ml_ehull_pred_meV, fm.umlip_ehull_vs_rest_meV, s=40, facecolors="none", edgecolors="k", lw=0.6,
                label="F-mixed anion")
     ax.axhline(50, color="k", lw=0.8, ls="--")
-    ax.axvline(50, color="0.6", lw=0.6, ls=":")
+    ax.axvline(50, color="k", lw=0.8, ls="--")
     ax.set_xlabel("E$_\\mathrm{hull}$: MP (controls) or ML (novel), meV")
     ax.set_ylabel("MACE E$_\\mathrm{hull}$ vs other phases (meV)")
     ax.set_ylim(-80, 330)

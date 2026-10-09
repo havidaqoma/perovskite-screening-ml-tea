@@ -344,15 +344,30 @@ def _breakeven(d, ref, module_m2, fine):
     return float("nan")
 
 
+def _breakeven_exact(d, ref, module_m2, lo=0.04, hi=0.40, n_iter=50):
+    """Exact efficiency at which the median LCOE ratio crosses 1 (bisection; the ratio falls with efficiency)."""
+    f = lambda e: np.median(lcoe_pvk(e, d, module_m2, 35, 0.007) / ref) - 1.0
+    if f(hi) > 0 or f(lo) <= 0:
+        raise SystemExit(f"FAIL-CLOSED: R6 break-even not bracketed at module {module_m2} $/m2")
+    for _ in range(n_iter):
+        mid = 0.5 * (lo + hi)
+        lo, hi = (lo, mid) if f(mid) <= 0 else (mid, hi)
+    return float(hi)
+
+
 def r6_module_floor(st) -> dict:
     rng = np.random.default_rng(SEED)
     d = site_finance_draws(rng, N_MC)          # first draws of s30: identical site/finance samples
     ref = lcoe_csi(d)
     fine = np.round(np.arange(0.04, 0.4001, 0.0025), 4)
     csi_m2 = float(csi_module_m2())
-    rows = [{"module_m2": m, "breakeven_eta": _breakeven(d, ref, m, fine)} for m in MODULE_PRICES + (csi_m2,)]
+    rows = [{"module_m2": m, "breakeven_eta": _breakeven(d, ref, m, fine), "breakeven_eta_exact": _breakeven_exact(d, ref, m)}
+            for m in MODULE_PRICES + (csi_m2,)]
     t = pd.DataFrame(rows)
-    t.to_csv(st.path("review/module_price_floor.csv"), index=False, float_format="%.4f")
+    t.to_csv(st.path("review/module_price_floor.csv"), index=False, float_format="%.5f")
+    # the grid value is the first 0.25-point step that breaks even, so the exact crossing lies just below it
+    if not ((t.breakeven_eta - t.breakeven_eta_exact).between(-1e-6, 0.0025 + 1e-9)).all():
+        raise SystemExit("FAIL-CLOSED: R6 exact break-even is not within one grid step below the grid value")
     tea = json.loads((st.run_dir / "metrics/tea_v2.json").read_text())
     be = dict(zip(t.module_m2, t.breakeven_eta))
     if (be[50.0], be[csi_m2]) != (tea["e4_breakeven"]["base_low_35y_deg0.7"],
@@ -361,7 +376,9 @@ def r6_module_floor(st) -> dict:
     pc = plant_costs()
     f_demo = min(P["f_sq"]["grid"])
     sq_peak = float(sq_limit(np.linspace(0.3, 4.0, 3701)).max())
-    return {"breakeven": {f"{m:g}": v for m, v in be.items()}, "csi_module_m2": csi_m2,
+    bx = dict(zip(t.module_m2, t.breakeven_eta_exact))
+    return {"breakeven": {f"{m:g}": v for m, v in be.items()},
+            "breakeven_exact": {f"{m:g}": v for m, v in bx.items()}, "csi_module_m2": csi_m2,
             "area_bos_m2": float(pc["sbos_m2"] + pc["fieldwork_m2"]), "markup": float(pc["markup"]),
             "f_sq_demonstrated": f_demo, "sq_peak": sq_peak, "eta_cap_demonstrated": f_demo * sq_peak,
             "conditions": "35 y module life, 0.7 %/yr, no burn-in, median of LCOE ratio over 4,000 draws"}

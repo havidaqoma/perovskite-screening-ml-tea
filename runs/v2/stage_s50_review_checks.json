@@ -1,6 +1,6 @@
 {
   "stage": "s50_review_checks",
-  "fingerprint": "d29f677449507415e34b8e30bdac721a1aee1dbf2507ee63e9c0d2d2df4492de",
+  "fingerprint": "69267317c189d2da2b2322dbb3817d5ee9d18338835d642c62a7d6dc71552f44",
   "inputs": {
     "walterbos": {
       "path": "data\\external\\walterbos2026\\hdp_hse06_subset.csv",
@@ -84,8 +84,8 @@
     "review/om_inverter_breakeven.csv": "3b4c570fb549ef51fd6bf359d7be30550d81e12f73322d61004ab2c24808895d",
     "review/high_valent_b_site.csv": "6097b010cbd90de50031f0b4fa1bf35219807131c394487834e7bb0f21a3dc09",
     "review/energy_scheme.csv": "c57d9f824f41096e86594abaa1cc52751540757cf6ae3c82dddf6c8522eceeb3",
-    "review/module_price_floor.csv": "933046a7fad0ca00ab828414ac7ef640b86830969c013f7e7c30b174c422f9d2",
-    "metrics/review_checks.json": "ef9393fe5d697fa7ad213eb39644e3ba04729758e3e129d9c37cf7c132c018b5"
+    "review/module_price_floor.csv": "aa10e779bb571b3cfb6437805c79652c45f9779d961fae0386bcf4dcfd993d5c",
+    "metrics/review_checks.json": "3cb57efc2ffcc9a67c91051f95705295b69172bc779eb4a1a2aee38e8f46ae69"
   },
   "metrics": {
     "r1_walterbos": {
@@ -416,6 +416,13 @@
         "50": 0.2025,
         "51.865": 0.205
       },
+      "breakeven_exact": {
+        "0": 0.12107605177993533,
+        "10": 0.13725728155339803,
+        "25": 0.16152912621359244,
+        "50": 0.2019822006472493,
+        "51.865": 0.2050000000000002
+      },
       "csi_module_m2": 51.864999999999995,
       "area_bos_m2": 74.82499999999999,
       "markup": 1.12877030162413,
@@ -516,7 +523,7 @@
     "joblib": "1.5.3",
     "optuna": "4.8.0"
   },
-  "git": "28885b6-dirty",
-  "seconds": 162.83,
-  "finished_utc": "2026-10-09T08:42:01Z"
+  "git": "1482170-dirty",
+  "seconds": 64.76,
+  "finished_utc": "2026-10-09T15:40:06Z"
 }

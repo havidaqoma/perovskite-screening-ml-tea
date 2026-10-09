@@ -819,6 +819,11 @@
   "fmt": "d",
   "src": "pareto.json#n_front_stable"
  },
+ "n_front_stable_known": {
+  "value": 2,
+  "fmt": "d",
+  "src": "pareto/pareto.csv: front_stable==1 & known_mp"
+ },
  "n_front_stable_novel": {
   "value": 1,
   "fmt": "d",
@@ -1095,24 +1100,24 @@
   "src": "v2/metrics/review_checks.json#r5.candidate_element_halide.n_gt_50meV"
  },
  "be_free": {
-  "value": 12.25,
+  "value": 12.107605177993532,
   "fmt": ".1f",
-  "src": "v2/metrics/review_checks.json#r6.breakeven.0"
+  "src": "v2/metrics/review_checks.json#r6.breakeven_exact.0"
  },
  "be_m10": {
-  "value": 13.750000000000002,
+  "value": 13.725728155339803,
   "fmt": ".1f",
-  "src": "v2/metrics/review_checks.json#r6.breakeven.10"
+  "src": "v2/metrics/review_checks.json#r6.breakeven_exact.10"
  },
  "be_m25": {
-  "value": 16.25,
+  "value": 16.152912621359246,
   "fmt": ".1f",
-  "src": "v2/metrics/review_checks.json#r6.breakeven.25"
+  "src": "v2/metrics/review_checks.json#r6.breakeven_exact.25"
  },
  "be_csi_price": {
-  "value": 20.5,
+  "value": 20.50000000000002,
   "fmt": ".1f",
-  "src": "v2/metrics/review_checks.json#r6.breakeven.<csi_module_m2>"
+  "src": "v2/metrics/review_checks.json#r6.breakeven_exact.<csi_module_m2>"
  },
  "csi_module_m2": {
   "value": 51.864999999999995,
@@ -1139,6 +1144,11 @@
   "fmt": ".1f",
   "src": "v2/metrics/review_checks.json#r7.unseen_median.expected_competitive_stable_umlip__ceiling"
  },
+ "va_shift_unseen_veto": {
+  "value": 26.332451620528346,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r7.unseen_median.expected_viable_novel_plausible_after_veto"
+ },
  "va_shift_unseen": {
   "value": 31.36822711701659,
   "fmt": ".1f",
@@ -1153,6 +1163,11 @@
   "value": 12.91996709,
   "fmt": ".1f",
   "src": "v2/metrics/review_checks.json#r7.in_training_median.expected_competitive_stable_umlip__ceiling"
+ },
+ "va_shift_train_veto": {
+  "value": 8.268254809298144,
+  "fmt": ".1f",
+  "src": "v2/metrics/review_checks.json#r7.in_training_median.expected_viable_novel_plausible_after_veto"
  },
  "va_shift_train": {
   "value": 9.85017499133431,
@@ -1260,9 +1275,9 @@
   "src": "pipeline/tea_params.py#LEGACY_UNSOURCED"
  },
  "repo_version": {
-  "value": "2.3.0",
+  "value": "2.3.1",
   "fmt": "s",
-  "src": "public repo CITATION.cff#version, git tag v2.3.0"
+  "src": "public repo CITATION.cff#version, git tag v2.3.1"
  },
  "lazard_lo": {
   "value": 29,

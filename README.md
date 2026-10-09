@@ -48,9 +48,10 @@ can check stage by stage:
 
 Numbers from this run (read from the committed artifacts): 1,256 v2 candidates
 pass the corrected geometry screen (`runs/v2/metrics/screen_v2.json`); 202 enter
-the stability-gated pool, an upper bound because only part of it was checked with
-MACE (`runs/v2/metrics/review_checks.json`, `r8_gate_recall`), and 3 sit on the
-stability-gated Pareto front, 1 of them
+the stability-gated pool, an upper bound on the stable compositions within the pool
+because only part of it was checked with MACE (it is not a bound on the whole candidate
+set: the gate also rejects stable compositions; `runs/v2/metrics/review_checks.json`,
+`r8_gate_recall`), and 3 sit on the stability-gated Pareto front, 1 of them
 not in Materials Project (`runs/v2/metrics/pareto.json`). All four v2 gates pass
 (`runs/v2/gates/`).
 
@@ -79,7 +80,7 @@ python -m pipeline.run --run-id legacy_repro --gate
 | s22 | `s22_shortlist.py`: joint P(viable), plausibility flags | s14, s20 |
 | s30, s31, s32 | `s30_tea_v2.py`, `s31_tea_figures.py`, `s32_tea_summary.py`: TEA v2 | s30 needs the s13 model (`runs/v2/models/v2_final.joblib`, not redistributed); s31/s32 read committed files |
 | s40, s41 | `s40_pareto.py`, `s41_robustness.py`: Pareto front, robustness | s40 reads committed files; s41 also needs `runs/v2/predictions/oof_v2.csv` from s11 (not redistributed) |
-| s50 | `s50_review_checks.py`: HSE06 comparison with Walterbos et al. (2026), hull-threshold, O&M/inverter and oxidation-state sensitivity, the check that the training formation energies (MP defaults) agree with the GGA/GGA+U hull entries, and (v2.3.0) the break-even efficiency at module prices down to zero (R6), the candidate Monte Carlo with gaps shifted by the HSE06 offset (R7) and the recall and bias of the stability gate plus the chain to the 202-composition pool (R8) | `data/external/walterbos2026/` (shipped; `scripts/fetch_walterbos2026.py` re-downloads and checks its hash), the s13 model, the s10 training table and the s20 entry cache `data/mp_cache/entries/` (not redistributed); stops if its 50 meV / base-case rows do not reproduce s22 and s30 |
+| s50 | `s50_review_checks.py`: HSE06 comparison with Walterbos et al. (2026), hull-threshold, O&M/inverter and oxidation-state sensitivity, the check that the training formation energies (MP defaults) agree with the GGA/GGA+U hull entries, and (v2.3.0) the break-even efficiency at module prices down to zero (R6; v2.3.1 adds the exact crossing by bisection), the candidate Monte Carlo with gaps shifted by the HSE06 offset (R7) and the recall and bias of the stability gate plus the chain to the 202-composition pool (R8) | `data/external/walterbos2026/` (shipped; `scripts/fetch_walterbos2026.py` re-downloads and checks its hash), the s13 model, the s10 training table and the s20 entry cache `data/mp_cache/entries/` (not redistributed); stops if its 50 meV / base-case rows do not reproduce s22 and s30 |
 
 Offline with the shipped files alone: the test suite, s31, s32, s40,
 `paper/make_figures_v2.py` (it rebuilds byte-identical PNGs) and 260 of the 261
@@ -223,8 +224,9 @@ repository contains one.
 - Novelty checks run against Materials Project; a zero match supports novelty but
   does not prove a compound has never been made.
 - The band-gap model is trained on semi-local (GGA) gaps, which are smaller than
-  hybrid-functional and measured gaps; the candidate counts are upper bounds in this
-  respect (`r7_gap_offset`).
+  hybrid-functional and measured gaps; the median offset makes the candidate counts
+  generous (`r7_gap_offset`), although most of the gap error is scatter, so this is the
+  direction of the bias rather than a strict bound.
 - The stability gate is calibrated but conservative: it overestimates the hull distance
   of stable control compounds, so it misses stable compositions (`r8_gate_recall`).
 - No device (solar cell) was built or tested in this study. This is screening plus
