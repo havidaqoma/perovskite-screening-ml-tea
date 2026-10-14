@@ -1,0 +1,42 @@
+[
+ {
+  "key": "ramasamy2023",
+  "doi": "10.2172/2005540",
+  "title": "U.S. Solar Photovoltaic System and Energy Storage Cost Benchmarks, With Minimum Sustainable Price Analysis: Q1 2023",
+  "year": 2023,
+  "venue": "National Renewable Energy Laboratory (technical report)",
+  "claim": "Report (OSTI DOI, no Crossref work record). NREL Q1 2023 utility-scale PV cost benchmark on which the LCOE model is built."
+ },
+ {
+  "key": "nrelatb2024",
+  "doi": "",
+  "title": "2024 Annual Technology Baseline: Utility-Scale PV",
+  "year": 2024,
+  "venue": "National Renewable Energy Laboratory, https://atb.nlr.gov/electricity/2024/utility-scale_pv",
+  "claim": "Web report without a DOI. NREL Annual Technology Baseline 2024, utility-scale PV inputs."
+ },
+ {
+  "key": "lazard2024",
+  "doi": "",
+  "title": "Levelized Cost of Energy+ (LCOE+), Version 17.0",
+  "year": 2024,
+  "venue": "Lazard, https://www.lazard.com/media/xemfey0k/lazards-lcoeplus-june-2024-_vf.pdf",
+  "claim": "Industry report without a DOI. 2024 unsubsidised utility-scale LCOE range used as an external check; source copy not redistributed."
+ },
+ {
+  "key": "irena2024",
+  "doi": "",
+  "title": "Renewable Power Generation Costs in 2023",
+  "year": 2024,
+  "venue": "International Renewable Energy Agency, https://www.irena.org/Publications/2024/Sep/Renewable-Power-Generation-Costs-in-2023",
+  "claim": "Agency report without a DOI. 2023 global average utility-scale PV LCOE used as an external check."
+ },
+ {
+  "key": "usgs2024",
+  "doi": "10.3133/mcs2024",
+  "title": "Mineral Commodity Summaries 2024",
+  "year": 2024,
+  "venue": "U.S. Geological Survey",
+  "claim": "Report (USGS DOI). 2023 element price estimates for the sourced elements."
+ }
+]

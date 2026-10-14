@@ -38,7 +38,8 @@ can check stage by stage:
   PV window) instead of a point estimate.
 - **Calibrated stability.** An ML hull distance against Materials Project competing
   phases, with the formation-energy error propagated into P(stable). It is checked
-  on 400 known A2BB'X6 compounds and, for the shortlist, with MACE-MP-0 relaxations.
+  on 380 known A2BB'X6 compounds (20 of 400 had no evaluable hull distance) and, for the
+  shortlist, with MACE-MP-0 relaxations of one ordered prototype per composition.
 - **Area-resolved U.S. utility TEA.** A real-dollar LCOE engine built from the NREL
   Q1 2023 cost benchmark: area-scaled costs are divided by efficiency, power-scaled
   costs are not, and module replacement resets degradation. Every parameter carries
@@ -83,8 +84,8 @@ python -m pipeline.run --run-id legacy_repro --gate
 | s50 | `s50_review_checks.py`: HSE06 comparison with Walterbos et al. (2026), hull-threshold, O&M/inverter and oxidation-state sensitivity, the check that the training formation energies (MP defaults) agree with the GGA/GGA+U hull entries, and (v2.3.0) the break-even efficiency at module prices down to zero (R6; v2.3.1 adds the exact crossing by bisection), the candidate Monte Carlo with gaps shifted by the HSE06 offset (R7) and the recall and bias of the stability gate plus the chain to the 202-composition pool (R8) | `data/external/walterbos2026/` (shipped; `scripts/fetch_walterbos2026.py` re-downloads and checks its hash), the s13 model, the s10 training table and the s20 entry cache `data/mp_cache/entries/` (not redistributed); stops if its 50 meV / base-case rows do not reproduce s22 and s30 |
 
 Offline with the shipped files alone: the test suite, s31, s32, s40,
-`paper/make_figures_v2.py` (it rebuilds byte-identical PNGs) and 260 of the 261
-keys in `paper/paper_numbers.py` (the missing one, `v2_gap_max`, reads the s10 training table `runs/v2/data/train_v2.csv`, not redistributed). Two gates pass directly (`python -m
+`paper/make_figures_v2.py` (it rebuilds byte-identical PNGs) and every key in
+`paper/paper_numbers.py` except `v2_gap_max`, which reads the s10 training table `runs/v2/data/train_v2.csv` (not redistributed). The script stops at that key, so rebuild the table with s10 first. Two gates pass directly (`python -m
 pipeline.gate_tea_v2 runs/v2`, `python -m pipeline.gate_stability runs/v2`).
 `pipeline.gate_pareto` checks that the figures are newer than their inputs by file
 time, which a fresh clone does not preserve: run `python paper/make_figures_v2.py`
@@ -97,7 +98,9 @@ and s21 query Materials Project and need your own free key
 (gitignored). Our run used MP database version 2026.04.13
 (`runs/v2/metrics/dataset_v2.json`). The two GPU stages run in a separate
 environment built by `env/setup_wsl_gpu.sh` (pins in `env/freeze-wsl-gpu.txt`).
-Exact pins for the main environment are in `requirements-v2.lock.txt`.
+Exact pins for the main environment are in `requirements-v2.lock.txt`; retraining needs
+them (`pip install -r requirements-v2.lock.txt`), because pymatgen 2026.3.23 sets the
+ionic radii used by the steric filter. The quick start above runs with `requirements.txt`.
 
 ### What is not shipped, and why
 
@@ -109,6 +112,9 @@ Exact pins for the main environment are in `requirements-v2.lock.txt`.
   above to rebuild them. Each committed `runs/*/stage_*.json` manifest records the
   sha256 of every input and output, so a rebuilt file can be checked against the
   one we used.
+- `xgboost_cascade_pipeline_2.joblib` (30.5 MB, not redistributed): the original April 2026 model file.
+  Retraining does not reproduce it exactly (the paper reports the shift). The stage
+  manifests in `runs/legacy_april/` record its sha256, and its outputs are shipped.
 - Licence-restricted source copies (Lazard, press articles): cited by number only.
   The verbatim-quote test skips when they are absent.
 - Manuscript text and review material.
@@ -130,7 +136,7 @@ ship here; the ESI text itself is part of the manuscript and is not.
 | File | What it holds |
 |---|---|
 | `paper/make_si_figures.py` | Builds Figures S1 to S8 (`paper/figures/figS*.{png,pdf}`) and the data plotted in each (`paper/figures/si_data/figS*.csv`) |
-| `paper/si_numbers.py` | Builds `paper/si_numbers.json`: the 203 numbers and method settings quoted in the ESI (202 offline; `si_n_semi_all` reads `runs/v2/data/train_v2.csv`, not redistributed), each with its source. Settings are read from the pipeline code itself (imported, or matched on the source line), and the script stops if a pattern is not found |
+| `paper/si_numbers.py` | Builds `paper/si_numbers.json`: the numbers and method settings quoted in the ESI (all from shipped files except `si_n_semi_all`, which reads `runs/v2/data/train_v2.csv`, not redistributed, so s10 must run first), each with its source. Settings are read from the pipeline code itself (imported, or matched on the source line), and the script stops if a pattern is not found |
 | `paper/si_refs_verified.json` | The two ESI-only references (ASE, FIRE), checked against OpenAlex |
 | `paper/make_si_excel.py` | Builds the supplementary workbook `paper/build/SI_data_v2.xlsx`: the data behind every main and ESI figure, every number with its source, every TEA assumption, and the references |
 
@@ -169,8 +175,9 @@ assumes.
 
 > The v2 audit revisits this insight and does not support it for a U.S. utility
 > plant: with real area-scaled balance-of-system costs, a module must reach about
-> 20% efficiency (20.25% in the low-cost, 35-year, 0.7%/yr scenario) to match
-> silicon (`runs/v2/metrics/tea_v2.json`, `e4_breakeven`).
+> 20% efficiency (20.2% for a $50/m2 module in the 35-year, 0.7%/yr scenario; exact
+> crossing 20.198%, `runs/v2/review/module_price_floor.csv`; the 0.25-point grid in
+> `runs/v2/metrics/tea_v2.json`, `e4_breakeven`, gives 20.25%) to match silicon.
 
 ## Repository layout
 

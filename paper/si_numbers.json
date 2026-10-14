@@ -24,6 +24,16 @@
   "fmt": ",d",
   "src": "v2/metrics/final_models_v2.json#n_semi"
  },
+ "si_n_rows": {
+  "value": 188035,
+  "fmt": ",d",
+  "src": "v2/metrics/final_models_v2.json#n_rows"
+ },
+ "si_n_feat_fail": {
+  "value": 2,
+  "fmt": "d",
+  "src": "robustness.json#n_train_featurize_failed"
+ },
  "si_n_semi_all": {
   "value": 60838,
   "fmt": ",d",

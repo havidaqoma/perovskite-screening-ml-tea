@@ -8,6 +8,7 @@ text resolves to a numbers.json value.
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import pandas as pd
@@ -108,6 +109,15 @@ def build() -> dict:
     put("ctrl_n", c["n_ok"], "d", "stability_v2.json#control.n_ok")
     put("ctrl_auc", c["roc_auc_p50"], ".3f", "stability_v2.json#control.roc_auc_p50")
     put("ctrl_brier", c["brier_p50"], ".3f", "stability_v2.json#control.brier_p50")
+    fs = c["frac_true_stable_50"]
+    put("ctrl_brier_ref", fs * (1 - fs), ".3f", "stability_v2.json#control.frac_true_stable_50 f; constant forecast Brier f(1-f)")
+    n_st = fs * c["n_ok"]
+    tp = round(c["gate_recall"] * n_st)
+    pp = round(tp / c["gate_precision"])
+    if abs(n_st - round(n_st)) > 1e-6 or abs(c["gate_recall"] * n_st - tp) > 1e-6 or abs(tp / c["gate_precision"] - pp) > 1e-6:
+        raise SystemExit("FAIL-CLOSED: control confusion counts are not integers")
+    put("ctrl_fn", round(n_st) - tp, "d", "stability_v2.json#control: n_stable - recall*n_stable")
+    put("ctrl_fp", pp - tp, "d", "stability_v2.json#control: tp/precision - tp")
     put("ctrl_ehull_mae", c["ehull_mae_meV_vs_rest"], ".0f", "stability_v2.json#control.ehull_mae")
     put("ctrl_frac_stable_pct", 100 * c["frac_true_stable_50"], ".1f", "stability_v2.json#control.frac_true_stable_50")
     put("ctrl_rel_maxdev", max(abs(v["mean_p"] - v["obs_frac"]) for v in c["reliability"].values() if v["n"]), ".2f",
@@ -145,6 +155,9 @@ def build() -> dict:
     # ---------------- TEA (Stage 5) ----------------
     t = j("v2/metrics/tea_v2.json")
     put("nrel_msp", t["e1_reproduction"]["msp"]["nrel_total"], "d", "tea_v2.json#e1.msp.nrel_total")
+    put("bench_dev_max_pct", max(100 * abs(t["e1_reproduction"][b]["capex_kwdc"] / t["e1_reproduction"][b]["nrel_total"] - 1)
+                                 for b in ("msp", "mmp")), ".1f",
+        "tea_v2.json#e1_reproduction.{msp,mmp}: max |capex_kwdc / nrel_total - 1|")
     e2 = t["e2_csi_ref"]
     put("csi_med", e2["msp_median_usd_mwh"], ".1f", "tea_v2.json#e2.msp_median")
     put("csi_p10", e2["msp_p10"], ".0f", "tea_v2.json#e2.msp_p10")
@@ -187,6 +200,15 @@ def build() -> dict:
     _pf = pd.read_csv(R / "v2/pareto/pareto.csv").query("front_stable == 1")
     put("n_front_stable_known", int((_pf.status == "known_mp").sum()), "d", "pareto/pareto.csv: front_stable==1 & known_mp")
     put("n_front_stable_novel", pa["n_front_stable_novel"], "d", "pareto.json#n_front_stable_novel")
+    # anion mix of the stability-gated pool (same family definition as the control count, s41 ANION_FAM)
+    import sys
+    sys.path.insert(0, str(ROOT))
+    from pipeline.s41_robustness import n_anion_families
+    _pool = pd.read_csv(R / "v2/pareto/pareto.csv").query("p_stable_final >= 0.5")
+    _mix = _pool.formula.map(lambda f: n_anion_families("-".join(re.findall(r"[A-Z][a-z]?", f)))) >= 2
+    if (_mix & (_pool.status == "known_mp")).any():
+        raise SystemExit("FAIL-CLOSED: text says every mixed-anion pool member is novel")
+    put("pool_n_mixed", int(_mix.sum()), "d", "pareto/pareto.csv: p_stable_final>=0.5 & >=2 anion families (s41)")
     put("n_stable_pool", pa["n_stable_gated_pool"], "d", "pareto.json#n_stable_gated_pool")
     put("front_stable_umlip_checked", pa["front_stable_umlip_checked"], "d", "pareto.json#front_stable_umlip_checked")
     col_l = [k for k in pa["front_stable"][0] if k.startswith("lcoe_median__")][0]
@@ -291,6 +313,9 @@ def build() -> dict:
         raise SystemExit("FAIL-CLOSED: R6 $50 break-even differs from be_low")
     if f"{100 * be6['50']:.1f}" != f"{N['be_low']['value']:.1f}":
         raise SystemExit("FAIL-CLOSED: printed be_low differs from the exact $50 crossing")
+    # print the exact crossing, like be_free; the s30 grid value checked above lies one 0.25-point step higher
+    put("be_low", 100 * be6["50"], ".1f",
+        src + "r6.breakeven_exact.50 (s30 grid value tea_v2.json#e4.base_low_35y_deg0.7 is one 0.25-point step above)")
     for tag, k in (("unseen", "unseen_median"), ("train", "in_training_median")):
         put(f"opt_shift_{tag}", r7[k]["expected_competitive_stable_umlip__optimistic"], ".1f",
             src + f"r7.{k}.expected_competitive_stable_umlip__optimistic")
@@ -320,6 +345,9 @@ def build() -> dict:
         raise SystemExit("FAIL-CLOSED: R8 pool chain endpoints differ from n_stable_thr50 / n_stable_pool")
     put("rank_rho_lcoe", r8["spearman_lcoe_opt_ceil"], ".4f", src + "r8.spearman_lcoe_opt_ceil")
     put("n_p_gt0_opt", r8["n_p_gt_0_optimistic"], ",d", src + "r8.n_p_gt_0_optimistic")
+    if r8["n_p_gt_0_ceiling"] != r8["n_candidates"]:
+        raise SystemExit("FAIL-CLOSED: prose says the probability is non-zero for all candidates at the ceiling")
+    put("n_p_gt0_ceil", r8["n_p_gt_0_ceiling"], ",d", src + "r8.n_p_gt_0_ceiling (= n_candidates)")
     if abs(r8["spearman_p_opt_ceil"] - N["rank_rho_opt_ceil"]["value"]) > 1e-6:
         raise SystemExit("FAIL-CLOSED: R8 probability rank correlation differs from rank_rho_opt_ceil")
     put("exp_viable_novel_veto", r8["viable_novel_plausible_after_veto"], ".1f", src + "r8.viable_novel_plausible_after_veto")
@@ -339,7 +367,7 @@ def build() -> dict:
     put("n_price_legacy", len(LEGACY_UNSOURCED), "d", "pipeline/tea_params.py#LEGACY_UNSOURCED")
 
     # public code release cited in Data availability and the cover letter; build_jmca.py checks the tag exists
-    put("repo_version", "2.3.1", "s", "public repo CITATION.cff#version, git tag v2.3.1")
+    put("repo_version", "2.3.2", "s", "public repo CITATION.cff#version, git tag v2.3.2")
 
     # ---------------- sourced literature constants used in prose ----------------
     put("lazard_lo", 29, "d", "LAZ24 p9/p35 (data/sources/SOURCES.md)")
@@ -350,6 +378,16 @@ def build() -> dict:
     put("sq_peak", 33.7, ".1f", "pipeline/sq.py (gate test)")
     put("jordan_deg_lo", 0.5, ".1f", "JORDAN16 abstract (10.1002/pip.2744): 'median degradation for x-Si ... 0.5-0.6%/year'")
     put("jordan_deg_hi", 0.6, ".1f", "JORDAN16 abstract (10.1002/pip.2744)")
+    # f_SQ for the demonstrated cell: ZHANG22 record efficiency over the detailed-balance limit at its 1.64 eV gap
+    from pipeline.sq import sq_limit
+    from pipeline.tea_params import P as TP
+    put("dp_gap", 1.64, ".2f", "ZHANG22 abstract (10.1038/s41467-022-31016-w): 'bandgap ... tunable from 2.18 eV to 1.64 eV'")
+    grid, sq_dp = TP["f_sq"]["grid"], float(sq_limit(1.64))
+    if f"{0.0637 / sq_dp:.2f}" != f"{min(grid):.2f}":
+        raise SystemExit("FAIL-CLOSED: lowest f_SQ in tea_params no longer equals 6.37% / SQ(1.64 eV)")
+    put("sq_at_dp_gap", 100 * sq_dp, ".1f", "pipeline/sq.py#sq_limit(1.64 eV), gap of the ZHANG22 record cell")
+    put("f_dp", min(grid), ".2f", "pipeline/tea_params.py#f_sq.grid[0] = 6.37% / SQ(1.64 eV)")
+    put("f_ceiling", max(grid), ".2f", "pipeline/tea_params.py#f_sq.grid[-1] = 25.7% / SQ(1.55 eV)")
     return N
 
 

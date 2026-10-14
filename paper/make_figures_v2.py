@@ -45,19 +45,31 @@ def save(fig, name):
     plt.close(fig)
 
 
-def fig1():
+def funnel_counts():
+    """Stage counts of both screening funnels as (sheet label, figure label, n).
+
+    Fig. 1 and the Fig1_funnel sheet of SI_data_v2.xlsx both read this function, so they cannot drift apart.
+    """
     fg, fs = j("legacy_april/metrics/funnel_generate.json"), j("legacy_april/metrics/funnel_screen.json")
-    sc, stb = j("v2/metrics/screen_v2.json"), j("v2/metrics/stability_v2.json")
-    pa, t = j("v2/metrics/pareto.json"), j("v2/metrics/tea_v2.json")
+    sc, pa = j("v2/metrics/screen_v2.json"), j("v2/metrics/pareto.json")
     ff = sc["funnel_fail_counts"]
-    stable_like = stb["status_counts"]["stable_likely"] + stb["status_counts"]["known_mp"]
-    legacy = [("Generated A$_2$BB$'$X$_6$", fg["n_generated"]), ("Charge balanced", fg["n_charge_balanced"]),
-              ("Legacy steric filter", fg["n_steric"]), ("Legacy ML window", fs["n_candidates"])]
-    v2 = [("Generated A$_2$BB$'$X$_6$", fg["n_generated"]), ("Charge balanced", fg["n_charge_balanced"]),
-          ("Oxidation-state radii + $\\tau$", fg["n_charge_balanced"] - ff["tau_not_perovskite"] - ff["no_oxidation_state_assignment"]),
-          ("Gatekeeper (semiconductor)", sc["n_v2_candidates"]),
-          ("Stability-gated pool", pa["n_stable_gated_pool"]),
-          ("Stability-gated Pareto front", pa["n_front_stable"])]
+    legacy = [("generated", "Generated A$_2$BB$'$X$_6$", fg["n_generated"]),
+              ("charge balanced", "Charge balanced", fg["n_charge_balanced"]),
+              ("legacy steric filter", "Legacy steric filter", fg["n_steric"]),
+              ("legacy ML window", "Legacy ML window", fs["n_candidates"])]
+    v2 = [("generated", "Generated A$_2$BB$'$X$_6$", fg["n_generated"]),
+          ("charge balanced", "Charge balanced", fg["n_charge_balanced"]),
+          ("oxidation-state radii + tau", "Oxidation-state radii + $\\tau$",
+           fg["n_charge_balanced"] - ff["tau_not_perovskite"] - ff["no_oxidation_state_assignment"]),
+          ("semiconductor classifier", "Semiconductor classifier", sc["n_v2_candidates"]),
+          ("stability-gated pool", "Stability-gated pool", pa["n_stable_gated_pool"]),
+          ("stability-gated Pareto front", "Stability-gated Pareto front", pa["n_front_stable"])]
+    return legacy, v2
+
+
+def fig1():
+    fg = j("legacy_april/metrics/funnel_generate.json")
+    legacy, v2 = ([(lab, n) for _, lab, n in rows] for rows in funnel_counts())
     fig, axes = plt.subplots(2, 1, figsize=(5.6, 4.4), sharex=True,
                              gridspec_kw={"height_ratios": [len(legacy), len(v2)]})
     for ax, rows, title, col in ((axes[0], legacy, "April 2026 pipeline (legacy)", C["grey"]),

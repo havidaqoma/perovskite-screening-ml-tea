@@ -479,6 +479,21 @@
   "fmt": ".3f",
   "src": "stability_v2.json#control.brier_p50"
  },
+ "ctrl_brier_ref": {
+  "value": 0.21702908587257616,
+  "fmt": ".3f",
+  "src": "stability_v2.json#control.frac_true_stable_50 f; constant forecast Brier f(1-f)"
+ },
+ "ctrl_fn": {
+  "value": 51,
+  "fmt": "d",
+  "src": "stability_v2.json#control: n_stable - recall*n_stable"
+ },
+ "ctrl_fp": {
+  "value": 36,
+  "fmt": "d",
+  "src": "stability_v2.json#control: tp/precision - tp"
+ },
  "ctrl_ehull_mae": {
   "value": 42.532354837708695,
   "fmt": ".0f",
@@ -579,6 +594,11 @@
   "fmt": "d",
   "src": "tea_v2.json#e1.msp.nrel_total"
  },
+ "bench_dev_max_pct": {
+  "value": 0.09737098344693162,
+  "fmt": ".1f",
+  "src": "tea_v2.json#e1_reproduction.{msp,mmp}: max |capex_kwdc / nrel_total - 1|"
+ },
  "csi_med": {
   "value": 58.706331066632615,
   "fmt": ".1f",
@@ -630,9 +650,9 @@
   "src": "tea_v2.json#e3.high.area_share"
  },
  "be_low": {
-  "value": 20.25,
+  "value": 20.198220064724932,
   "fmt": ".1f",
-  "src": "tea_v2.json#e4.base_low"
+  "src": "v2/metrics/review_checks.json#r6.breakeven_exact.50 (s30 grid value tea_v2.json#e4.base_low_35y_deg0.7 is one 0.25-point step above)"
  },
  "be_med": {
   "value": 26.0,
@@ -828,6 +848,11 @@
   "value": 1,
   "fmt": "d",
   "src": "pareto.json#n_front_stable_novel"
+ },
+ "pool_n_mixed": {
+  "value": 144,
+  "fmt": "d",
+  "src": "pareto/pareto.csv: p_stable_final>=0.5 & >=2 anion families (s41)"
  },
  "n_stable_pool": {
   "value": 202,
@@ -1244,6 +1269,11 @@
   "fmt": ",d",
   "src": "v2/metrics/review_checks.json#r8.n_p_gt_0_optimistic"
  },
+ "n_p_gt0_ceil": {
+  "value": 1256,
+  "fmt": ",d",
+  "src": "v2/metrics/review_checks.json#r8.n_p_gt_0_ceiling (= n_candidates)"
+ },
  "exp_viable_novel_veto": {
   "value": 35.68684339330722,
   "fmt": ".1f",
@@ -1275,9 +1305,9 @@
   "src": "pipeline/tea_params.py#LEGACY_UNSOURCED"
  },
  "repo_version": {
-  "value": "2.3.1",
+  "value": "2.3.2",
   "fmt": "s",
-  "src": "public repo CITATION.cff#version, git tag v2.3.1"
+  "src": "public repo CITATION.cff#version, git tag v2.3.2"
  },
  "lazard_lo": {
   "value": 29,
@@ -1318,5 +1348,25 @@
   "value": 0.6,
   "fmt": ".1f",
   "src": "JORDAN16 abstract (10.1002/pip.2744)"
+ },
+ "dp_gap": {
+  "value": 1.64,
+  "fmt": ".2f",
+  "src": "ZHANG22 abstract (10.1038/s41467-022-31016-w): 'bandgap ... tunable from 2.18 eV to 1.64 eV'"
+ },
+ "sq_at_dp_gap": {
+  "value": 30.136743048330754,
+  "fmt": ".1f",
+  "src": "pipeline/sq.py#sq_limit(1.64 eV), gap of the ZHANG22 record cell"
+ },
+ "f_dp": {
+  "value": 0.21,
+  "fmt": ".2f",
+  "src": "pipeline/tea_params.py#f_sq.grid[0] = 6.37% / SQ(1.64 eV)"
+ },
+ "f_ceiling": {
+  "value": 0.82,
+  "fmt": ".2f",
+  "src": "pipeline/tea_params.py#f_sq.grid[-1] = 25.7% / SQ(1.55 eV)"
  }
 }

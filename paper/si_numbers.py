@@ -51,6 +51,9 @@ def build() -> dict:
     put("si_n_queries", len(ds["mp_queries"]), "d", "dataset_v2.json#mp_queries")
     fm = j("v2/metrics/final_models_v2.json")
     put("si_n_semi", fm["n_semi"], ",d", "v2/metrics/final_models_v2.json#n_semi")
+    put("si_n_rows", fm["n_rows"], ",d", "v2/metrics/final_models_v2.json#n_rows")
+    put("si_n_feat_fail", j("v2/metrics/robustness.json")["n_train_featurize_failed"], "d",
+        "robustness.json#n_train_featurize_failed")
     put("si_n_semi_all", int(pd.read_csv(R / "v2/data/train_v2.csv", usecols=["is_semi"]).is_semi.sum()), ",d",
         "v2/data/train_v2.csv#is_semi sum (before featurisation)")
     put("si_markup", j("v2/metrics/review_checks.json")["r6_module_floor"]["markup"], ".2f",
