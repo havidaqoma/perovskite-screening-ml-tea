@@ -74,6 +74,10 @@ def main() -> Path:
         val = v.get("value", {kk: v[kk] for kk in ("msp", "mmp", "low", "med", "high", "grid", "alt") if kk in v})
         rows.append({"parameter": k, "value": json.dumps(val, default=float), "unit": v.get("unit", ""),
                      "kind": v["kind"], "source": v.get("src", ""), "quote_or_formula": " | ".join(x for x in (v.get("quote"), v.get("formula")) if x) or v.get("note", "")})
+    f_csi = json.loads((R / "v2/metrics/tea_v2.json").read_text())["e5_candidates"]["f_sq_csi_module_parity"]
+    rows.append({"parameter": "f_sq_csi_module_parity", "value": f_csi, "unit": "-", "kind": "derived (stage s30)",
+                 "source": "runs/v2/metrics/tea_v2.json#e5_candidates.f_sq_csi_module_parity",
+                 "quote_or_formula": "eta_csi / SQ(1.12 eV): silicon module parity, added to the f_sq grid at run time"})
     for el, (pr, note) in ELEMENT_PRICE.items():
         rows.append({"parameter": f"price_{el}", "value": round(pr, 2), "unit": "$/kg", "kind": "direct/derived",
                      "source": "USGS24", "quote_or_formula": note})

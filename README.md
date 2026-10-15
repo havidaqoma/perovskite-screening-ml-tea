@@ -175,9 +175,18 @@ assumes.
 
 > The v2 audit revisits this insight and does not support it for a U.S. utility
 > plant: with real area-scaled balance-of-system costs, a module must reach about
-> 20% efficiency (20.2% for a $50/m2 module in the 35-year, 0.7%/yr scenario; exact
-> crossing 20.198%, `runs/v2/review/module_price_floor.csv`; the 0.25-point grid in
-> `runs/v2/metrics/tea_v2.json`, `e4_breakeven`, gives 20.25%) to match silicon.
+> 20% efficiency (20.2% for a $50/m2 module and 25.9% for an $85/m2 module in the
+> 35-year, 0.7%/yr scenario) to match silicon. These are exact crossings found by
+> bisection (`runs/v2/review/module_price_floor.csv`; the O&M sensitivity is in
+> `runs/v2/review/om_inverter_breakeven.csv`). The 0.25-point grid in
+> `runs/v2/metrics/tea_v2.json`, `e4_breakeven`, is used for the figures; each grid
+> value lies less than one step above the exact crossing.
+
+JSON outputs are written by Python's `json` module. Eight values in
+`runs/v2/metrics/tea_v2.json` and `runs/v2/stage_s30_tea_v2.json` are `NaN`: one break-even
+efficiency that is not reached (`med_10y_deg2`, in both files) and six compositions
+without a MACE result (`umlip_ehull_meV`). `NaN` is Python's extension of JSON, so read
+these files with Python or pandas, or replace `NaN` by `null` for a strict parser.
 
 ## Repository layout
 

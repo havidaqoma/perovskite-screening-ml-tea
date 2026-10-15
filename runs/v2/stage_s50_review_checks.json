@@ -1,6 +1,6 @@
 {
   "stage": "s50_review_checks",
-  "fingerprint": "69267317c189d2da2b2322dbb3817d5ee9d18338835d642c62a7d6dc71552f44",
+  "fingerprint": "f35e330825d630e30019acf1d45491a3756031287dfddada656421964d13b33a",
   "inputs": {
     "walterbos": {
       "path": "data\\external\\walterbos2026\\hdp_hse06_subset.csv",
@@ -74,18 +74,19 @@
       0.0,
       10.0,
       25.0,
-      50.0
+      50.0,
+      85.0
     ],
     "seed": 42,
     "n_mc": 4000
   },
   "outputs": {
     "review/walterbos_check.csv": "f087bee6d5dea654f27d2d110e61ad567bd6b32f9ed2c89e920da3e5f93ce5b1",
-    "review/om_inverter_breakeven.csv": "3b4c570fb549ef51fd6bf359d7be30550d81e12f73322d61004ab2c24808895d",
+    "review/om_inverter_breakeven.csv": "2fc9327282a37abb3c36abd0f57bf5e7a8885bc70e3a14a57caed336e2a9555a",
     "review/high_valent_b_site.csv": "6097b010cbd90de50031f0b4fa1bf35219807131c394487834e7bb0f21a3dc09",
     "review/energy_scheme.csv": "c57d9f824f41096e86594abaa1cc52751540757cf6ae3c82dddf6c8522eceeb3",
-    "review/module_price_floor.csv": "aa10e779bb571b3cfb6437805c79652c45f9779d961fae0386bcf4dcfd993d5c",
-    "metrics/review_checks.json": "3cb57efc2ffcc9a67c91051f95705295b69172bc779eb4a1a2aee38e8f46ae69"
+    "review/module_price_floor.csv": "7d82b11d352187610d873f209479b63e2acd5f74f48b54b6e706132f29a7eabb",
+    "metrics/review_checks.json": "cd34f8648577a96b8c9cf121c80fe043fb2ea0f451f277ba2ff0b18539ae7862"
   },
   "metrics": {
     "r1_walterbos": {
@@ -297,6 +298,24 @@
         "inv1_om1.5_med": 0.2975,
         "inv1_om2_low": 0.2725,
         "inv1_om2_med": 0.3475
+      },
+      "breakeven_exact": {
+        "inv0_om1_low": 0.2019822006472493,
+        "inv0_om1_med": 0.25861650485436904,
+        "inv0_om1.25_low": 0.2156409350504098,
+        "inv0_om1.25_med": 0.276105046620723,
+        "inv0_om1.5_low": 0.23128095228801293,
+        "inv0_om1.5_med": 0.296130408166887,
+        "inv0_om2_low": 0.27052178989759357,
+        "inv0_om2_med": 0.34637408428105654,
+        "inv1_om1_low": 0.2019822006472493,
+        "inv1_om1_med": 0.25861650485436904,
+        "inv1_om1.25_low": 0.21564093690949254,
+        "inv1_om1.25_med": 0.2761050490010788,
+        "inv1_om1.5_low": 0.23128095656507963,
+        "inv1_om1.5_med": 0.29613041364321124,
+        "inv1_om2_low": 0.2705218016006906,
+        "inv1_om2_med": 0.3463740992656148
       }
     },
     "r4_oxidation": {
@@ -414,6 +433,7 @@
         "10": 0.1375,
         "25": 0.1625,
         "50": 0.2025,
+        "85": 0.26,
         "51.865": 0.205
       },
       "breakeven_exact": {
@@ -421,6 +441,7 @@
         "10": 0.13725728155339803,
         "25": 0.16152912621359244,
         "50": 0.2019822006472493,
+        "85": 0.25861650485436904,
         "51.865": 0.2050000000000002
       },
       "csi_module_m2": 51.864999999999995,
@@ -523,7 +544,7 @@
     "joblib": "1.5.3",
     "optuna": "4.8.0"
   },
-  "git": "1482170-dirty",
-  "seconds": 64.76,
-  "finished_utc": "2026-10-09T15:40:06Z"
+  "git": "2811236-dirty",
+  "seconds": 140.16,
+  "finished_utc": "2026-10-15T03:17:18Z"
 }

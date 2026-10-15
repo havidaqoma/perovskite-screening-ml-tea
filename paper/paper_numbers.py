@@ -169,7 +169,6 @@ def build() -> dict:
             f"tea_v2.json#e3.{k}.area_share")
     e4 = t["e4_breakeven"]
     put("be_low", 100 * e4["base_low_35y_deg0.7"], ".1f", "tea_v2.json#e4.base_low")
-    put("be_med", 100 * e4["base_med_35y_deg0.7"], ".1f", "tea_v2.json#e4.base_med")
     put("be_unreach", e4["n_unreachable"], "d", "tea_v2.json#e4.n_unreachable")
     put("be_nscen", e4["n_scenarios"], "d", "tea_v2.json#e4.n_scenarios")
     c4 = t["e4_consistency"]
@@ -245,112 +244,143 @@ def build() -> dict:
     rc = j("v2/metrics/review_checks.json")
     src = "v2/metrics/review_checks.json#"
     wu, wa = rc["r1_walterbos"]["not_in_training"], rc["r1_walterbos"]["all"]
-    put("wb_n_unseen", wu["n_nonmetal"], ",d", src + "r1.not_in_training.n_nonmetal")
-    put("wb_rho_unseen", wu["spearman_gap_pred_vs_hse"], ".2f", src + "r1.not_in_training.spearman")
-    put("wb_off_unseen", wu["median_hse_minus_pred_eV"], ".2f", src + "r1.not_in_training.median_hse_minus_pred_eV")
-    put("wb_below_unseen_pct", 100 * wu["frac_hse_below_interval"], ".0f", src + "r1.not_in_training.frac_hse_below x100")
-    put("wb_above_unseen_pct", 100 * wu["frac_hse_above_interval"], ".0f", src + "r1.not_in_training.frac_hse_above x100")
+    put("wb_n_unseen", wu["n_nonmetal"], ",d", src + "r1_walterbos.not_in_training.n_nonmetal")
+    put("wb_rho_unseen", wu["spearman_gap_pred_vs_hse"], ".2f", src + "r1_walterbos.not_in_training.spearman")
+    put("wb_off_unseen", wu["median_hse_minus_pred_eV"], ".2f", src + "r1_walterbos.not_in_training.median_hse_minus_pred_eV")
+    put("wb_below_unseen_pct", 100 * wu["frac_hse_below_interval"], ".0f", src + "r1_walterbos.not_in_training.frac_hse_below x100")
+    put("wb_above_unseen_pct", 100 * wu["frac_hse_above_interval"], ".0f", src + "r1_walterbos.not_in_training.frac_hse_above x100")
     put("wb_cov_shift_unseen_pct", 100 * wu["coverage_after_median_shift"], ".0f",
-        src + "r1.not_in_training.coverage_after_median_shift x100")
-    put("wb_metal_semi_n", wu["n_metal_called_semi_p05"], "d", src + "r1.not_in_training.n_metal_called_semi_p05")
-    put("wb_metal_n", wu["n_metal_hse"], "d", src + "r1.not_in_training.n_metal_hse")
-    put("wb_nonmetal_rej", wu["n_nonmetal_rejected_p05"], "d", src + "r1.not_in_training.n_nonmetal_rejected_p05")
-    put("wb_window_n", wa["n_in_window_nonmetal"], "d", src + "r1.all.n_in_window_nonmetal")
-    put("wb_cov_unseen_pct", 100 * wu["coverage_hse_by_interval"], ".0f", src + "r1.not_in_training.coverage x100")
-    put("wb_auc_semi_unseen", wu["auc_semi_vs_hse_nonmetal"], ".2f", src + "r1.not_in_training.auc_semi")
-    put("wb_spinforb_pct", 100 * wa["frac_spin_forbidden_in_window"], ".0f", src + "r1.all.frac_spin_forbidden_in_window")
+        src + "r1_walterbos.not_in_training.coverage_after_median_shift x100")
+    put("wb_metal_semi_n", wu["n_metal_called_semi_p05"], "d", src + "r1_walterbos.not_in_training.n_metal_called_semi_p05")
+    put("wb_metal_n", wu["n_metal_hse"], "d", src + "r1_walterbos.not_in_training.n_metal_hse")
+    put("wb_nonmetal_rej", wu["n_nonmetal_rejected_p05"], "d", src + "r1_walterbos.not_in_training.n_nonmetal_rejected_p05")
+    put("wb_window_n", wa["n_in_window_nonmetal"], "d", src + "r1_walterbos.all.n_in_window_nonmetal")
+    put("wb_cov_unseen_pct", 100 * wu["coverage_hse_by_interval"], ".0f", src + "r1_walterbos.not_in_training.coverage x100")
+    put("wb_auc_semi_unseen", wu["auc_semi_vs_hse_nonmetal"], ".2f", src + "r1_walterbos.not_in_training.auc_semi")
+    put("wb_spinforb_pct", 100 * wa["frac_spin_forbidden_in_window"], ".0f", src + "r1_walterbos.all.frac_spin_forbidden_in_window")
     thr = rc["r2_thresholds"]
     opt = [thr[t]["expected_competitive_stable_umlip__optimistic"] for t in thr]
-    put("thr_opt_lo", min(opt), ".1f", src + "r2.*.optimistic min")
-    put("thr_opt_hi", max(opt), ".1f", src + "r2.*.optimistic max")
+    put("thr_opt_lo", min(opt), ".1f", src + "r2_thresholds.*.optimistic min")
+    put("thr_opt_hi", max(opt), ".1f", src + "r2_thresholds.*.optimistic max")
     va = [thr[t]["expected_viable_novel_plausible"] for t in thr]
-    put("thr_va_lo", min(va), ".1f", src + "r2.*.expected_viable_novel_plausible min")
-    put("thr_va_hi", max(va), ".1f", src + "r2.*.expected_viable_novel_plausible max")
+    put("thr_va_lo", min(va), ".1f", src + "r2_thresholds.*.expected_viable_novel_plausible min")
+    put("thr_va_hi", max(va), ".1f", src + "r2_thresholds.*.expected_viable_novel_plausible max")
     zero = max(thr[t][f"expected_competitive_stable_umlip__{k}"] for t in thr for k in ("realistic", "demonstrated"))
     if zero != 0.0:
         raise SystemExit(f"FAIL-CLOSED: prose says realistic/demonstrated stay at zero at every threshold; max = {zero}")
     om = rc["r3_om_inverter"]
-    b = om["breakeven"]
-    if any(b[f"inv1_om{k:g}_{c}"] != b[f"inv0_om{k:g}_{c}"] for k in om["om_scale"] for c in ("low", "med")):
+    b = om["breakeven_exact"]     # round 6: exact crossings (bisection), like every other printed break-even
+    if any(abs(b[f"inv1_om{k:g}_{c}"] - b[f"inv0_om{k:g}_{c}"]) > 1e-6 for k in om["om_scale"] for c in ("low", "med")):
         raise SystemExit("FAIL-CLOSED: prose says inverter replacement leaves every break-even unchanged")
-    put("om_be_low_125", 100 * b["inv0_om1.25_low"], ".1f", src + "r3.breakeven.inv0_om1.25_low x100")
-    put("om_be_low_200", 100 * b["inv0_om2_low"], ".1f", src + "r3.breakeven.inv0_om2_low x100")
-    put("om_be_med_200", 100 * b["inv0_om2_med"], ".1f", src + "r3.breakeven.inv0_om2_med x100")
-    put("inv_effect_pct", 100 * om["inverter_effect_on_csi_lcoe_rel"], ".1f", src + "r3.inverter_effect_on_csi_lcoe_rel x100")
-    put("eta_step_pp", 100 * om["eta_grid_step"], ".2f", src + "r3.eta_grid_step x100")
+    if abs(b["inv0_om1_low"] - rc["r6_module_floor"]["breakeven_exact"]["50"]) > 1e-6:
+        raise SystemExit("FAIL-CLOSED: R3 base case differs from the R6 exact $50 crossing")
+    put("om_be_low_125", 100 * b["inv0_om1.25_low"], ".1f", src + "r3_om_inverter.breakeven_exact.inv0_om1.25_low x100")
+    put("om_be_low_200", 100 * b["inv0_om2_low"], ".1f", src + "r3_om_inverter.breakeven_exact.inv0_om2_low x100")
+    put("om_be_med_200", 100 * b["inv0_om2_med"], ".1f", src + "r3_om_inverter.breakeven_exact.inv0_om2_med x100")
+    put("inv_effect_pct", 100 * om["inverter_effect_on_csi_lcoe_rel"], ".1f", src + "r3_om_inverter.inverter_effect_on_csi_lcoe_rel x100")
     ox = rc["r4_oxidation"]
     if ox["n_on_pareto_front"] != 0:
         raise SystemExit("FAIL-CLOSED: prose says no strict-rule composition is on the Pareto front")
     if ox["n_flagged"] != N["n_flag_ox"]["value"]:
         raise SystemExit("FAIL-CLOSED: s50 flagged count differs from s22")
-    put("n_flag_ox_red", ox["n_flagged_with_reducing_anion"], "d", src + "r4.n_flagged_with_reducing_anion")
-    put("ox_strict_n", ox["n_high_valent_reducing_unflagged"], "d", src + "r4.n_high_valent_reducing_unflagged")
-    put("ox_strict_umlip", ox["n_in_umlip_shortlist"], "d", src + "r4.n_in_umlip_shortlist")
-    put("ox_umlip_n", ox["n_umlip_shortlist"], "d", src + "r4.n_umlip_shortlist")
+    put("n_flag_ox_red", ox["n_flagged_with_reducing_anion"], "d", src + "r4_oxidation.n_flagged_with_reducing_anion")
+    put("ox_strict_n", ox["n_high_valent_reducing_unflagged"], "d", src + "r4_oxidation.n_high_valent_reducing_unflagged")
+    put("ox_strict_umlip", ox["n_in_umlip_shortlist"], "d", src + "r4_oxidation.n_in_umlip_shortlist")
+    put("ox_umlip_n", ox["n_umlip_shortlist"], "d", src + "r4_oxidation.n_umlip_shortlist")
     if ox["n_in_umlip_shortlist_with_mace"] != ox["n_in_umlip_shortlist"] or ox["n_in_umlip_shortlist_within_50meV"] != 0:
         raise SystemExit("FAIL-CLOSED: prose says MACE placed every strict-rule shortlist composition above 50 meV")
-    put("ox_strict_viable", ox["expected_viable_novel"]["strict_rule"], ".1f", src + "r4.expected_viable_novel.strict_rule")
+    put("ox_strict_viable", ox["expected_viable_novel"]["strict_rule"], ".1f", src + "r4_oxidation.expected_viable_novel.strict_rule")
     es = rc["r5_energy_scheme"]
     if es["controls"]["max_meV"] >= 50 or es["controls"]["n"] != c["n_ok"]:
         raise SystemExit("FAIL-CLOSED: prose says the training/hull energy-scheme offset of every control is far below "
                          "the 50 meV gate")
-    put("es_ctrl_max", es["controls"]["max_meV"], ".1f", src + "r5.controls.max_meV")
-    put("es_cand_n", es["candidate_element_halide"]["n"], ",d", src + "r5.candidate_element_halide.n")
+    put("es_ctrl_max", es["controls"]["max_meV"], ".1f", src + "r5_energy_scheme.controls.max_meV")
+    put("es_cand_n", es["candidate_element_halide"]["n"], ",d", src + "r5_energy_scheme.candidate_element_halide.n")
     put("es_cand_gt50_n", es["candidate_element_halide"]["n_gt_50meV"], ",d",
-        src + "r5.candidate_element_halide.n_gt_50meV")
+        src + "r5_energy_scheme.candidate_element_halide.n_gt_50meV")
 
     # ---------------- review 2026-10-09: s50 R6 (module-price floor), R7 (gap offset), R8 (gate recall) ----------
     r6, r7, r8 = rc["r6_module_floor"], rc["r7_gap_offset"], rc["r8_gate_recall"]
     be6 = r6["breakeven_exact"]     # exact crossing (bisection); the s30 grid value is one 0.25-point step above
-    put("be_free", 100 * be6["0"], ".1f", src + "r6.breakeven_exact.0")
-    put("be_m10", 100 * be6["10"], ".1f", src + "r6.breakeven_exact.10")
-    put("be_m25", 100 * be6["25"], ".1f", src + "r6.breakeven_exact.25")
-    put("be_csi_price", 100 * be6[f"{r6['csi_module_m2']:g}"], ".1f", src + "r6.breakeven_exact.<csi_module_m2>")
-    put("csi_module_m2", r6["csi_module_m2"], ".0f", src + "r6.csi_module_m2")
-    put("area_bos_m2", r6["area_bos_m2"], ".0f", src + "r6.area_bos_m2")
-    put("eta_cap_demo", 100 * r6["eta_cap_demonstrated"], ".1f", src + "r6.eta_cap_demonstrated")
+    put("be_free", 100 * be6["0"], ".1f", src + "r6_module_floor.breakeven_exact.0")
+    put("be_m10", 100 * be6["10"], ".1f", src + "r6_module_floor.breakeven_exact.10")
+    put("be_m25", 100 * be6["25"], ".1f", src + "r6_module_floor.breakeven_exact.25")
+    put("be_csi_price", 100 * be6[f"{r6['csi_module_m2']:g}"], ".1f", src + "r6_module_floor.breakeven_exact.<csi_module_m2>")
+    put("csi_module_m2", r6["csi_module_m2"], ".0f", src + "r6_module_floor.csi_module_m2")
+    put("area_bos_m2", r6["area_bos_m2"], ".0f", src + "r6_module_floor.area_bos_m2")
+    put("eta_cap_demo", 100 * r6["eta_cap_demonstrated"], ".1f", src + "r6_module_floor.eta_cap_demonstrated")
     if abs(100 * r6["breakeven"]["50"] - N["be_low"]["value"]) > 1e-9:
         raise SystemExit("FAIL-CLOSED: R6 $50 break-even differs from be_low")
     if f"{100 * be6['50']:.1f}" != f"{N['be_low']['value']:.1f}":
         raise SystemExit("FAIL-CLOSED: printed be_low differs from the exact $50 crossing")
     # print the exact crossing, like be_free; the s30 grid value checked above lies one 0.25-point step higher
     put("be_low", 100 * be6["50"], ".1f",
-        src + "r6.breakeven_exact.50 (s30 grid value tea_v2.json#e4.base_low_35y_deg0.7 is one 0.25-point step above)")
+        src + "r6_module_floor.breakeven_exact.50 (s30 grid value tea_v2.json#e4.base_low_35y_deg0.7 is one 0.25-point step above)")
+    g85 = j("v2/metrics/tea_v2.json")["e4_breakeven"]["base_med_35y_deg0.7"]
+    if not 0.0 <= g85 - be6["85"] <= 0.0025 + 1e-9:
+        raise SystemExit("FAIL-CLOSED: the s30 $85 grid value is not within one grid step above the exact crossing")
+    put("be_med", 100 * be6["85"], ".1f",
+        src + "r6_module_floor.breakeven_exact.85 (s30 grid value tea_v2.json#e4.base_med_35y_deg0.7 is one 0.25-point step above)")
     for tag, k in (("unseen", "unseen_median"), ("train", "in_training_median")):
         put(f"opt_shift_{tag}", r7[k]["expected_competitive_stable_umlip__optimistic"], ".1f",
-            src + f"r7.{k}.expected_competitive_stable_umlip__optimistic")
+            src + f"r7_gap_offset.{k}.expected_competitive_stable_umlip__optimistic")
         put(f"ceil_shift_{tag}", r7[k]["expected_competitive_stable_umlip__ceiling"], ".1f",
-            src + f"r7.{k}.expected_competitive_stable_umlip__ceiling")
+            src + f"r7_gap_offset.{k}.expected_competitive_stable_umlip__ceiling")
         put(f"va_shift_{tag}_veto", r7[k]["expected_viable_novel_plausible_after_veto"], ".1f",
-            src + f"r7.{k}.expected_viable_novel_plausible_after_veto")
+            src + f"r7_gap_offset.{k}.expected_viable_novel_plausible_after_veto")
         put(f"va_shift_{tag}", r7[k]["expected_viable_novel_plausible"], ".1f",
-            src + f"r7.{k}.expected_viable_novel_plausible")
-    put("wb_off_train_r7", r7["shifts_eV"]["in_training_median"], ".2f", src + "r7.shifts_eV.in_training_median")
-    put("known_mp_stable", r8["known_mp_stable"], "d", src + "r8.known_mp_stable")
-    put("known_ml_pass", r8["known_mp_stable_ml_pass"], "d", src + "r8.known_mp_stable_ml_pass")
-    put("cs2agbibr6_pml", r8["cs2agbibr6"]["p_ml"], ".2f", src + "r8.cs2agbibr6.p_ml")
-    put("cs2agbibr6_ehull_ml", r8["cs2agbibr6"]["ehull_ml_meV"], ".0f", src + "r8.cs2agbibr6.ehull_ml_meV")
-    put("ctrl_stable_n", r8["controls_stable_n"], "d", src + "r8.controls_stable_n")
+            src + f"r7_gap_offset.{k}.expected_viable_novel_plausible")
+    put("wb_off_train_r7", r7["shifts_eV"]["in_training_median"], ".2f", src + "r7_gap_offset.shifts_eV.in_training_median")
+    put("known_mp_stable", r8["known_mp_stable"], "d", src + "r8_gate_recall.known_mp_stable")
+    put("known_ml_pass", r8["known_mp_stable_ml_pass"], "d", src + "r8_gate_recall.known_mp_stable_ml_pass")
+    # round 6: the plausibility flags inside the 303 pool (cmdc M4): hull 63 + ox 27 - both 10 = 80 removed -> 223
+    sc = pd.read_csv(R / "v2/stability/v2_screen_scored.csv")
+    pool = sc[sc.p_stable50 >= 0.5]
+    fh, fo = pool.flag_hull_extrapolation.astype(bool), pool.flag_ox_implausible.astype(bool)
+    if len(pool) != r8["chain"]["known_by_mp"] or len(pool) - int((fh | fo).sum()) != r8["chain"]["plausible"]:
+        raise SystemExit("FAIL-CLOSED: flag counts inside the pool do not close the 303 -> 223 chain")
+    if int(fh.sum()) != N["n_flag_hull"]["value"]:
+        raise SystemExit("FAIL-CLOSED: prose says all below-hull predictions lie in the pool")
+    sp = "v2/stability/v2_screen_scored.csv#p_stable50 >= 0.5 & "
+    put("pool_flag_removed", int((fh | fo).sum()), "d", sp + "(flag_hull_extrapolation | flag_ox_implausible)")
+    put("pool_flag_hull", int(fh.sum()), "d", sp + "flag_hull_extrapolation")
+    put("pool_flag_ox", int(fo.sum()), "d", sp + "flag_ox_implausible")
+    put("pool_flag_both", int((fh & fo).sum()), "d", sp + "both flags")
+    # round 6: control-set size before dropping unevaluable hulls (glm m1) and the top reliability bin (cmdc m2)
+    ccall = pd.read_csv(R / "v2/stability/control_known_a2bbx6.csv")
+    if int(ccall.true_ehull_vs_rest_meV.notna().sum()) != N["ctrl_n"]["value"]:
+        raise SystemExit("FAIL-CLOSED: control rows with a hull distance differ from ctrl_n")
+    put("ctrl_n_all", len(ccall), "d", "v2/stability/control_known_a2bbx6.csv#rows")
+    rel = j("v2/metrics/stability_v2.json")["control"]["reliability"]
+    gaps = {k: abs(v["mean_p"] - v["obs_frac"]) for k, v in rel.items() if v["n"]}
+    top = list(rel)[-1]
+    if max(gaps, key=gaps.get) != top or rel[top]["mean_p"] <= rel[top]["obs_frac"]:
+        raise SystemExit("FAIL-CLOSED: prose says the largest reliability gap is an over-prediction in the top bin")
+    put("ctrl_top_meanp", rel[top]["mean_p"], ".2f", f"stability_v2.json#control.reliability[{top}].mean_p")
+    put("ctrl_top_obs", rel[top]["obs_frac"], ".2f", f"stability_v2.json#control.reliability[{top}].obs_frac")
+    put("cs2agbibr6_pml", r8["cs2agbibr6"]["p_ml"], ".2f", src + "r8_gate_recall.cs2agbibr6.p_ml")
+    put("cs2agbibr6_ehull_ml", r8["cs2agbibr6"]["ehull_ml_meV"], ".0f", src + "r8_gate_recall.cs2agbibr6.ehull_ml_meV")
+    put("ctrl_stable_n", r8["controls_stable_n"], "d", src + "r8_gate_recall.controls_stable_n")
     put("ctrl_stable_bias", r8["controls_stable_signed_err_median_meV"], ".0f",
-        src + "r8.controls_stable_signed_err_median_meV")
+        src + "r8_gate_recall.controls_stable_signed_err_median_meV")
     put("ctrl_unstable_bias_abs", -r8["controls_unstable_signed_err_median_meV"], ".0f",
-        src + "r8.controls_unstable_signed_err_median_meV (sign flipped; prose says 'underestimates')")
+        src + "r8_gate_recall.controls_unstable_signed_err_median_meV (sign flipped; prose says 'underestimates')")
     if r8["controls_unstable_signed_err_median_meV"] >= 0 or r8["controls_stable_signed_err_median_meV"] <= 0:
         raise SystemExit("FAIL-CLOSED: prose says stable controls are over- and unstable ones under-estimated")
-    put("pool_chain_known", r8["chain"]["known_by_mp"], "d", src + "r8.chain.known_by_mp")
-    put("pool_chain_plaus", r8["chain"]["plausible"], "d", src + "r8.chain.plausible")
-    put("pool_novel_n", r8["pool_n"] - r8["pool_known"], "d", src + "r8.pool_n - pool_known")
-    put("pool_novel_checked", r8["pool_novel_mace_checked"], "d", src + "r8.pool_novel_mace_checked")
+    put("pool_chain_known", r8["chain"]["known_by_mp"], "d", src + "r8_gate_recall.chain.known_by_mp")
+    put("pool_chain_plaus", r8["chain"]["plausible"], "d", src + "r8_gate_recall.chain.plausible")
+    put("pool_novel_n", r8["pool_n"] - r8["pool_known"], "d", src + "r8_gate_recall.pool_n - pool_known")
+    put("pool_novel_checked", r8["pool_novel_mace_checked"], "d", src + "r8_gate_recall.pool_novel_mace_checked")
     if r8["chain"]["ml_p_ge_0.5"] != N["n_stable_thr50"]["value"] or r8["pool_n"] != N["n_stable_pool"]["value"]:
         raise SystemExit("FAIL-CLOSED: R8 pool chain endpoints differ from n_stable_thr50 / n_stable_pool")
-    put("rank_rho_lcoe", r8["spearman_lcoe_opt_ceil"], ".4f", src + "r8.spearman_lcoe_opt_ceil")
-    put("n_p_gt0_opt", r8["n_p_gt_0_optimistic"], ",d", src + "r8.n_p_gt_0_optimistic")
+    put("rank_rho_lcoe", r8["spearman_lcoe_opt_ceil"], ".4f", src + "r8_gate_recall.spearman_lcoe_opt_ceil")
+    put("n_p_gt0_opt", r8["n_p_gt_0_optimistic"], ",d", src + "r8_gate_recall.n_p_gt_0_optimistic")
     if r8["n_p_gt_0_ceiling"] != r8["n_candidates"]:
         raise SystemExit("FAIL-CLOSED: prose says the probability is non-zero for all candidates at the ceiling")
-    put("n_p_gt0_ceil", r8["n_p_gt_0_ceiling"], ",d", src + "r8.n_p_gt_0_ceiling (= n_candidates)")
+    put("n_p_gt0_ceil", r8["n_p_gt_0_ceiling"], ",d", src + "r8_gate_recall.n_p_gt_0_ceiling (= n_candidates)")
     if abs(r8["spearman_p_opt_ceil"] - N["rank_rho_opt_ceil"]["value"]) > 1e-6:
         raise SystemExit("FAIL-CLOSED: R8 probability rank correlation differs from rank_rho_opt_ceil")
-    put("exp_viable_novel_veto", r8["viable_novel_plausible_after_veto"], ".1f", src + "r8.viable_novel_plausible_after_veto")
+    put("exp_viable_novel_veto", r8["viable_novel_plausible_after_veto"], ".1f", src + "r8_gate_recall.viable_novel_plausible_after_veto")
     if abs(r8["viable_novel_plausible_before_veto"] - N["exp_viable_novel"]["value"]) > 0.01:
         raise SystemExit("FAIL-CLOSED: exp_viable_novel is not the before-veto value")
     wbc = pd.read_csv(R / "v2/review/walterbos_check.csv").set_index("comp_name_full")

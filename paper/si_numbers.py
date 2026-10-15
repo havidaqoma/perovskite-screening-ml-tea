@@ -57,7 +57,7 @@ def build() -> dict:
     put("si_n_semi_all", int(pd.read_csv(R / "v2/data/train_v2.csv", usecols=["is_semi"]).is_semi.sum()), ",d",
         "v2/data/train_v2.csv#is_semi sum (before featurisation)")
     put("si_markup", j("v2/metrics/review_checks.json")["r6_module_floor"]["markup"], ".2f",
-        "review_checks.json#r6.markup")
+        "review_checks.json#r6_module_floor.markup")
 
     # ---------------- Note S2-S3: features, splits, models ----------------
     ev = j("v2/metrics/ml_eval_v2.json")
@@ -244,7 +244,7 @@ def build() -> dict:
     from pipeline import s50_review_checks
     rc = j("v2/metrics/review_checks.json")
     r1 = rc["r1_walterbos"]
-    S = "v2/metrics/review_checks.json#r1."
+    S = "v2/metrics/review_checks.json#r1_walterbos."
     put("si_wb_n_src", r1["n_rows_source"], ",d", S + "n_rows_source")
     put("si_wb_n_vac", r1["n_vacancy_dropped"], "d", S + "n_vacancy_dropped")
     put("si_wb_n", r1["all"]["n"], ",d", S + "all.n")
@@ -286,31 +286,31 @@ def build() -> dict:
     # ---------------- Note S13: sensitivity checks (stage s50, R2-R4) ----------------
     om = rc["r3_om_inverter"]
     put("si_inv_year", om["inverter_replace_year"], "d", "pipeline/s50_review_checks.py#INV_REPLACE_YEAR")
-    put("si_inv_usd", om["inverter_replace_usd_kwdc"], ".1f", "review_checks.json#r3.inverter_replace_usd_kwdc")
+    put("si_inv_usd", om["inverter_replace_usd_kwdc"], ".1f", "review_checks.json#r3_om_inverter.inverter_replace_usd_kwdc")
     put("si_om_max_pct", 100 * (max(s50_review_checks.OM_SCALE) - 1), ".0f", "pipeline/s50_review_checks.py#OM_SCALE")
     ox = rc["r4_oxidation"]
-    put("si_ox_viable_paper", ox["expected_viable_novel"]["paper_rule"], ".1f", "review_checks.json#r4.expected_viable_novel.paper_rule")
+    put("si_ox_viable_paper", ox["expected_viable_novel"]["paper_rule"], ".1f", "review_checks.json#r4_oxidation.expected_viable_novel.paper_rule")
     put("si_ox_opt_paper", ox["expected_competitive_stable_umlip__optimistic"]["paper_rule"], ".1f",
-        "review_checks.json#r4.optimistic.paper_rule")
+        "review_checks.json#r4_oxidation.optimistic.paper_rule")
     put("si_ox_opt_strict", ox["expected_competitive_stable_umlip__optimistic"]["strict_rule"], ".1f",
-        "review_checks.json#r4.optimistic.strict_rule")
+        "review_checks.json#r4_oxidation.optimistic.strict_rule")
     put("si_ox_ceil_paper", ox["expected_competitive_stable_umlip__ceiling"]["paper_rule"], ".1f",
-        "review_checks.json#r4.ceiling.paper_rule")
+        "review_checks.json#r4_oxidation.ceiling.paper_rule")
     put("si_ox_ceil_strict", ox["expected_competitive_stable_umlip__ceiling"]["strict_rule"], ".1f",
-        "review_checks.json#r4.ceiling.strict_rule")
+        "review_checks.json#r4_oxidation.ceiling.strict_rule")
     es = rc["r5_energy_scheme"]
-    put("si_es_n_chemsys", es["n_chemsys"], ",d", "review_checks.json#r5.n_chemsys")
+    put("si_es_n_chemsys", es["n_chemsys"], ",d", "review_checks.json#r5_energy_scheme.n_chemsys")
     for grp, tag in (("all", "all"), ("pure_halide", "hal"), ("candidate_element_halide", "cand")):
-        put(f"si_es_{tag}_n", es[grp]["n"], ",d", f"review_checks.json#r5.{grp}.n")
-        put(f"si_es_{tag}_gt10_pct", 100 * es[grp]["frac_gt_10meV"], ".1f", f"review_checks.json#r5.{grp}.frac_gt_10meV")
-        put(f"si_es_{tag}_gt50_pct", 100 * es[grp]["frac_gt_50meV"], ".1f", f"review_checks.json#r5.{grp}.frac_gt_50meV")
-        put(f"si_es_{tag}_gt50_n", es[grp]["n_gt_50meV"], ",d", f"review_checks.json#r5.{grp}.n_gt_50meV")
-    put("si_es_gt50_other_n", es["n_gt50_other"], ",d", "review_checks.json#r5.n_gt50_other")
+        put(f"si_es_{tag}_n", es[grp]["n"], ",d", f"review_checks.json#r5_energy_scheme.{grp}.n")
+        put(f"si_es_{tag}_gt10_pct", 100 * es[grp]["frac_gt_10meV"], ".1f", f"review_checks.json#r5_energy_scheme.{grp}.frac_gt_10meV")
+        put(f"si_es_{tag}_gt50_pct", 100 * es[grp]["frac_gt_50meV"], ".1f", f"review_checks.json#r5_energy_scheme.{grp}.frac_gt_50meV")
+        put(f"si_es_{tag}_gt50_n", es[grp]["n_gt_50meV"], ",d", f"review_checks.json#r5_energy_scheme.{grp}.n_gt_50meV")
+    put("si_es_gt50_other_n", es["n_gt50_other"], ",d", "review_checks.json#r5_energy_scheme.n_gt50_other")
     top = es["candidate_element_halide_top"][0]
     put("si_es_cand_top_formula", re.sub(r"(\d+)", r"~\1~", top["formula"]), "s",
-        "review_checks.json#r5.candidate_element_halide_top[0].formula")
-    put("si_es_cand_top_mev", top["abs_diff_meV"], ".0f", "review_checks.json#r5.candidate_element_halide_top[0].abs_diff_meV")
-    put("si_es_ctrl_med", es["controls"]["median_meV"], ".1f", "review_checks.json#r5.controls.median_meV")
+        "review_checks.json#r5_energy_scheme.candidate_element_halide_top[0].formula")
+    put("si_es_cand_top_mev", top["abs_diff_meV"], ".0f", "review_checks.json#r5_energy_scheme.candidate_element_halide_top[0].abs_diff_meV")
+    put("si_es_ctrl_med", es["controls"]["median_meV"], ".1f", "review_checks.json#r5_energy_scheme.controls.median_meV")
     return N
 
 

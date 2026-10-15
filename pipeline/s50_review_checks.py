@@ -55,7 +55,7 @@ WALTERBOS = config.DATA_DIR / "external/walterbos2026/hdp_hse06_subset.csv"
 THRESHOLDS = (0, 20, 35, 50, 100)
 OM_SCALE = (1.0, 1.25, 1.5, 2.0)
 INV_REPLACE_YEAR = 15
-MODULE_PRICES = (0.0, 10.0, 25.0, 50.0)             # $/m2; the silicon areal price is added at run time
+MODULE_PRICES = (0.0, 10.0, 25.0, 50.0, 85.0)       # $/m2 (50, 85 = EPFL25 low, med); silicon areal price added at run time
 REDUCING = ("S", "Se", "Te", "I")
 ENTRY_DIR = config.DATA_DIR / "mp_cache" / "entries"     # written by s20 (GGA/GGA+U entries per chemical system)
 HALOGENS = {"F", "Cl", "Br", "I"}
@@ -185,8 +185,8 @@ def r3_om(st) -> dict:
                 ref = (rp["capex"] + rp["pv_om"] + rp["pv_repl"] + add) / rp["pv_energy"]
             for mod_name in ("low", "med"):
                 mod = P["module_pvk_m2"][mod_name]
-                hit = np.nan
-                for e in fine:
+
+                def ratio(e, mod=mod, ref=ref, dp=dp, inv_on=inv_on):
                     if inv_on:
                         _, pp = lcoe(e, mod, **plant_costs(), cf_ac=dp["cf_ac"], ilr=P["ilr"]["value"],
                                      fom_kwac=dp["fom_kwac"], r=dp["r"], deg=0.007,
@@ -195,13 +195,15 @@ def r3_om(st) -> dict:
                         lp = (pp["capex"] + pp["pv_om"] + pp["pv_repl"] + add) / pp["pv_energy"]
                     else:
                         lp = lcoe_pvk(e, dp, mod, 35, 0.007)
-                    if np.median(lp / ref) <= 1.0:
-                        hit = float(e)
-                        break
+                    return float(np.median(lp / ref))
+                hit = next((float(e) for e in fine if ratio(e) <= 1.0), np.nan)
                 rows.append({"inverter_replacement": inv_on, "om_scale_pvk": k, "module_cost": mod_name,
-                             "module_m2": mod, "breakeven_eta": hit})
+                             "module_m2": mod, "breakeven_eta": hit, "breakeven_eta_exact": _bisect_one(ratio)})
     be = pd.DataFrame(rows)
-    be.to_csv(st.path("review/om_inverter_breakeven.csv"), index=False, float_format="%.4f")
+    be.to_csv(st.path("review/om_inverter_breakeven.csv"), index=False, float_format="%.5f")
+    if not ((be.breakeven_eta - be.breakeven_eta_exact).between(-1e-6, 0.0025 + 1e-9)).all():
+        raise SystemExit("FAIL-CLOSED: R3 exact break-even is not within one grid step below the grid value")
+    gx = be.set_index(["inverter_replacement", "om_scale_pvk", "module_cost"]).breakeven_eta_exact
     g = be.set_index(["inverter_replacement", "om_scale_pvk", "module_cost"]).breakeven_eta
     e4 = json.loads((st.run_dir / "metrics/tea_v2.json").read_text())["e4_breakeven"]
     if (g[(False, 1.0, "low")], g[(False, 1.0, "med")]) != (e4["base_low_35y_deg0.7"], e4["base_med_35y_deg0.7"]):
@@ -217,7 +219,8 @@ def r3_om(st) -> dict:
     csi_effect = float(np.median((base + add / rp["pv_energy"]) / base) - 1)
     return {"inverter_replace_year": INV_REPLACE_YEAR, "inverter_replace_usd_kwdc": inv,
             "inverter_effect_on_csi_lcoe_rel": csi_effect, "eta_grid_step": 0.0025,
-            "om_scale": list(OM_SCALE), "breakeven": {f"inv{int(i)}_om{k:g}_{mc}": v for (i, k, mc), v in g.items()}}
+            "om_scale": list(OM_SCALE), "breakeven": {f"inv{int(i)}_om{k:g}_{mc}": v for (i, k, mc), v in g.items()},
+            "breakeven_exact": {f"inv{int(i)}_om{k:g}_{mc}": v for (i, k, mc), v in gx.items()}}
 
 
 def r4_oxidation(run_dir, st) -> dict:
@@ -344,6 +347,16 @@ def _breakeven(d, ref, module_m2, fine):
     return float("nan")
 
 
+def _bisect_one(ratio, lo=0.04, hi=0.40, n_iter=50):
+    """Exact efficiency at which a median LCOE ratio crosses 1 (bisection; the ratio falls with efficiency)."""
+    if ratio(hi) > 1.0 or ratio(lo) <= 1.0:
+        raise SystemExit("FAIL-CLOSED: break-even not bracketed in [4%, 40%]")
+    for _ in range(n_iter):
+        mid = 0.5 * (lo + hi)
+        lo, hi = (lo, mid) if ratio(mid) <= 1.0 else (mid, hi)
+    return float(hi)
+
+
 def _breakeven_exact(d, ref, module_m2, lo=0.04, hi=0.40, n_iter=50):
     """Exact efficiency at which the median LCOE ratio crosses 1 (bisection; the ratio falls with efficiency)."""
     f = lambda e: np.median(lcoe_pvk(e, d, module_m2, 35, 0.007) / ref) - 1.0
@@ -370,9 +383,12 @@ def r6_module_floor(st) -> dict:
         raise SystemExit("FAIL-CLOSED: R6 exact break-even is not within one grid step below the grid value")
     tea = json.loads((st.run_dir / "metrics/tea_v2.json").read_text())
     be = dict(zip(t.module_m2, t.breakeven_eta))
-    if (be[50.0], be[csi_m2]) != (tea["e4_breakeven"]["base_low_35y_deg0.7"],
-                                  tea["e4_consistency"]["breakeven_eta_csi_equivalent"]):
-        raise SystemExit("FAIL-CLOSED: R6 does not reproduce the s30 break-even at $50 m-2 or at the silicon price")
+    if (be[50.0], be[85.0], be[csi_m2]) != (tea["e4_breakeven"]["base_low_35y_deg0.7"],
+                                            tea["e4_breakeven"]["base_med_35y_deg0.7"],
+                                            tea["e4_consistency"]["breakeven_eta_csi_equivalent"]):
+        raise SystemExit("FAIL-CLOSED: R6 does not reproduce the s30 break-even at $50 or $85 m-2 or at the silicon price")
+    if (P["module_pvk_m2"]["low"], P["module_pvk_m2"]["med"]) != (50.0, 85.0):
+        raise SystemExit("FAIL-CLOSED: R6 module prices no longer match the EPFL25 low/med cases")
     pc = plant_costs()
     f_demo = min(P["f_sq"]["grid"])
     sq_peak = float(sq_limit(np.linspace(0.3, 4.0, 3701)).max())

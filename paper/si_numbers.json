@@ -42,7 +42,7 @@
  "si_markup": {
   "value": 1.12877030162413,
   "fmt": ".2f",
-  "src": "review_checks.json#r6.markup"
+  "src": "review_checks.json#r6_module_floor.markup"
  },
  "si_n_features": {
   "value": 139,
@@ -692,212 +692,212 @@
  "si_wb_n_src": {
   "value": 2542,
   "fmt": ",d",
-  "src": "v2/metrics/review_checks.json#r1.n_rows_source"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.n_rows_source"
  },
  "si_wb_n_vac": {
   "value": 132,
   "fmt": "d",
-  "src": "v2/metrics/review_checks.json#r1.n_vacancy_dropped"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.n_vacancy_dropped"
  },
  "si_wb_n": {
   "value": 2410,
   "fmt": ",d",
-  "src": "v2/metrics/review_checks.json#r1.all.n"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.all.n"
  },
  "si_wb_n_metal": {
   "value": 253,
   "fmt": "d",
-  "src": "v2/metrics/review_checks.json#r1.all.n_metal_hse"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.all.n_metal_hse"
  },
  "si_wb_n_train": {
   "value": 501,
   "fmt": "d",
-  "src": "v2/metrics/review_checks.json#r1.n_in_training"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.n_in_training"
  },
  "si_wb_n_cands": {
   "value": 27,
   "fmt": "d",
-  "src": "v2/metrics/review_checks.json#r1.n_in_v2_candidates"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.n_in_v2_candidates"
  },
  "si_wb_rho_all": {
   "value": 0.529895798271346,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.all.spearman_gap_pred_vs_hse"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.all.spearman_gap_pred_vs_hse"
  },
  "si_wb_off_all": {
   "value": 0.5144470442199707,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.all.median_hse_minus_pred_eV"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.all.median_hse_minus_pred_eV"
  },
  "si_wb_cov_all_pct": {
   "value": 44.22809457579972,
   "fmt": ".0f",
-  "src": "v2/metrics/review_checks.json#r1.all.coverage x100"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.all.coverage x100"
  },
  "si_wb_above_all_pct": {
   "value": 37.644877144181734,
   "fmt": ".0f",
-  "src": "v2/metrics/review_checks.json#r1.all.frac_hse_above x100"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.all.frac_hse_above x100"
  },
  "si_wb_auc_semi_all": {
   "value": 0.7565257704944468,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.all.auc_semi_vs_hse_nonmetal"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.all.auc_semi_vs_hse_nonmetal"
  },
  "si_wb_auc_pv_all": {
   "value": 0.6871751394006587,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.all.auc_p_gap_pv_vs_hse_window"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.all.auc_p_gap_pv_vs_hse_window"
  },
  "si_wb_rho_unseen": {
   "value": 0.4258561630502241,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.spearman_gap_pred_vs_hse"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.spearman_gap_pred_vs_hse"
  },
  "si_wb_off_unseen": {
   "value": 0.31439758092880254,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.median_hse_minus_pred_eV"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.median_hse_minus_pred_eV"
  },
  "si_wb_cov_unseen_pct": {
   "value": 46.23529411764706,
   "fmt": ".0f",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.coverage x100"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.coverage x100"
  },
  "si_wb_above_unseen_pct": {
   "value": 32.470588235294116,
   "fmt": ".0f",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.frac_hse_above x100"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.frac_hse_above x100"
  },
  "si_wb_auc_semi_unseen": {
   "value": 0.6941148325358852,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.auc_semi_vs_hse_nonmetal"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.auc_semi_vs_hse_nonmetal"
  },
  "si_wb_auc_pv_unseen": {
   "value": 0.6551427012226062,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.auc_p_gap_pv_vs_hse_window"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.auc_p_gap_pv_vs_hse_window"
  },
  "si_wb_rho_train": {
   "value": 0.8002778103275638,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.in_training.spearman_gap_pred_vs_hse"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.in_training.spearman_gap_pred_vs_hse"
  },
  "si_wb_off_train": {
   "value": 1.0672831775283815,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.in_training.median_hse_minus_pred_eV"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.in_training.median_hse_minus_pred_eV"
  },
  "si_wb_cov_train_pct": {
   "value": 36.76148796498906,
   "fmt": ".0f",
-  "src": "v2/metrics/review_checks.json#r1.in_training.coverage x100"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.in_training.coverage x100"
  },
  "si_wb_above_train_pct": {
   "value": 56.89277899343544,
   "fmt": ".0f",
-  "src": "v2/metrics/review_checks.json#r1.in_training.frac_hse_above x100"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.in_training.frac_hse_above x100"
  },
  "si_wb_auc_semi_train": {
   "value": 0.9350507260791725,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.in_training.auc_semi_vs_hse_nonmetal"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.in_training.auc_semi_vs_hse_nonmetal"
  },
  "si_wb_auc_pv_train": {
   "value": 0.805668016194332,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.in_training.auc_p_gap_pv_vs_hse_window"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.in_training.auc_p_gap_pv_vs_hse_window"
  },
  "si_wb_mae_unseen": {
   "value": 1.2678717378893913,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.mae_vs_hse_eV"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.mae_vs_hse_eV"
  },
  "si_wb_below_unseen_pct": {
   "value": 21.294117647058826,
   "fmt": ".0f",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.frac_hse_below x100"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.frac_hse_below x100"
  },
  "si_wb_shift_cov_unseen_pct": {
   "value": 47.647058823529406,
   "fmt": ".0f",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.coverage_after_median_shift x100"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.coverage_after_median_shift x100"
  },
  "si_wb_res_mean": {
   "value": 0.12085874217358807,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.residual_mean_eV"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.residual_mean_eV"
  },
  "si_wb_res_sd": {
   "value": 1.6149298619834263,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.residual_sd_eV"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.residual_sd_eV"
  },
  "si_wb_res_mean_train": {
   "value": 0.9598230934982801,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.in_training.residual_mean_eV"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.in_training.residual_mean_eV"
  },
  "si_wb_below_train_pct": {
   "value": 6.3457330415754925,
   "fmt": ".0f",
-  "src": "v2/metrics/review_checks.json#r1.in_training.frac_hse_below x100"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.in_training.frac_hse_below x100"
  },
  "si_wb_metal_semi": {
   "value": 124,
   "fmt": "d",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.n_metal_called_semi_p05"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.n_metal_called_semi_p05"
  },
  "si_wb_n_metal_unseen": {
   "value": 209,
   "fmt": "d",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.n_metal_hse"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.n_metal_hse"
  },
  "si_wb_nonmetal_rej": {
   "value": 323,
   "fmt": ",d",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.n_nonmetal_rejected_p05"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.n_nonmetal_rejected_p05"
  },
  "si_wb_cov_I_pct": {
   "value": 37.07865168539326,
   "fmt": ".0f",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.by_anion.I.coverage x100"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.by_anion.I.coverage x100"
  },
  "si_wb_n_I": {
   "value": 89,
   "fmt": "d",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.by_anion.I.n"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.by_anion.I.n"
  },
  "si_wb_cov_F_pct": {
   "value": 49.9194847020934,
   "fmt": ".0f",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.by_anion.F.coverage x100"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.by_anion.F.coverage x100"
  },
  "si_wb_n_F": {
   "value": 621,
   "fmt": "d",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.by_anion.F.n"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.by_anion.F.n"
  },
  "si_wb_npv_unseen": {
   "value": 298,
   "fmt": "d",
-  "src": "v2/metrics/review_checks.json#r1.not_in_training.n_hse_in_pv_window"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.not_in_training.n_hse_in_pv_window"
  },
  "si_wb_n_train_nonmetal": {
   "value": 457,
   "fmt": "d",
-  "src": "v2/metrics/review_checks.json#r1.in_training.n_nonmetal"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.in_training.n_nonmetal"
  },
  "si_wb_ov_cov_pct": {
   "value": 44.44444444444444,
   "fmt": ".0f",
-  "src": "v2/metrics/review_checks.json#r1.v2_overlap.coverage x100"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.v2_overlap.coverage x100"
  },
  "si_wb_ov_off": {
   "value": 0.9358152888298035,
   "fmt": ".2f",
-  "src": "v2/metrics/review_checks.json#r1.v2_overlap.median_hse_minus_pred_eV"
+  "src": "v2/metrics/review_checks.json#r1_walterbos.v2_overlap.median_hse_minus_pred_eV"
  },
  "si_inv_year": {
   "value": 15,
@@ -907,7 +907,7 @@
  "si_inv_usd": {
   "value": 39.50696055684455,
   "fmt": ".1f",
-  "src": "review_checks.json#r3.inverter_replace_usd_kwdc"
+  "src": "review_checks.json#r3_om_inverter.inverter_replace_usd_kwdc"
  },
  "si_om_max_pct": {
   "value": 100.0,
@@ -917,111 +917,111 @@
  "si_ox_viable_paper": {
   "value": 42.004780000000004,
   "fmt": ".1f",
-  "src": "review_checks.json#r4.expected_viable_novel.paper_rule"
+  "src": "review_checks.json#r4_oxidation.expected_viable_novel.paper_rule"
  },
  "si_ox_opt_paper": {
   "value": 3.8040299999999996,
   "fmt": ".1f",
-  "src": "review_checks.json#r4.optimistic.paper_rule"
+  "src": "review_checks.json#r4_oxidation.optimistic.paper_rule"
  },
  "si_ox_opt_strict": {
   "value": 3.2332399999999994,
   "fmt": ".1f",
-  "src": "review_checks.json#r4.optimistic.strict_rule"
+  "src": "review_checks.json#r4_oxidation.optimistic.strict_rule"
  },
  "si_ox_ceil_paper": {
   "value": 55.94424000000001,
   "fmt": ".1f",
-  "src": "review_checks.json#r4.ceiling.paper_rule"
+  "src": "review_checks.json#r4_oxidation.ceiling.paper_rule"
  },
  "si_ox_ceil_strict": {
   "value": 46.76077,
   "fmt": ".1f",
-  "src": "review_checks.json#r4.ceiling.strict_rule"
+  "src": "review_checks.json#r4_oxidation.ceiling.strict_rule"
  },
  "si_es_n_chemsys": {
   "value": 1637,
   "fmt": ",d",
-  "src": "review_checks.json#r5.n_chemsys"
+  "src": "review_checks.json#r5_energy_scheme.n_chemsys"
  },
  "si_es_all_n": {
   "value": 7749,
   "fmt": ",d",
-  "src": "review_checks.json#r5.all.n"
+  "src": "review_checks.json#r5_energy_scheme.all.n"
  },
  "si_es_all_gt10_pct": {
   "value": 13.988901793779842,
   "fmt": ".1f",
-  "src": "review_checks.json#r5.all.frac_gt_10meV"
+  "src": "review_checks.json#r5_energy_scheme.all.frac_gt_10meV"
  },
  "si_es_all_gt50_pct": {
   "value": 6.917021551167893,
   "fmt": ".1f",
-  "src": "review_checks.json#r5.all.frac_gt_50meV"
+  "src": "review_checks.json#r5_energy_scheme.all.frac_gt_50meV"
  },
  "si_es_all_gt50_n": {
   "value": 536,
   "fmt": ",d",
-  "src": "review_checks.json#r5.all.n_gt_50meV"
+  "src": "review_checks.json#r5_energy_scheme.all.n_gt_50meV"
  },
  "si_es_hal_n": {
   "value": 2279,
   "fmt": ",d",
-  "src": "review_checks.json#r5.pure_halide.n"
+  "src": "review_checks.json#r5_energy_scheme.pure_halide.n"
  },
  "si_es_hal_gt10_pct": {
   "value": 2.7204914436156207,
   "fmt": ".1f",
-  "src": "review_checks.json#r5.pure_halide.frac_gt_10meV"
+  "src": "review_checks.json#r5_energy_scheme.pure_halide.frac_gt_10meV"
  },
  "si_es_hal_gt50_pct": {
   "value": 0.4826678367705134,
   "fmt": ".1f",
-  "src": "review_checks.json#r5.pure_halide.frac_gt_50meV"
+  "src": "review_checks.json#r5_energy_scheme.pure_halide.frac_gt_50meV"
  },
  "si_es_hal_gt50_n": {
   "value": 11,
   "fmt": ",d",
-  "src": "review_checks.json#r5.pure_halide.n_gt_50meV"
+  "src": "review_checks.json#r5_energy_scheme.pure_halide.n_gt_50meV"
  },
  "si_es_cand_n": {
   "value": 1338,
   "fmt": ",d",
-  "src": "review_checks.json#r5.candidate_element_halide.n"
+  "src": "review_checks.json#r5_energy_scheme.candidate_element_halide.n"
  },
  "si_es_cand_gt10_pct": {
   "value": 2.167414050822123,
   "fmt": ".1f",
-  "src": "review_checks.json#r5.candidate_element_halide.frac_gt_10meV"
+  "src": "review_checks.json#r5_energy_scheme.candidate_element_halide.frac_gt_10meV"
  },
  "si_es_cand_gt50_pct": {
   "value": 0.523168908819133,
   "fmt": ".1f",
-  "src": "review_checks.json#r5.candidate_element_halide.frac_gt_50meV"
+  "src": "review_checks.json#r5_energy_scheme.candidate_element_halide.frac_gt_50meV"
  },
  "si_es_cand_gt50_n": {
   "value": 7,
   "fmt": ",d",
-  "src": "review_checks.json#r5.candidate_element_halide.n_gt_50meV"
+  "src": "review_checks.json#r5_energy_scheme.candidate_element_halide.n_gt_50meV"
  },
  "si_es_gt50_other_n": {
   "value": 525,
   "fmt": ",d",
-  "src": "review_checks.json#r5.n_gt50_other"
+  "src": "review_checks.json#r5_energy_scheme.n_gt50_other"
  },
  "si_es_cand_top_formula": {
   "value": "CuGeI~3~",
   "fmt": "s",
-  "src": "review_checks.json#r5.candidate_element_halide_top[0].formula"
+  "src": "review_checks.json#r5_energy_scheme.candidate_element_halide_top[0].formula"
  },
  "si_es_cand_top_mev": {
   "value": 196.297778,
   "fmt": ".0f",
-  "src": "review_checks.json#r5.candidate_element_halide_top[0].abs_diff_meV"
+  "src": "review_checks.json#r5_energy_scheme.candidate_element_halide_top[0].abs_diff_meV"
  },
  "si_es_ctrl_med": {
   "value": 3.994999999999971,
   "fmt": ".1f",
-  "src": "review_checks.json#r5.controls.median_meV"
+  "src": "review_checks.json#r5_energy_scheme.controls.median_meV"
  }
 }
