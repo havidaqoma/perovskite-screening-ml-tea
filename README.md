@@ -24,8 +24,8 @@ This repository holds two things:
 
 ## v2 audit pipeline (manuscript)
 
-The manuscript "An end-to-end audit of machine-learning techno-economic screening
-for lead-free double perovskite photovoltaics" is under submission. arXiv: to be added.
+The manuscript "Revisiting a machine-learning techno-economic screen of lead-free
+double perovskite photovoltaics" is under submission. arXiv: to be added.
 
 The v2 pipeline re-runs the screen with evaluation and cost models that a reviewer
 can check stage by stage:

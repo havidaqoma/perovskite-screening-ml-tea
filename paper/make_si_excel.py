@@ -39,7 +39,7 @@ def j(rel):
 # Used only where the manuscript sources are absent (the public repository ships code and data, not the
 # manuscript text). In the authoring repo the title and author block are read from the manuscript front matter,
 # and the build refuses to run if this copy of the title has drifted from it.
-PUBLIC_TITLE = ("An end-to-end audit of machine-learning techno-economic screening for lead-free double "
+PUBLIC_TITLE = ("Revisiting a machine-learning techno-economic screen of lead-free double "
                 "perovskite photovoltaics")
 PUBLIC_AUTHOR = {"author": "Havid Aqoma", "orcid": "0000-0003-1264-1916", "email": "",
                  "affiliations": ["Xiamen University Malaysia"]}
