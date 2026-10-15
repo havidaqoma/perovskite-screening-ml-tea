@@ -111,7 +111,11 @@ ionic radii used by the steric filter. The quick start above runs with `requirem
   out-of-fold predictions, `*.joblib` models, feature matrices). Re-run the stages
   above to rebuild them. Each committed `runs/*/stage_*.json` manifest records the
   sha256 of every input and output, so a rebuilt file can be checked against the
-  one we used.
+  one we used. The `git` field of a manifest names a commit of the private development
+  repository, which also holds the manuscript; it is marked `dirty` because manuscript
+  files changed while the stages ran. The stage itself is identified by the
+  `fingerprint` field, a hash of its inputs, parameters and source modules (class
+  `Stage` in `pipeline/common.py`).
 - `xgboost_cascade_pipeline_2.joblib` (30.5 MB, not redistributed): the original April 2026 model file.
   Retraining does not reproduce it exactly (the paper reports the shift). The stage
   manifests in `runs/legacy_april/` record its sha256, and its outputs are shipped.
@@ -129,8 +133,8 @@ file, so a full rebuild needs the s10 stage first.
 
 ### Electronic Supplementary Information (ESI)
 
-The ESI of the manuscript (Supplementary Notes S1 to S14, Figures S1 to S8,
-Tables S1 to S12) is built from the same artifacts. The code and data behind it
+The ESI of the manuscript (Supplementary Notes S1 to S13, Figures S1 to S8,
+Tables S1 to S11) is built from the same artifacts. The code and data behind it
 ship here; the ESI text itself is part of the manuscript and is not.
 
 | File | What it holds |

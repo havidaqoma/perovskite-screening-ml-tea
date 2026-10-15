@@ -397,7 +397,7 @@ def build() -> dict:
     put("n_price_legacy", len(LEGACY_UNSOURCED), "d", "pipeline/tea_params.py#LEGACY_UNSOURCED")
 
     # public code release cited in Data availability and the cover letter; build_jmca.py checks the tag exists
-    put("repo_version", "2.3.4", "s", "public repo CITATION.cff#version, git tag v2.3.4")
+    put("repo_version", "2.3.5", "s", "public repo CITATION.cff#version, git tag v2.3.5")
 
     # ---------------- sourced literature constants used in prose ----------------
     put("lazard_lo", 29, "d", "LAZ24 p9/p35 (data/sources/SOURCES.md)")

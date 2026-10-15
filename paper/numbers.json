@@ -1335,9 +1335,9 @@
   "src": "pipeline/tea_params.py#LEGACY_UNSOURCED"
  },
  "repo_version": {
-  "value": "2.3.4",
+  "value": "2.3.5",
   "fmt": "s",
-  "src": "public repo CITATION.cff#version, git tag v2.3.4"
+  "src": "public repo CITATION.cff#version, git tag v2.3.5"
  },
  "lazard_lo": {
   "value": 29,
